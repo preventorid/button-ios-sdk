@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="246px" height="246px" viewBox="0 0 246 246" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>capture/circle green one two@2x</title>
+    <defs>
+        <circle id="path-1" cx="122" cy="122" r="122"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="244" height="244" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Flow-APK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(1.000000, 1.000000)">
+            <use id="line-circle-copy" stroke="#ADB5C5" mask="url(#mask-2)" stroke-width="12" stroke-dasharray="3,6" xlink:href="#path-1"></use>
+            <path d="M11.493396,70.5491595 L17.7661738,70.5499158 C10.0100336,86.1716208 5.64928848,103.777182 5.64928848,122.40125 C5.64928848,126.128308 5.82392855,129.814577 6.16547192,133.452319 L0.492198573,133.453061 C0.166408944,129.812677 0,126.126397 0,122.40125 C0,104.151585 3.9939236,86.83475 11.1553857,71.2771312 L11.493396,70.5491595 Z M122.40125,0 C126.126397,0 129.812677,0.166408944 133.453061,0.492198573 L133.452319,6.16547192 C130.218771,5.86187781 126.94688,5.69015792 123.642082,5.65574602 L122.40125,5.64928848 C104.051066,5.64928848 86.6896517,9.88271942 71.2403927,17.4261971 L70.5499158,17.7661738 L70.5491595,11.493396 C86.051601,4.23315013 103.326171,0.127530443 121.546484,0.0029220846 L122.40125,0 Z" id="Combined-Shape" stroke="#FFD417" stroke-width="2" fill="#FFD417" fill-rule="nonzero"></path>
+            <path d="M219.034577,188.228571 L223.085714,192.243432 C214.972696,203.826357 204.870014,213.937104 193.267918,222.089796 L189.22449,218.082099 C200.902059,210.019227 211.018586,199.889825 219.034577,188.228571 Z" id="Combined-Shape" stroke="#FFD417" stroke-width="2" fill="#FFD417" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

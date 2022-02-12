@@ -1,0 +1,302 @@
+{
+  "Button": {
+    "VerifyMe": "VERIFICARME",
+    "Loading": "CARGANDO",
+    "Next": "SIGUIENTE",
+    "Start": "EMPEZAR",
+    "IamReady": "ESTOY LISTO",
+    "TryAgain": "REINTENTAR",
+    "Edit": "EDITAR",
+    "Confirm": "CONFIRMAR",
+    "Save": "GUARDAR",
+    "Finish": "FINALIZAR",
+    "Front": "Delantera",
+    "Back": "Trasera",
+    "Retake": "RETOMAR",
+    "Retry": "VOLVER A PROCESAR",
+    "GoSettings": "IR A CONFIGURACIÓN",
+    "No": "NO",
+    "YesConfirm": "SI, CONFIRMAR",
+    "OpenCamera": "ABRIR CÁMARA",
+    "Send": "ENVIAR",
+    "NoReturn": "NO, RETORNAR"
+  },
+  "Validation": {
+    "FieldRequired": "Este campo es requerido.",
+    "EnterVerificationCode": "Por favor ingrese el código de verificación.",
+    "Email": {
+      "Invalid": "Correo inválido.",
+      "PleaseEnter": "Por favor ingrese su correo.",
+      "NoInvited": "El correo electrónico no está invitado."
+    },
+    "PhoneNumber": {
+      "Invalid": "Número inválido",
+      "InvalidCountryCode": "Código de país inválido",
+      "TooShort": "Número muy corto",
+      "TooLong": "Número muy largo",
+      "PleaseEnter": "Por favor ingrese su número de teléfono."
+    }
+  },
+  "Message": {
+    "EnterTheFollowinglink": "Ingrese el siguiente enlace seguro para verificar.",
+    "AnErrorOccurred": "Ha ocurrido un error. Por favor intente de nuevo",
+    "NoInternet": "Sin acceso a Internet",
+    "InvalidEmailOrTries": "Correo electrónico no invitado o se superó el límite de intentos",
+    "EnablePermissions": "Vaya a la configuración para habilitar los permisos",
+    "SizeImage": "La imagen deber ser de 180x40px"
+  },
+  "Label": {
+    "Required": "* Requerido"
+  },
+  "Placeholder": {
+    "SelectTypeId": "Seleccione tipo de identificación",
+    "FullName": "Nombre completo",
+    "FirstName": "Primer nombre",
+    "MiddleName": "Segundo nombre",
+    "Surname": "Apellido",
+    "Address": "Dirección",
+    "State": "Estado",
+    "City": "Ciudad",
+    "ZipCode": "Código postal",
+    "Country": "País",
+    "Nationality": "Nacionalidad",
+    "Dob": "Nacimiento",
+    "EmailAddress": "Correo electrónico",
+    "VerificationCode": "Código de verificación",
+    "PhoneNumber": "Número de teléfono",
+    "Passport": "Pasaporte",
+    "DriverLicense": "Licencia de Conducir",
+    "IdCard": "Documento de Identidad",
+    "Visa": "Visa",
+    "EnterEmail": "Ingresar correo",
+    "EnterPhone": "Ingresar número de teléfono"
+  },
+  "Pages": {
+    "IntegrationButton": {
+      "Title": "Este es el comienzo\nde la verificación de identidad",
+      "SubTitle": "El siguiente botón iniciará\nel proceso, integraras este\nbotón con tu aplicación.",
+      "MenuTitle": "Menu",
+      "Theme": "Tema",
+      "Usage": "Uso",
+      "Website": "Website",
+      "Contact": "Contáctanos",
+      "Verifications": "Verificaciones"
+    },
+    "Usage": {
+      "Verifications": "Verificaciones",
+      "Playground": "Contador"
+    },
+    "Setting": {
+      "Title": "Configuración",
+      "Logo": "Logo",
+      "LogoParameters": "Suba su logo con un tamaño máximo de 500 KB 180x40px .png o .jpg",
+      "Url": "Url",
+      "SelectFlow": "Seleccione tipo de flujo",
+      "Button": "Botón",
+      "BackgroundColor": "Color de fondo",
+      "FontColor": "Color de fuente",
+      "Steps": "Pasos",
+      "ThemeColor": "Color de tema",
+      "Font": "Fuente",
+      "SelectFont": "Tipo de Fuente",
+      "Browse": "Navegar",
+      "Heading": "Título",
+      "Paragraph": "Párrafo y botón"
+    },
+    "Invite": {
+      "Title": "Bienvenido a\nPreventor ID",
+      "SubTitle": "Ingrese su correo de invitación\nen el cuadro de texto a continuación."
+    },
+    "LetsGetYouVerified": {
+      "Title": "Vamos a verificarte",
+      "Option1": {
+        "Label": "OPCIÓN 1",
+        "Title": "Escanea el código QR",
+        "Description": "Escanee el código QR con su aplicación de cámara."
+      },
+      "Option2": {
+        "Label": "OPCIÓN 2",
+        "Title": "Enviar enlace por SMS",
+        "Description": "Le enviaremos un mensaje de texto con un enlace seguro a su teléfono móvil sin costo adicional."
+      },
+      "PrepareDocument": {
+        "Title": "Prepare un documento válido",
+        "Description": "Asegúrate de que no esté vencido o dañado físicamente."
+      },
+      "UseSmartphone": {
+        "Title": "Use un smartphone",
+        "Description": "Necesita un smartphone para continuar."
+      },
+      "PrivacyPolicy": "Lea más sobre el procesamiento de sus datos personales en Preventor's <a href=\"https://preventor.com/privacy-policy\">política de privacidad.</a>",
+      "DontHaveSmartphone": "¿No tiene un smartphone?",
+      "Continue": "Continúe con su dispositivo actual"
+    },
+    "SecureLinkSent": {
+      "Title": "Revise su celular",
+      "SubTitle": "Enviamos un enlace seguro a",
+      "SubTitle2": "Puede tardar unos minutos en llegar.",
+      "DidntReceiveTheText": "¿No recibiste el mensaje de texto?",
+      "ResendLink": "Reenviar enlace"
+    },
+    "Start": {
+      "Title": "Comience la verificación de su identidad",
+      "SubTitle": "Lo guiaremos a través de un proceso perfecto para verificar su identidad"
+    },
+    "PrepareSteps": {
+      "Title": "Prepárese para la verificación de identidad",
+      "Steps": {
+        "Step1": "Prepare su identificación emitida por el gobierno para escanearla.",
+        "Step2": "Colóquese con buena luz para una selfie.",
+        "Step3": "Tenga su dirección de correo electrónico lista para ser verificada.",
+        "Step4": "Tenga su teléfono móvil listo para ser verificado."
+      },
+      "Agreements": "Al hacer clic en continuar, acepta los <a href=\"https://preventor.com/terms-of-service\">términos de servicio</a> y nuestra <a href=\"https://preventor.com/privacy-policy\">política de privacidad.</a>"
+    },
+    "ChooseCountry": {
+      "Title": "¿De qué país \nes su documento?",
+      "SubTitle": "Por favor seleccione el país de la lista desplegable."
+    },
+    "ChooseDocument": {
+      "Title": "Elige el tipo de documento",
+      "SubTitle": "Seleccione el tipo de identificación emitida por el gobierno de la lista desplegable."
+    },
+    "GlobalDocument": {
+      "Passport": {
+        "Title": "Prepárese para escanear su pasaporte",
+        "SubTitle": "Abra la página que muestra su información personal y continúe en la siguiente pantalla."
+      },
+      "DriverLicense": {
+        "Title": "Prepárese para escanear su licencia de conducir",
+        "SubTitle": "Prepare su licencia de conducir para tomar una fotografía de la parte delantera y trasera y continuar en la siguiente pantalla."
+      },
+      "IdCard": {
+        "Title": "Prepárese para escanear su tarjeta de identificación nacional",
+        "SubTitle": "Prepare su tarjeta de identificación para tomar una fotografía de la parte delantera y trasera y continúe en la siguiente pantalla."
+      },
+      "Visa": {
+        "Title": "Prepárese para escanear su visa",
+        "SubTitle": "Abra la página que muestra su información personal y continúe en la siguiente pantalla."
+      },
+      "Global": {
+        "Title": "Prepárese para escanear su documento de identificación",
+        "SubTitle": "Prepare su documento de identificación para tomar una fotografía de la parte delantera o trasera y continúe en la siguiente pantalla."
+      },
+      "SubTitle2": "Asegúrese de que todos los datos sean legibles y evite reflejos."
+    },
+    "PrepareSelfie": {
+      "Title": "Prepárate para tu selfie",
+      "SubTitle": "Colóquese en una buena iluminación y siga las instrucciones de la siguiente pantalla."
+    },
+    "CameraSelfie": {
+      "Correct": {
+        "Title": "Manténganse firme",
+        "SubTitle": "¡Bien hecho! un desafío más"
+      },
+      "Outside": {
+        "Title": "Haz coincidir los círculos",
+        "SubTitle": "Rostro no detectado, coloque su rostro dentro del círculo"
+      },
+      "Far": {
+        "Title": "Haz coincidir los círculos",
+        "SubTitle": "Rostro no detectado, coloque su rostro dentro del círculo"
+      }
+    },
+    "VerifyingIdentity": {
+      "Title": "Verificando tu identidad"
+    },
+    "TryAgainDocument": {
+      "Title": "Intentémoslo de nuevo",
+      "SubTitle": "Pero primero, asegúrese de tomar la foto en una superficie plana bien iluminada."
+    },
+    "TryAgainSelfie": {
+      "Title": "Intentémoslo de nuevo",
+      "SubTitle": "Pero primero, asegúrese de estar en un entorno de buena luz, use una expresión neutra, sin sonrisas, sin deslumbramientos o iluminación extrema."
+    },
+    "PersonalInformation": {
+      "CardPersonalInformation": {
+        "Title": "Información personal",
+        "Sex": {
+          "Male": "Masculino",
+          "Female": "Femenino"
+        },
+        "Nationality": "Nacionalidad",
+        "Dob": "Nacimiento",
+        "Age": "Edad"
+      },
+      "CardAddress": {
+        "Title": "Dirección"
+      },
+      "CardDocument": {
+        "Title": "Documento de identidad",
+        "IdType": "Tipo",
+        "IdNumber": "Número",
+        "IssuingBy": "Emitido por",
+        "IssuedDate": "Emisión",
+        "ExpiryDate": "Caducidad"
+      }
+    },
+    "EditPersonalInformation": {
+      "NameTab": {
+        "Title": "Edita tu nombre"
+      },
+      "AddressTab": {
+        "Title": "Edita tu dirección"
+      },
+      "NationalityTab": {
+        "Title": "Edita tu nacionalidad"
+      }
+    },
+    "Email": {
+      "Title": "¿Cuál es tu dirección de correo electrónico?",
+      "SubTitle": "Enviaremos un código de verificación a este correo electrónico."
+    },
+    "EmailVerification": {
+      "Title": "Verifique su dirección de correo electrónico",
+      "SubTitle": "Enviamos un código de verificación a",
+      "Resend": "Reenviar el código de verificación"
+    },
+    "Phone": {
+      "Title": "¿Cuál es tu número de teléfono?",
+      "SubTitle": "Enviaremos un código de verificación a este número."
+    },
+    "PhoneVerification": {
+      "Title": "Verifica tu número de teléfono móvil",
+      "SubTitle": "Enviamos un código de verificación a",
+      "Resend": "Reenviar el código de verificación"
+    },
+    "ContinueOnboarding": {
+      "Title": "Incorporación en curso"
+    },
+    "IdentityVerificationSubmitted": {
+      "Title": "Su verificación de identidad ha sido enviada",
+      "SubTitle": "Revisaremos su información y nos comunicaremos con usted lo antes posible."
+    },
+    "StreamLineSubmitted": {
+      "Title": "Su incorporación digital ha sido enviada",
+      "SubTitle": "Revisaremos su información y nos comunicaremos con usted lo antes posible."
+    },
+    "Congratulations": {
+      "Title": "¡Felicidades\nya terminaste!",
+      "SubTitle": {
+        "IdentityVerification": "Se completó su verificación de identidad.",
+        "Streamline": "Se ha completado su incorporación digital."
+      }
+    },
+    "DeniedAccessCamera": {
+      "Title": "Has denegado el acceso a tu cámara.",
+      "SubTitleMicroFrontEnd": "Para continuar, habilite el acceso a su cámara en la configuración de su navegador.",
+      "SubTitleMobile": "Para continuar, habilite el acceso a su cámara en la configuración de su celular."
+    },
+    "CancelVerification": {
+      "Title": "Cancelar verificación",
+      "SubTitle": "Esto puede afectar su capacidad para acceder al servicio.\n\n¿Estás seguro de continuar?"
+    },
+    "Error": {
+      "Title": "¡UPS!",
+      "SubTitle": "Algo salió mal"
+    }
+  },
+  "Footer": {
+    "PoweredBy": "Powered by"
+  }
+}

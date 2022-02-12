@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>capture/circle green one@2x</title>
+    <defs>
+        <circle id="path-1" cx="109" cy="109" r="109"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="218" height="218" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Flow-APK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(1.000000, 1.000000)">
+            <use id="line-circle-copy" stroke="#ADB5C5" mask="url(#mask-2)" stroke-width="12" stroke-dasharray="3,6" xlink:href="#path-1"></use>
+            <path d="M10.2875854,63.1476115 L15.9022652,63.1482884 C8.9598475,77.1310682 5.05660275,92.8895715 5.05660275,109.559726 C5.05660275,112.895766 5.21292075,116.195296 5.51863166,119.451391 L0.440560376,119.452055 C0.148950426,116.193595 0,112.894055 0,109.559726 C0,93.2246941 3.57490773,77.7246264 9.98503689,63.7992093 L10.2875854,63.1476115 Z M109.559726,7.07298248e-15 C112.894055,7.07298248e-15 116.193595,0.148950426 119.452055,0.440560376 L119.451391,5.51863166 C116.557084,5.24688863 113.628459,5.09318444 110.670378,5.06238281 L109.559726,5.05660275 C93.1347208,5.05660275 77.5947508,8.84589031 63.7663251,15.5979566 L63.1482884,15.9022652 L63.1476115,10.2875854 C77.0236401,3.78903621 92.4858771,0.114150798 108.794636,0.00261551894 L109.559726,7.07298248e-15 Z" id="Combined-Shape" stroke="#F44336" stroke-width="2" fill="#F44336" fill-rule="nonzero"></path>
+            <path d="M193.523097,168.228311 L197.09589,171.769111 C189.940828,181.984366 181.031034,190.901273 170.798871,198.091324 L167.232877,194.556842 C177.531601,187.446004 186.453605,178.512645 193.523097,168.228311 Z" id="Combined-Shape" stroke="#F44336" stroke-width="2" fill="#F44336" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
