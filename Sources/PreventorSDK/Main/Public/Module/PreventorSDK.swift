@@ -67,7 +67,6 @@ public class PreventorSDK {
     
     init() {
         print(ServiceConstants.envPath)
-        ServiceConstants.printEnv()
     }
     
     public func callBack(delegate: PreventorSDKDelegate) {
@@ -130,7 +129,6 @@ public class PreventorSDK {
             }, failure: { error in
                 complete(false)
             })
-        
     }
     
 }

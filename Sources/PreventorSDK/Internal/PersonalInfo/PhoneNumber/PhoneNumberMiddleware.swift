@@ -36,11 +36,11 @@ final class PhoneNumberMiddleware: PSDKReduxMiddleware<PhoneNumberState> {
         repository.sendOtp(
             request: .init(type: .SMS, phone: "\(phoneCountryCode)\(phone)"),
             success: {[weak self] result in
-//                if result.sent == SentStatus.OK.rawValue {
+                if result.sent == SentStatus.OK.rawValue {
                     PSDKSession.shared.setPhone(phone: phone)
                     PSDKSession.shared.setPhoneCountryCode(phoneCountryCode: phoneCountryCode)
                     self?.store?.dispatch(PhoneNumberAction.updateScreen(screen: .otpPhone))
-//                }
+                }
             },
             failure: {[weak self] error in
                 self?.biometricsFailed()
@@ -51,9 +51,9 @@ final class PhoneNumberMiddleware: PSDKReduxMiddleware<PhoneNumberState> {
         repository.validateOtp(
             request: .init(type: .SMS, phone: PSDKSession.shared.getPhone(), code: code),
             success: {[weak self] result in
-                //if result.validation == SentStatus.OK.rawValue {
+                if result.validation == SentStatus.OK.rawValue {
                     self?.store?.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
-                //}
+                }
             },
             failure: {[weak self] error in
                 self?.biometricsFailed()

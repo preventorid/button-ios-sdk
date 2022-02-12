@@ -39,8 +39,8 @@ let package = Package(
                 .process("Resources")
             ],
             swiftSettings: [
-                .define(prod, .when(platforms: [.iOS], configuration: .release)),
-                .define(dev, .when(platforms: [.iOS]))],
+//                .define(prod, .when(platforms: [.iOS], configuration: .release)),
+                .define(sandbox, .when(platforms: [.iOS]))],
             linkerSettings: [.linkedFramework("DocumentReader"),
                              .linkedFramework("DocumentReaderCore"),
                              .linkedFramework("RegulaCommon")

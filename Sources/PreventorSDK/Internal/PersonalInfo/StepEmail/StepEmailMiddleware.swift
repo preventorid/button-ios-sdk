@@ -33,10 +33,10 @@ final class StepEmailMiddleware: PSDKReduxMiddleware<StepEmailState> {
         repository.sendOtp(
             request: .init(type: .EMAIL, email: email),
             success: {[weak self] result in
-//                if result.sent == SentStatus.OK.rawValue {
+                if result.sent == SentStatus.OK.rawValue {
                     PSDKSession.shared.setEmail(email: email)
                     self?.store?.dispatch(StepEmailAction.updateScreen(screen: .otpEmail))
-//                }
+                }
             },
             failure: {[weak self] error in
                 self?.biometricsFailed()
@@ -47,9 +47,9 @@ final class StepEmailMiddleware: PSDKReduxMiddleware<StepEmailState> {
         repository.validateOtp(
             request: .init(type: .EMAIL, email: PSDKSession.shared.getEmail(), code: code),
             success: {[weak self] result in
-//                if result.validation == SentStatus.OK.rawValue {
+                if result.validation == SentStatus.OK.rawValue {
                     self?.store?.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
-//                }
+                }
             },
             failure: {[weak self] error in
                 self?.biometricsFailed()

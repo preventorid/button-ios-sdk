@@ -30,8 +30,7 @@ final class ValidantingMiddleware: PSDKReduxMiddleware<ValidantingState> {
     
     private func validateInfo() {
         let shared = PSDKSession.shared
-        
-        var request = OnboardingRequest(
+        let request = OnboardingRequest(
         transactionType: "ONBOARDING",
         documentType: shared.getDocumentType(),
         flow: shared.getFlow(),
@@ -40,8 +39,6 @@ final class ValidantingMiddleware: PSDKReduxMiddleware<ValidantingState> {
                                     picture2: shared.getSelfie02()),
         documents: PortraitsRequest(picture1: shared.getDocumentBack(),
                                     picture2: shared.getDocumentFront()))
-        request = repository.readMook(of: OnboardingRequest.self, forName: "OnboardingRequestMook")!
-        
         repository.onboarding(
             request: request,
             success: { [weak self] result in
