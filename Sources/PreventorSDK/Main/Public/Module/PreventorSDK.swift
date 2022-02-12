@@ -63,6 +63,7 @@ public class PreventorSDK {
     
     public static let shared: PreventorSDK = .init()
     
+    var config: PreventorSDKConfig? = nil
     var delegate: PreventorSDKDelegate? = nil
     
     init() {
@@ -101,6 +102,7 @@ public class PreventorSDK {
     
     public func initialize(config: PreventorSDKConfig,
                            complete: @escaping ( PSDKResultState) -> Void) {
+        self.config = config
         PSDKSession.shared.loadConfig(config: .init(flowType: config.flowType,
                                                     credentials: .init(
                                                         xApiKey: config.apiKey,

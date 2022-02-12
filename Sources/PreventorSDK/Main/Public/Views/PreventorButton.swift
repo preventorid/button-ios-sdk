@@ -15,7 +15,6 @@ public struct PreventorButton: View {
     @State private var isLoading = false
     @State private var timer: Timer? = nil
     private var module =  ModuleAppCoordinator()
-    private let config: PreventorSDKConfig
     private var animation: Animation {
         Animation.linear(duration: 2.0)
             .repeatForever(autoreverses: false)
@@ -31,7 +30,7 @@ public struct PreventorButton: View {
     
     public var body: some View {
         let button = Button(action: {
-            if config.isValid() {
+            if PreventorSDK.shared.config?.isValid() ?? false {
                 validateApiKey()
             } else {
                 PreventorSDK.shared.delegate?.onError(error: .MISSING_PARAMETERS)
@@ -85,6 +84,10 @@ public struct PreventorButton: View {
         }
     }
     
+    public init() {
+        
+    }
+    
     func validateApiKey() {
         isLoading = true
         if PSDKSession.shared.getInitializeResult() == .success {
@@ -120,10 +123,6 @@ public struct PreventorButton: View {
     
     func onDismissalAttempt() {
         
-    }
-    
-    public init(config: PreventorSDKConfig) {
-        self.config = config
     }
     
 }

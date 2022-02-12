@@ -14,20 +14,15 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "PreventorSDK",
             targets: ["PreventorSDK", "DocumentReader", "RegulaCommon", "DocumentReaderCore"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
         .package(name: "Alamofire", url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.5.0")),
         .package(name: "Lottie", url: "https://github.com/airbnb/lottie-ios.git", .exact("3.2.1"))
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "PreventorSDK",
             dependencies: ["Alamofire",
@@ -39,7 +34,6 @@ let package = Package(
                 .process("Resources")
             ],
             swiftSettings: [
-//                .define(prod, .when(platforms: [.iOS], configuration: .release)),
                 .define(sandbox, .when(platforms: [.iOS]))],
             linkerSettings: [.linkedFramework("DocumentReader"),
                              .linkedFramework("DocumentReaderCore"),
@@ -55,9 +49,5 @@ let package = Package(
         .binaryTarget(name: "RegulaCommon",
                       url: "https://pods.regulaforensics.com/RegulaCommon/6.1.102/RegulaCommon-6.1.102.zip",
                       checksum: "3d84f7a68029d4592cb1f707f7332a7cc62193b3dd8f81f897a5357c3a15aabf")
-        
-     //   .binaryTarget(name: "DocumentReader", path: "Frameworks/DocumentReader.xcframework"),
-        //.binaryTarget(name: "RegulaCommon", path: "Frameworks/RegulaCommon.xcframework")
-        
     ]
 )
