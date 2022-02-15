@@ -17,7 +17,6 @@ enum StartAction: ReduxAction {
 
 enum StartFlowAction: FlowAction {
     
-    case showCameraAccessDenied(_ result: StartState.Result)
     case showStartVerification
     case showTermsConditions
     case stepDocument

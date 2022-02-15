@@ -15,6 +15,8 @@ enum StepDocumentAction: FlowAction {
     case showSelfieStep
     case backToScanDocument
     case backToSelfie
+    case showValidatingView
+    case showCameraSettings
     case nextScreen(_ isFirst: Bool = false)
     
 }

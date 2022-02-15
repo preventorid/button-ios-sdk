@@ -109,7 +109,11 @@ struct SelfieView: BaseView {
                             if let image = delegate?.lastImage {
                                 delegate?.stopRuning()
                                 PSDKSession.shared.setSelfie02(image: image)
-                                store.dispatch(StepDocumentAction.nextScreen())
+                                if PSDKSession.shared.withFlow() {
+                                    store.dispatch(StepDocumentAction.nextScreen())
+                                } else {
+                                    store.dispatch(StepDocumentAction.showValidatingView)
+                                }
                             }
                         }
                     }

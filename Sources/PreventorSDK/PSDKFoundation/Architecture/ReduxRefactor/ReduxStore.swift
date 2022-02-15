@@ -24,7 +24,7 @@ protocol StoreProtocol: ObservableObject, DispatcherObject {
     
 }
 
-open class ReduxBarrierStore<StateType: ReduxState>: ReduxStore<StateType> {
+class ReduxBarrierStore<StateType: ReduxState>: ReduxStore<StateType> {
     
     private let queue: DispatchQueue = DispatchQueue(label: "PSDK.reduxbarrierstore.queue",
                                                      qos: .userInteractive,
@@ -67,7 +67,7 @@ open class ReduxBarrierStore<StateType: ReduxState>: ReduxStore<StateType> {
     
 }
 
-open class ReduxSemaphoreStore<StateType: ReduxState>: ReduxStore<StateType> {
+class ReduxSemaphoreStore<StateType: ReduxState>: ReduxStore<StateType> {
     
     override func dispatch(_ action: ReduxAction) {
         /// 1 Dispatch flow action
@@ -109,7 +109,7 @@ open class ReduxSemaphoreStore<StateType: ReduxState>: ReduxStore<StateType> {
 /// A Store is the only mutable object in a Redux-like Architecture.
 /// It's main goal is to manage the State and handle and publish all State updates.
 /// PSDKStore is an open class, though you can inherit it and extend it's behaviour.
-open class ReduxStore<StateType: ReduxState>: StoreProtocol {
+class ReduxStore<StateType: ReduxState>: StoreProtocol {
     
     private(set) weak var parent: DispatcherObject?
     // MARK: - State

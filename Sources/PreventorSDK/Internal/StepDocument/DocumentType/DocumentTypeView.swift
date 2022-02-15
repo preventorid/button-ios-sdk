@@ -49,7 +49,11 @@ struct DocumentTypeView: BaseView {
     func nextAction() {
         if let documentType = item?.type {
             PSDKSession.shared.setDocumentType(documentType: documentType.rawValue)
-            store.parent?.dispatch(StepDocumentAction.nextScreen(true))
+            if PSDKSession.shared.withFlow() {
+                store.parent?.dispatch(StepDocumentAction.nextScreen(true))
+            } else {
+                store.parent?.dispatch(StepDocumentAction.showReadyScan(type: documentType))
+            }
         }
     }
 

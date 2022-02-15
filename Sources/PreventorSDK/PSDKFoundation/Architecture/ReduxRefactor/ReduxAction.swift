@@ -83,7 +83,7 @@ extension CoordinatorListenerObject {
     
 }
 
-open class PSDKReduxMiddleware<State: ReduxState>: MiddlewareListenerObject {
+class PSDKReduxMiddleware<State: ReduxState>: MiddlewareListenerObject {
     
     open var subscriptions = Set<AnyCancellable>()
     weak var dispatcher: DispatcherObject?

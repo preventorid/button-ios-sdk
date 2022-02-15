@@ -11,17 +11,22 @@ struct StepEmailState: ReduxState {
         
         case email
         case otpEmail
-        case verifying
         
     }
     
     let screen: Screen
     let otpError: Bool
+    let seconds: Double?
+    let showTimer: Bool
     
     init(screen: Screen = .email,
-         otpError: Bool = false) {
+         otpError: Bool = false,
+         seconds: Double? = nil,
+         showTimer: Bool = false) {
         self.screen = screen
         self.otpError = otpError
+        self.seconds = seconds
+        self.showTimer = showTimer
     }
     
 }

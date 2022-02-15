@@ -12,6 +12,13 @@ class PhoneNumberReducer: ReduxReducer<PhoneNumberState> {
         switch action {
         case let .updateScreen(screen):
             return .init(screen: screen)
+        case let .showOtpScreen(seconds):
+            return .init(screen: .otpPhone,
+                         seconds: seconds,
+                         showTimer: true)
+        case .hiddeTimer:
+            return .init(screen: .otpPhone,
+                         showTimer: false)
         default: return state
         }
     }

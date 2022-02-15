@@ -9,11 +9,11 @@ import DocumentReader
 
 struct Credentials {
     
-    var xApiKey: String = "cnHl9mV33g6cE5TRg7PAK4xbC7i3m6o5iS56ZNoj"
-    var xTenant: String = "preventordev"
-    var xEnv: String = "playground"
-    var xBanknu: String = "1"
-    var secret: String = "preventor$$2021"
+    var xApiKey: String = ""
+    var xTenant: String = ""
+    var xEnv: String = ""
+    var xBanknu: String = ""
+    var secret: String = ""
     
 }
 

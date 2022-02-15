@@ -5,6 +5,7 @@
 //  Created by Alexander Rodriguez on 9/02/22.
 //
 
+import Foundation
 import Alamofire
 
 class SettingRepository: PreventorRepository {

@@ -24,7 +24,8 @@ class PSDKSession {
     }
     
     func clear() {
-        user = .init()
+        user.onboardingData = nil
+        user.data = .init()
         session = .init()
     }
     
@@ -33,11 +34,15 @@ class PSDKSession {
         if user.config.flowType.isEmpty {
             currentWorkflow = generalConfig.defaultWorkflow
         } else {
-            currentWorkflow = generalConfig.workflows.first(
+            currentWorkflow = generalConfig.workflows?.first(
                 where: { flow in
                     flow.id == user.config.flowType
                 }) ?? generalConfig.defaultWorkflow
         }
+    }
+    
+    func withFlow() -> Bool {
+        currentWorkflow != nil
     }
     
     func setInitializeResult(status: PSDKResultState) {

@@ -13,6 +13,7 @@ enum AppFlow: FlowAction {
     case personalInfo
     case finishSDK(error: PreventorSDKErrorCode? = nil)
     case showCancelVerification(reason: PreventorSDKErrorCode)
+    case showCameraAccessDenied
     case showError
     
 }

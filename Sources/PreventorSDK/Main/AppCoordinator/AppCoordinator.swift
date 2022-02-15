@@ -40,6 +40,8 @@ final class AppCoordinator: PSDKReduxCoordinator<AppState> {
             self.showPersonalInfo()
         case let .showCancelVerification(reason):
             showCancelVerification(reason: reason)
+        case .showCameraAccessDenied:
+            showCameraAccessDenied()
         case .showError:
             showErrorView()
         case let .finishSDK(error):
@@ -95,6 +97,19 @@ final class AppCoordinator: PSDKReduxCoordinator<AppState> {
         catch {
             print(error)
         }
+    }
+    
+    private func showCameraAccessDenied() {
+        let store = ReduxStore<PSDKEmptyState>(
+            parent: self.store,
+            state: PSDKEmptyState(),
+            reducer: PSDKEmptyReducer(),
+            middlewares: [],
+            coordinator: self
+        )
+        self.store?.addChild(store: store)
+        let view = CameraDeniedView(store: store)
+        pushView(view: view, animated: true)
     }
     
     private func prepareDatabase() {

@@ -13,14 +13,19 @@ struct PhoneNumberState: ReduxState {
         
         case phoneNumber
         case otpPhone
-        case verifying
         
     }
     
     let screen: Screen
+    let seconds: Double?
+    let showTimer: Bool
     
-    init(screen: Screen = .phoneNumber) {
+    init(screen: Screen = .phoneNumber,
+         seconds: Double? = nil,
+         showTimer: Bool = false) {
         self.screen = screen
+        self.seconds = seconds
+        self.showTimer = showTimer
     }
     
 }

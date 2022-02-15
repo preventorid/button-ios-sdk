@@ -10,11 +10,14 @@ import Combine
 
 struct StepEmailView: BaseView {
     
+    typealias ViewAction = StepEmailAction
     @ObservedObject private(set) var store: ReduxStore<StepEmailState>
     @State var emailText: String = ""
     @State var validationText: String = ""
     @State var isNextButtonDissabled: Bool = true
     @State var isOtpNextButtonDissabled: Bool = true
+    @State var timer: Timer? = nil
+    @State var timeRemaining: Date? = nil
     var screen: StepEmailState.Screen {
         store.state.screen
     }
@@ -72,16 +75,37 @@ struct StepEmailView: BaseView {
                         isOtpNextButtonDissabled = status != .valid
                     })
                         .padding(.top, height * 0.0215)
-                    PSDKText(emailVerificationPage.resend, textColor: .psdkColorPrimaryLigth200, font: .psdkH8)
-                        .padding(.top, height * 0.04)
-                        .onTapGesture {
-                            store.dispatch(StepEmailAction.sendOtpEmail(email: emailText))
+                    if store.state.showTimer {
+                        HStack {
+                            PSDKText("\(countDownString()) \(emailVerificationPage.resend)", textColor: .psdkColorTextLow)
+                            Spacer()
                         }
-                    HStack {
-                        PSDKText("00:59:00 \(emailVerificationPage.resend)", textColor: .psdkColorTextLow)
-                        Spacer()
+                        .padding(.top, height * 0.038)
+                        .onAppear {
+                            if timer == nil {
+                                let date = Date()
+                                let zeroDate = date - date.timeIntervalSinceReferenceDate
+                                timeRemaining = zeroDate + (store.state.seconds ?? 0.0)
+                                timer = .scheduledTimer(withTimeInterval: 1, repeats: true) { t in
+                                    if let time = timeRemaining {
+                                        if Int(time.timeIntervalSinceReferenceDate) == 0 {
+                                            store.dispatch(StepEmailAction.hiddeTimer)
+                                            t.invalidate()
+                                            timer = nil
+                                        } else {
+                                            timeRemaining = time - 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        PSDKText(emailVerificationPage.resend, textColor: .psdkColorPrimaryLigth200, font: .psdkH8)
+                            .padding(.top, height * 0.04)
+                            .onTapGesture {
+                                store.dispatch(StepEmailAction.sendOtpEmail(email: emailText))
+                            }
                     }
-                    .padding(.top, height * 0.011)
                 }
                 Spacer()
             }
@@ -89,6 +113,17 @@ struct StepEmailView: BaseView {
             .padding(.horizontal, width * 0.067)
             .animation(.default)
         }
+    }
+    
+    func countDownString() -> String {
+        if let timeRemaining = timeRemaining {
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar.dateComponents([.minute, .second], from: timeRemaining)
+            return String(format: "%02d:%02d",
+                          components.minute ?? 00,
+                          components.second ?? 00)
+        }
+        return ""
     }
     
     func onSubmit(_ result: ValidationResult) {

@@ -29,8 +29,6 @@ final class StartCoordinator: PSDKReduxCoordinator<StartState> {
         
         guard let action = action as? StartFlowAction else { return false }
         switch action {
-        case .showCameraAccessDenied:
-            showCameraAccessDenied()
         case .showStartVerification:
             showStartVerification()
         case .showTermsConditions:
@@ -38,20 +36,19 @@ final class StartCoordinator: PSDKReduxCoordinator<StartState> {
         case .stepDocument:
             stepDocument()
         }
-        
         return true
     }
     
-    private func setpDebug(){
-        let store = ReduxStore<FinishOTPState>(
+    private func stepDebug(){
+        let store = ReduxStore<StepEmailState>(
             parent: self.store,
-            state: FinishOTPState(),
-            reducer: FinishOTPReducer(),
+            state: StepEmailState(screen: .otpEmail, seconds: 20, showTimer: true),
+            reducer: StepEmailReducer(),
             middlewares: [],
             coordinator: self
         )
         self.store?.addChild(store: store)
-        let view = FinishOTPView(store: store)
+        let view = StepEmailView(store: store)
         pushView(view: view, animated: true)
     }
     
@@ -65,19 +62,6 @@ final class StartCoordinator: PSDKReduxCoordinator<StartState> {
         )
         self.store?.addChild(store: store)
         let view = ChooseCountryView(store: store)
-        pushView(view: view, animated: true)
-    }
-    
-    private func showCameraAccessDenied() {
-        let store = ReduxStore<CameraDeniedState>(
-            parent: self.store,
-            state: CameraDeniedState(),
-            reducer: CameraDeniedReducer(),
-            middlewares: [],
-            coordinator: self 
-        )
-        self.store?.addChild(store: store)
-        let view = CameraDeniedView(store: store)
         pushView(view: view, animated: true)
     }
     

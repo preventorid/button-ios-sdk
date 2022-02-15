@@ -35,7 +35,9 @@ final class StepEmailMiddleware: PSDKReduxMiddleware<StepEmailState> {
             success: {[weak self] result in
                 if result.sent == SentStatus.OK.rawValue {
                     PSDKSession.shared.setEmail(email: email)
-                    self?.store?.dispatch(StepEmailAction.updateScreen(screen: .otpEmail))
+                    let minutes: Double = 1.0
+                    let secondsPerMin: Double = 60.0
+                    self?.store?.dispatch(StepEmailAction.showOtpScreen(seconds: minutes * secondsPerMin))
                 }
             },
             failure: {[weak self] error in
@@ -48,7 +50,11 @@ final class StepEmailMiddleware: PSDKReduxMiddleware<StepEmailState> {
             request: .init(type: .EMAIL, email: PSDKSession.shared.getEmail(), code: code),
             success: {[weak self] result in
                 if result.validation == SentStatus.OK.rawValue {
-                    self?.store?.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
+                    if PSDKSession.shared.withFlow() {
+                        self?.store?.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
+                    } else {
+                        self?.store?.parent?.dispatch(ModulePersonalInfoAction.showPhoneNumber)
+                    }
                 }
             },
             failure: {[weak self] error in

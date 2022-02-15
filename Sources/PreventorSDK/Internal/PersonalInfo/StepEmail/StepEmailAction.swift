@@ -11,5 +11,7 @@ enum StepEmailAction: ReduxAction  {
     case sendOtpEmail(email: String)
     case validateOtpEmail(code: String)
     case validateEmailError(_ message: String)
+    case showOtpScreen(seconds: Double)
+    case hiddeTimer
     
 }

@@ -9,14 +9,14 @@ import Foundation
 
 // MARK: - GeneralSettingsResponse
 struct GeneralSettingsResponse: Codable {
-    let identityDocuments: [IdentityDocument]
-    let biometricAuthentications: [BiometricAuthentication]
-    let countryRestriction: CountryRestriction
-    let deviceTracking: DeviceTracking
-    let gdpr: Gdpr
-    let theme: Theme
-    let defaultWorkflow: Workflow
-    let workflows: [Workflow]
+    var identityDocuments: [IdentityDocument]
+    var biometricAuthentications: [BiometricAuthentication]
+    var countryRestriction: CountryRestriction
+    var deviceTracking: DeviceTracking
+    var gdpr: Gdpr
+    var theme: Theme?
+    var defaultWorkflow: Workflow? = nil
+    var workflows: [Workflow]?
 
     enum CodingKeys: String, CodingKey {
         case identityDocuments = "identity_documents"
@@ -31,8 +31,8 @@ struct GeneralSettingsResponse: Codable {
 
 // MARK: - BiometricAuthentication
 struct BiometricAuthentication: Codable {
-    let authenticationType: String
-    let enabled: Bool
+    var authenticationType: String = ""
+    var enabled: Bool?
 
     enum CodingKeys: String, CodingKey {
         case authenticationType = "authentication_type"
@@ -42,8 +42,8 @@ struct BiometricAuthentication: Codable {
 
 // MARK: - CountryRestriction
 struct CountryRestriction: Codable {
-    let restrictionScreenEnabled: Bool
-    let allowedCountries: [String]
+    var restrictionScreenEnabled: Bool = false
+    var allowedCountries: [String] = []
 
     enum CodingKeys: String, CodingKey {
         case restrictionScreenEnabled = "restriction_screen_enabled"
@@ -53,16 +53,20 @@ struct CountryRestriction: Codable {
 
 // MARK: - Workflow
 struct Workflow: Codable {
-    let name, id: String
-    let verifications: [VerificationModel]
+    var name: String = ""
+    var id: String = ""
+    var verifications: [VerificationModel] = []
 }
 
 // MARK: - Verification
 struct VerificationModel: Codable {
-    let id, name: String
-    let orderNumber: Int
-    let verificationRequired, verificationOrderLocked, checksOrderLocked: Bool
-    let checks: [Check]
+    var id: String = ""
+    var name: String = ""
+    var orderNumber: Int = 0
+    var verificationRequired: Bool = false
+    var verificationOrderLocked: Bool = false
+    var checksOrderLocked: Bool = false
+    var checks: [Check] = []
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -76,10 +80,12 @@ struct VerificationModel: Codable {
 
 // MARK: - Check
 struct Check: Codable {
-    let name, id: String
-    let orderNumber: Int
-    let enabled, checkRequired: Bool?
-    let dependencies: [Dependency]?
+    var name: String = ""
+    var id: String = ""
+    var orderNumber: Int = 0
+    var enabled: Bool?
+    var checkRequired: Bool?
+    var dependencies: [Dependency]?
 
     enum CodingKeys: String, CodingKey {
         case name, id
@@ -92,18 +98,19 @@ struct Check: Codable {
 
 // MARK: - Dependency
 struct Dependency: Codable {
-    let verification, check: String
+    var verification: String = ""
+    var check: String = ""
 }
 
 // MARK: - DeviceTracking
 struct DeviceTracking: Codable {
-    let enabled: Bool
+    var enabled: Bool?
 }
 
 // MARK: - Gdpr
 struct Gdpr: Codable {
-    let dataRetentionDaysAmount: Int
-    let automaticRemoval: Bool
+    var dataRetentionDaysAmount: Int = 0
+    var automaticRemoval: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case dataRetentionDaysAmount = "data_retention_days_amount"
@@ -113,8 +120,8 @@ struct Gdpr: Codable {
 
 // MARK: - IdentityDocument
 struct IdentityDocument: Codable {
-    let enabled: Bool
-    let documentType: String
+    var enabled: Bool?
+    var documentType: String = ""
 
     enum CodingKeys: String, CodingKey {
         case enabled
@@ -124,10 +131,11 @@ struct IdentityDocument: Codable {
 
 // MARK: - Theme
 struct Theme: Codable {
-    let accentColor: ColorModel
-    let logo, language: String
-    let buttonsColor: ColorModel
-    let fontFamily: FontFamily
+    var accentColor: ColorModel?
+    var logo: String? = nil
+    var language: String = ""
+    var buttonsColor: ColorModel
+    var fontFamily: FontFamily
 
     enum CodingKeys: String, CodingKey {
         case accentColor = "accent_color"
@@ -139,8 +147,8 @@ struct Theme: Codable {
 
 // MARK: - ColorModel
 struct ColorModel: Codable {
-    let colorDefault: DeviceTracking
-    let custom: Custom
+    var colorDefault: DeviceTracking?
+    var custom: Custom
 
     enum CodingKeys: String, CodingKey {
         case colorDefault = "default"
@@ -150,13 +158,14 @@ struct ColorModel: Codable {
 
 // MARK: - Custom
 struct Custom: Codable {
-    let value: String
-    let enabled: Bool
+    var value: String = ""
+    var enabled: Bool?
 }
 
 // MARK: - FontFamily
 struct FontFamily: Codable {
-    let paragraphButtons, heading: String
+    var paragraphButtons: String = ""
+    var heading: String = ""
 
     enum CodingKeys: String, CodingKey {
         case paragraphButtons = "paragraph_buttons"

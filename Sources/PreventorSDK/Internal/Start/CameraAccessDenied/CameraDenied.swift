@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CameraDeniedView: BaseView {
     
-    @ObservedObject private(set) var store: ReduxStore<CameraDeniedState>
+    @ObservedObject private(set) var store: ReduxStore<PSDKEmptyState>
     var nextButtonStyle: PSDKButtonStyle {
         PSDKButtonStyle(type: .outlined,
                         contentMode: .light,
@@ -44,6 +44,6 @@ struct CameraDeniedView: BaseView {
     }
     
     func nextAction() {
-        
+        store.parent?.dispatch(StepDocumentAction.showCameraSettings)
     }
 }

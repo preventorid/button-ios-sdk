@@ -115,7 +115,11 @@ struct PersonalInfoView: BaseView {
     }
     
     func nextAction() {
-        store.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
+        if PSDKSession.shared.withFlow() {
+            store.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
+        } else {
+            store.parent?.dispatch(ModulePersonalInfoAction.showStepEmail)
+        }
     }
     
     func prevAction() {

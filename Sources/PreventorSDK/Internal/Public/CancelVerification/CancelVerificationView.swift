@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CancelVerificationView: ReduxStoreView {
+    typealias ViewAction = AppFlow
     
     internal var navigationSettings: PSDKNavigationSettings? {
         var trailingItems: [UIBarButtonItem] = []

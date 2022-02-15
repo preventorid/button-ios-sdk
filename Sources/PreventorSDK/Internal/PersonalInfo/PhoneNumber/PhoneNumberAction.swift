@@ -10,6 +10,8 @@ import Foundation
 enum PhoneNumberAction: ReduxAction  {
     
     case updateScreen(screen: PhoneNumberState.Screen)
+    case showOtpScreen(seconds: Double)
+    case hiddeTimer
     case sendOtpPhone(phoneCountryCode: String, phone: String)
     case validateOTP(otp: String)
     

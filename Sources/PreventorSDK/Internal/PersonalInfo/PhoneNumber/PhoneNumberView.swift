@@ -14,20 +14,21 @@ struct PhoneNumberView: BaseView {
     @ObservedObject private(set) var store: ReduxStore<PhoneNumberState>
     @State var phoneNumber: String = ""
     @State var validationText: String = ""
-    var screen: PhoneNumberState.Screen {
-        store.state.screen
-    }
-    
     @State var showDropdown: Bool = false
     @State var modalRouter: PSDKModalRouter = PSDKModalRouter()
     @State private var item: PSDKPhoneTextField.Item? = nil
     @State var isNextButtonDissabled: Bool = true
     @State var isOtpNextButtonDissabled: Bool = true
+    @State var timer: Timer? = nil
+    @State var timeRemaining: Date? = nil
     let phonePage = LanguageManager.shared.language.pages.phone
     let phoneVerificationPage = LanguageManager.shared.language.pages.phoneVerification
     let placeHolder = LanguageManager.shared.language.placeholder
     var demiModal: PSDKDemiModal? {
         PSDKDemiModal(presented: $showDropdown, router: modalRouter, opacity:  0.8 )
+    }
+    var screen: PhoneNumberState.Screen {
+        store.state.screen
     }
     var customBackButton: UIBarButtonItem? {
         return hidesBackButton ? nil : PSDKBarButton(
@@ -35,19 +36,9 @@ struct PhoneNumberView: BaseView {
             style: .plain,
             customAction: backAction)
     }
-    var showNextButton: Bool {
-        screen != .verifying
-    }
-    var hidesBackButton: Bool {
-        screen == .verifying
-    }
-    var hiddenTrailingItems: Bool {
-        screen == .verifying
-    }
     var nextButtonDisabled: Bool {
         return screen == .phoneNumber ? isNextButtonDissabled : isOtpNextButtonDissabled
     }
-    
     
     var contentBody: some View {
         return GeometryReader { geometry in
@@ -90,25 +81,41 @@ struct PhoneNumberView: BaseView {
                         isOtpNextButtonDissabled = status != .valid
                     })
                         .padding(.top, height * 0.0215)
-                    PSDKText(phoneVerificationPage.resend, textColor: .psdkColorPrimaryLigth200, font: .psdkH8)
-                        .padding(.top, height * 0.04)
-                        .onTapGesture {
-                            if !phoneNumber.isEmpty, let phoneCountryCode = item?.code {
-                                store.dispatch(PhoneNumberAction.sendOtpPhone(
-                                    phoneCountryCode: phoneCountryCode,
-                                    phone: phoneNumber))
+                    if store.state.showTimer {
+                        HStack {
+                            PSDKText("\(countDownString()) \(phoneVerificationPage.resend)", textColor: .psdkColorTextLow)
+                            Spacer()
+                        }
+                        .padding(.top, height * 0.038)
+                        .onAppear {
+                            if timer == nil {
+                                let date = Date()
+                                let zeroDate = date - date.timeIntervalSinceReferenceDate
+                                timeRemaining = zeroDate + (store.state.seconds ?? 0.0)
+                                timer = .scheduledTimer(withTimeInterval: 1, repeats: true) { t in
+                                    if let time = timeRemaining {
+                                        if Int(time.timeIntervalSinceReferenceDate) == 0 {
+                                            store.dispatch(PhoneNumberAction.hiddeTimer)
+                                            t.invalidate()
+                                            timer = nil
+                                        } else {
+                                            timeRemaining = time - 1
+                                        }
+                                    }
+                                }
                             }
                         }
-                    HStack {
-                        PSDKText("00:59:00 \(phoneVerificationPage.resend)", textColor: .psdkColorTextLow)
-                        Spacer()
+                    } else {
+                        PSDKText(phoneVerificationPage.resend, textColor: .psdkColorPrimaryLigth200, font: .psdkH8)
+                            .padding(.top, height * 0.04)
+                            .onTapGesture {
+                                if !phoneNumber.isEmpty, let phoneCountryCode = item?.code {
+                                    store.dispatch(PhoneNumberAction.sendOtpPhone(
+                                        phoneCountryCode: phoneCountryCode,
+                                        phone: phoneNumber))
+                                }
+                            }
                     }
-                    .padding(.top, height * 0.011)
-                } else if screen == .verifying {
-                    ProgressView()
-                        .onAppear {
-                            updateNavigationSettings()
-                        }
                 }
                 Spacer()
             }
@@ -116,6 +123,17 @@ struct PhoneNumberView: BaseView {
             .padding(.horizontal, width * 0.067)
             .animation(.default)
         }
+    }
+        
+    func countDownString() -> String {
+        if let timeRemaining = timeRemaining {
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar.dateComponents([.minute, .second], from: timeRemaining)
+            return String(format: "%02d:%02d",
+                          components.minute ?? 00,
+                          components.second ?? 00)
+        }
+        return ""
     }
     
     func nextAction() {
@@ -126,7 +144,6 @@ struct PhoneNumberView: BaseView {
             }
         case .otpPhone:
             store.dispatch(PhoneNumberAction.validateOTP(otp: validationText))
-        default: break
         }
     }
     

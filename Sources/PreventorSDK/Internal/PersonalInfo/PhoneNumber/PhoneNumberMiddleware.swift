@@ -39,7 +39,9 @@ final class PhoneNumberMiddleware: PSDKReduxMiddleware<PhoneNumberState> {
                 if result.sent == SentStatus.OK.rawValue {
                     PSDKSession.shared.setPhone(phone: phone)
                     PSDKSession.shared.setPhoneCountryCode(phoneCountryCode: phoneCountryCode)
-                    self?.store?.dispatch(PhoneNumberAction.updateScreen(screen: .otpPhone))
+                    let minutes: Double = 1.0
+                    let seconds: Double = 60.0
+                    self?.store?.dispatch(PhoneNumberAction.showOtpScreen(seconds: minutes * seconds))
                 }
             },
             failure: {[weak self] error in
@@ -52,7 +54,11 @@ final class PhoneNumberMiddleware: PSDKReduxMiddleware<PhoneNumberState> {
             request: .init(type: .SMS, phone: PSDKSession.shared.getPhone(), code: code),
             success: {[weak self] result in
                 if result.validation == SentStatus.OK.rawValue {
-                    self?.store?.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
+                    if PSDKSession.shared.withFlow() {
+                        self?.store?.parent?.dispatch(ModulePersonalInfoAction.nextScreen)
+                    } else {
+                        self?.store?.parent?.dispatch(ModulePersonalInfoAction.showFinishOTP)
+                    }
                 }
             },
             failure: {[weak self] error in

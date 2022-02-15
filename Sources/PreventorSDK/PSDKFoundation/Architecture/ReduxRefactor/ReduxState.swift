@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - State
 /// The State is the logical representation of the View or the App. It can only be modified by a Store object.
-public protocol ReduxState { }
+protocol ReduxState { }
 
 protocol ReduxStateThrowable: ReduxState {
     associatedtype ErrorType: Error
@@ -17,7 +17,7 @@ protocol ReduxStateThrowable: ReduxState {
     var error: ErrorType? { get set }
 }
 
-public struct PSDKEmptyState: ReduxState {
+struct PSDKEmptyState: ReduxState {
     
     init() { }
     

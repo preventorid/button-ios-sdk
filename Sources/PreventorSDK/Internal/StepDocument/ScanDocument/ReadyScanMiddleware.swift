@@ -34,20 +34,32 @@ final class ReadyScanMiddleware: PSDKReduxMiddleware<ReadyScanState> {
         if let image = data.getGraphicFieldImageByType(fieldType: .gf_DocumentImage, source: .rawImage, pageIndex: 1) {
             PSDKSession.shared.setDocumentBack(image: image)
         }
-        store?.parent?.dispatch(StepDocumentAction.nextScreen())
+        if PSDKSession.shared.withFlow() {
+            store?.parent?.dispatch(StepDocumentAction.nextScreen())
+        } else {
+            store?.parent?.dispatch(StepDocumentAction.showSelfieStep)
+        }
     }
     
     private func saveFrontImage(image: UIImage) {
         if store?.state.type.quantity == .two {
             store?.dispatch(ReadyScanAction.updateScreen(screen: .takeBackPhoto))
         } else {
-            store?.parent?.dispatch(StepDocumentAction.nextScreen())
+            if PSDKSession.shared.withFlow() {
+                store?.parent?.dispatch(StepDocumentAction.nextScreen())
+            } else {
+                store?.parent?.dispatch(StepDocumentAction.showSelfieStep)
+            }
         }
         PSDKSession.shared.setDocumentFront(image: image)
     }
     
     private func saveBackImage(image: UIImage) {
+        if PSDKSession.shared.withFlow() {
         store?.parent?.dispatch(StepDocumentAction.nextScreen())
+        } else {
+            store?.parent?.dispatch(StepDocumentAction.showSelfieStep)
+        }
         PSDKSession.shared.setDocumentBack(image: image)
     }
     

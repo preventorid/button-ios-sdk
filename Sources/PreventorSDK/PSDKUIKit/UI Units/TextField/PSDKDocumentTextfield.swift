@@ -40,7 +40,7 @@ struct PSDKDocumentTextfield: View, DropdownDelegate, PSDKChooseTextFieldDelegat
         self._modalRouter = modalRouter
         var _data: [Item] = []
         PSDKSession.shared.generalConfig?.identityDocuments.forEach { doc in
-            if doc.enabled, let docType = DocumentModel.DocType(rawValue: doc.documentType) {
+            if doc.enabled ?? false, let docType = DocumentModel.DocType(rawValue: doc.documentType) {
                 _data.append(.init(type: docType))
             }
         }

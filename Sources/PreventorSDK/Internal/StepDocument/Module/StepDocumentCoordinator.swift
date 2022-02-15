@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Alamofire
+import AVFoundation
 
 protocol StepDocumentCoordinatorDelegate: AnyObject {
     
@@ -37,13 +37,19 @@ final class StepDocumentCoordinator: PSDKReduxCoordinator<PSDKEmptyState> {
         case .showDocumentType:
             showDocumentType()
         case let .showReadyScan(type):
-            showReadyScan(type: type)
+            cameraAutherized(continueWith: {
+                self.showReadyScan(type: type)
+            })
         case .showSelfieStep:
-            showSelfieStep()
+            cameraAutherized(continueWith: showSelfieStep)
         case .backToScanDocument:
             backToScanDocument()
+        case .showValidatingView:
+            showValidatingView()
         case .backToSelfie:
             backToSelfie()
+        case .showCameraSettings:
+            presentCameraSettings()
         case let .nextScreen(isFirst):
             if isFirst {
                 routingManager?.checkIndex = 0
@@ -62,11 +68,11 @@ final class StepDocumentCoordinator: PSDKReduxCoordinator<PSDKEmptyState> {
             if let vid = routingManager.getNextScreen() {
                 switch vid {
                 case .selfPortraitTaking:
-                    showSelfieStep()
+                    cameraAutherized(continueWith: showSelfieStep)
                 case .documentPhotoTaking:
                     showReadyScan(type: .current ?? .visa)
                 case .nextModule:
-                    showValidatingView()
+                    cameraAutherized(continueWith: showValidatingView)
                 default:
                     break
                 }
@@ -125,6 +131,36 @@ final class StepDocumentCoordinator: PSDKReduxCoordinator<PSDKEmptyState> {
         pushView(view: view, animated: true)
     }
     
+    private func cameraAutherized(continueWith nextAction: @escaping () -> Void ) {
+        if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
+            nextAction()
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                if granted {
+                    nextAction()
+                } else {
+                    self.store?.parent?.dispatch(AppFlow.showCameraAccessDenied)
+                }
+            })
+        }
+    }
+    
+    private func presentCameraSettings() {
+        let alertController = UIAlertController(title: "Error",
+                                      message: "Camera access is denied",
+                                      preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                    self.store?.dispatch(AppFlow.back)
+                })
+            }
+        })
+        presentViewController(alertController, animated: true, completion: {
+            
+        })
+    }
     func showSelfieStep() {
         let store = ReduxStore<SelfieState>(
             parent: self.store,
