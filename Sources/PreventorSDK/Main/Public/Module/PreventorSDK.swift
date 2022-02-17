@@ -81,11 +81,12 @@ public class PreventorSDK {
             token: token,
             success: { result in
                 PSDKSession.shared.setGeneralConfig(generalConfig: result)
-                PSDKSession.shared.setInitializeResult(status: .success)
+                PSDKSession.shared.setInitializeState(status: .success)
                 complete(.success)
             },
             failure: { error in
-                PSDKSession.shared.setInitializeResult(status: .failed)
+                PSDKSession.shared.setInitializeState(status: .failed)
+                complete(.failed)
             })
     }
     
@@ -96,12 +97,13 @@ public class PreventorSDK {
                 self.getSettingsGeneral(token: result.token, complete: complete)
             },
             failure: { error in
-                PSDKSession.shared.setInitializeResult(status: .failed)
+                PSDKSession.shared.setInitializeState(status: .failed)
+                complete(.failed)
             })
     }
     
     public func initialize(config: PreventorSDKConfig,
-                           complete: @escaping ( PSDKResultState) -> Void) {
+                           complete: @escaping (PSDKResultState) -> Void) {
         self.config = config
         PSDKSession.shared.loadConfig(config: .init(flowType: config.flowType,
                                                     credentials: .init(

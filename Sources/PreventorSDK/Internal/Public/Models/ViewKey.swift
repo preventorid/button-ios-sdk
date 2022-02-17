@@ -50,4 +50,15 @@ enum VerificationsID: String {
         }
     }
     
+    var isFlowPart: Bool {
+        switch self {
+        case .identityVerification:
+            return true
+        case .userConfirmation:
+            return false
+        case .twoFactorVerification:
+            return true
+        }
+    }
+    
 }

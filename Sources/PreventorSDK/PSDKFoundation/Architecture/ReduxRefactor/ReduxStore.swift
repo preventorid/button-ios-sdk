@@ -67,44 +67,6 @@ class ReduxBarrierStore<StateType: ReduxState>: ReduxStore<StateType> {
     
 }
 
-class ReduxSemaphoreStore<StateType: ReduxState>: ReduxStore<StateType> {
-    
-    override func dispatch(_ action: ReduxAction) {
-        /// 1 Dispatch flow action
-        if (action is FlowAction || action is CoordinatorAction),
-           let coordinator = self.coordinator,
-           coordinator.handleDispatch(action: action,
-                                      store: self,
-                                      parent: self.parent) {
-            return
-        }
-        let group = DispatchGroup()
-        if action.wait {
-            group.enter()
-        }
-        DispatchQueue.main.async {
-            /// 2 Dispatch action on store
-            self.state = self.reducer.reduce(state: self.state,
-                                             action: action)
-            if action.wait { group.leave() }
-        }
-        let block = {
-            /// 3 Dispatch middleware actions
-            self.middlewares.forEach {
-                $0.handleDispatch(action: action,
-                                  store: self,
-                                  parent: self.parent)
-            }
-            /// 4 Dispatch action on every child
-            self.children.forEach {
-                $0.dispatch(action)
-            }
-        }
-        group.notify(queue: .main, execute: block)
-    }
-    
-}
-
 // MARK: - Store
 /// A Store is the only mutable object in a Redux-like Architecture.
 /// It's main goal is to manage the State and handle and publish all State updates.

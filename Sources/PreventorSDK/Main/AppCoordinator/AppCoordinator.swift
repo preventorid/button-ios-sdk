@@ -31,13 +31,9 @@ final class AppCoordinator: PSDKReduxCoordinator<AppState> {
         switch action {
         case .back:
             self.popViewController(animated: true)
-        case let .initial(restult):
+        case .startFlow:
             self.prepareDatabase()
-            self.showStartFlow(state: restult)
-        case .stepDocument:
-            self.showStepDocument()
-        case .personalInfo:
-            self.showPersonalInfo()
+            self.showStartFlow()
         case let .showCancelVerification(reason):
             showCancelVerification(reason: reason)
         case .showCameraAccessDenied:

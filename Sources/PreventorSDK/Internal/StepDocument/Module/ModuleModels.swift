@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-enum SelfieResultType {
+enum BiometricsResultType {
     
     case errorScanDocument
     case errorSelfie
-    case congratulations
     
 }
 

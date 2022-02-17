@@ -10,7 +10,6 @@ import SwiftUI
 struct ServiceConstants {
     
     static var envPath: String {
-
     #if DEV
         print("enviroment is DEV")
         return "dev"

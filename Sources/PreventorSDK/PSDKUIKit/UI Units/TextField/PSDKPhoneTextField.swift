@@ -38,7 +38,7 @@ struct PSDKPhoneTextField: View, DropdownDelegate, PSDKChooseTextFieldDelegate {
         )
             .onAppear {
                 if item == nil {
-                    item = data.first
+                    item = PSDKSession.shared.getCountrySelected() ?? data.first
                 }
             }
     }

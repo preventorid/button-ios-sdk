@@ -51,7 +51,7 @@ class PreventorRepository {
                    encoding: URLEncoding.queryString,
                    headers: addHeaders())
             .responseDecodable(of: UserDataResponse.self) { response in
-                self.reciveDefault(response: response, success: success, failure: failure)
+                self.reciveDefault(true, response: response, success: success, failure: failure)
             }
     }
     
@@ -130,10 +130,13 @@ class PreventorRepository {
         }
     }
     
-    func reciveDefault<S>(response: DataResponse<S, AFError>,
+    func reciveDefault<S>(_ showData: Bool = false,
+                          response: DataResponse<S, AFError>,
                           success: @escaping(S) -> Void,
                           failure: @escaping(AFError) -> Void) {
-        self.showData(data: response.data)
+        if showData {
+            self.showData(data: response.data)
+        }
         switch response.result {
         case let .success(result):
             success(result)

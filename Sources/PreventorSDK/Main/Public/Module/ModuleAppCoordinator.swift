@@ -21,8 +21,11 @@ class ModuleAppCoordinator {
                                                        reducer: AppReducer(),
                                                        coordinator: self.appCoordinator,
                                                        logger: nil)
-    init() {
-        self.store.dispatch(AppFlow.initial(.onStart))
+    func start() {
+        if !wasInitialized {
+            self.store.dispatch(AppFlow.startFlow)
+            wasInitialized = true
+        }
     }
     
 }

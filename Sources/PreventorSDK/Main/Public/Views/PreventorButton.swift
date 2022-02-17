@@ -14,14 +14,14 @@ public struct PreventorButton: View {
     @State private var isPresented = false
     @State private var isLoading = false
     @State private var timer: Timer? = nil
-    private var module =  ModuleAppCoordinator()
+    private var module = ModuleAppCoordinator()
     private var animation: Animation {
         Animation.linear(duration: 2.0)
             .repeatForever(autoreverses: false)
     }
     
     private var dissabled: Bool {
-        isLoading && PSDKSession.shared.getInitializeResult() != .none
+        isLoading && PSDKSession.shared.getInitializeState() != .none
     }
     private var foreverAnimation: Animation {
         Animation.linear(duration: 2.0)
@@ -59,12 +59,12 @@ public struct PreventorButton: View {
         return VStack {
             if #available(iOS 14.0, *) {
                 button
-                .fullScreenCover(isPresented: $isPresented, content: {
-                    StartController(module.navigationController, onDismissalAttempt: onDismissalAttempt)
-                })
+                .fullScreenCover(isPresented: $isPresented) {
+                    StartController(module, onDismissalAttempt: onDismissalAttempt)
+                }
             } else {
                 button
-                .sheet(isPresented: $isPresented){
+                .sheet(isPresented: $isPresented) {
                     StartController(module, onDismissalAttempt: onDismissalAttempt)
                 }
             }
@@ -90,7 +90,7 @@ public struct PreventorButton: View {
     
     func validateApiKey() {
         isLoading = true
-        if PSDKSession.shared.getInitializeResult() == .success {
+        if PSDKSession.shared.getInitializeState() == .success {
             PreventorSDK.shared.validateApiKey(
                 complete: { success in
                     isLoading = false

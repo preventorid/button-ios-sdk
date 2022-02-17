@@ -28,7 +28,7 @@ struct ErrorView: BaseView {
     
     var navigationSettings: PSDKNavigationSettings? {
         PSDKNavigationSettings(
-            hidesBackButton: true,
+            hideBackButton: true,
             trailingItems: trailingItems,
             navigationBarColor: .psdkWhite,
             isOpaque: true

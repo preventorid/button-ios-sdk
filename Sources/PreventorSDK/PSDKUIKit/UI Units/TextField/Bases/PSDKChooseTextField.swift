@@ -92,7 +92,9 @@ struct PSDKChooseTextField<Item: Identifiable>: View{
                 }
             }
         }
-        return tf.onTapGesture {
+        return ZStack {
+            tf
+        }.onTapGesture {
             showDropdown(.pressAny)
         }
     }
@@ -138,7 +140,7 @@ struct PSDKChooseTextField<Item: Identifiable>: View{
     }
     
     func showDropdown(_ mode: PressedMode) {
-        if mode == pressMode {
+        if pressMode == .pressAny || mode == pressMode {
             withAnimation {
                 self.modalRouter.pushRoute(
                     PSDKModalRoute(

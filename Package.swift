@@ -49,5 +49,6 @@ let package = Package(
         .binaryTarget(name: "RegulaCommon",
                       url: "https://pods.regulaforensics.com/RegulaCommon/6.1.102/RegulaCommon-6.1.102.zip",
                       checksum: "3d84f7a68029d4592cb1f707f7332a7cc62193b3dd8f81f897a5357c3a15aabf")
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )

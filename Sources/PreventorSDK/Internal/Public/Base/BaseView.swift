@@ -15,8 +15,8 @@ protocol BaseView: ReduxStoreView {
     @ViewBuilder var contentBody: Self.ContentBody { get }
     var customBackButton: UIBarButtonItem? { get }
     var trailingItems: [UIBarButtonItem] { get }
-    var hiddenTrailingItems: Bool { get }
-    var hidesBackButton: Bool { get }
+    var hideTrailingItems: Bool { get }
+    var hideBackButton: Bool { get }
     var showProgressBar: Bool { get }
     var showNextButton: Bool { get }
     var showPrevButton: Bool { get }
@@ -35,7 +35,7 @@ protocol BaseView: ReduxStoreView {
 extension BaseView {
     
     var customBackButton: UIBarButtonItem? { nil }
-    var hidesBackButton: Bool { false }
+    var hideBackButton: Bool { false }
     var showProgressBar: Bool { viewKey != nil }
     var showNextButton: Bool { true }
     var nextButtonStyle: PSDKButtonStyle {
@@ -75,7 +75,7 @@ extension BaseView {
         return trailingItems
     }
     
-    var hiddenTrailingItems: Bool {
+    var hideTrailingItems: Bool {
         false
     }
         
@@ -91,9 +91,9 @@ extension BaseView {
         return PSDKNavigationSettings(
             titleView: UIImageView(image: UIImage.navigationLogo),
             navigationBarHidden: false,
-            hidesBackButton: hidesBackButton || customBackButton != nil,
+            hideBackButton: hideBackButton || customBackButton != nil,
             leadingItems: customBackButton == nil ? [] : [customBackButton!],
-            trailingItems: hiddenTrailingItems ? [] : trailingItems,
+            trailingItems: hideTrailingItems ? [] : trailingItems,
             navigationBarColor: .psdkWhite,
             isOpaque: true
         )

@@ -6,22 +6,22 @@
 //
 
 import Foundation
-
-struct ModulePersonalInfo {
-    
-    static func build(dependencies: ModulePersonalInfoDependencies) {
-        let coordinator = ModulePersonalInfoCoordinator(presenter: dependencies.navigationController,
-                                           delegate: dependencies.delegate)
-        let moduleStore = ReduxBarrierStore<PSDKEmptyState>(
-            parent: dependencies.parentStore,
-            state: PSDKEmptyState(),
-            reducer: PSDKEmptyReducer(),
-            coordinator: coordinator,
-            appCoordinator: dependencies.parentCoordinator as? AppCoordinator
-        )
-        dependencies.parentCoordinator?.addChild(coordinator: coordinator)
-        dependencies.parentStore?.addChild(store: moduleStore)
-        coordinator.start()
-    }
-
-}
+//
+//struct ModulePersonalInfo {
+//    
+//    static func build(dependencies: ModulePersonalInfoDependencies) {
+//        let coordinator = ModulePersonalInfoCoordinator(presenter: dependencies.navigationController,
+//                                           delegate: dependencies.delegate)
+//        let moduleStore = ReduxBarrierStore<PSDKEmptyState>(
+//            parent: dependencies.parentStore,
+//            state: PSDKEmptyState(),
+//            reducer: PSDKEmptyReducer(),
+//            coordinator: coordinator,
+//            appCoordinator: dependencies.parentCoordinator as? AppCoordinator
+//        )
+//        dependencies.parentCoordinator?.addChild(coordinator: coordinator)
+//        dependencies.parentStore?.addChild(store: moduleStore)
+//        coordinator.start()
+//    }
+//
+//}

@@ -30,14 +30,6 @@ protocol ReduxStoreView: ReduxView {
     
 }
 
-protocol ReduxSemaphoreStoreView: ReduxView {
-    
-    associatedtype ViewState: ReduxState
-    
-    var store: ReduxSemaphoreStore<ViewState> { get }
-    
-}
-
 protocol ReduxBarrierStoreView: ReduxView {
     
     associatedtype ViewState: ReduxState

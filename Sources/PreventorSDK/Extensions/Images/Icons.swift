@@ -9,12 +9,24 @@ import SwiftUI
 
 extension UIImage {
     
+    static var preventorNavigationLogo: UIImage? = nil
+    
     static var preventorButtonLeftIcon: UIImage {
         UIImage.imageFromLocalBundle(named: "preventor-button-left-icon")
     }
     
     static var navigationLogo: UIImage {
-        UIImage.imageFromLocalBundle(named: "navigation-logo")
+        if let logo = preventorNavigationLogo {
+            return logo
+        } else {
+            if let base64 = PSDKSession.shared.generalConfig?.theme?.logo,
+               let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters),
+               let image = UIImage(data: data) {
+                preventorNavigationLogo = image
+                return image
+            }
+        }
+        return UIImage.imageFromLocalBundle(named: "navigation-logo")
     }
     
     static var bulletPointList: UIImage {

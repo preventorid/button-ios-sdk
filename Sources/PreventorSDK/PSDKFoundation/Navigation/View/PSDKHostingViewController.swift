@@ -93,7 +93,7 @@ final class PSDKHostingViewController: UIHostingController<AnyView> {
             // Back Button
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationItem.setHidesBackButton(
-            navigationBarSettings.hidesBackButton,
+            navigationBarSettings.hideBackButton,
             animated: animated
         )
         

@@ -21,7 +21,7 @@ struct PSDKNavigationSettings {
     var title: String?
     var titleView: UIView?
     var navigationBarHidden: Bool
-    var hidesBackButton: Bool
+    var hideBackButton: Bool
     var backButtonTitle: String?
     var leadingItems: [UIBarButtonItem]
     var trailingItems: [UIBarButtonItem]
@@ -34,7 +34,7 @@ struct PSDKNavigationSettings {
     init(title: String? = nil,
                 titleView: UIView? = nil,
                 navigationBarHidden: Bool = false,
-                hidesBackButton: Bool = false,
+                hideBackButton: Bool = false,
                 backButtonTitle: String? = nil,
                 leadingItems: [UIBarButtonItem] = [],
                 trailingItems: [UIBarButtonItem] = [],
@@ -46,7 +46,7 @@ struct PSDKNavigationSettings {
         self.title = title
         self.titleView = titleView
         self.navigationBarHidden = navigationBarHidden
-        self.hidesBackButton = hidesBackButton
+        self.hideBackButton = hideBackButton
         self.leadingItems = leadingItems
         self.trailingItems = trailingItems
         self.navigationBarColor = navigationBarColor

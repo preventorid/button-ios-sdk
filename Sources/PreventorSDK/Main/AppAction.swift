@@ -8,9 +8,7 @@
 enum AppFlow: FlowAction {
     
     case back
-    case initial(_ result: StartState.Result)
-    case stepDocument
-    case personalInfo
+    case startFlow
     case finishSDK(error: PreventorSDKErrorCode? = nil)
     case showCancelVerification(reason: PreventorSDKErrorCode)
     case showCameraAccessDenied

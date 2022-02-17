@@ -23,7 +23,7 @@ struct CancelVerificationView: ReduxStoreView {
         return PSDKNavigationSettings(
             titleView: UIImageView(image: UIImage.navigationLogo),
             navigationBarHidden: false,
-            hidesBackButton: true,
+            hideBackButton: true,
             trailingItems: trailingItems
         )
     }

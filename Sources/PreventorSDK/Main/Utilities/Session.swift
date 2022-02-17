@@ -17,6 +17,15 @@ class PSDKSession {
     var initializeState: PSDKResultState = .none
     var generalConfig: GeneralSettingsResponse? = nil
     var currentWorkflow: Workflow? = nil
+    var biometricsResult: TransactionStatus = .FAILED
+    var streamlineResult: TransactionStatus = .FAILED
+    
+    var isStreamline: Bool {
+        VerificationsID.userConfirmation.toVerification?.checks.contains(where: { check in
+            check.id == ViewID.userInteraction.rawValue
+        }) ?? false
+    }
+    
     
     init() {
         user = User()
@@ -45,11 +54,11 @@ class PSDKSession {
         currentWorkflow != nil
     }
     
-    func setInitializeResult(status: PSDKResultState) {
+    func setInitializeState(status: PSDKResultState) {
         initializeState = status
     }
     
-    func getInitializeResult() -> PSDKResultState {
+    func getInitializeState() -> PSDKResultState {
         initializeState
     }
     
@@ -113,6 +122,14 @@ class PSDKSession {
         }
     }
     
+    func setCountry(country: CountryModel) {
+        session.countrySelected = country
+    }
+    
+    func getCountrySelected() -> CountryModel? {
+        session.countrySelected
+    }
+    
     func setEmail(email: String) {
         session.email = email
     }
@@ -149,12 +166,8 @@ class PSDKSession {
         DocumentModel.DocType(rawValue: getDocumentType())?.quantity ?? .two
     }
     
-    func setDocumentIssuingCountry(issuingCountry: String) {
-        session.issuingCountry = issuingCountry
-    }
-    
     func getDocumentIssuingCountry() -> String? {
-        session.issuingCountry
+        session.countrySelected?.ic
     }
     
     func setDocumentFront(image: UIImage) {
@@ -211,12 +224,12 @@ class PSDKSession {
     struct Session {
         
         var documentType: String?
-        var issuingCountry: String?
         var documentBack: String?
         var documentFront: String?
         var selfie01: String?
         var selfie02: String?
         var email: String?
+        var countrySelected: CountryModel?
         var phoneCountryCode: String?
         var phone: String?
         
