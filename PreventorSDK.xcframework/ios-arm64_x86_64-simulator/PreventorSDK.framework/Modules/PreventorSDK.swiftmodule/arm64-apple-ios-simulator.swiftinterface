@@ -1,0 +1,63 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PreventorSDK
+import AVFoundation
+import Combine
+import DocumentReader
+import Foundation
+@_exported import PreventorSDK
+import Swift
+import SwiftUI
+import UIKit
+import Vision
+import _Concurrency
+public protocol PSDKDelegate {
+  func onStart()
+  func onFinish()
+  func onError(error: PreventorSDK.PSDKErrorCode)
+  func onSubmitted()
+}
+public struct PreventorButton : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init()
+  public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
+}
+public struct PSDKConfig {
+  public init(flowType: Swift.String, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
+}
+public enum PSDKErrorCode : Swift.String {
+  case CANCELLED_BY_USER
+  case BIOMETRIC_AUTHENTICATION_FAILED
+  case BAD_STEP_BY_USER
+  case MISSING_PARAMETERS
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSDKResultState {
+  case none
+  case loading
+  case success
+  case failed
+  public static func == (a: PreventorSDK.PSDKResultState, b: PreventorSDK.PSDKResultState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class PSDK {
+  public static let shared: PreventorSDK.PSDK
+  public func callBack(delegate: PreventorSDK.PSDKDelegate)
+  public func initialize(config: PreventorSDK.PSDKConfig, complete: @escaping (PreventorSDK.PSDKResultState) -> Swift.Void)
+  public func validateApiKey(complete: @escaping (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
+extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
+extension PreventorSDK.PSDKErrorCode : Swift.RawRepresentable {}
+extension PreventorSDK.PSDKResultState : Swift.Equatable {}
+extension PreventorSDK.PSDKResultState : Swift.Hashable {}
