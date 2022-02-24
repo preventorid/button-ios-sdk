@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint PSDKCOCO.podspec' to ensure this is a
+# Be sure to run `pod lib lint PreventorSDK.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'PSDKCOCO'
+  s.name             = 'PreventorSDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of PSDKCOCO.'
+  s.summary          = 'A short description of PreventorSDK.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/Alexander Rodriguez/PSDKCOCO'
+  s.homepage         = 'git@github.com:preventorid/button-ios-sdk.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Alexander Rodriguez' => 'adragonrc@gmail.com' }
-  s.source           = { :git => 'https://github.com/Alexander Rodriguez/PSDKCOCO.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:preventorid/button-ios-sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   s.swift_version      = "5.0"
   s.ios.deployment_target = '13.0'
@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'PreventorSDKWrapper/**/*'
   
   # s.resource_bundles = {
-  #   'PSDKCOCO' => ['PSDKCOCO/Assets/*.png']
+  #   'PreventorSDK' => ['PreventorSDK/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
@@ -43,4 +43,4 @@ TODO: Add long description of the pod here.
   s.dependency 'DocumentReader', '6.1.2358'
   s.dependency 'DocumentReaderFullRFID', '6.1.5791'
 
-end
+end 

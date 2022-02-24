@@ -4,7 +4,7 @@ A description of this package.
 
 
 A description of this pod.
-[![CI Status](https://img.shields.io/travis/Alexander Rodriguez/PreventorSDK.svg?style=flat)](https://travis-ci.org/Alexander Rodriguez/PreventorSDK)
+[![CI Status](https://img.shields.io/travis/PreventorID/PreventorSDK.svg?style=flat)](https://travis-ci.org/PreventorID/PreventorSDK)
 [![Version](https://img.shields.io/cocoapods/v/PreventorSDK.svg?style=flat)](https://cocoapods.org/pods/PreventorSDK)
 [![License](https://img.shields.io/cocoapods/l/PreventorSDK.svg?style=flat)](https://cocoapods.org/pods/PreventorSDK)
 [![Platform](https://img.shields.io/cocoapods/p/PreventorSDK.svg?style=flat)](https://cocoapods.org/pods/PreventorSDK)
