@@ -20,6 +20,23 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+<<<<<<< Updated upstream
+=======
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PreventorSDKWrapper"
+               BuildableName = "PreventorSDKWrapper"
+               BlueprintName = "PreventorSDKWrapper"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+>>>>>>> Stashed changes
       </BuildActionEntries>
    </BuildAction>
    <TestAction
