@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'PreventorSDK aims to give users truth about their identity, through the use of AI among other resources'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'git@github.com:preventorid/button-ios-sdk.git'
+  s.homepage         = 'https://github.com/preventorid/button-ios-sdk.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Alexander Rodriguez' => 'adragonrc@gmail.com' }
-  s.source           = { :git => 'git@github.com:preventorid/button-ios-sdk.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/preventorid/button-ios-sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   s.swift_version      = "5.0"
   s.ios.deployment_target = '13.0'
