@@ -16,22 +16,19 @@ Pod::Spec.new do |s|
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
+PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
+PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
+PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
                        DESC
 
   s.homepage         = 'https://github.com/preventorid/button-ios-sdk.git'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Alexander Rodriguez' => 'adragonrc@gmail.com' }
+  s.author           = { 'PreventorID' => 'preventorid.developer@gmail.com' }
   s.source           = { :git => 'https://github.com/preventorid/button-ios-sdk.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  s.swift_version      = "5.0"
+  s.swift_version = "5.0"
   s.ios.deployment_target = '13.0'
-
-  s.source_files = 'PreventorSDKWrapper/**/*'
-  
   # s.resource_bundles = {
   #   'PreventorSDK' => ['PreventorSDK/Assets/*.png']
   # }
@@ -39,7 +36,7 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.vendored_frameworks = "PreventorSDK.xcframework"
+  s.ios.vendored_frameworks = 'PreventorSDK.xcframework'
   s.dependency 'DocumentReader', '6.1.2358'
   s.dependency 'DocumentReaderFullRFID', '6.1.5791'
 
