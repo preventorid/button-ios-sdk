@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'PreventorSDK aims to give users truth about their identity, through the use of AI among other resources'
 
 # This description is used to generate tags and improve search results.
@@ -36,7 +36,7 @@ PreventorSDK aims to give users truth about their identity, through the use of A
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.ios.vendored_frameworks = 'PreventorSDK.xcframework'
+  s.vendored_frameworks = 'PreventorSDK.xcframework', 'PLottie.xcframework', 'PAlamofire.xcframework'
   s.dependency 'DocumentReader', '6.1.2358'
   s.dependency 'DocumentReaderFullRFID', '6.1.5791'
 

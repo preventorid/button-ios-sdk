@@ -5,16 +5,18 @@ import AVFoundation
 import Combine
 import DocumentReader
 import Foundation
+import PAlamofire
+import PLottie
 @_exported import PreventorSDK
 import Swift
 import SwiftUI
 import UIKit
 import Vision
 import _Concurrency
-public protocol PSDKDelegate {
+public protocol PreventorSDKDelegate {
   func onStart()
   func onFinish()
-  func onError(error: PreventorSDK.PSDKErrorCode)
+  func onError(error: PreventorSDK.PreventorSDKErrorCode)
   func onSubmitted()
 }
 public struct PreventorButton : SwiftUI.View {
@@ -24,10 +26,10 @@ public struct PreventorButton : SwiftUI.View {
   public init()
   public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
 }
-public struct PSDKConfig {
+public struct PreventorSDKConfig {
   public init(flowType: Swift.String, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
 }
-public enum PSDKErrorCode : Swift.String {
+public enum PreventorSDKErrorCode : Swift.String {
   case CANCELLED_BY_USER
   case BIOMETRIC_AUTHENTICATION_FAILED
   case BAD_STEP_BY_USER
@@ -38,12 +40,12 @@ public enum PSDKErrorCode : Swift.String {
     get
   }
 }
-public enum PSDKResultState {
+public enum PreventorSDKResultState {
   case none
   case loading
   case success
   case failed
-  public static func == (a: PreventorSDK.PSDKResultState, b: PreventorSDK.PSDKResultState) -> Swift.Bool
+  public static func == (a: PreventorSDK.PreventorSDKResultState, b: PreventorSDK.PreventorSDKResultState) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
@@ -51,13 +53,13 @@ public enum PSDKResultState {
 }
 @_hasMissingDesignatedInitializers public class PSDK {
   public static let shared: PreventorSDK.PSDK
-  public func callBack(delegate: PreventorSDK.PSDKDelegate)
-  public func initialize(config: PreventorSDK.PSDKConfig, complete: @escaping (PreventorSDK.PSDKResultState) -> Swift.Void)
+  public func callBack(delegate: PreventorSDK.PreventorSDKDelegate)
+  public func initialize(config: PreventorSDK.PreventorSDKConfig, complete: @escaping (PreventorSDK.PreventorSDKResultState) -> Swift.Void)
   public func validateApiKey(complete: @escaping (Swift.Bool) -> Swift.Void)
   @objc deinit
 }
-extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
-extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
-extension PreventorSDK.PSDKErrorCode : Swift.RawRepresentable {}
-extension PreventorSDK.PSDKResultState : Swift.Equatable {}
-extension PreventorSDK.PSDKResultState : Swift.Hashable {}
+extension PreventorSDK.PreventorSDKErrorCode : Swift.Equatable {}
+extension PreventorSDK.PreventorSDKErrorCode : Swift.Hashable {}
+extension PreventorSDK.PreventorSDKErrorCode : Swift.RawRepresentable {}
+extension PreventorSDK.PreventorSDKResultState : Swift.Equatable {}
+extension PreventorSDK.PreventorSDKResultState : Swift.Hashable {}

@@ -10,19 +10,19 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        .library(name: "PreventorSDK", targets: ["PreventorSDKWrapper"])
+        .library(name: "PreventorSDK", targets: ["PreventorSDK",
+                                                 "PLottie",
+                                                 "PAlamofire",
+                                                 "PAlamofire",
+                                                 "DocumentReaderCore",
+                                                 "DocumentReader",
+                                                 "RegulaCommon"])
     ],
     dependencies: [],
     targets: [
-        .target(name: "PreventorSDKWrapper",
-                dependencies: [
-                    .target(name: "PreventorSDK", condition: .when(platforms: [.iOS])),
-                    .target(name: "DocumentReaderCore", condition: .when(platforms: [.iOS])),
-                    .target(name: "DocumentReader", condition: .when(platforms: [.iOS])),
-                    .target(name: "RegulaCommon", condition: .when(platforms: [.iOS]))],
-                path: "PreventorSDKWrapper",
-                swiftSettings: [.define("BUILD_LIBRARY_FOR_DISTRIBUTION=YES")]),
         .binaryTarget(name: "PreventorSDK", path: "PreventorSDK.xcframework"),
+        .binaryTarget(name: "PLottie", path: "PLottie.xcframework"),
+        .binaryTarget(name: "PAlamofire", path: "PAlamofire.xcframework"),
         .binaryTarget(name: "DocumentReaderCore",
                       url: "https://pods.regulaforensics.com/FullRFID/6.1.5791/DocumentReaderCore_fullrfid_6.1.5791.zip",
                       checksum: "2cac3da9baf9b8342113ee410b3f507a7991f833a6b95663bf7b1d48ad5b800f"),

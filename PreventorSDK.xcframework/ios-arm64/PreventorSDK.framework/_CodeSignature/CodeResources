@@ -6,11 +6,35 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		p/d3Dog612Pgv6haa5VK9TYBDVY=
+		IpxuvDwTYJMYeEVBh3Fyu7RLehI=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
 		OPvSlle4Dl12fqmrN2tQMz5uqHM=
+		</data>
+		<key>Frameworks/PAlamofire.framework/Info.plist</key>
+		<data>
+		/Ix0O6IZwRrYSc8VVwwRwU1pymY=
+		</data>
+		<key>Frameworks/PAlamofire.framework/PAlamofire</key>
+		<data>
+		oqs4EalwFITYjcdjTQVmqGguJyQ=
+		</data>
+		<key>Frameworks/PAlamofire.framework/_CodeSignature/CodeResources</key>
+		<data>
+		+2C3+OtUPhjWMG5yA2Qa5wiu3Vc=
+		</data>
+		<key>Frameworks/PLottie.framework/Info.plist</key>
+		<data>
+		MHY/1mm/sfZ2XzNN5M0Dc3wtjPQ=
+		</data>
+		<key>Frameworks/PLottie.framework/PLottie</key>
+		<data>
+		v5FrECpZs5gyQ7jUwAoGLuUoKlo=
+		</data>
+		<key>Frameworks/PLottie.framework/_CodeSignature/CodeResources</key>
+		<data>
+		tQpZNGqogIduJ3G/PkzHgZdfbGs=
 		</data>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
@@ -18,7 +42,7 @@
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
-		+nPSqoQDI9mCu/la5vXSUzhYW+0=
+		hxFK/imnALvsQT6/8wpXzUM/rEU=
 		</data>
 		<key>Hind-Bold.ttf</key>
 		<data>
@@ -50,11 +74,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		wMmxmcyNKRP7cCWkWzJUubFes/M=
+		p6/PsTt+lwC7dLSiD28z64GYW6A=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		2/Lz3fk575EZtyVEkZ7yu62KnWI=
+		3ZR5UTVeBm5lbj34ZGpzPlHZe8E=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -62,11 +86,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		wMmxmcyNKRP7cCWkWzJUubFes/M=
+		p6/PsTt+lwC7dLSiD28z64GYW6A=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		2/Lz3fk575EZtyVEkZ7yu62KnWI=
+		3ZR5UTVeBm5lbj34ZGpzPlHZe8E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -205,7 +229,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VEJ3qSgKuuKHKbwRIN1CRZlPKAnPQ8A7ZudndCBdeeQ=
+			RDhmaxgfd0dnK5B5Dv8AzcNvtnibJljVre10PWuDYLk=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -213,6 +237,48 @@
 			<key>hash2</key>
 			<data>
 			RDsBYPDpjHy4ljjfbVhgO8CjzwkG9/E6fB0yoJcJ//A=
+			</data>
+		</dict>
+		<key>Frameworks/PAlamofire.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HQhHf1wbxAJ76G8a1uCaiLsDl4Yd98e+NtcxvcERZ54=
+			</data>
+		</dict>
+		<key>Frameworks/PAlamofire.framework/PAlamofire</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			T0fF4HDV/ey28+q90z2aYjXf1/H7+1JKnYHZBgasylc=
+			</data>
+		</dict>
+		<key>Frameworks/PAlamofire.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			E5KE3LcoKQNOnDs58T0E6TZqkjA8z2j0QAx/Dhtkyys=
+			</data>
+		</dict>
+		<key>Frameworks/PLottie.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6RKSPKWAKRYED96+tTe8SpX6Q2DQvGsTNmyOcLzhQPY=
+			</data>
+		</dict>
+		<key>Frameworks/PLottie.framework/PLottie</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+vJJAc+HW1jpyS/m7wxu/I+DQyzJwdGkjgd6g6DWyIk=
+			</data>
+		</dict>
+		<key>Frameworks/PLottie.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			foqHiypoBWD6xilgYsTzfeEWajETybGn64DpH7J8J0M=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK-Swift.h</key>
@@ -226,7 +292,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ymobKUNZFe7Sh9AIAOgmUORs2H3ggKOdWJTibotDRDw=
+			jSof9BkY1QB9MnqkWEz+Lb4jT1HWxvoYh0QJpS15fXI=
 			</data>
 		</dict>
 		<key>Hind-Bold.ttf</key>
@@ -275,14 +341,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uTipwWB0ymv2PqbTu7891OmlWJsL9RgX6kP1Wzs2KGE=
+			Jz76a9QA2v5BUAL2qOpKvwNJ6VdkhoyddtUFmkzJy80=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5HwIMcfiIPsZiMe5aoLmgcIpabN/E36Hb1ujNngSmdc=
+			xPjqVUvp5x6M7tHfgyBrs3DGTMyevnnV+Iy/up5NjYQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
@@ -296,14 +362,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uTipwWB0ymv2PqbTu7891OmlWJsL9RgX6kP1Wzs2KGE=
+			Jz76a9QA2v5BUAL2qOpKvwNJ6VdkhoyddtUFmkzJy80=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5HwIMcfiIPsZiMe5aoLmgcIpabN/E36Hb1ujNngSmdc=
+			xPjqVUvp5x6M7tHfgyBrs3DGTMyevnnV+Iy/up5NjYQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

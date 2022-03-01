@@ -1,0 +1,2157 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PAlamofire
+import Combine
+import Dispatch
+import Foundation
+import MobileCoreServices
+@_exported import PAlamofire
+import Swift
+import SystemConfiguration
+import UniformTypeIdentifiers
+import _Concurrency
+open class RetryPolicy : PAlamofire.RequestInterceptor {
+  public static let defaultRetryLimit: Swift.UInt
+  public static let defaultExponentialBackoffBase: Swift.UInt
+  public static let defaultExponentialBackoffScale: Swift.Double
+  public static let defaultRetryableHTTPMethods: Swift.Set<PAlamofire.HTTPMethod>
+  public static let defaultRetryableHTTPStatusCodes: Swift.Set<Swift.Int>
+  public static let defaultRetryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
+  final public let retryLimit: Swift.UInt
+  final public let exponentialBackoffBase: Swift.UInt
+  final public let exponentialBackoffScale: Swift.Double
+  final public let retryableHTTPMethods: Swift.Set<PAlamofire.HTTPMethod>
+  final public let retryableHTTPStatusCodes: Swift.Set<Swift.Int>
+  final public let retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
+  public init(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<PAlamofire.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods, retryableHTTPStatusCodes: Swift.Set<Swift.Int> = RetryPolicy.defaultRetryableHTTPStatusCodes, retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code> = RetryPolicy.defaultRetryableURLErrorCodes)
+  open func retry(_ request: PAlamofire.Request, for session: PAlamofire.Session, dueTo error: Swift.Error, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+  open func shouldRetry(request: PAlamofire.Request, dueTo error: Swift.Error) -> Swift.Bool
+  @objc deinit
+}
+extension PAlamofire.RequestInterceptor where Self == PAlamofire.RetryPolicy {
+  public static var retryPolicy: PAlamofire.RetryPolicy {
+    get
+  }
+  public static func retryPolicy(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<PAlamofire.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods, retryableHTTPStatusCodes: Swift.Set<Swift.Int> = RetryPolicy.defaultRetryableHTTPStatusCodes, retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code> = RetryPolicy.defaultRetryableURLErrorCodes) -> PAlamofire.RetryPolicy
+}
+open class ConnectionLostRetryPolicy : PAlamofire.RetryPolicy {
+  public init(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<PAlamofire.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods)
+  @objc deinit
+}
+extension PAlamofire.RequestInterceptor where Self == PAlamofire.ConnectionLostRetryPolicy {
+  public static var connectionLostRetryPolicy: PAlamofire.ConnectionLostRetryPolicy {
+    get
+  }
+  public static func connectionLostRetryPolicy(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<PAlamofire.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods) -> PAlamofire.ConnectionLostRetryPolicy
+}
+public protocol URLConvertible {
+  func asURL() throws -> Foundation.URL
+}
+extension Swift.String : PAlamofire.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+extension Foundation.URL : PAlamofire.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+extension Foundation.URLComponents : PAlamofire.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+public protocol URLRequestConvertible {
+  func asURLRequest() throws -> Foundation.URLRequest
+}
+extension PAlamofire.URLRequestConvertible {
+  public var urlRequest: Foundation.URLRequest? {
+    get
+  }
+}
+extension Foundation.URLRequest : PAlamofire.URLRequestConvertible {
+  public func asURLRequest() throws -> Foundation.URLRequest
+}
+extension Foundation.URLRequest {
+  public init(url: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod, headers: PAlamofire.HTTPHeaders? = nil) throws
+}
+public typealias AFResult<Success> = Swift.Result<Success, PAlamofire.AFError>
+extension PAlamofire.Request {
+  public static let didResumeNotification: Foundation.Notification.Name
+  public static let didSuspendNotification: Foundation.Notification.Name
+  public static let didCancelNotification: Foundation.Notification.Name
+  public static let didFinishNotification: Foundation.Notification.Name
+  public static let didResumeTaskNotification: Foundation.Notification.Name
+  public static let didSuspendTaskNotification: Foundation.Notification.Name
+  public static let didCancelTaskNotification: Foundation.Notification.Name
+  public static let didCompleteTaskNotification: Foundation.Notification.Name
+}
+extension Foundation.Notification {
+  public var request: PAlamofire.Request? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class AlamofireNotifications : PAlamofire.EventMonitor {
+  final public func requestDidResume(_ request: PAlamofire.Request)
+  final public func requestDidSuspend(_ request: PAlamofire.Request)
+  final public func requestDidCancel(_ request: PAlamofire.Request)
+  final public func requestDidFinish(_ request: PAlamofire.Request)
+  final public func request(_ request: PAlamofire.Request, didResumeTask task: Foundation.URLSessionTask)
+  final public func request(_ request: PAlamofire.Request, didSuspendTask task: Foundation.URLSessionTask)
+  final public func request(_ request: PAlamofire.Request, didCancelTask task: Foundation.URLSessionTask)
+  final public func request(_ request: PAlamofire.Request, didCompleteTask task: Foundation.URLSessionTask, with error: PAlamofire.AFError?)
+  @objc deinit
+}
+public struct HTTPMethod : Swift.RawRepresentable, Swift.Equatable, Swift.Hashable {
+  public static let connect: PAlamofire.HTTPMethod
+  public static let delete: PAlamofire.HTTPMethod
+  public static let get: PAlamofire.HTTPMethod
+  public static let head: PAlamofire.HTTPMethod
+  public static let options: PAlamofire.HTTPMethod
+  public static let patch: PAlamofire.HTTPMethod
+  public static let post: PAlamofire.HTTPMethod
+  public static let put: PAlamofire.HTTPMethod
+  public static let query: PAlamofire.HTTPMethod
+  public static let trace: PAlamofire.HTTPMethod
+  public let rawValue: Swift.String
+  public init(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+}
+public protocol AuthenticationCredential {
+  var requiresRefresh: Swift.Bool { get }
+}
+public protocol Authenticator : AnyObject {
+  associatedtype Credential : PAlamofire.AuthenticationCredential
+  func apply(_ credential: Self.Credential, to urlRequest: inout Foundation.URLRequest)
+  func refresh(_ credential: Self.Credential, for session: PAlamofire.Session, completion: @escaping (Swift.Result<Self.Credential, Swift.Error>) -> Swift.Void)
+  func didRequest(_ urlRequest: Foundation.URLRequest, with response: Foundation.HTTPURLResponse, failDueToAuthenticationError error: Swift.Error) -> Swift.Bool
+  func isRequest(_ urlRequest: Foundation.URLRequest, authenticatedWith credential: Self.Credential) -> Swift.Bool
+}
+public enum AuthenticationError : Swift.Error {
+  case missingCredential
+  case excessiveRefresh
+  public static func == (a: PAlamofire.AuthenticationError, b: PAlamofire.AuthenticationError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class AuthenticationInterceptor<AuthenticatorType> : PAlamofire.RequestInterceptor where AuthenticatorType : PAlamofire.Authenticator {
+  public typealias Credential = AuthenticatorType.Credential
+  public struct RefreshWindow {
+    public let interval: Foundation.TimeInterval
+    public let maximumAttempts: Swift.Int
+    public init(interval: Foundation.TimeInterval = 30.0, maximumAttempts: Swift.Int = 5)
+  }
+  public var credential: PAlamofire.AuthenticationInterceptor<AuthenticatorType>.Credential? {
+    get
+    set
+  }
+  public init(authenticator: AuthenticatorType, credential: PAlamofire.AuthenticationInterceptor<AuthenticatorType>.Credential? = nil, refreshWindow: PAlamofire.AuthenticationInterceptor<AuthenticatorType>.RefreshWindow? = RefreshWindow())
+  public func adapt(_ urlRequest: Foundation.URLRequest, for session: PAlamofire.Session, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  public func retry(_ request: PAlamofire.Request, for session: PAlamofire.Session, dueTo error: Swift.Error, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+  @objc deinit
+}
+public let AF: PAlamofire.Session
+extension PAlamofire.Request {
+  public typealias ValidationResult = Swift.Result<Swift.Void, Swift.Error>
+}
+extension PAlamofire.DataRequest {
+  public typealias Validation = (Foundation.URLRequest?, Foundation.HTTPURLResponse, Foundation.Data?) -> PAlamofire.DataRequest.ValidationResult
+  @discardableResult
+  public func validate<S>(statusCode acceptableStatusCodes: S) -> Self where S : Swift.Sequence, S.Element == Swift.Int
+  @discardableResult
+  public func validate<S>(contentType acceptableContentTypes: @autoclosure @escaping () -> S) -> Self where S : Swift.Sequence, S.Element == Swift.String
+  @discardableResult
+  public func validate() -> Self
+}
+extension PAlamofire.DataStreamRequest {
+  public typealias Validation = (_ request: Foundation.URLRequest?, _ response: Foundation.HTTPURLResponse) -> PAlamofire.DataStreamRequest.ValidationResult
+  @discardableResult
+  final public func validate<S>(statusCode acceptableStatusCodes: S) -> Self where S : Swift.Sequence, S.Element == Swift.Int
+  @discardableResult
+  final public func validate<S>(contentType acceptableContentTypes: @autoclosure @escaping () -> S) -> Self where S : Swift.Sequence, S.Element == Swift.String
+  @discardableResult
+  final public func validate() -> Self
+}
+extension PAlamofire.DownloadRequest {
+  public typealias Validation = (_ request: Foundation.URLRequest?, _ response: Foundation.HTTPURLResponse, _ fileURL: Foundation.URL?) -> PAlamofire.DownloadRequest.ValidationResult
+  @discardableResult
+  public func validate<S>(statusCode acceptableStatusCodes: S) -> Self where S : Swift.Sequence, S.Element == Swift.Int
+  @discardableResult
+  public func validate<S>(contentType acceptableContentTypes: @autoclosure @escaping () -> S) -> Self where S : Swift.Sequence, S.Element == Swift.String
+  @discardableResult
+  public func validate() -> Self
+}
+public enum AFError : Swift.Error {
+  public enum MultipartEncodingFailureReason {
+    case bodyPartURLInvalid(url: Foundation.URL)
+    case bodyPartFilenameInvalid(in: Foundation.URL)
+    case bodyPartFileNotReachable(at: Foundation.URL)
+    case bodyPartFileNotReachableWithError(atURL: Foundation.URL, error: Swift.Error)
+    case bodyPartFileIsDirectory(at: Foundation.URL)
+    case bodyPartFileSizeNotAvailable(at: Foundation.URL)
+    case bodyPartFileSizeQueryFailedWithError(forURL: Foundation.URL, error: Swift.Error)
+    case bodyPartInputStreamCreationFailed(for: Foundation.URL)
+    case outputStreamCreationFailed(for: Foundation.URL)
+    case outputStreamFileAlreadyExists(at: Foundation.URL)
+    case outputStreamURLInvalid(url: Foundation.URL)
+    case outputStreamWriteFailed(error: Swift.Error)
+    case inputStreamReadFailed(error: Swift.Error)
+  }
+  public struct UnexpectedInputStreamLength : Swift.Error {
+    public var bytesExpected: Swift.UInt64
+    public var bytesRead: Swift.UInt64
+  }
+  public enum ParameterEncodingFailureReason {
+    case missingURL
+    case jsonEncodingFailed(error: Swift.Error)
+    case customEncodingFailed(error: Swift.Error)
+  }
+  public enum ParameterEncoderFailureReason {
+    public enum RequiredComponent {
+      case url
+      case httpMethod(rawValue: Swift.String)
+    }
+    case missingRequiredComponent(PAlamofire.AFError.ParameterEncoderFailureReason.RequiredComponent)
+    case encoderFailed(error: Swift.Error)
+  }
+  public enum ResponseValidationFailureReason {
+    case dataFileNil
+    case dataFileReadFailed(at: Foundation.URL)
+    case missingContentType(acceptableContentTypes: [Swift.String])
+    case unacceptableContentType(acceptableContentTypes: [Swift.String], responseContentType: Swift.String)
+    case unacceptableStatusCode(code: Swift.Int)
+    case customValidationFailed(error: Swift.Error)
+  }
+  public enum ResponseSerializationFailureReason {
+    case inputDataNilOrZeroLength
+    case inputFileNil
+    case inputFileReadFailed(at: Foundation.URL)
+    case stringSerializationFailed(encoding: Swift.String.Encoding)
+    case jsonSerializationFailed(error: Swift.Error)
+    case decodingFailed(error: Swift.Error)
+    case customSerializationFailed(error: Swift.Error)
+    case invalidEmptyResponse(type: Swift.String)
+  }
+  public enum ServerTrustFailureReason {
+    public struct Output {
+      public let host: Swift.String
+      public let trust: Security.SecTrust
+      public let status: Darwin.OSStatus
+      public let result: Security.SecTrustResultType
+    }
+    case noRequiredEvaluator(host: Swift.String)
+    case noCertificatesFound
+    case noPublicKeysFound
+    case policyApplicationFailed(trust: Security.SecTrust, policy: Security.SecPolicy, status: Darwin.OSStatus)
+    case settingAnchorCertificatesFailed(status: Darwin.OSStatus, certificates: [Security.SecCertificate])
+    case revocationPolicyCreationFailed
+    case trustEvaluationFailed(error: Swift.Error?)
+    case defaultEvaluationFailed(output: PAlamofire.AFError.ServerTrustFailureReason.Output)
+    case hostValidationFailed(output: PAlamofire.AFError.ServerTrustFailureReason.Output)
+    case revocationCheckFailed(output: PAlamofire.AFError.ServerTrustFailureReason.Output, options: PAlamofire.RevocationTrustEvaluator.Options)
+    case certificatePinningFailed(host: Swift.String, trust: Security.SecTrust, pinnedCertificates: [Security.SecCertificate], serverCertificates: [Security.SecCertificate])
+    case publicKeyPinningFailed(host: Swift.String, trust: Security.SecTrust, pinnedKeys: [Security.SecKey], serverKeys: [Security.SecKey])
+    case customEvaluationFailed(error: Swift.Error)
+  }
+  public enum URLRequestValidationFailureReason {
+    case bodyDataInGETRequest(Foundation.Data)
+  }
+  case createUploadableFailed(error: Swift.Error)
+  case createURLRequestFailed(error: Swift.Error)
+  case downloadedFileMoveFailed(error: Swift.Error, source: Foundation.URL, destination: Foundation.URL)
+  case explicitlyCancelled
+  case invalidURL(url: PAlamofire.URLConvertible)
+  case multipartEncodingFailed(reason: PAlamofire.AFError.MultipartEncodingFailureReason)
+  case parameterEncodingFailed(reason: PAlamofire.AFError.ParameterEncodingFailureReason)
+  case parameterEncoderFailed(reason: PAlamofire.AFError.ParameterEncoderFailureReason)
+  case requestAdaptationFailed(error: Swift.Error)
+  case requestRetryFailed(retryError: Swift.Error, originalError: Swift.Error)
+  case responseValidationFailed(reason: PAlamofire.AFError.ResponseValidationFailureReason)
+  case responseSerializationFailed(reason: PAlamofire.AFError.ResponseSerializationFailureReason)
+  case serverTrustEvaluationFailed(reason: PAlamofire.AFError.ServerTrustFailureReason)
+  case sessionDeinitialized
+  case sessionInvalidated(error: Swift.Error?)
+  case sessionTaskFailed(error: Swift.Error)
+  case urlRequestValidationFailed(reason: PAlamofire.AFError.URLRequestValidationFailureReason)
+}
+extension Swift.Error {
+  public var asAFError: PAlamofire.AFError? {
+    get
+  }
+  public func asAFError(orFailWith message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line) -> PAlamofire.AFError
+}
+extension PAlamofire.AFError {
+  public var isSessionDeinitializedError: Swift.Bool {
+    get
+  }
+  public var isSessionInvalidatedError: Swift.Bool {
+    get
+  }
+  public var isExplicitlyCancelledError: Swift.Bool {
+    get
+  }
+  public var isInvalidURLError: Swift.Bool {
+    get
+  }
+  public var isParameterEncodingError: Swift.Bool {
+    get
+  }
+  public var isParameterEncoderError: Swift.Bool {
+    get
+  }
+  public var isMultipartEncodingError: Swift.Bool {
+    get
+  }
+  public var isRequestAdaptationError: Swift.Bool {
+    get
+  }
+  public var isResponseValidationError: Swift.Bool {
+    get
+  }
+  public var isResponseSerializationError: Swift.Bool {
+    get
+  }
+  public var isServerTrustEvaluationError: Swift.Bool {
+    get
+  }
+  public var isRequestRetryError: Swift.Bool {
+    get
+  }
+  public var isCreateUploadableError: Swift.Bool {
+    get
+  }
+  public var isCreateURLRequestError: Swift.Bool {
+    get
+  }
+  public var isDownloadedFileMoveError: Swift.Bool {
+    get
+  }
+  public var isSessionTaskError: Swift.Bool {
+    get
+  }
+}
+extension PAlamofire.AFError {
+  public var urlConvertible: PAlamofire.URLConvertible? {
+    get
+  }
+  public var url: Foundation.URL? {
+    get
+  }
+  public var underlyingError: Swift.Error? {
+    get
+  }
+  public var acceptableContentTypes: [Swift.String]? {
+    get
+  }
+  public var responseContentType: Swift.String? {
+    get
+  }
+  public var responseCode: Swift.Int? {
+    get
+  }
+  public var failedStringEncoding: Swift.String.Encoding? {
+    get
+  }
+  public var sourceURL: Foundation.URL? {
+    get
+  }
+  public var destinationURL: Foundation.URL? {
+    get
+  }
+  public var downloadResumeData: Foundation.Data? {
+    get
+  }
+}
+extension PAlamofire.AFError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+open class Session {
+  public static let `default`: PAlamofire.Session
+  final public let session: Foundation.URLSession
+  final public let delegate: PAlamofire.SessionDelegate
+  final public let rootQueue: Dispatch.DispatchQueue
+  final public let startRequestsImmediately: Swift.Bool
+  final public let requestQueue: Dispatch.DispatchQueue
+  final public let serializationQueue: Dispatch.DispatchQueue
+  final public let interceptor: PAlamofire.RequestInterceptor?
+  final public let serverTrustManager: PAlamofire.ServerTrustManager?
+  final public let redirectHandler: PAlamofire.RedirectHandler?
+  final public let cachedResponseHandler: PAlamofire.CachedResponseHandler?
+  final public let eventMonitor: PAlamofire.CompositeEventMonitor
+  final public let defaultEventMonitors: [PAlamofire.EventMonitor]
+  public init(session: Foundation.URLSession, delegate: PAlamofire.SessionDelegate, rootQueue: Dispatch.DispatchQueue, startRequestsImmediately: Swift.Bool = true, requestQueue: Dispatch.DispatchQueue? = nil, serializationQueue: Dispatch.DispatchQueue? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, serverTrustManager: PAlamofire.ServerTrustManager? = nil, redirectHandler: PAlamofire.RedirectHandler? = nil, cachedResponseHandler: PAlamofire.CachedResponseHandler? = nil, eventMonitors: [PAlamofire.EventMonitor] = [])
+  convenience public init(configuration: Foundation.URLSessionConfiguration = URLSessionConfiguration.af.default, delegate: PAlamofire.SessionDelegate = SessionDelegate(), rootQueue: Dispatch.DispatchQueue = DispatchQueue(label: "org.alamofire.session.rootQueue"), startRequestsImmediately: Swift.Bool = true, requestQueue: Dispatch.DispatchQueue? = nil, serializationQueue: Dispatch.DispatchQueue? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, serverTrustManager: PAlamofire.ServerTrustManager? = nil, redirectHandler: PAlamofire.RedirectHandler? = nil, cachedResponseHandler: PAlamofire.CachedResponseHandler? = nil, eventMonitors: [PAlamofire.EventMonitor] = [])
+  @objc deinit
+  public func withAllRequests(perform action: @escaping (Swift.Set<PAlamofire.Request>) -> Swift.Void)
+  public func cancelAllRequests(completingOnQueue queue: Dispatch.DispatchQueue = .main, completion: (() -> Swift.Void)? = nil)
+  public typealias RequestModifier = (inout Foundation.URLRequest) throws -> Swift.Void
+  open func request(_ convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .get, parameters: PAlamofire.Parameters? = nil, encoding: PAlamofire.ParameterEncoding = URLEncoding.default, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.DataRequest
+  open func request<Parameters>(_ convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .get, parameters: Parameters? = nil, encoder: PAlamofire.ParameterEncoder = URLEncodedFormParameterEncoder.default, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.DataRequest where Parameters : Swift.Encodable
+  open func request(_ convertible: PAlamofire.URLRequestConvertible, interceptor: PAlamofire.RequestInterceptor? = nil) -> PAlamofire.DataRequest
+  open func streamRequest<Parameters>(_ convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .get, parameters: Parameters? = nil, encoder: PAlamofire.ParameterEncoder = URLEncodedFormParameterEncoder.default, headers: PAlamofire.HTTPHeaders? = nil, automaticallyCancelOnStreamError: Swift.Bool = false, interceptor: PAlamofire.RequestInterceptor? = nil, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.DataStreamRequest where Parameters : Swift.Encodable
+  open func streamRequest(_ convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .get, headers: PAlamofire.HTTPHeaders? = nil, automaticallyCancelOnStreamError: Swift.Bool = false, interceptor: PAlamofire.RequestInterceptor? = nil, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.DataStreamRequest
+  open func streamRequest(_ convertible: PAlamofire.URLRequestConvertible, automaticallyCancelOnStreamError: Swift.Bool = false, interceptor: PAlamofire.RequestInterceptor? = nil) -> PAlamofire.DataStreamRequest
+  open func download(_ convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .get, parameters: PAlamofire.Parameters? = nil, encoding: PAlamofire.ParameterEncoding = URLEncoding.default, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, requestModifier: PAlamofire.Session.RequestModifier? = nil, to destination: PAlamofire.DownloadRequest.Destination? = nil) -> PAlamofire.DownloadRequest
+  open func download<Parameters>(_ convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .get, parameters: Parameters? = nil, encoder: PAlamofire.ParameterEncoder = URLEncodedFormParameterEncoder.default, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, requestModifier: PAlamofire.Session.RequestModifier? = nil, to destination: PAlamofire.DownloadRequest.Destination? = nil) -> PAlamofire.DownloadRequest where Parameters : Swift.Encodable
+  open func download(_ convertible: PAlamofire.URLRequestConvertible, interceptor: PAlamofire.RequestInterceptor? = nil, to destination: PAlamofire.DownloadRequest.Destination? = nil) -> PAlamofire.DownloadRequest
+  open func download(resumingWith data: Foundation.Data, interceptor: PAlamofire.RequestInterceptor? = nil, to destination: PAlamofire.DownloadRequest.Destination? = nil) -> PAlamofire.DownloadRequest
+  open func upload(_ data: Foundation.Data, to convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .post, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.UploadRequest
+  open func upload(_ data: Foundation.Data, with convertible: PAlamofire.URLRequestConvertible, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default) -> PAlamofire.UploadRequest
+  open func upload(_ fileURL: Foundation.URL, to convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .post, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.UploadRequest
+  open func upload(_ fileURL: Foundation.URL, with convertible: PAlamofire.URLRequestConvertible, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default) -> PAlamofire.UploadRequest
+  open func upload(_ stream: Foundation.InputStream, to convertible: PAlamofire.URLConvertible, method: PAlamofire.HTTPMethod = .post, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.UploadRequest
+  open func upload(_ stream: Foundation.InputStream, with convertible: PAlamofire.URLRequestConvertible, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default) -> PAlamofire.UploadRequest
+  open func upload(multipartFormData: @escaping (PAlamofire.MultipartFormData) -> Swift.Void, to url: PAlamofire.URLConvertible, usingThreshold encodingMemoryThreshold: Swift.UInt64 = MultipartFormData.encodingMemoryThreshold, method: PAlamofire.HTTPMethod = .post, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.UploadRequest
+  open func upload(multipartFormData: @escaping (PAlamofire.MultipartFormData) -> Swift.Void, with request: PAlamofire.URLRequestConvertible, usingThreshold encodingMemoryThreshold: Swift.UInt64 = MultipartFormData.encodingMemoryThreshold, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default) -> PAlamofire.UploadRequest
+  open func upload(multipartFormData: PAlamofire.MultipartFormData, to url: PAlamofire.URLConvertible, usingThreshold encodingMemoryThreshold: Swift.UInt64 = MultipartFormData.encodingMemoryThreshold, method: PAlamofire.HTTPMethod = .post, headers: PAlamofire.HTTPHeaders? = nil, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default, requestModifier: PAlamofire.Session.RequestModifier? = nil) -> PAlamofire.UploadRequest
+  open func upload(multipartFormData: PAlamofire.MultipartFormData, with request: PAlamofire.URLRequestConvertible, usingThreshold encodingMemoryThreshold: Swift.UInt64 = MultipartFormData.encodingMemoryThreshold, interceptor: PAlamofire.RequestInterceptor? = nil, fileManager: Foundation.FileManager = .default) -> PAlamofire.UploadRequest
+}
+extension PAlamofire.Session : PAlamofire.RequestDelegate {
+  public var sessionConfiguration: Foundation.URLSessionConfiguration {
+    get
+  }
+  public var startImmediately: Swift.Bool {
+    get
+  }
+  public func cleanup(after request: PAlamofire.Request)
+  public func retryResult(for request: PAlamofire.Request, dueTo error: PAlamofire.AFError, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+  public func retryRequest(_ request: PAlamofire.Request, withDelay timeDelay: Foundation.TimeInterval?)
+}
+open class MultipartFormData {
+  public static let encodingMemoryThreshold: Swift.UInt64
+  open var contentType: Swift.String {
+    get
+    set
+  }
+  public var contentLength: Swift.UInt64 {
+    get
+  }
+  final public let boundary: Swift.String
+  public init(fileManager: Foundation.FileManager = .default, boundary: Swift.String? = nil)
+  public func append(_ data: Foundation.Data, withName name: Swift.String, fileName: Swift.String? = nil, mimeType: Swift.String? = nil)
+  public func append(_ fileURL: Foundation.URL, withName name: Swift.String)
+  public func append(_ fileURL: Foundation.URL, withName name: Swift.String, fileName: Swift.String, mimeType: Swift.String)
+  public func append(_ stream: Foundation.InputStream, withLength length: Swift.UInt64, name: Swift.String, fileName: Swift.String, mimeType: Swift.String)
+  public func append(_ stream: Foundation.InputStream, withLength length: Swift.UInt64, headers: PAlamofire.HTTPHeaders)
+  public func encode() throws -> Foundation.Data
+  public func writeEncodedData(to fileURL: Foundation.URL) throws
+  @objc deinit
+}
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+public struct DataResponsePublisher<Value> : Combine.Publisher {
+  public typealias Output = PAlamofire.DataResponse<Value, PAlamofire.AFError>
+  public typealias Failure = Swift.Never
+  public init<Serializer>(_ request: PAlamofire.DataRequest, queue: Dispatch.DispatchQueue, serializer: Serializer) where Value == Serializer.SerializedObject, Serializer : PAlamofire.ResponseSerializer
+  public init<Serializer>(_ request: PAlamofire.DataRequest, queue: Dispatch.DispatchQueue, serializer: Serializer) where Value == Serializer.SerializedObject, Serializer : PAlamofire.DataResponseSerializerProtocol
+  public func result() -> Combine.AnyPublisher<Swift.Result<Value, PAlamofire.AFError>, Swift.Never>
+  public func value() -> Combine.AnyPublisher<Value, PAlamofire.AFError>
+  public func receive<S>(subscriber: S) where S : Combine.Subscriber, S.Failure == PAlamofire.DataResponsePublisher<Value>.Failure, S.Input == PAlamofire.DataResponsePublisher<Value>.Output
+}
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+extension PAlamofire.DataResponsePublisher where Value == Foundation.Data? {
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public init(_ request: PAlamofire.DataRequest, queue: Dispatch.DispatchQueue)
+}
+extension PAlamofire.DataRequest {
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishResponse<Serializer, T>(using serializer: Serializer, on queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DataResponsePublisher<T> where Serializer : PAlamofire.ResponseSerializer, T == Serializer.SerializedObject
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishData(queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DataResponsePublisher<Foundation.Data>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishString(queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DataResponsePublisher<Swift.String>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  @available(*, deprecated, message: "Renamed publishDecodable(type:queue:preprocessor:decoder:emptyResponseCodes:emptyRequestMethods).")
+  @_disfavoredOverload public func publishDecodable<T>(type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyResponseMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) -> PAlamofire.DataResponsePublisher<T> where T : Swift.Decodable
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishDecodable<T>(type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) -> PAlamofire.DataResponsePublisher<T> where T : Swift.Decodable
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishUnserialized(queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DataResponsePublisher<Foundation.Data?>
+}
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+public struct DataStreamPublisher<Value> : Combine.Publisher {
+  public typealias Output = PAlamofire.DataStreamRequest.Stream<Value, PAlamofire.AFError>
+  public typealias Failure = Swift.Never
+  public init<Serializer>(_ request: PAlamofire.DataStreamRequest, queue: Dispatch.DispatchQueue, serializer: Serializer) where Value == Serializer.SerializedObject, Serializer : PAlamofire.DataStreamSerializer
+  public func result() -> Combine.AnyPublisher<Swift.Result<Value, PAlamofire.AFError>, Swift.Never>
+  public func value() -> Combine.AnyPublisher<Value, PAlamofire.AFError>
+  public func receive<S>(subscriber: S) where S : Combine.Subscriber, S.Failure == PAlamofire.DataStreamPublisher<Value>.Failure, S.Input == PAlamofire.DataStreamPublisher<Value>.Output
+}
+extension PAlamofire.DataStreamRequest {
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  final public func publishStream<Serializer>(using serializer: Serializer, on queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DataStreamPublisher<Serializer.SerializedObject> where Serializer : PAlamofire.DataStreamSerializer
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  final public func publishData(queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DataStreamPublisher<Foundation.Data>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  final public func publishString(queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DataStreamPublisher<Swift.String>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  final public func publishDecodable<T>(type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, decoder: PAlamofire.DataDecoder = JSONDecoder(), preprocessor: PAlamofire.DataPreprocessor = PassthroughPreprocessor()) -> PAlamofire.DataStreamPublisher<T> where T : Swift.Decodable
+}
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+public struct DownloadResponsePublisher<Value> : Combine.Publisher {
+  public typealias Output = PAlamofire.DownloadResponse<Value, PAlamofire.AFError>
+  public typealias Failure = Swift.Never
+  public init<Serializer>(_ request: PAlamofire.DownloadRequest, queue: Dispatch.DispatchQueue, serializer: Serializer) where Value == Serializer.SerializedObject, Serializer : PAlamofire.ResponseSerializer
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public init<Serializer>(_ request: PAlamofire.DownloadRequest, queue: Dispatch.DispatchQueue, serializer: Serializer) where Value == Serializer.SerializedObject, Serializer : PAlamofire.DownloadResponseSerializerProtocol
+  public func result() -> Combine.AnyPublisher<Swift.Result<Value, PAlamofire.AFError>, Swift.Never>
+  public func value() -> Combine.AnyPublisher<Value, PAlamofire.AFError>
+  public func receive<S>(subscriber: S) where S : Combine.Subscriber, S.Failure == PAlamofire.DownloadResponsePublisher<Value>.Failure, S.Input == PAlamofire.DownloadResponsePublisher<Value>.Output
+}
+extension PAlamofire.DownloadRequest {
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishResponse<Serializer, T>(using serializer: Serializer, on queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DownloadResponsePublisher<T> where Serializer : PAlamofire.ResponseSerializer, T == Serializer.SerializedObject
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishResponse<Serializer, T>(using serializer: Serializer, on queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DownloadResponsePublisher<T> where Serializer : PAlamofire.DownloadResponseSerializerProtocol, T == Serializer.SerializedObject
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishURL(queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DownloadResponsePublisher<Foundation.URL>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishData(queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DownloadResponsePublisher<Foundation.Data>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishString(queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DownloadResponsePublisher<Swift.String>
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  @available(*, deprecated, message: "Renamed publishDecodable(type:queue:preprocessor:decoder:emptyResponseCodes:emptyRequestMethods).")
+  @_disfavoredOverload public func publishDecodable<T>(type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyResponseMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) -> PAlamofire.DownloadResponsePublisher<T> where T : Swift.Decodable
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishDecodable<T>(type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, preprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) -> PAlamofire.DownloadResponsePublisher<T> where T : Swift.Decodable
+}
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+extension PAlamofire.DownloadResponsePublisher where Value == Foundation.URL? {
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public init(_ request: PAlamofire.DownloadRequest, queue: Dispatch.DispatchQueue)
+}
+extension PAlamofire.DownloadRequest {
+  @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+  public func publishUnserialized(on queue: Dispatch.DispatchQueue = .main) -> PAlamofire.DownloadResponsePublisher<Foundation.URL?>
+}
+public protocol RedirectHandler {
+  func task(_ task: Foundation.URLSessionTask, willBeRedirectedTo request: Foundation.URLRequest, for response: Foundation.HTTPURLResponse, completion: @escaping (Foundation.URLRequest?) -> Swift.Void)
+}
+public struct Redirector {
+  public enum Behavior {
+    case follow
+    case doNotFollow
+    case modify((Foundation.URLSessionTask, Foundation.URLRequest, Foundation.HTTPURLResponse) -> Foundation.URLRequest?)
+  }
+  public static let follow: PAlamofire.Redirector
+  public static let doNotFollow: PAlamofire.Redirector
+  public let behavior: PAlamofire.Redirector.Behavior
+  public init(behavior: PAlamofire.Redirector.Behavior)
+}
+extension PAlamofire.Redirector : PAlamofire.RedirectHandler {
+  public func task(_ task: Foundation.URLSessionTask, willBeRedirectedTo request: Foundation.URLRequest, for response: Foundation.HTTPURLResponse, completion: @escaping (Foundation.URLRequest?) -> Swift.Void)
+}
+extension PAlamofire.RedirectHandler where Self == PAlamofire.Redirector {
+  public static var follow: PAlamofire.Redirector {
+    get
+  }
+  public static var doNotFollow: PAlamofire.Redirector {
+    get
+  }
+  public static func modify(using closure: @escaping (Foundation.URLSessionTask, Foundation.URLRequest, Foundation.HTTPURLResponse) -> Foundation.URLRequest?) -> PAlamofire.Redirector
+}
+public struct AlamofireExtension<ExtendedType> {
+  public var type: ExtendedType {
+    get
+  }
+  public init(_ type: ExtendedType)
+}
+public protocol AlamofireExtended {
+  associatedtype ExtendedType
+  static var af: PAlamofire.AlamofireExtension<Self.ExtendedType>.Type { get set }
+  var af: PAlamofire.AlamofireExtension<Self.ExtendedType> { get set }
+}
+extension PAlamofire.AlamofireExtended {
+  public static var af: PAlamofire.AlamofireExtension<Self>.Type {
+    get
+    set
+  }
+  public var af: PAlamofire.AlamofireExtension<Self> {
+    get
+    set
+  }
+}
+public struct RequestAdapterState {
+  public let requestID: Foundation.UUID
+  public let session: PAlamofire.Session
+}
+public protocol RequestAdapter {
+  func adapt(_ urlRequest: Foundation.URLRequest, for session: PAlamofire.Session, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  func adapt(_ urlRequest: Foundation.URLRequest, using state: PAlamofire.RequestAdapterState, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+}
+extension PAlamofire.RequestAdapter {
+  public func adapt(_ urlRequest: Foundation.URLRequest, using state: PAlamofire.RequestAdapterState, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+}
+public enum RetryResult {
+  case retry
+  case retryWithDelay(Foundation.TimeInterval)
+  case doNotRetry
+  case doNotRetryWithError(Swift.Error)
+}
+public protocol RequestRetrier {
+  func retry(_ request: PAlamofire.Request, for session: PAlamofire.Session, dueTo error: Swift.Error, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+}
+public protocol RequestInterceptor : PAlamofire.RequestAdapter, PAlamofire.RequestRetrier {
+}
+extension PAlamofire.RequestInterceptor {
+  public func adapt(_ urlRequest: Foundation.URLRequest, for session: PAlamofire.Session, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  public func retry(_ request: PAlamofire.Request, for session: PAlamofire.Session, dueTo error: Swift.Error, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+}
+public typealias AdaptHandler = (Foundation.URLRequest, PAlamofire.Session, _ completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void) -> Swift.Void
+public typealias RetryHandler = (PAlamofire.Request, PAlamofire.Session, Swift.Error, _ completion: @escaping (PAlamofire.RetryResult) -> Swift.Void) -> Swift.Void
+open class Adapter : PAlamofire.RequestInterceptor {
+  public init(_ adaptHandler: @escaping PAlamofire.AdaptHandler)
+  open func adapt(_ urlRequest: Foundation.URLRequest, for session: PAlamofire.Session, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  open func adapt(_ urlRequest: Foundation.URLRequest, using state: PAlamofire.RequestAdapterState, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+extension PAlamofire.RequestAdapter where Self == PAlamofire.Adapter {
+  public static func adapter(using closure: @escaping PAlamofire.AdaptHandler) -> PAlamofire.Adapter
+}
+open class Retrier : PAlamofire.RequestInterceptor {
+  public init(_ retryHandler: @escaping PAlamofire.RetryHandler)
+  open func retry(_ request: PAlamofire.Request, for session: PAlamofire.Session, dueTo error: Swift.Error, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+  @objc deinit
+}
+extension PAlamofire.RequestRetrier where Self == PAlamofire.Retrier {
+  public static func retrier(using closure: @escaping PAlamofire.RetryHandler) -> PAlamofire.Retrier
+}
+open class Interceptor : PAlamofire.RequestInterceptor {
+  final public let adapters: [PAlamofire.RequestAdapter]
+  final public let retriers: [PAlamofire.RequestRetrier]
+  public init(adaptHandler: @escaping PAlamofire.AdaptHandler, retryHandler: @escaping PAlamofire.RetryHandler)
+  public init(adapter: PAlamofire.RequestAdapter, retrier: PAlamofire.RequestRetrier)
+  public init(adapters: [PAlamofire.RequestAdapter] = [], retriers: [PAlamofire.RequestRetrier] = [], interceptors: [PAlamofire.RequestInterceptor] = [])
+  open func adapt(_ urlRequest: Foundation.URLRequest, for session: PAlamofire.Session, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  open func adapt(_ urlRequest: Foundation.URLRequest, using state: PAlamofire.RequestAdapterState, completion: @escaping (Swift.Result<Foundation.URLRequest, Swift.Error>) -> Swift.Void)
+  open func retry(_ request: PAlamofire.Request, for session: PAlamofire.Session, dueTo error: Swift.Error, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+  @objc deinit
+}
+extension PAlamofire.RequestInterceptor where Self == PAlamofire.Interceptor {
+  public static func interceptor(adapter: @escaping PAlamofire.AdaptHandler, retrier: @escaping PAlamofire.RetryHandler) -> PAlamofire.Interceptor
+  public static func interceptor(adapter: PAlamofire.RequestAdapter, retrier: PAlamofire.RequestRetrier) -> PAlamofire.Interceptor
+  public static func interceptor(adapters: [PAlamofire.RequestAdapter] = [], retriers: [PAlamofire.RequestRetrier] = [], interceptors: [PAlamofire.RequestInterceptor] = []) -> PAlamofire.Interceptor
+}
+public protocol EventMonitor {
+  var queue: Dispatch.DispatchQueue { get }
+  func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
+  func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge)
+  func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  func urlSession(_ session: Foundation.URLSession, taskNeedsNewBodyStream task: Foundation.URLSessionTask)
+  func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest)
+  func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
+  func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+  @available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)
+  func urlSession(_ session: Foundation.URLSession, taskIsWaitingForConnectivity task: Foundation.URLSessionTask)
+  func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse)
+  func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+  func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  func request(_ request: PAlamofire.Request, didCreateInitialURLRequest urlRequest: Foundation.URLRequest)
+  func request(_ request: PAlamofire.Request, didFailToCreateURLRequestWithError error: PAlamofire.AFError)
+  func request(_ request: PAlamofire.Request, didAdaptInitialRequest initialRequest: Foundation.URLRequest, to adaptedRequest: Foundation.URLRequest)
+  func request(_ request: PAlamofire.Request, didFailToAdaptURLRequest initialRequest: Foundation.URLRequest, withError error: PAlamofire.AFError)
+  func request(_ request: PAlamofire.Request, didCreateURLRequest urlRequest: Foundation.URLRequest)
+  func request(_ request: PAlamofire.Request, didCreateTask task: Foundation.URLSessionTask)
+  func request(_ request: PAlamofire.Request, didGatherMetrics metrics: Foundation.URLSessionTaskMetrics)
+  func request(_ request: PAlamofire.Request, didFailTask task: Foundation.URLSessionTask, earlyWithError error: PAlamofire.AFError)
+  func request(_ request: PAlamofire.Request, didCompleteTask task: Foundation.URLSessionTask, with error: PAlamofire.AFError?)
+  func requestIsRetrying(_ request: PAlamofire.Request)
+  func requestDidFinish(_ request: PAlamofire.Request)
+  func requestDidResume(_ request: PAlamofire.Request)
+  func request(_ request: PAlamofire.Request, didResumeTask task: Foundation.URLSessionTask)
+  func requestDidSuspend(_ request: PAlamofire.Request)
+  func request(_ request: PAlamofire.Request, didSuspendTask task: Foundation.URLSessionTask)
+  func requestDidCancel(_ request: PAlamofire.Request)
+  func request(_ request: PAlamofire.Request, didCancelTask task: Foundation.URLSessionTask)
+  func request(_ request: PAlamofire.DataRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, data: Foundation.Data?, withResult result: PAlamofire.Request.ValidationResult)
+  func request(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Foundation.Data?, PAlamofire.AFError>)
+  func request<Value>(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Value, PAlamofire.AFError>)
+  func request(_ request: PAlamofire.DataStreamRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, withResult result: PAlamofire.Request.ValidationResult)
+  func request<Value>(_ request: PAlamofire.DataStreamRequest, didParseStream result: Swift.Result<Value, PAlamofire.AFError>)
+  func request(_ request: PAlamofire.UploadRequest, didCreateUploadable uploadable: PAlamofire.UploadRequest.Uploadable)
+  func request(_ request: PAlamofire.UploadRequest, didFailToCreateUploadableWithError error: PAlamofire.AFError)
+  func request(_ request: PAlamofire.UploadRequest, didProvideInputStream stream: Foundation.InputStream)
+  func request(_ request: PAlamofire.DownloadRequest, didFinishDownloadingUsing task: Foundation.URLSessionTask, with result: Swift.Result<Foundation.URL, PAlamofire.AFError>)
+  func request(_ request: PAlamofire.DownloadRequest, didCreateDestinationURL url: Foundation.URL)
+  func request(_ request: PAlamofire.DownloadRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, fileURL: Foundation.URL?, withResult result: PAlamofire.Request.ValidationResult)
+  func request(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Foundation.URL?, PAlamofire.AFError>)
+  func request<Value>(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Value, PAlamofire.AFError>)
+}
+extension PAlamofire.EventMonitor {
+  public var queue: Dispatch.DispatchQueue {
+    get
+  }
+  public func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
+  public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge)
+  public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  public func urlSession(_ session: Foundation.URLSession, taskNeedsNewBodyStream task: Foundation.URLSessionTask)
+  public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest)
+  public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
+  public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+  public func urlSession(_ session: Foundation.URLSession, taskIsWaitingForConnectivity task: Foundation.URLSessionTask)
+  public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse)
+  public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+  public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  public func request(_ request: PAlamofire.Request, didCreateInitialURLRequest urlRequest: Foundation.URLRequest)
+  public func request(_ request: PAlamofire.Request, didFailToCreateURLRequestWithError error: PAlamofire.AFError)
+  public func request(_ request: PAlamofire.Request, didAdaptInitialRequest initialRequest: Foundation.URLRequest, to adaptedRequest: Foundation.URLRequest)
+  public func request(_ request: PAlamofire.Request, didFailToAdaptURLRequest initialRequest: Foundation.URLRequest, withError error: PAlamofire.AFError)
+  public func request(_ request: PAlamofire.Request, didCreateURLRequest urlRequest: Foundation.URLRequest)
+  public func request(_ request: PAlamofire.Request, didCreateTask task: Foundation.URLSessionTask)
+  public func request(_ request: PAlamofire.Request, didGatherMetrics metrics: Foundation.URLSessionTaskMetrics)
+  public func request(_ request: PAlamofire.Request, didFailTask task: Foundation.URLSessionTask, earlyWithError error: PAlamofire.AFError)
+  public func request(_ request: PAlamofire.Request, didCompleteTask task: Foundation.URLSessionTask, with error: PAlamofire.AFError?)
+  public func requestIsRetrying(_ request: PAlamofire.Request)
+  public func requestDidFinish(_ request: PAlamofire.Request)
+  public func requestDidResume(_ request: PAlamofire.Request)
+  public func request(_ request: PAlamofire.Request, didResumeTask task: Foundation.URLSessionTask)
+  public func requestDidSuspend(_ request: PAlamofire.Request)
+  public func request(_ request: PAlamofire.Request, didSuspendTask task: Foundation.URLSessionTask)
+  public func requestDidCancel(_ request: PAlamofire.Request)
+  public func request(_ request: PAlamofire.Request, didCancelTask task: Foundation.URLSessionTask)
+  public func request(_ request: PAlamofire.DataRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, data: Foundation.Data?, withResult result: PAlamofire.Request.ValidationResult)
+  public func request(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Foundation.Data?, PAlamofire.AFError>)
+  public func request<Value>(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Value, PAlamofire.AFError>)
+  public func request(_ request: PAlamofire.DataStreamRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, withResult result: PAlamofire.Request.ValidationResult)
+  public func request<Value>(_ request: PAlamofire.DataStreamRequest, didParseStream result: Swift.Result<Value, PAlamofire.AFError>)
+  public func request(_ request: PAlamofire.UploadRequest, didCreateUploadable uploadable: PAlamofire.UploadRequest.Uploadable)
+  public func request(_ request: PAlamofire.UploadRequest, didFailToCreateUploadableWithError error: PAlamofire.AFError)
+  public func request(_ request: PAlamofire.UploadRequest, didProvideInputStream stream: Foundation.InputStream)
+  public func request(_ request: PAlamofire.DownloadRequest, didFinishDownloadingUsing task: Foundation.URLSessionTask, with result: Swift.Result<Foundation.URL, PAlamofire.AFError>)
+  public func request(_ request: PAlamofire.DownloadRequest, didCreateDestinationURL url: Foundation.URL)
+  public func request(_ request: PAlamofire.DownloadRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, fileURL: Foundation.URL?, withResult result: PAlamofire.Request.ValidationResult)
+  public func request(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Foundation.URL?, PAlamofire.AFError>)
+  public func request<Value>(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Value, PAlamofire.AFError>)
+}
+@_hasMissingDesignatedInitializers final public class CompositeEventMonitor : PAlamofire.EventMonitor {
+  final public let queue: Dispatch.DispatchQueue
+  final public func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
+  final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge)
+  final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  final public func urlSession(_ session: Foundation.URLSession, taskNeedsNewBodyStream task: Foundation.URLSessionTask)
+  final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest)
+  final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
+  final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+  @available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)
+  final public func urlSession(_ session: Foundation.URLSession, taskIsWaitingForConnectivity task: Foundation.URLSessionTask)
+  final public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  final public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse)
+  final public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+  final public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  final public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  final public func request(_ request: PAlamofire.Request, didCreateInitialURLRequest urlRequest: Foundation.URLRequest)
+  final public func request(_ request: PAlamofire.Request, didFailToCreateURLRequestWithError error: PAlamofire.AFError)
+  final public func request(_ request: PAlamofire.Request, didAdaptInitialRequest initialRequest: Foundation.URLRequest, to adaptedRequest: Foundation.URLRequest)
+  final public func request(_ request: PAlamofire.Request, didFailToAdaptURLRequest initialRequest: Foundation.URLRequest, withError error: PAlamofire.AFError)
+  final public func request(_ request: PAlamofire.Request, didCreateURLRequest urlRequest: Foundation.URLRequest)
+  final public func request(_ request: PAlamofire.Request, didCreateTask task: Foundation.URLSessionTask)
+  final public func request(_ request: PAlamofire.Request, didGatherMetrics metrics: Foundation.URLSessionTaskMetrics)
+  final public func request(_ request: PAlamofire.Request, didFailTask task: Foundation.URLSessionTask, earlyWithError error: PAlamofire.AFError)
+  final public func request(_ request: PAlamofire.Request, didCompleteTask task: Foundation.URLSessionTask, with error: PAlamofire.AFError?)
+  final public func requestIsRetrying(_ request: PAlamofire.Request)
+  final public func requestDidFinish(_ request: PAlamofire.Request)
+  final public func requestDidResume(_ request: PAlamofire.Request)
+  final public func request(_ request: PAlamofire.Request, didResumeTask task: Foundation.URLSessionTask)
+  final public func requestDidSuspend(_ request: PAlamofire.Request)
+  final public func request(_ request: PAlamofire.Request, didSuspendTask task: Foundation.URLSessionTask)
+  final public func requestDidCancel(_ request: PAlamofire.Request)
+  final public func request(_ request: PAlamofire.Request, didCancelTask task: Foundation.URLSessionTask)
+  final public func request(_ request: PAlamofire.DataRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, data: Foundation.Data?, withResult result: PAlamofire.Request.ValidationResult)
+  final public func request(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Foundation.Data?, PAlamofire.AFError>)
+  final public func request<Value>(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Value, PAlamofire.AFError>)
+  final public func request(_ request: PAlamofire.DataStreamRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, withResult result: PAlamofire.Request.ValidationResult)
+  final public func request<Value>(_ request: PAlamofire.DataStreamRequest, didParseStream result: Swift.Result<Value, PAlamofire.AFError>)
+  final public func request(_ request: PAlamofire.UploadRequest, didCreateUploadable uploadable: PAlamofire.UploadRequest.Uploadable)
+  final public func request(_ request: PAlamofire.UploadRequest, didFailToCreateUploadableWithError error: PAlamofire.AFError)
+  final public func request(_ request: PAlamofire.UploadRequest, didProvideInputStream stream: Foundation.InputStream)
+  final public func request(_ request: PAlamofire.DownloadRequest, didFinishDownloadingUsing task: Foundation.URLSessionTask, with result: Swift.Result<Foundation.URL, PAlamofire.AFError>)
+  final public func request(_ request: PAlamofire.DownloadRequest, didCreateDestinationURL url: Foundation.URL)
+  final public func request(_ request: PAlamofire.DownloadRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, fileURL: Foundation.URL?, withResult result: PAlamofire.Request.ValidationResult)
+  final public func request(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Foundation.URL?, PAlamofire.AFError>)
+  final public func request<Value>(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Value, PAlamofire.AFError>)
+  @objc deinit
+}
+open class ClosureEventMonitor : PAlamofire.EventMonitor {
+  open var sessionDidBecomeInvalidWithError: ((Foundation.URLSession, Swift.Error?) -> Swift.Void)?
+  open var taskDidReceiveChallenge: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.URLAuthenticationChallenge) -> Swift.Void)?
+  open var taskDidSendBodyData: ((Foundation.URLSession, Foundation.URLSessionTask, Swift.Int64, Swift.Int64, Swift.Int64) -> Swift.Void)?
+  open var taskNeedNewBodyStream: ((Foundation.URLSession, Foundation.URLSessionTask) -> Swift.Void)?
+  open var taskWillPerformHTTPRedirection: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.HTTPURLResponse, Foundation.URLRequest) -> Swift.Void)?
+  open var taskDidFinishCollectingMetrics: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.URLSessionTaskMetrics) -> Swift.Void)?
+  open var taskDidComplete: ((Foundation.URLSession, Foundation.URLSessionTask, Swift.Error?) -> Swift.Void)?
+  open var taskIsWaitingForConnectivity: ((Foundation.URLSession, Foundation.URLSessionTask) -> Swift.Void)?
+  open var dataTaskDidReceiveData: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.Data) -> Swift.Void)?
+  open var dataTaskWillCacheResponse: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.CachedURLResponse) -> Swift.Void)?
+  open var downloadTaskDidFinishDownloadingToURL: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Foundation.URL) -> Swift.Void)?
+  open var downloadTaskDidWriteData: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Swift.Int64, Swift.Int64, Swift.Int64) -> Swift.Void)?
+  open var downloadTaskDidResumeAtOffset: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Swift.Int64, Swift.Int64) -> Swift.Void)?
+  open var requestDidCreateInitialURLRequest: ((PAlamofire.Request, Foundation.URLRequest) -> Swift.Void)?
+  open var requestDidFailToCreateURLRequestWithError: ((PAlamofire.Request, PAlamofire.AFError) -> Swift.Void)?
+  open var requestDidAdaptInitialRequestToAdaptedRequest: ((PAlamofire.Request, Foundation.URLRequest, Foundation.URLRequest) -> Swift.Void)?
+  open var requestDidFailToAdaptURLRequestWithError: ((PAlamofire.Request, Foundation.URLRequest, PAlamofire.AFError) -> Swift.Void)?
+  open var requestDidCreateURLRequest: ((PAlamofire.Request, Foundation.URLRequest) -> Swift.Void)?
+  open var requestDidCreateTask: ((PAlamofire.Request, Foundation.URLSessionTask) -> Swift.Void)?
+  open var requestDidGatherMetrics: ((PAlamofire.Request, Foundation.URLSessionTaskMetrics) -> Swift.Void)?
+  open var requestDidFailTaskEarlyWithError: ((PAlamofire.Request, Foundation.URLSessionTask, PAlamofire.AFError) -> Swift.Void)?
+  open var requestDidCompleteTaskWithError: ((PAlamofire.Request, Foundation.URLSessionTask, PAlamofire.AFError?) -> Swift.Void)?
+  open var requestIsRetrying: ((PAlamofire.Request) -> Swift.Void)?
+  open var requestDidFinish: ((PAlamofire.Request) -> Swift.Void)?
+  open var requestDidResume: ((PAlamofire.Request) -> Swift.Void)?
+  open var requestDidResumeTask: ((PAlamofire.Request, Foundation.URLSessionTask) -> Swift.Void)?
+  open var requestDidSuspend: ((PAlamofire.Request) -> Swift.Void)?
+  open var requestDidSuspendTask: ((PAlamofire.Request, Foundation.URLSessionTask) -> Swift.Void)?
+  open var requestDidCancel: ((PAlamofire.Request) -> Swift.Void)?
+  open var requestDidCancelTask: ((PAlamofire.Request, Foundation.URLSessionTask) -> Swift.Void)?
+  open var requestDidValidateRequestResponseDataWithResult: ((PAlamofire.DataRequest, Foundation.URLRequest?, Foundation.HTTPURLResponse, Foundation.Data?, PAlamofire.Request.ValidationResult) -> Swift.Void)?
+  open var requestDidParseResponse: ((PAlamofire.DataRequest, PAlamofire.DataResponse<Foundation.Data?, PAlamofire.AFError>) -> Swift.Void)?
+  open var requestDidValidateRequestResponseWithResult: ((PAlamofire.DataStreamRequest, Foundation.URLRequest?, Foundation.HTTPURLResponse, PAlamofire.Request.ValidationResult) -> Swift.Void)?
+  open var requestDidCreateUploadable: ((PAlamofire.UploadRequest, PAlamofire.UploadRequest.Uploadable) -> Swift.Void)?
+  open var requestDidFailToCreateUploadableWithError: ((PAlamofire.UploadRequest, PAlamofire.AFError) -> Swift.Void)?
+  open var requestDidProvideInputStream: ((PAlamofire.UploadRequest, Foundation.InputStream) -> Swift.Void)?
+  open var requestDidFinishDownloadingUsingTaskWithResult: ((PAlamofire.DownloadRequest, Foundation.URLSessionTask, Swift.Result<Foundation.URL, PAlamofire.AFError>) -> Swift.Void)?
+  open var requestDidCreateDestinationURL: ((PAlamofire.DownloadRequest, Foundation.URL) -> Swift.Void)?
+  open var requestDidValidateRequestResponseFileURLWithResult: ((PAlamofire.DownloadRequest, Foundation.URLRequest?, Foundation.HTTPURLResponse, Foundation.URL?, PAlamofire.Request.ValidationResult) -> Swift.Void)?
+  open var requestDidParseDownloadResponse: ((PAlamofire.DownloadRequest, PAlamofire.DownloadResponse<Foundation.URL?, PAlamofire.AFError>) -> Swift.Void)?
+  final public let queue: Dispatch.DispatchQueue
+  public init(queue: Dispatch.DispatchQueue = .main)
+  open func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
+  open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge)
+  open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  open func urlSession(_ session: Foundation.URLSession, taskNeedsNewBodyStream task: Foundation.URLSessionTask)
+  open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest)
+  open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
+  open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+  open func urlSession(_ session: Foundation.URLSession, taskIsWaitingForConnectivity task: Foundation.URLSessionTask)
+  open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse)
+  open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+  open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  open func request(_ request: PAlamofire.Request, didCreateInitialURLRequest urlRequest: Foundation.URLRequest)
+  open func request(_ request: PAlamofire.Request, didFailToCreateURLRequestWithError error: PAlamofire.AFError)
+  open func request(_ request: PAlamofire.Request, didAdaptInitialRequest initialRequest: Foundation.URLRequest, to adaptedRequest: Foundation.URLRequest)
+  open func request(_ request: PAlamofire.Request, didFailToAdaptURLRequest initialRequest: Foundation.URLRequest, withError error: PAlamofire.AFError)
+  open func request(_ request: PAlamofire.Request, didCreateURLRequest urlRequest: Foundation.URLRequest)
+  open func request(_ request: PAlamofire.Request, didCreateTask task: Foundation.URLSessionTask)
+  open func request(_ request: PAlamofire.Request, didGatherMetrics metrics: Foundation.URLSessionTaskMetrics)
+  open func request(_ request: PAlamofire.Request, didFailTask task: Foundation.URLSessionTask, earlyWithError error: PAlamofire.AFError)
+  open func request(_ request: PAlamofire.Request, didCompleteTask task: Foundation.URLSessionTask, with error: PAlamofire.AFError?)
+  open func requestIsRetrying(_ request: PAlamofire.Request)
+  open func requestDidFinish(_ request: PAlamofire.Request)
+  open func requestDidResume(_ request: PAlamofire.Request)
+  public func request(_ request: PAlamofire.Request, didResumeTask task: Foundation.URLSessionTask)
+  open func requestDidSuspend(_ request: PAlamofire.Request)
+  public func request(_ request: PAlamofire.Request, didSuspendTask task: Foundation.URLSessionTask)
+  open func requestDidCancel(_ request: PAlamofire.Request)
+  public func request(_ request: PAlamofire.Request, didCancelTask task: Foundation.URLSessionTask)
+  open func request(_ request: PAlamofire.DataRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, data: Foundation.Data?, withResult result: PAlamofire.Request.ValidationResult)
+  open func request(_ request: PAlamofire.DataRequest, didParseResponse response: PAlamofire.DataResponse<Foundation.Data?, PAlamofire.AFError>)
+  public func request(_ request: PAlamofire.DataStreamRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, withResult result: PAlamofire.Request.ValidationResult)
+  open func request(_ request: PAlamofire.UploadRequest, didCreateUploadable uploadable: PAlamofire.UploadRequest.Uploadable)
+  open func request(_ request: PAlamofire.UploadRequest, didFailToCreateUploadableWithError error: PAlamofire.AFError)
+  open func request(_ request: PAlamofire.UploadRequest, didProvideInputStream stream: Foundation.InputStream)
+  open func request(_ request: PAlamofire.DownloadRequest, didFinishDownloadingUsing task: Foundation.URLSessionTask, with result: Swift.Result<Foundation.URL, PAlamofire.AFError>)
+  open func request(_ request: PAlamofire.DownloadRequest, didCreateDestinationURL url: Foundation.URL)
+  open func request(_ request: PAlamofire.DownloadRequest, didValidateRequest urlRequest: Foundation.URLRequest?, response: Foundation.HTTPURLResponse, fileURL: Foundation.URL?, withResult result: PAlamofire.Request.ValidationResult)
+  open func request(_ request: PAlamofire.DownloadRequest, didParseResponse response: PAlamofire.DownloadResponse<Foundation.URL?, PAlamofire.AFError>)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Request {
+  public enum State {
+    case initialized
+    case resumed
+    case suspended
+    case cancelled
+    case finished
+    public static func == (a: PAlamofire.Request.State, b: PAlamofire.Request.State) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  final public let id: Foundation.UUID
+  final public let underlyingQueue: Dispatch.DispatchQueue
+  final public let serializationQueue: Dispatch.DispatchQueue
+  final public let eventMonitor: PAlamofire.EventMonitor?
+  final public let interceptor: PAlamofire.RequestInterceptor?
+  weak public var delegate: PAlamofire.RequestDelegate? {
+    get
+  }
+  public var state: PAlamofire.Request.State {
+    get
+  }
+  public var isInitialized: Swift.Bool {
+    get
+  }
+  public var isResumed: Swift.Bool {
+    get
+  }
+  public var isSuspended: Swift.Bool {
+    get
+  }
+  public var isCancelled: Swift.Bool {
+    get
+  }
+  public var isFinished: Swift.Bool {
+    get
+  }
+  public typealias ProgressHandler = (Foundation.Progress) -> Swift.Void
+  final public let uploadProgress: Foundation.Progress
+  final public let downloadProgress: Foundation.Progress
+  public var redirectHandler: PAlamofire.RedirectHandler? {
+    get
+  }
+  public var cachedResponseHandler: PAlamofire.CachedResponseHandler? {
+    get
+  }
+  public var credential: Foundation.URLCredential? {
+    get
+  }
+  public var requests: [Foundation.URLRequest] {
+    get
+  }
+  public var firstRequest: Foundation.URLRequest? {
+    get
+  }
+  public var lastRequest: Foundation.URLRequest? {
+    get
+  }
+  public var request: Foundation.URLRequest? {
+    get
+  }
+  public var performedRequests: [Foundation.URLRequest] {
+    get
+  }
+  public var response: Foundation.HTTPURLResponse? {
+    get
+  }
+  public var tasks: [Foundation.URLSessionTask] {
+    get
+  }
+  public var firstTask: Foundation.URLSessionTask? {
+    get
+  }
+  public var lastTask: Foundation.URLSessionTask? {
+    get
+  }
+  public var task: Foundation.URLSessionTask? {
+    get
+  }
+  public var allMetrics: [Foundation.URLSessionTaskMetrics] {
+    get
+  }
+  public var firstMetrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+  public var lastMetrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+  public var metrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+  public var retryCount: Swift.Int {
+    get
+  }
+  public var error: PAlamofire.AFError? {
+    get
+  }
+  @discardableResult
+  public func cancel() -> Self
+  @discardableResult
+  public func suspend() -> Self
+  @discardableResult
+  public func resume() -> Self
+  @discardableResult
+  public func authenticate(username: Swift.String, password: Swift.String, persistence: Foundation.URLCredential.Persistence = .forSession) -> Self
+  @discardableResult
+  public func authenticate(with credential: Foundation.URLCredential) -> Self
+  @discardableResult
+  public func downloadProgress(queue: Dispatch.DispatchQueue = .main, closure: @escaping PAlamofire.Request.ProgressHandler) -> Self
+  @discardableResult
+  public func uploadProgress(queue: Dispatch.DispatchQueue = .main, closure: @escaping PAlamofire.Request.ProgressHandler) -> Self
+  @discardableResult
+  public func redirect(using handler: PAlamofire.RedirectHandler) -> Self
+  @discardableResult
+  public func cacheResponse(using handler: PAlamofire.CachedResponseHandler) -> Self
+  @discardableResult
+  public func cURLDescription(on queue: Dispatch.DispatchQueue, calling handler: @escaping (Swift.String) -> Swift.Void) -> Self
+  @discardableResult
+  public func cURLDescription(calling handler: @escaping (Swift.String) -> Swift.Void) -> Self
+  @discardableResult
+  public func onURLRequestCreation(on queue: Dispatch.DispatchQueue = .main, perform handler: @escaping (Foundation.URLRequest) -> Swift.Void) -> Self
+  @discardableResult
+  public func onURLSessionTaskCreation(on queue: Dispatch.DispatchQueue = .main, perform handler: @escaping (Foundation.URLSessionTask) -> Swift.Void) -> Self
+  @objc deinit
+}
+extension PAlamofire.Request : Swift.Equatable {
+  public static func == (lhs: PAlamofire.Request, rhs: PAlamofire.Request) -> Swift.Bool
+}
+extension PAlamofire.Request : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension PAlamofire.Request : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension PAlamofire.Request {
+  public func cURLDescription() -> Swift.String
+}
+public protocol RequestDelegate : AnyObject {
+  var sessionConfiguration: Foundation.URLSessionConfiguration { get }
+  var startImmediately: Swift.Bool { get }
+  func cleanup(after request: PAlamofire.Request)
+  func retryResult(for request: PAlamofire.Request, dueTo error: PAlamofire.AFError, completion: @escaping (PAlamofire.RetryResult) -> Swift.Void)
+  func retryRequest(_ request: PAlamofire.Request, withDelay timeDelay: Foundation.TimeInterval?)
+}
+@_hasMissingDesignatedInitializers public class DataRequest : PAlamofire.Request {
+  final public let convertible: PAlamofire.URLRequestConvertible
+  public var data: Foundation.Data? {
+    get
+  }
+  @discardableResult
+  public func validate(_ validation: @escaping PAlamofire.DataRequest.Validation) -> Self
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class DataStreamRequest : PAlamofire.Request {
+  public typealias Handler<Success, Failure> = (PAlamofire.DataStreamRequest.Stream<Success, Failure>) throws -> Swift.Void where Failure : Swift.Error
+  public struct Stream<Success, Failure> where Failure : Swift.Error {
+    public let event: PAlamofire.DataStreamRequest.Event<Success, Failure>
+    public let token: PAlamofire.DataStreamRequest.CancellationToken
+    public func cancel()
+  }
+  public enum Event<Success, Failure> where Failure : Swift.Error {
+    case stream(Swift.Result<Success, Failure>)
+    case complete(PAlamofire.DataStreamRequest.Completion)
+  }
+  public struct Completion {
+    public let request: Foundation.URLRequest?
+    public let response: Foundation.HTTPURLResponse?
+    public let metrics: Foundation.URLSessionTaskMetrics?
+    public let error: PAlamofire.AFError?
+  }
+  public struct CancellationToken {
+    public func cancel()
+  }
+  final public let convertible: PAlamofire.URLRequestConvertible
+  final public let automaticallyCancelOnStreamError: Swift.Bool
+  @discardableResult
+  final public func validate(_ validation: @escaping PAlamofire.DataStreamRequest.Validation) -> Self
+  final public func asInputStream(bufferSize: Swift.Int = 1024) -> Foundation.InputStream?
+  @objc deinit
+}
+extension PAlamofire.DataStreamRequest.Stream {
+  public var result: Swift.Result<Success, Failure>? {
+    get
+  }
+  public var value: Success? {
+    get
+  }
+  public var error: Failure? {
+    get
+  }
+  public var completion: PAlamofire.DataStreamRequest.Completion? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class DownloadRequest : PAlamofire.Request {
+  public struct Options : Swift.OptionSet {
+    public static let createIntermediateDirectories: PAlamofire.DownloadRequest.Options
+    public static let removePreviousFile: PAlamofire.DownloadRequest.Options
+    public let rawValue: Swift.Int
+    public init(rawValue: Swift.Int)
+    public typealias ArrayLiteralElement = PAlamofire.DownloadRequest.Options
+    public typealias Element = PAlamofire.DownloadRequest.Options
+    public typealias RawValue = Swift.Int
+  }
+  public typealias Destination = (_ temporaryURL: Foundation.URL, _ response: Foundation.HTTPURLResponse) -> (destinationURL: Foundation.URL, options: PAlamofire.DownloadRequest.Options)
+  public class func suggestedDownloadDestination(for directory: Foundation.FileManager.SearchPathDirectory = .documentDirectory, in domain: Foundation.FileManager.SearchPathDomainMask = .userDomainMask, options: PAlamofire.DownloadRequest.Options = []) -> PAlamofire.DownloadRequest.Destination
+  public enum Downloadable {
+    case request(PAlamofire.URLRequestConvertible)
+    case resumeData(Foundation.Data)
+  }
+  public var resumeData: Foundation.Data? {
+    get
+  }
+  public var fileURL: Foundation.URL? {
+    get
+  }
+  final public let downloadable: PAlamofire.DownloadRequest.Downloadable
+  public func task(forResumeData data: Foundation.Data, using session: Foundation.URLSession) -> Foundation.URLSessionTask
+  @discardableResult
+  override public func cancel() -> Self
+  @discardableResult
+  public func cancel(producingResumeData shouldProduceResumeData: Swift.Bool) -> Self
+  @discardableResult
+  public func cancel(byProducingResumeData completionHandler: @escaping (_ data: Foundation.Data?) -> Swift.Void) -> Self
+  @discardableResult
+  public func validate(_ validation: @escaping PAlamofire.DownloadRequest.Validation) -> Self
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class UploadRequest : PAlamofire.DataRequest {
+  public enum Uploadable {
+    case data(Foundation.Data)
+    case file(Foundation.URL, shouldRemove: Swift.Bool)
+    case stream(Foundation.InputStream)
+  }
+  final public let upload: PAlamofire.UploadableConvertible
+  final public let fileManager: Foundation.FileManager
+  public var uploadable: PAlamofire.UploadRequest.Uploadable?
+  public func cleanup()
+  @objc deinit
+}
+public protocol UploadableConvertible {
+  func createUploadable() throws -> PAlamofire.UploadRequest.Uploadable
+}
+extension PAlamofire.UploadRequest.Uploadable : PAlamofire.UploadableConvertible {
+  public func createUploadable() throws -> PAlamofire.UploadRequest.Uploadable
+}
+public protocol UploadConvertible : PAlamofire.URLRequestConvertible, PAlamofire.UploadableConvertible {
+}
+open class ServerTrustManager {
+  final public let allHostsMustBeEvaluated: Swift.Bool
+  final public let evaluators: [Swift.String : PAlamofire.ServerTrustEvaluating]
+  public init(allHostsMustBeEvaluated: Swift.Bool = true, evaluators: [Swift.String : PAlamofire.ServerTrustEvaluating])
+  open func serverTrustEvaluator(forHost host: Swift.String) throws -> PAlamofire.ServerTrustEvaluating?
+  @objc deinit
+}
+public protocol ServerTrustEvaluating {
+  func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+}
+final public class DefaultTrustEvaluator : PAlamofire.ServerTrustEvaluating {
+  public init(validateHost: Swift.Bool = true)
+  final public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+  @objc deinit
+}
+final public class RevocationTrustEvaluator : PAlamofire.ServerTrustEvaluating {
+  public struct Options : Swift.OptionSet {
+    public static let crl: PAlamofire.RevocationTrustEvaluator.Options
+    public static let networkAccessDisabled: PAlamofire.RevocationTrustEvaluator.Options
+    public static let ocsp: PAlamofire.RevocationTrustEvaluator.Options
+    public static let preferCRL: PAlamofire.RevocationTrustEvaluator.Options
+    public static let requirePositiveResponse: PAlamofire.RevocationTrustEvaluator.Options
+    public static let any: PAlamofire.RevocationTrustEvaluator.Options
+    public let rawValue: CoreFoundation.CFOptionFlags
+    public init(rawValue: CoreFoundation.CFOptionFlags)
+    public typealias ArrayLiteralElement = PAlamofire.RevocationTrustEvaluator.Options
+    public typealias Element = PAlamofire.RevocationTrustEvaluator.Options
+    public typealias RawValue = CoreFoundation.CFOptionFlags
+  }
+  public init(performDefaultValidation: Swift.Bool = true, validateHost: Swift.Bool = true, options: PAlamofire.RevocationTrustEvaluator.Options = .any)
+  final public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+  @objc deinit
+}
+extension PAlamofire.ServerTrustEvaluating where Self == PAlamofire.RevocationTrustEvaluator {
+  public static var revocationChecking: PAlamofire.RevocationTrustEvaluator {
+    get
+  }
+  public static func revocationChecking(performDefaultValidation: Swift.Bool = true, validateHost: Swift.Bool = true, options: PAlamofire.RevocationTrustEvaluator.Options = .any) -> PAlamofire.RevocationTrustEvaluator
+}
+final public class PinnedCertificatesTrustEvaluator : PAlamofire.ServerTrustEvaluating {
+  public init(certificates: [Security.SecCertificate] = Bundle.main.af.certificates, acceptSelfSignedCertificates: Swift.Bool = false, performDefaultValidation: Swift.Bool = true, validateHost: Swift.Bool = true)
+  final public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+  @objc deinit
+}
+extension PAlamofire.ServerTrustEvaluating where Self == PAlamofire.PinnedCertificatesTrustEvaluator {
+  public static var pinnedCertificates: PAlamofire.PinnedCertificatesTrustEvaluator {
+    get
+  }
+  public static func pinnedCertificates(certificates: [Security.SecCertificate] = Bundle.main.af.certificates, acceptSelfSignedCertificates: Swift.Bool = false, performDefaultValidation: Swift.Bool = true, validateHost: Swift.Bool = true) -> PAlamofire.PinnedCertificatesTrustEvaluator
+}
+final public class PublicKeysTrustEvaluator : PAlamofire.ServerTrustEvaluating {
+  public init(keys: [Security.SecKey] = Bundle.main.af.publicKeys, performDefaultValidation: Swift.Bool = true, validateHost: Swift.Bool = true)
+  final public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+  @objc deinit
+}
+extension PAlamofire.ServerTrustEvaluating where Self == PAlamofire.PublicKeysTrustEvaluator {
+  public static var publicKeys: PAlamofire.PublicKeysTrustEvaluator {
+    get
+  }
+  public static func publicKeys(keys: [Security.SecKey] = Bundle.main.af.publicKeys, performDefaultValidation: Swift.Bool = true, validateHost: Swift.Bool = true) -> PAlamofire.PublicKeysTrustEvaluator
+}
+final public class CompositeTrustEvaluator : PAlamofire.ServerTrustEvaluating {
+  public init(evaluators: [PAlamofire.ServerTrustEvaluating])
+  final public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+  @objc deinit
+}
+extension PAlamofire.ServerTrustEvaluating where Self == PAlamofire.CompositeTrustEvaluator {
+  public static func composite(evaluators: [PAlamofire.ServerTrustEvaluating]) -> PAlamofire.CompositeTrustEvaluator
+}
+@available(*, deprecated, renamed: "DisabledTrustEvaluator", message: "DisabledEvaluator has been renamed DisabledTrustEvaluator.")
+public typealias DisabledEvaluator = PAlamofire.DisabledTrustEvaluator
+final public class DisabledTrustEvaluator : PAlamofire.ServerTrustEvaluating {
+  public init()
+  final public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+  @objc deinit
+}
+extension Swift.Array where Element == PAlamofire.ServerTrustEvaluating {
+  public func evaluate(_ trust: Security.SecTrust, forHost host: Swift.String) throws
+}
+extension Foundation.Bundle : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Foundation.Bundle
+}
+extension PAlamofire.AlamofireExtension where ExtendedType : Foundation.Bundle {
+  public var certificates: [Security.SecCertificate] {
+    get
+  }
+  public var publicKeys: [Security.SecKey] {
+    get
+  }
+  public func paths(forResourcesOfTypes types: [Swift.String]) -> [Swift.String]
+}
+extension Security.SecTrust : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Security.SecTrust
+}
+extension PAlamofire.AlamofireExtension where ExtendedType == Security.SecTrust {
+  @available(iOS 12, macOS 10.14, tvOS 12, watchOS 5, *)
+  public func evaluate(afterApplying policy: Security.SecPolicy) throws
+  @available(iOS, introduced: 10, deprecated: 12, renamed: "evaluate(afterApplying:)")
+  @available(macOS, introduced: 10.12, deprecated: 10.14, renamed: "evaluate(afterApplying:)")
+  @available(tvOS, introduced: 10, deprecated: 12, renamed: "evaluate(afterApplying:)")
+  @available(watchOS, introduced: 3, deprecated: 5, renamed: "evaluate(afterApplying:)")
+  public func validate(policy: Security.SecPolicy, errorProducer: (_ status: Darwin.OSStatus, _ result: Security.SecTrustResultType) -> Swift.Error) throws
+  public func apply(policy: Security.SecPolicy) throws -> Security.SecTrust
+  @available(iOS 12, macOS 10.14, tvOS 12, watchOS 5, *)
+  public func evaluate() throws
+  @available(iOS, introduced: 10, deprecated: 12, renamed: "evaluate()")
+  @available(macOS, introduced: 10.12, deprecated: 10.14, renamed: "evaluate()")
+  @available(tvOS, introduced: 10, deprecated: 12, renamed: "evaluate()")
+  @available(watchOS, introduced: 3, deprecated: 5, renamed: "evaluate()")
+  public func validate(errorProducer: (_ status: Darwin.OSStatus, _ result: Security.SecTrustResultType) -> Swift.Error) throws
+  public func setAnchorCertificates(_ certificates: [Security.SecCertificate]) throws
+  public var publicKeys: [Security.SecKey] {
+    get
+  }
+  public var certificates: [Security.SecCertificate] {
+    get
+  }
+  public var certificateData: [Foundation.Data] {
+    get
+  }
+  public func performDefaultValidation(forHost host: Swift.String) throws
+  public func performValidation(forHost host: Swift.String) throws
+}
+extension Security.SecPolicy : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Security.SecPolicy
+}
+extension PAlamofire.AlamofireExtension where ExtendedType == Security.SecPolicy {
+  public static let `default`: Security.SecPolicy
+  public static func hostname(_ hostname: Swift.String) -> Security.SecPolicy
+  public static func revocation(options: PAlamofire.RevocationTrustEvaluator.Options) throws -> Security.SecPolicy
+}
+extension Swift.Array : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Swift.Array<Element>
+}
+extension PAlamofire.AlamofireExtension where ExtendedType == [Security.SecCertificate] {
+  public var data: [Foundation.Data] {
+    get
+  }
+  public var publicKeys: [Security.SecKey] {
+    get
+  }
+}
+extension Security.SecCertificate : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Security.SecCertificate
+}
+extension PAlamofire.AlamofireExtension where ExtendedType == Security.SecCertificate {
+  public var publicKey: Security.SecKey? {
+    get
+  }
+}
+extension Swift.Int32 : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Swift.Int32
+}
+extension PAlamofire.AlamofireExtension where ExtendedType == Darwin.OSStatus {
+  public var isSuccess: Swift.Bool {
+    get
+  }
+}
+extension Security.SecTrustResultType : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Security.SecTrustResultType
+}
+extension PAlamofire.AlamofireExtension where ExtendedType == Security.SecTrustResultType {
+  public var isSuccess: Swift.Bool {
+    get
+  }
+}
+@objc open class SessionDelegate : ObjectiveC.NSObject {
+  public init(fileManager: Foundation.FileManager = .default)
+  @objc deinit
+}
+extension PAlamofire.SessionDelegate : Foundation.URLSessionDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
+}
+extension PAlamofire.SessionDelegate : Foundation.URLSessionTaskDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, needNewBodyStream completionHandler: @escaping (Foundation.InputStream?) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+  @available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, taskIsWaitingForConnectivity task: Foundation.URLSessionTask)
+}
+extension PAlamofire.SessionDelegate : Foundation.URLSessionDataDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse, completionHandler: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+}
+extension PAlamofire.SessionDelegate : Foundation.URLSessionDownloadDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+extension PAlamofire.Request {
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func uploadProgress(bufferingPolicy: PAlamofire.StreamOf<Foundation.Progress>.BufferingPolicy = .unbounded) -> PAlamofire.StreamOf<Foundation.Progress>
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func downloadProgress(bufferingPolicy: PAlamofire.StreamOf<Foundation.Progress>.BufferingPolicy = .unbounded) -> PAlamofire.StreamOf<Foundation.Progress>
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func urlRequests(bufferingPolicy: PAlamofire.StreamOf<Foundation.URLRequest>.BufferingPolicy = .unbounded) -> PAlamofire.StreamOf<Foundation.URLRequest>
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func urlSessionTasks(bufferingPolicy: PAlamofire.StreamOf<Foundation.URLSessionTask>.BufferingPolicy = .unbounded) -> PAlamofire.StreamOf<Foundation.URLSessionTask>
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func cURLDescriptions(bufferingPolicy: PAlamofire.StreamOf<Swift.String>.BufferingPolicy = .unbounded) -> PAlamofire.StreamOf<Swift.String>
+  #endif
+
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+public struct DataTask<Value> {
+  
+  #if compiler(>=5.3) && $EffectfulProp
+  public var response: PAlamofire.DataResponse<Value, PAlamofire.AFError> {
+    get async
+  }
+  #endif
+
+  
+  #if compiler(>=5.3) && $EffectfulProp
+  public var result: Swift.Result<Value, PAlamofire.AFError> {
+    get async
+  }
+  #endif
+
+  
+  #if compiler(>=5.3) && $EffectfulProp
+  public var value: Value {
+    get async throws
+  }
+  #endif
+
+  public func cancel()
+  public func resume()
+  public func suspend()
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+extension PAlamofire.DataRequest {
+  public func serializingData(automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false, dataPreprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DataTask<Foundation.Data>
+  public func serializingDecodable<Value>(_ type: Value.Type = Value.self, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false, dataPreprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<Value>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<Value>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<Value>.defaultEmptyRequestMethods) -> PAlamofire.DataTask<Value> where Value : Swift.Decodable
+  public func serializingString(automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false, dataPreprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DataTask<Swift.String>
+  public func serializingResponse<Serializer>(using serializer: Serializer, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false) -> PAlamofire.DataTask<Serializer.SerializedObject> where Serializer : PAlamofire.ResponseSerializer
+  public func serializingResponse<Serializer>(using serializer: Serializer, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false) -> PAlamofire.DataTask<Serializer.SerializedObject> where Serializer : PAlamofire.DataResponseSerializerProtocol
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+public struct DownloadTask<Value> {
+  
+  #if compiler(>=5.3) && $EffectfulProp
+  public var response: PAlamofire.DownloadResponse<Value, PAlamofire.AFError> {
+    get async
+  }
+  #endif
+
+  
+  #if compiler(>=5.3) && $EffectfulProp
+  public var result: Swift.Result<Value, PAlamofire.AFError> {
+    get async
+  }
+  #endif
+
+  
+  #if compiler(>=5.3) && $EffectfulProp
+  public var value: Value {
+    get async throws
+  }
+  #endif
+
+  public func cancel()
+  public func resume()
+  public func suspend()
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+extension PAlamofire.DownloadRequest {
+  public func serializingData(automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false, dataPreprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DownloadTask<Foundation.Data>
+  public func serializingDecodable<Value>(_ type: Value.Type = Value.self, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false, dataPreprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<Value>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<Value>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<Value>.defaultEmptyRequestMethods) -> PAlamofire.DownloadTask<Value> where Value : Swift.Decodable
+  public func serializingDownloadedFileURL() -> PAlamofire.DownloadTask<Foundation.URL>
+  public func serializingString(automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false, dataPreprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DownloadTask<Swift.String>
+  public func serializingDownload<Serializer>(using serializer: Serializer, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false) -> PAlamofire.DownloadTask<Serializer.SerializedObject> where Serializer : PAlamofire.ResponseSerializer
+  public func serializingDownload<Serializer>(using serializer: Serializer, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = false) -> PAlamofire.DownloadTask<Serializer.SerializedObject> where Serializer : PAlamofire.DownloadResponseSerializerProtocol
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+public struct DataStreamTask {
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public typealias Stream<Success, Failure> = PAlamofire.StreamOf<PAlamofire.DataStreamRequest.Stream<Success, Failure>> where Failure : Swift.Error
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func streamingData(automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = true, bufferingPolicy: PAlamofire.DataStreamTask.Stream<Foundation.Data, Swift.Never>.BufferingPolicy = .unbounded) -> PAlamofire.DataStreamTask.Stream<Foundation.Data, Swift.Never>
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func streamingStrings(automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = true, bufferingPolicy: PAlamofire.DataStreamTask.Stream<Swift.String, Swift.Never>.BufferingPolicy = .unbounded) -> PAlamofire.DataStreamTask.Stream<Swift.String, Swift.Never>
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func streamingDecodables<T>(_ type: T.Type = T.self, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = true, bufferingPolicy: PAlamofire.DataStreamTask.Stream<T, PAlamofire.AFError>.BufferingPolicy = .unbounded) -> PAlamofire.DataStreamTask.Stream<T, PAlamofire.AFError> where T : Swift.Decodable
+  #endif
+
+  
+  #if compiler(>=5.3) && $RethrowsProtocol
+  public func streamingResponses<Serializer>(serializedUsing serializer: Serializer, automaticallyCancelling shouldAutomaticallyCancel: Swift.Bool = true, bufferingPolicy: PAlamofire.DataStreamTask.Stream<Serializer.SerializedObject, PAlamofire.AFError>.BufferingPolicy = .unbounded) -> PAlamofire.DataStreamTask.Stream<Serializer.SerializedObject, PAlamofire.AFError> where Serializer : PAlamofire.DataStreamSerializer
+  #endif
+
+  public func cancel()
+  public func resume()
+  public func suspend()
+}
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+extension PAlamofire.DataStreamRequest {
+  final public func streamTask() -> PAlamofire.DataStreamTask
+}
+
+#if compiler(>=5.3) && $RethrowsProtocol
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+public struct StreamOf<Element> : _Concurrency.AsyncSequence {
+  public typealias AsyncIterator = PAlamofire.StreamOf<Element>.Iterator
+  public typealias BufferingPolicy = _Concurrency.AsyncStream<Element>.Continuation.BufferingPolicy
+  public func makeAsyncIterator() -> PAlamofire.StreamOf<Element>.Iterator
+  public struct Iterator : _Concurrency.AsyncIteratorProtocol {
+    
+    #if compiler(>=5.3) && $AsyncAwait
+    public mutating func next() async -> Element?
+    #endif
+
+  }
+}
+#endif
+
+public struct HTTPHeaders {
+  public init()
+  public init(_ headers: [PAlamofire.HTTPHeader])
+  public init(_ dictionary: [Swift.String : Swift.String])
+  public mutating func add(name: Swift.String, value: Swift.String)
+  public mutating func add(_ header: PAlamofire.HTTPHeader)
+  public mutating func update(name: Swift.String, value: Swift.String)
+  public mutating func update(_ header: PAlamofire.HTTPHeader)
+  public mutating func remove(name: Swift.String)
+  public mutating func sort()
+  public func sorted() -> PAlamofire.HTTPHeaders
+  public func value(for name: Swift.String) -> Swift.String?
+  public subscript(name: Swift.String) -> Swift.String? {
+    get
+    set
+  }
+  public var dictionary: [Swift.String : Swift.String] {
+    get
+  }
+}
+extension PAlamofire.HTTPHeaders : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Swift.String)...)
+  public typealias Key = Swift.String
+  public typealias Value = Swift.String
+}
+extension PAlamofire.HTTPHeaders : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: PAlamofire.HTTPHeader...)
+  public typealias ArrayLiteralElement = PAlamofire.HTTPHeader
+}
+extension PAlamofire.HTTPHeaders : Swift.Sequence {
+  public func makeIterator() -> Swift.IndexingIterator<[PAlamofire.HTTPHeader]>
+}
+extension PAlamofire.HTTPHeaders : Swift.Collection {
+  public var startIndex: Swift.Int {
+    get
+  }
+  public var endIndex: Swift.Int {
+    get
+  }
+  public subscript(position: Swift.Int) -> PAlamofire.HTTPHeader {
+    get
+  }
+  public func index(after i: Swift.Int) -> Swift.Int
+  public typealias Element = PAlamofire.HTTPHeader
+  public typealias Index = Swift.Int
+  public typealias Indices = Swift.DefaultIndices<PAlamofire.HTTPHeaders>
+  public typealias Iterator = Swift.IndexingIterator<[PAlamofire.HTTPHeader]>
+  public typealias SubSequence = Swift.Slice<PAlamofire.HTTPHeaders>
+}
+extension PAlamofire.HTTPHeaders : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct HTTPHeader : Swift.Hashable {
+  public let name: Swift.String
+  public let value: Swift.String
+  public init(name: Swift.String, value: Swift.String)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: PAlamofire.HTTPHeader, b: PAlamofire.HTTPHeader) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension PAlamofire.HTTPHeader : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension PAlamofire.HTTPHeader {
+  public static func accept(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func acceptCharset(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func acceptLanguage(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func acceptEncoding(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func authorization(username: Swift.String, password: Swift.String) -> PAlamofire.HTTPHeader
+  public static func authorization(bearerToken: Swift.String) -> PAlamofire.HTTPHeader
+  public static func authorization(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func contentDisposition(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func contentType(_ value: Swift.String) -> PAlamofire.HTTPHeader
+  public static func userAgent(_ value: Swift.String) -> PAlamofire.HTTPHeader
+}
+extension PAlamofire.HTTPHeaders {
+  public static let `default`: PAlamofire.HTTPHeaders
+}
+extension PAlamofire.HTTPHeader {
+  public static let defaultAcceptEncoding: PAlamofire.HTTPHeader
+  public static let defaultAcceptLanguage: PAlamofire.HTTPHeader
+  public static let defaultUserAgent: PAlamofire.HTTPHeader
+}
+extension Foundation.URLRequest {
+  public var headers: PAlamofire.HTTPHeaders {
+    get
+    set
+  }
+}
+extension Foundation.HTTPURLResponse {
+  public var headers: PAlamofire.HTTPHeaders {
+    get
+  }
+}
+extension Foundation.URLSessionConfiguration {
+  public var headers: PAlamofire.HTTPHeaders {
+    get
+    set
+  }
+}
+final public class URLEncodedFormEncoder {
+  public enum ArrayEncoding {
+    case brackets
+    case noBrackets
+    case indexInBrackets
+    public static func == (a: PAlamofire.URLEncodedFormEncoder.ArrayEncoding, b: PAlamofire.URLEncodedFormEncoder.ArrayEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum BoolEncoding {
+    case numeric
+    case literal
+    public static func == (a: PAlamofire.URLEncodedFormEncoder.BoolEncoding, b: PAlamofire.URLEncodedFormEncoder.BoolEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum DataEncoding {
+    case deferredToData
+    case base64
+    case custom((Foundation.Data) throws -> Swift.String)
+  }
+  public enum DateEncoding {
+    case deferredToDate
+    case secondsSince1970
+    case millisecondsSince1970
+    case iso8601
+    case formatted(Foundation.DateFormatter)
+    case custom((Foundation.Date) throws -> Swift.String)
+  }
+  public enum KeyEncoding {
+    case useDefaultKeys
+    case convertToSnakeCase
+    case convertToKebabCase
+    case capitalized
+    case uppercased
+    case lowercased
+    case custom((Swift.String) -> Swift.String)
+  }
+  public enum SpaceEncoding {
+    case percentEscaped
+    case plusReplaced
+    public static func == (a: PAlamofire.URLEncodedFormEncoder.SpaceEncoding, b: PAlamofire.URLEncodedFormEncoder.SpaceEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Error : Swift.Error {
+    case invalidRootObject(Swift.String)
+  }
+  final public let alphabetizeKeyValuePairs: Swift.Bool
+  final public let arrayEncoding: PAlamofire.URLEncodedFormEncoder.ArrayEncoding
+  final public let boolEncoding: PAlamofire.URLEncodedFormEncoder.BoolEncoding
+  final public let dataEncoding: PAlamofire.URLEncodedFormEncoder.DataEncoding
+  final public let dateEncoding: PAlamofire.URLEncodedFormEncoder.DateEncoding
+  final public let keyEncoding: PAlamofire.URLEncodedFormEncoder.KeyEncoding
+  final public let spaceEncoding: PAlamofire.URLEncodedFormEncoder.SpaceEncoding
+  final public var allowedCharacters: Foundation.CharacterSet
+  public init(alphabetizeKeyValuePairs: Swift.Bool = true, arrayEncoding: PAlamofire.URLEncodedFormEncoder.ArrayEncoding = .brackets, boolEncoding: PAlamofire.URLEncodedFormEncoder.BoolEncoding = .numeric, dataEncoding: PAlamofire.URLEncodedFormEncoder.DataEncoding = .base64, dateEncoding: PAlamofire.URLEncodedFormEncoder.DateEncoding = .deferredToDate, keyEncoding: PAlamofire.URLEncodedFormEncoder.KeyEncoding = .useDefaultKeys, spaceEncoding: PAlamofire.URLEncodedFormEncoder.SpaceEncoding = .percentEscaped, allowedCharacters: Foundation.CharacterSet = .afURLQueryAllowed)
+  final public func encode(_ value: Swift.Encodable) throws -> Swift.String
+  final public func encode(_ value: Swift.Encodable) throws -> Foundation.Data
+  @objc deinit
+}
+extension Foundation.CharacterSet {
+  public static let afURLQueryAllowed: Foundation.CharacterSet
+}
+public typealias AFDataResponse<Success> = PAlamofire.DataResponse<Success, PAlamofire.AFError>
+public typealias AFDownloadResponse<Success> = PAlamofire.DownloadResponse<Success, PAlamofire.AFError>
+public struct DataResponse<Success, Failure> where Failure : Swift.Error {
+  public let request: Foundation.URLRequest?
+  public let response: Foundation.HTTPURLResponse?
+  public let data: Foundation.Data?
+  public let metrics: Foundation.URLSessionTaskMetrics?
+  public let serializationDuration: Foundation.TimeInterval
+  public let result: Swift.Result<Success, Failure>
+  public var value: Success? {
+    get
+  }
+  public var error: Failure? {
+    get
+  }
+  public init(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, metrics: Foundation.URLSessionTaskMetrics?, serializationDuration: Foundation.TimeInterval, result: Swift.Result<Success, Failure>)
+}
+extension PAlamofire.DataResponse : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension PAlamofire.DataResponse {
+  public func map<NewSuccess>(_ transform: (Success) -> NewSuccess) -> PAlamofire.DataResponse<NewSuccess, Failure>
+  public func tryMap<NewSuccess>(_ transform: (Success) throws -> NewSuccess) -> PAlamofire.DataResponse<NewSuccess, Swift.Error>
+  public func mapError<NewFailure>(_ transform: (Failure) -> NewFailure) -> PAlamofire.DataResponse<Success, NewFailure> where NewFailure : Swift.Error
+  public func tryMapError<NewFailure>(_ transform: (Failure) throws -> NewFailure) -> PAlamofire.DataResponse<Success, Swift.Error> where NewFailure : Swift.Error
+}
+public struct DownloadResponse<Success, Failure> where Failure : Swift.Error {
+  public let request: Foundation.URLRequest?
+  public let response: Foundation.HTTPURLResponse?
+  public let fileURL: Foundation.URL?
+  public let resumeData: Foundation.Data?
+  public let metrics: Foundation.URLSessionTaskMetrics?
+  public let serializationDuration: Foundation.TimeInterval
+  public let result: Swift.Result<Success, Failure>
+  public var value: Success? {
+    get
+  }
+  public var error: Failure? {
+    get
+  }
+  public init(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, fileURL: Foundation.URL?, resumeData: Foundation.Data?, metrics: Foundation.URLSessionTaskMetrics?, serializationDuration: Foundation.TimeInterval, result: Swift.Result<Success, Failure>)
+}
+extension PAlamofire.DownloadResponse : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension PAlamofire.DownloadResponse {
+  public func map<NewSuccess>(_ transform: (Success) -> NewSuccess) -> PAlamofire.DownloadResponse<NewSuccess, Failure>
+  public func tryMap<NewSuccess>(_ transform: (Success) throws -> NewSuccess) -> PAlamofire.DownloadResponse<NewSuccess, Swift.Error>
+  public func mapError<NewFailure>(_ transform: (Failure) -> NewFailure) -> PAlamofire.DownloadResponse<Success, NewFailure> where NewFailure : Swift.Error
+  public func tryMapError<NewFailure>(_ transform: (Failure) throws -> NewFailure) -> PAlamofire.DownloadResponse<Success, Swift.Error> where NewFailure : Swift.Error
+}
+@_hasMissingDesignatedInitializers open class NetworkReachabilityManager {
+  public enum NetworkReachabilityStatus {
+    case unknown
+    case notReachable
+    case reachable(PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType)
+    public enum ConnectionType {
+      case ethernetOrWiFi
+      case cellular
+      public static func == (a: PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType, b: PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+  }
+  public typealias Listener = (PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Void
+  public static let `default`: PAlamofire.NetworkReachabilityManager?
+  open var isReachable: Swift.Bool {
+    get
+  }
+  open var isReachableOnCellular: Swift.Bool {
+    get
+  }
+  open var isReachableOnEthernetOrWiFi: Swift.Bool {
+    get
+  }
+  final public let reachabilityQueue: Dispatch.DispatchQueue
+  open var flags: SystemConfiguration.SCNetworkReachabilityFlags? {
+    get
+  }
+  open var status: PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus {
+    get
+  }
+  convenience public init?(host: Swift.String)
+  convenience public init?()
+  @objc deinit
+  @discardableResult
+  open func startListening(onQueue queue: Dispatch.DispatchQueue = .main, onUpdatePerforming listener: @escaping PAlamofire.NetworkReachabilityManager.Listener) -> Swift.Bool
+  open func stopListening()
+}
+extension PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus : Swift.Equatable {
+  public static func == (a: PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus, b: PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Bool
+}
+public protocol ParameterEncoder {
+  func encode<Parameters>(_ parameters: Parameters?, into request: Foundation.URLRequest) throws -> Foundation.URLRequest where Parameters : Swift.Encodable
+}
+open class JSONParameterEncoder : PAlamofire.ParameterEncoder {
+  public static var `default`: PAlamofire.JSONParameterEncoder {
+    get
+  }
+  public static var prettyPrinted: PAlamofire.JSONParameterEncoder {
+    get
+  }
+  @available(macOS 10.13, iOS 11.0, tvOS 11.0, watchOS 4.0, *)
+  public static var sortedKeys: PAlamofire.JSONParameterEncoder {
+    get
+  }
+  final public let encoder: Foundation.JSONEncoder
+  public init(encoder: Foundation.JSONEncoder = JSONEncoder())
+  open func encode<Parameters>(_ parameters: Parameters?, into request: Foundation.URLRequest) throws -> Foundation.URLRequest where Parameters : Swift.Encodable
+  @objc deinit
+}
+extension PAlamofire.ParameterEncoder where Self == PAlamofire.JSONParameterEncoder {
+  public static var json: PAlamofire.JSONParameterEncoder {
+    get
+  }
+  public static func json(encoder: Foundation.JSONEncoder = JSONEncoder()) -> PAlamofire.JSONParameterEncoder
+}
+open class URLEncodedFormParameterEncoder : PAlamofire.ParameterEncoder {
+  public enum Destination {
+    case methodDependent
+    case queryString
+    case httpBody
+    public static func == (a: PAlamofire.URLEncodedFormParameterEncoder.Destination, b: PAlamofire.URLEncodedFormParameterEncoder.Destination) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static var `default`: PAlamofire.URLEncodedFormParameterEncoder {
+    get
+  }
+  final public let encoder: PAlamofire.URLEncodedFormEncoder
+  final public let destination: PAlamofire.URLEncodedFormParameterEncoder.Destination
+  public init(encoder: PAlamofire.URLEncodedFormEncoder = URLEncodedFormEncoder(), destination: PAlamofire.URLEncodedFormParameterEncoder.Destination = .methodDependent)
+  open func encode<Parameters>(_ parameters: Parameters?, into request: Foundation.URLRequest) throws -> Foundation.URLRequest where Parameters : Swift.Encodable
+  @objc deinit
+}
+extension PAlamofire.ParameterEncoder where Self == PAlamofire.URLEncodedFormParameterEncoder {
+  public static var urlEncodedForm: PAlamofire.URLEncodedFormParameterEncoder {
+    get
+  }
+  public static func urlEncodedForm(encoder: PAlamofire.URLEncodedFormEncoder = URLEncodedFormEncoder(), destination: PAlamofire.URLEncodedFormParameterEncoder.Destination = .methodDependent) -> PAlamofire.URLEncodedFormParameterEncoder
+}
+public protocol CachedResponseHandler {
+  func dataTask(_ task: Foundation.URLSessionDataTask, willCacheResponse response: Foundation.CachedURLResponse, completion: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+}
+public struct ResponseCacher {
+  public enum Behavior {
+    case cache
+    case doNotCache
+    case modify((Foundation.URLSessionDataTask, Foundation.CachedURLResponse) -> Foundation.CachedURLResponse?)
+  }
+  public static let cache: PAlamofire.ResponseCacher
+  public static let doNotCache: PAlamofire.ResponseCacher
+  public let behavior: PAlamofire.ResponseCacher.Behavior
+  public init(behavior: PAlamofire.ResponseCacher.Behavior)
+}
+extension PAlamofire.ResponseCacher : PAlamofire.CachedResponseHandler {
+  public func dataTask(_ task: Foundation.URLSessionDataTask, willCacheResponse response: Foundation.CachedURLResponse, completion: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+}
+extension PAlamofire.CachedResponseHandler where Self == PAlamofire.ResponseCacher {
+  public static var cache: PAlamofire.ResponseCacher {
+    get
+  }
+  public static var doNotCache: PAlamofire.ResponseCacher {
+    get
+  }
+  public static func modify(using closure: @escaping ((Foundation.URLSessionDataTask, Foundation.CachedURLResponse) -> Foundation.CachedURLResponse?)) -> PAlamofire.ResponseCacher
+}
+extension Foundation.URLSessionConfiguration : PAlamofire.AlamofireExtended {
+  public typealias ExtendedType = Foundation.URLSessionConfiguration
+}
+extension PAlamofire.AlamofireExtension where ExtendedType : Foundation.URLSessionConfiguration {
+  public static var `default`: Foundation.URLSessionConfiguration {
+    get
+  }
+  public static var ephemeral: Foundation.URLSessionConfiguration {
+    get
+  }
+}
+public protocol DataResponseSerializerProtocol {
+  associatedtype SerializedObject
+  func serialize(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) throws -> Self.SerializedObject
+}
+public protocol DownloadResponseSerializerProtocol {
+  associatedtype SerializedObject
+  func serializeDownload(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, fileURL: Foundation.URL?, error: Swift.Error?) throws -> Self.SerializedObject
+}
+public protocol ResponseSerializer : PAlamofire.DataResponseSerializerProtocol, PAlamofire.DownloadResponseSerializerProtocol {
+  var dataPreprocessor: PAlamofire.DataPreprocessor { get }
+  var emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> { get }
+  var emptyResponseCodes: Swift.Set<Swift.Int> { get }
+}
+public protocol DataPreprocessor {
+  func preprocess(_ data: Foundation.Data) throws -> Foundation.Data
+}
+public struct PassthroughPreprocessor : PAlamofire.DataPreprocessor {
+  public init()
+  public func preprocess(_ data: Foundation.Data) throws -> Foundation.Data
+}
+public struct GoogleXSSIPreprocessor : PAlamofire.DataPreprocessor {
+  public init()
+  public func preprocess(_ data: Foundation.Data) throws -> Foundation.Data
+}
+extension PAlamofire.DataPreprocessor where Self == PAlamofire.PassthroughPreprocessor {
+  public static var passthrough: PAlamofire.PassthroughPreprocessor {
+    get
+  }
+}
+extension PAlamofire.DataPreprocessor where Self == PAlamofire.GoogleXSSIPreprocessor {
+  public static var googleXSSI: PAlamofire.GoogleXSSIPreprocessor {
+    get
+  }
+}
+extension PAlamofire.ResponseSerializer {
+  public static var defaultDataPreprocessor: PAlamofire.DataPreprocessor {
+    get
+  }
+  public static var defaultEmptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> {
+    get
+  }
+  public static var defaultEmptyResponseCodes: Swift.Set<Swift.Int> {
+    get
+  }
+  public var dataPreprocessor: PAlamofire.DataPreprocessor {
+    get
+  }
+  public var emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> {
+    get
+  }
+  public var emptyResponseCodes: Swift.Set<Swift.Int> {
+    get
+  }
+  public func requestAllowsEmptyResponseData(_ request: Foundation.URLRequest?) -> Swift.Bool?
+  public func responseAllowsEmptyResponseData(_ response: Foundation.HTTPURLResponse?) -> Swift.Bool?
+  public func emptyResponseAllowed(forRequest request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?) -> Swift.Bool
+}
+extension PAlamofire.DownloadResponseSerializerProtocol where Self : PAlamofire.DataResponseSerializerProtocol {
+  public func serializeDownload(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, fileURL: Foundation.URL?, error: Swift.Error?) throws -> Self.SerializedObject
+}
+extension PAlamofire.DataRequest {
+  @discardableResult
+  public func response(queue: Dispatch.DispatchQueue = .main, completionHandler: @escaping (PAlamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void) -> Self
+  @discardableResult
+  public func response<Serializer>(queue: Dispatch.DispatchQueue = .main, responseSerializer: Serializer, completionHandler: @escaping (PAlamofire.AFDataResponse<Serializer.SerializedObject>) -> Swift.Void) -> Self where Serializer : PAlamofire.DataResponseSerializerProtocol
+  @discardableResult
+  public func response<Serializer>(queue: Dispatch.DispatchQueue = .main, responseSerializer: Serializer, completionHandler: @escaping (PAlamofire.AFDataResponse<Serializer.SerializedObject>) -> Swift.Void) -> Self where Serializer : PAlamofire.ResponseSerializer
+}
+extension PAlamofire.DownloadRequest {
+  @discardableResult
+  public func response(queue: Dispatch.DispatchQueue = .main, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Foundation.URL?>) -> Swift.Void) -> Self
+  @discardableResult
+  public func response<Serializer>(queue: Dispatch.DispatchQueue = .main, responseSerializer: Serializer, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Serializer.SerializedObject>) -> Swift.Void) -> Self where Serializer : PAlamofire.DownloadResponseSerializerProtocol
+  @discardableResult
+  public func response<Serializer>(queue: Dispatch.DispatchQueue = .main, responseSerializer: Serializer, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Serializer.SerializedObject>) -> Swift.Void) -> Self where Serializer : PAlamofire.ResponseSerializer
+}
+public struct URLResponseSerializer : PAlamofire.DownloadResponseSerializerProtocol {
+  public init()
+  public func serializeDownload(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, fileURL: Foundation.URL?, error: Swift.Error?) throws -> Foundation.URL
+  public typealias SerializedObject = Foundation.URL
+}
+extension PAlamofire.DownloadResponseSerializerProtocol where Self == PAlamofire.URLResponseSerializer {
+  public static var url: PAlamofire.URLResponseSerializer {
+    get
+  }
+}
+extension PAlamofire.DownloadRequest {
+  @discardableResult
+  public func responseURL(queue: Dispatch.DispatchQueue = .main, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Foundation.URL>) -> Swift.Void) -> Self
+}
+final public class DataResponseSerializer : PAlamofire.ResponseSerializer {
+  final public let dataPreprocessor: PAlamofire.DataPreprocessor
+  final public let emptyResponseCodes: Swift.Set<Swift.Int>
+  final public let emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod>
+  public init(dataPreprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods)
+  final public func serialize(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) throws -> Foundation.Data
+  public typealias SerializedObject = Foundation.Data
+  @objc deinit
+}
+extension PAlamofire.ResponseSerializer where Self == PAlamofire.DataResponseSerializer {
+  public static var data: PAlamofire.DataResponseSerializer {
+    get
+  }
+  public static func data(dataPreprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.DataResponseSerializer
+}
+extension PAlamofire.DataRequest {
+  @discardableResult
+  public func responseData(queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods, completionHandler: @escaping (PAlamofire.AFDataResponse<Foundation.Data>) -> Swift.Void) -> Self
+}
+extension PAlamofire.DownloadRequest {
+  @discardableResult
+  public func responseData(queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = DataResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = DataResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DataResponseSerializer.defaultEmptyRequestMethods, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Foundation.Data>) -> Swift.Void) -> Self
+}
+final public class StringResponseSerializer : PAlamofire.ResponseSerializer {
+  final public let dataPreprocessor: PAlamofire.DataPreprocessor
+  final public let encoding: Swift.String.Encoding?
+  final public let emptyResponseCodes: Swift.Set<Swift.Int>
+  final public let emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod>
+  public init(dataPreprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods)
+  final public func serialize(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) throws -> Swift.String
+  public typealias SerializedObject = Swift.String
+  @objc deinit
+}
+extension PAlamofire.ResponseSerializer where Self == PAlamofire.StringResponseSerializer {
+  public static var string: PAlamofire.StringResponseSerializer {
+    get
+  }
+  public static func string(dataPreprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods) -> PAlamofire.StringResponseSerializer
+}
+extension PAlamofire.DataRequest {
+  @discardableResult
+  public func responseString(queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods, completionHandler: @escaping (PAlamofire.AFDataResponse<Swift.String>) -> Swift.Void) -> Self
+}
+extension PAlamofire.DownloadRequest {
+  @discardableResult
+  public func responseString(queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = StringResponseSerializer.defaultDataPreprocessor, encoding: Swift.String.Encoding? = nil, emptyResponseCodes: Swift.Set<Swift.Int> = StringResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = StringResponseSerializer.defaultEmptyRequestMethods, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Swift.String>) -> Swift.Void) -> Self
+}
+@available(*, deprecated, message: "JSONResponseSerializer deprecated and will be removed in Alamofire 6. Use DecodableResponseSerializer instead.")
+final public class JSONResponseSerializer : PAlamofire.ResponseSerializer {
+  final public let dataPreprocessor: PAlamofire.DataPreprocessor
+  final public let emptyResponseCodes: Swift.Set<Swift.Int>
+  final public let emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod>
+  final public let options: Foundation.JSONSerialization.ReadingOptions
+  public init(dataPreprocessor: PAlamofire.DataPreprocessor = JSONResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = JSONResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = JSONResponseSerializer.defaultEmptyRequestMethods, options: Foundation.JSONSerialization.ReadingOptions = .allowFragments)
+  final public func serialize(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) throws -> Any
+  public typealias SerializedObject = Any
+  @objc deinit
+}
+extension PAlamofire.DataRequest {
+  @available(*, deprecated, message: "responseJSON deprecated and will be removed in Alamofire 6. Use responseDecodable instead.")
+  @discardableResult
+  public func responseJSON(queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = JSONResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = JSONResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = JSONResponseSerializer.defaultEmptyRequestMethods, options: Foundation.JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (PAlamofire.AFDataResponse<Any>) -> Swift.Void) -> Self
+}
+extension PAlamofire.DownloadRequest {
+  @available(*, deprecated, message: "responseJSON deprecated and will be removed in Alamofire 6. Use responseDecodable instead.")
+  @discardableResult
+  public func responseJSON(queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = JSONResponseSerializer.defaultDataPreprocessor, emptyResponseCodes: Swift.Set<Swift.Int> = JSONResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = JSONResponseSerializer.defaultEmptyRequestMethods, options: Foundation.JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (PAlamofire.AFDownloadResponse<Any>) -> Swift.Void) -> Self
+}
+public protocol EmptyResponse {
+  static func emptyValue() -> Self
+}
+public struct Empty : Swift.Codable {
+  public static let value: PAlamofire.Empty
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension PAlamofire.Empty : PAlamofire.EmptyResponse {
+  public static func emptyValue() -> PAlamofire.Empty
+}
+public protocol DataDecoder {
+  func decode<D>(_ type: D.Type, from data: Foundation.Data) throws -> D where D : Swift.Decodable
+}
+extension Foundation.JSONDecoder : PAlamofire.DataDecoder {
+}
+extension Foundation.PropertyListDecoder : PAlamofire.DataDecoder {
+}
+final public class DecodableResponseSerializer<T> : PAlamofire.ResponseSerializer where T : Swift.Decodable {
+  final public let dataPreprocessor: PAlamofire.DataPreprocessor
+  final public let decoder: PAlamofire.DataDecoder
+  final public let emptyResponseCodes: Swift.Set<Swift.Int>
+  final public let emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod>
+  public init(dataPreprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer.defaultEmptyRequestMethods)
+  final public func serialize(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) throws -> T
+  public typealias SerializedObject = T
+  @objc deinit
+}
+extension PAlamofire.ResponseSerializer {
+  public static func decodable<T>(of type: T.Type, dataPreprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods) -> PAlamofire.DecodableResponseSerializer<T> where Self == PAlamofire.DecodableResponseSerializer<T>, T : Swift.Decodable
+}
+extension PAlamofire.DataRequest {
+  @discardableResult
+  public func responseDecodable<T>(of type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods, completionHandler: @escaping (PAlamofire.AFDataResponse<T>) -> Swift.Void) -> Self where T : Swift.Decodable
+}
+extension PAlamofire.DownloadRequest {
+  @discardableResult
+  public func responseDecodable<T>(of type: T.Type = T.self, queue: Dispatch.DispatchQueue = .main, dataPreprocessor: PAlamofire.DataPreprocessor = DecodableResponseSerializer<T>.defaultDataPreprocessor, decoder: PAlamofire.DataDecoder = JSONDecoder(), emptyResponseCodes: Swift.Set<Swift.Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes, emptyRequestMethods: Swift.Set<PAlamofire.HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods, completionHandler: @escaping (PAlamofire.AFDownloadResponse<T>) -> Swift.Void) -> Self where T : Swift.Decodable
+}
+public protocol DataStreamSerializer {
+  associatedtype SerializedObject
+  func serialize(_ data: Foundation.Data) throws -> Self.SerializedObject
+}
+public struct DecodableStreamSerializer<T> : PAlamofire.DataStreamSerializer where T : Swift.Decodable {
+  public let decoder: PAlamofire.DataDecoder
+  public let dataPreprocessor: PAlamofire.DataPreprocessor
+  public init(decoder: PAlamofire.DataDecoder = JSONDecoder(), dataPreprocessor: PAlamofire.DataPreprocessor = PassthroughPreprocessor())
+  public func serialize(_ data: Foundation.Data) throws -> T
+  public typealias SerializedObject = T
+}
+public struct PassthroughStreamSerializer : PAlamofire.DataStreamSerializer {
+  public init()
+  public func serialize(_ data: Foundation.Data) throws -> Foundation.Data
+  public typealias SerializedObject = Foundation.Data
+}
+public struct StringStreamSerializer : PAlamofire.DataStreamSerializer {
+  public init()
+  public func serialize(_ data: Foundation.Data) throws -> Swift.String
+  public typealias SerializedObject = Swift.String
+}
+extension PAlamofire.DataStreamSerializer {
+  public static func decodable<T>(of type: T.Type, decoder: PAlamofire.DataDecoder = JSONDecoder(), dataPreprocessor: PAlamofire.DataPreprocessor = PassthroughPreprocessor()) -> Self where Self == PAlamofire.DecodableStreamSerializer<T>, T : Swift.Decodable
+}
+extension PAlamofire.DataStreamSerializer where Self == PAlamofire.PassthroughStreamSerializer {
+  public static var passthrough: PAlamofire.PassthroughStreamSerializer {
+    get
+  }
+}
+extension PAlamofire.DataStreamSerializer where Self == PAlamofire.StringStreamSerializer {
+  public static var string: PAlamofire.StringStreamSerializer {
+    get
+  }
+}
+extension PAlamofire.DataStreamRequest {
+  @discardableResult
+  final public func responseStream(on queue: Dispatch.DispatchQueue = .main, stream: @escaping PAlamofire.DataStreamRequest.Handler<Foundation.Data, Swift.Never>) -> Self
+  @discardableResult
+  final public func responseStream<Serializer>(using serializer: Serializer, on queue: Dispatch.DispatchQueue = .main, stream: @escaping PAlamofire.DataStreamRequest.Handler<Serializer.SerializedObject, PAlamofire.AFError>) -> Self where Serializer : PAlamofire.DataStreamSerializer
+  @discardableResult
+  final public func responseStreamString(on queue: Dispatch.DispatchQueue = .main, stream: @escaping PAlamofire.DataStreamRequest.Handler<Swift.String, Swift.Never>) -> Self
+  @discardableResult
+  final public func responseStreamDecodable<T>(of type: T.Type = T.self, on queue: Dispatch.DispatchQueue = .main, using decoder: PAlamofire.DataDecoder = JSONDecoder(), preprocessor: PAlamofire.DataPreprocessor = PassthroughPreprocessor(), stream: @escaping PAlamofire.DataStreamRequest.Handler<T, PAlamofire.AFError>) -> Self where T : Swift.Decodable
+}
+public typealias Parameters = [Swift.String : Any]
+public protocol ParameterEncoding {
+  func encode(_ urlRequest: PAlamofire.URLRequestConvertible, with parameters: PAlamofire.Parameters?) throws -> Foundation.URLRequest
+}
+public struct URLEncoding : PAlamofire.ParameterEncoding {
+  public enum Destination {
+    case methodDependent
+    case queryString
+    case httpBody
+    public static func == (a: PAlamofire.URLEncoding.Destination, b: PAlamofire.URLEncoding.Destination) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum ArrayEncoding {
+    case brackets
+    case noBrackets
+    case indexInBrackets
+    public static func == (a: PAlamofire.URLEncoding.ArrayEncoding, b: PAlamofire.URLEncoding.ArrayEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum BoolEncoding {
+    case numeric
+    case literal
+    public static func == (a: PAlamofire.URLEncoding.BoolEncoding, b: PAlamofire.URLEncoding.BoolEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static var `default`: PAlamofire.URLEncoding {
+    get
+  }
+  public static var queryString: PAlamofire.URLEncoding {
+    get
+  }
+  public static var httpBody: PAlamofire.URLEncoding {
+    get
+  }
+  public let destination: PAlamofire.URLEncoding.Destination
+  public let arrayEncoding: PAlamofire.URLEncoding.ArrayEncoding
+  public let boolEncoding: PAlamofire.URLEncoding.BoolEncoding
+  public init(destination: PAlamofire.URLEncoding.Destination = .methodDependent, arrayEncoding: PAlamofire.URLEncoding.ArrayEncoding = .brackets, boolEncoding: PAlamofire.URLEncoding.BoolEncoding = .numeric)
+  public func encode(_ urlRequest: PAlamofire.URLRequestConvertible, with parameters: PAlamofire.Parameters?) throws -> Foundation.URLRequest
+  public func queryComponents(fromKey key: Swift.String, value: Any) -> [(Swift.String, Swift.String)]
+  public func escape(_ string: Swift.String) -> Swift.String
+}
+public struct JSONEncoding : PAlamofire.ParameterEncoding {
+  public static var `default`: PAlamofire.JSONEncoding {
+    get
+  }
+  public static var prettyPrinted: PAlamofire.JSONEncoding {
+    get
+  }
+  public let options: Foundation.JSONSerialization.WritingOptions
+  public init(options: Foundation.JSONSerialization.WritingOptions = [])
+  public func encode(_ urlRequest: PAlamofire.URLRequestConvertible, with parameters: PAlamofire.Parameters?) throws -> Foundation.URLRequest
+  public func encode(_ urlRequest: PAlamofire.URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> Foundation.URLRequest
+}
+extension Foundation.URLRequest {
+  public var method: PAlamofire.HTTPMethod? {
+    get
+    set
+  }
+  public func validate() throws
+}
+extension PAlamofire.AuthenticationError : Swift.Equatable {}
+extension PAlamofire.AuthenticationError : Swift.Hashable {}
+extension PAlamofire.Request.State : Swift.Equatable {}
+extension PAlamofire.Request.State : Swift.Hashable {}
+extension PAlamofire.URLEncodedFormEncoder.ArrayEncoding : Swift.Equatable {}
+extension PAlamofire.URLEncodedFormEncoder.ArrayEncoding : Swift.Hashable {}
+extension PAlamofire.URLEncodedFormEncoder.BoolEncoding : Swift.Equatable {}
+extension PAlamofire.URLEncodedFormEncoder.BoolEncoding : Swift.Hashable {}
+extension PAlamofire.URLEncodedFormEncoder.SpaceEncoding : Swift.Equatable {}
+extension PAlamofire.URLEncodedFormEncoder.SpaceEncoding : Swift.Hashable {}
+extension PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType : Swift.Equatable {}
+extension PAlamofire.NetworkReachabilityManager.NetworkReachabilityStatus.ConnectionType : Swift.Hashable {}
+extension PAlamofire.URLEncodedFormParameterEncoder.Destination : Swift.Equatable {}
+extension PAlamofire.URLEncodedFormParameterEncoder.Destination : Swift.Hashable {}
+extension PAlamofire.URLEncoding.Destination : Swift.Equatable {}
+extension PAlamofire.URLEncoding.Destination : Swift.Hashable {}
+extension PAlamofire.URLEncoding.ArrayEncoding : Swift.Equatable {}
+extension PAlamofire.URLEncoding.ArrayEncoding : Swift.Hashable {}
+extension PAlamofire.URLEncoding.BoolEncoding : Swift.Equatable {}
+extension PAlamofire.URLEncoding.BoolEncoding : Swift.Hashable {}
