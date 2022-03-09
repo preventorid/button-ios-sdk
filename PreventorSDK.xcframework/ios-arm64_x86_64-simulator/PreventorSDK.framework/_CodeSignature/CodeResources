@@ -6,39 +6,47 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		o27CFYSpMjlRqmGfEgF5O8PLUhY=
+		qbKeZpPZV9eugS1TbEpPU8BQyF4=
+		</data>
+		<key>CertificatesPA.bundle/CN=TEST CSCA FRA ECDSA256,C=FR.crt</key>
+		<data>
+		a2tl2aNJz7yzIx+tt/O+q9ynfbs=
+		</data>
+		<key>CertificatesPA.bundle/ds.cer</key>
+		<data>
+		v2r/j4PU4WIg80qPmUDTBnb4t5o=
+		</data>
+		<key>CertificatesTA.bundle/FRCVCA_CC.cvCert</key>
+		<data>
+		v1+WkrMiXv534CXgLjFw/NKNB5w=
+		</data>
+		<key>CertificatesTA.bundle/FRCVCA_CC.pkcs8</key>
+		<data>
+		KeoUZeFIOsivLh+fzI2JcxLAusU=
+		</data>
+		<key>CertificatesTA.bundle/FRDV_CC.cvCert</key>
+		<data>
+		8St16Lader5GtfLQ1JfpLD+gVAo=
+		</data>
+		<key>CertificatesTA.bundle/FRDV_CC.pkcs8</key>
+		<data>
+		IVCS2nXlwucib7kgkxBFyOyttmE=
+		</data>
+		<key>CertificatesTA.bundle/FRIS_CC.cvCert</key>
+		<data>
+		Y33NJDYAOARWYJCFM4jrWE40kew=
+		</data>
+		<key>CertificatesTA.bundle/FRIS_CC.pkcs8</key>
+		<data>
+		iuqzy7YKM+tqFlNclBWfBNWN+5E=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
 		OPvSlle4Dl12fqmrN2tQMz5uqHM=
 		</data>
-		<key>Frameworks/PAlamofire.framework/Info.plist</key>
-		<data>
-		4PHjCAYWt1tBZ8QMsfFrfvCB6+8=
-		</data>
-		<key>Frameworks/PAlamofire.framework/PAlamofire</key>
-		<data>
-		bO9cAbjmQMfiT7xY7po82CHX+RY=
-		</data>
-		<key>Frameworks/PAlamofire.framework/_CodeSignature/CodeResources</key>
-		<data>
-		Q5R4nENyz+LnxzfJGEMpDk2ytA0=
-		</data>
-		<key>Frameworks/PLottie.framework/Info.plist</key>
-		<data>
-		gbUDouEjkSj2mdZt8jYWo4tmWXk=
-		</data>
-		<key>Frameworks/PLottie.framework/PLottie</key>
-		<data>
-		UE4B1qlCldtvvq3IV/y95It2tdU=
-		</data>
-		<key>Frameworks/PLottie.framework/_CodeSignature/CodeResources</key>
-		<data>
-		IYxQgojaXop7VoQ/d/Ws8k+hOEY=
-		</data>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
-		QkEW5AQZZl2QTWsd3kntgkq28eg=
+		5cRthQE25CznzK+P9DDgO8AFdZo=
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
@@ -66,7 +74,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Qndor14Etq8tLAgAiOuS3H65AAE=
+		a8lRYaQEjjS6LoBIEGNXEFhc0I8=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -74,11 +82,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		bFFY/zhN5iHUYQcUO5r5EnNz3CM=
+		lv4e/ESJ1EusWR0m06Vmwo6a2AU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		5B+n7xeQRT8SR+pbWz213QpekGo=
+		NukdhlzowpBEJ7thEAuVM7EJADg=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -86,11 +94,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		bFFY/zhN5iHUYQcUO5r5EnNz3CM=
+		lv4e/ESJ1EusWR0m06Vmwo6a2AU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		5B+n7xeQRT8SR+pbWz213QpekGo=
+		NukdhlzowpBEJ7thEAuVM7EJADg=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -98,11 +106,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		EoeXOLNWQlpPkLhI4mAVayl/CJI=
+		jh7sCzT9fo5yErExFMYyWpwyhBw=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		TErCO0YDOWk9e149YGJLfbx5R5A=
+		ecMcyA4ESuP2c5ZF2sjQvViJtTk=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -110,11 +118,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		EoeXOLNWQlpPkLhI4mAVayl/CJI=
+		jh7sCzT9fo5yErExFMYyWpwyhBw=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		TErCO0YDOWk9e149YGJLfbx5R5A=
+		ecMcyA4ESuP2c5ZF2sjQvViJtTk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -240,7 +248,7 @@
 		</data>
 		<key>regula.license</key>
 		<data>
-		KcFQ9gLqOQ7z8vGy3QBT5GQUkvw=
+		O54dBKQttB9MfA2p1Or8ueqn3DY=
 		</data>
 		<key>startIdentityVerification.json</key>
 		<data>
@@ -253,7 +261,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			f7OXMJTI+Q2vINSphxiYuBTTIW7v6nCrB5LwlcQBZZU=
+			G3Sn3JFv7NG7wPJE2ljqktQfQZpN4zIY3PB9sO2O+J0=
+			</data>
+		</dict>
+		<key>CertificatesPA.bundle/CN=TEST CSCA FRA ECDSA256,C=FR.crt</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rLe86aPIaZvMLqY7097/8nITg4cvauEE6lVRk+clIJ8=
+			</data>
+		</dict>
+		<key>CertificatesPA.bundle/ds.cer</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DpTeerVMab0YLdT7cM2HHJL13C5CORFrJQO8tTqEA1E=
+			</data>
+		</dict>
+		<key>CertificatesTA.bundle/FRCVCA_CC.cvCert</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			58GbwXnPSBDK/DdQUpfoACndA3cjMXPj2xNXfopt15Q=
+			</data>
+		</dict>
+		<key>CertificatesTA.bundle/FRCVCA_CC.pkcs8</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0iCVYf2GZBdIpRzSkpawgGeynMx7NnsWDGgYHqKBB0E=
+			</data>
+		</dict>
+		<key>CertificatesTA.bundle/FRDV_CC.cvCert</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PqTmN5TJ2jxLv9Mua3Q4mlqiUg7tgFkFPpWCelToCqw=
+			</data>
+		</dict>
+		<key>CertificatesTA.bundle/FRDV_CC.pkcs8</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fr9vM8LFWcLJ2aFAxQevQN/oRluUAT45e0pw8OqvK4Y=
+			</data>
+		</dict>
+		<key>CertificatesTA.bundle/FRIS_CC.cvCert</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9JHe5Bx69Z1CqqGmpXwyi/tOcblrB83qh/0A+VKZah0=
+			</data>
+		</dict>
+		<key>CertificatesTA.bundle/FRIS_CC.pkcs8</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FszqkHCExezNhOQlI1NYBgd3ZPRD07RjBDOHf6RFhMg=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -263,53 +327,11 @@
 			RDsBYPDpjHy4ljjfbVhgO8CjzwkG9/E6fB0yoJcJ//A=
 			</data>
 		</dict>
-		<key>Frameworks/PAlamofire.framework/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Hn6a7LjwplZrVt70dHUR9t6CuN+g0ZosIcdqcg8FfjA=
-			</data>
-		</dict>
-		<key>Frameworks/PAlamofire.framework/PAlamofire</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			6eyiN41vCzp3YCYWHUumgY5P5oZxdLpIQWhpsWStLaM=
-			</data>
-		</dict>
-		<key>Frameworks/PAlamofire.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			DsrI4XM1+fW3tbZT7GrzltLGV5sniPAtDia9J50Ylko=
-			</data>
-		</dict>
-		<key>Frameworks/PLottie.framework/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			OcE7H9k+KCAd3bMBGb3oeZlACi23zXY2KpwgS2WaDoE=
-			</data>
-		</dict>
-		<key>Frameworks/PLottie.framework/PLottie</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			gk+J6/3jReA0jxtCNx2W4qRDA0bnn8wuQFePeRmC7KA=
-			</data>
-		</dict>
-		<key>Frameworks/PLottie.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			vKGc5I6wubBurRWVaHjhF3kjpwtYaw+fORV6ySrsjLI=
-			</data>
-		</dict>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XYotbbSlbW3vJ83dI6FPtLwMo3PkH9y3OW1QIdB2LSU=
+			UNnmnKwfmcRAaB4iUE30YnRdBNitG7Ox1nLzgVIhabY=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK.h</key>
@@ -365,14 +387,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			V6wXnC54ysMjzXCH1dyLwiutpKaYxosiH9rBqoyMovQ=
+			2D4WSPVNxsqGsEvZj3Lyt2XiwxBnPVXzq3pPR8qedXk=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qjW8YzEhKYEsb36N8jM+AF8M2Ayw4vi4eYxD2sLfwxA=
+			mvYKdAMIcDAz0o6bgF1EIhOgpGpEArL4yND7fuBphww=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
@@ -386,14 +408,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			V6wXnC54ysMjzXCH1dyLwiutpKaYxosiH9rBqoyMovQ=
+			2D4WSPVNxsqGsEvZj3Lyt2XiwxBnPVXzq3pPR8qedXk=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qjW8YzEhKYEsb36N8jM+AF8M2Ayw4vi4eYxD2sLfwxA=
+			mvYKdAMIcDAz0o6bgF1EIhOgpGpEArL4yND7fuBphww=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -407,14 +429,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bj7CMNcIT/Pwx3b+1/+NtdrZjVqHKmohVS6TcEVb4dY=
+			L+dmJOSAW2cHqGkGP3seILArH/2yxcdX/2YgKUEdcMw=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nQbaQhdRyFGc5Xj+Hh0Nk2/77R6MG+/TTWyzDqEICMw=
+			CZg5WIhRlHKzw+kutB6xsjoMXfCwJP8DYkA+vpnXBJU=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -428,14 +450,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bj7CMNcIT/Pwx3b+1/+NtdrZjVqHKmohVS6TcEVb4dY=
+			L+dmJOSAW2cHqGkGP3seILArH/2yxcdX/2YgKUEdcMw=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nQbaQhdRyFGc5Xj+Hh0Nk2/77R6MG+/TTWyzDqEICMw=
+			CZg5WIhRlHKzw+kutB6xsjoMXfCwJP8DYkA+vpnXBJU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -588,7 +610,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kCmbiLOEsjvj45lK4w+xZl3pQOtwaYogVr7fBQD+Cm8=
+			cHJjU4bB4ZTCvgOr8PmIlu3uVNoqFrtV9jIUDgJ314s=
 			</data>
 		</dict>
 		<key>startIdentityVerification.json</key>

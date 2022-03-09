@@ -11,9 +11,8 @@ let package = Package(
     ],
     products: [
         .library(name: "PreventorSDK", targets: ["PreventorSDK",
-                                                 "PLottie",
-                                                 "PAlamofire",
-                                                 "PAlamofire",
+                                                 "Lottie",
+                                                 "Alamofire",
                                                  "DocumentReaderCore",
                                                  "DocumentReader",
                                                  "RegulaCommon"])
@@ -21,8 +20,8 @@ let package = Package(
     dependencies: [],
     targets: [
         .binaryTarget(name: "PreventorSDK", path: "PreventorSDK.xcframework"),
-        .binaryTarget(name: "PLottie", path: "PLottie.xcframework"),
-        .binaryTarget(name: "PAlamofire", path: "PAlamofire.xcframework"),
+        .binaryTarget(name: "Lottie", path: "Lottie.xcframework"),
+        .binaryTarget(name: "Alamofire", path: "Alamofire.xcframework"),
         .binaryTarget(name: "DocumentReaderCore",
                       url: "https://pods.regulaforensics.com/FullRFID/6.1.5791/DocumentReaderCore_fullrfid_6.1.5791.zip",
                       checksum: "2cac3da9baf9b8342113ee410b3f507a7991f833a6b95663bf7b1d48ad5b800f"),

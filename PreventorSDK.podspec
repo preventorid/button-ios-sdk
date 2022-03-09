@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'PreventorSDK aims to give users truth about their identity, through the use of AI among other resources'
 
 # This description is used to generate tags and improve search results.
@@ -17,9 +17,6 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
-PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
-PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
-PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
 PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
                        DESC
 
@@ -36,7 +33,7 @@ PreventorSDK aims to give users truth about their identity, through the use of A
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.vendored_frameworks = 'PreventorSDK.xcframework', 'PLottie.xcframework', 'PAlamofire.xcframework'
+  s.vendored_frameworks = 'PreventorSDK.xcframework', 'Lottie.xcframework', 'Alamofire.xcframework'
   s.dependency 'DocumentReader', '6.1.2358'
   s.dependency 'DocumentReaderFullRFID', '6.1.5791'
 
