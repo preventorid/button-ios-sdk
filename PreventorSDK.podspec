@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
 PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
+PreventorSDK aims to give users truth about their identity, through the use of AI among other resources
                        DESC
 
   s.homepage         = 'https://github.com/preventorid/button-ios-sdk.git'
