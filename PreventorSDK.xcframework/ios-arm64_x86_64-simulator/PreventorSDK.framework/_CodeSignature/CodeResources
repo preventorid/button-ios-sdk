@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		qbKeZpPZV9eugS1TbEpPU8BQyF4=
+		YYp9lkq2M51XmAlAYxvombAdtPA=
 		</data>
 		<key>CertificatesPA.bundle/CN=TEST CSCA FRA ECDSA256,C=FR.crt</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
-		5cRthQE25CznzK+P9DDgO8AFdZo=
+		NwrAaqrCQlosy1cQrfR/2+dxKZQ=
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
@@ -74,55 +74,55 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		a8lRYaQEjjS6LoBIEGNXEFhc0I8=
+		WyinDgm0LzvYx/z0tAx+dDfFvUU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		zx7zVJoUXfVPpf2n0MY/CjNFpsM=
+		IdAtGBBNdT7TNYJ9gonZxXiNrFs=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		lv4e/ESJ1EusWR0m06Vmwo6a2AU=
+		tozYukfvceZfK8IZBgdtCQdwJT0=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		NukdhlzowpBEJ7thEAuVM7EJADg=
+		uy2pEbJ1w9Ze/8bb/SMBFN1RJIU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		zx7zVJoUXfVPpf2n0MY/CjNFpsM=
+		IdAtGBBNdT7TNYJ9gonZxXiNrFs=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		lv4e/ESJ1EusWR0m06Vmwo6a2AU=
+		tozYukfvceZfK8IZBgdtCQdwJT0=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		NukdhlzowpBEJ7thEAuVM7EJADg=
+		uy2pEbJ1w9Ze/8bb/SMBFN1RJIU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		pgLybjiqg3PoqlK/fTKy92meZGo=
+		Ax0X3eVDgLzIgZSBFs0dC84pc3E=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jh7sCzT9fo5yErExFMYyWpwyhBw=
+		J8H0jD5feHolPTRdJb25RC/V7ag=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ecMcyA4ESuP2c5ZF2sjQvViJtTk=
+		kJBkibQROZ0MLTVLow0WzlPhoyQ=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		pgLybjiqg3PoqlK/fTKy92meZGo=
+		Ax0X3eVDgLzIgZSBFs0dC84pc3E=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		jh7sCzT9fo5yErExFMYyWpwyhBw=
+		J8H0jD5feHolPTRdJb25RC/V7ag=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ecMcyA4ESuP2c5ZF2sjQvViJtTk=
+		kJBkibQROZ0MLTVLow0WzlPhoyQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -132,9 +132,9 @@
 		<data>
 		h4fa1SC8lolsMa2SR8HH4yqEqbM=
 		</data>
-		<key>View.nib</key>
+		<key>UIPreventorButton.nib</key>
 		<data>
-		oOEBGkTfaijwXjniJcHPQciZCzo=
+		Z7guVJuoPnw8+IwGG8rxv0zcAlw=
 		</data>
 		<key>alertCancel.json</key>
 		<data>
@@ -261,7 +261,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G3Sn3JFv7NG7wPJE2ljqktQfQZpN4zIY3PB9sO2O+J0=
+			OmBX2paEIDWmlt8wPd5+ZvU/lwbN4mGcDZLLjiW0ojw=
 			</data>
 		</dict>
 		<key>CertificatesPA.bundle/CN=TEST CSCA FRA ECDSA256,C=FR.crt</key>
@@ -331,7 +331,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UNnmnKwfmcRAaB4iUE30YnRdBNitG7Ox1nLzgVIhabY=
+			IdL9pErvTdV3FRylNpKaaiFJyhR3ypVi8neBLhjOISE=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK.h</key>
@@ -380,84 +380,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ub9Wl+hIoPZ4YipAjnO8fPnwlHH4Va4EwRhKnqv19fg=
+			6MJt2CSNt5o7Kuj+WGfLK9/ArcRfJDnTW78uqNBNjao=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2D4WSPVNxsqGsEvZj3Lyt2XiwxBnPVXzq3pPR8qedXk=
+			EIkXZeE5I9urXiCRzxAXXyOPV/XlqffW2ZDkQQy4iYY=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mvYKdAMIcDAz0o6bgF1EIhOgpGpEArL4yND7fuBphww=
+			qYQb/K6W/TrMpvejX0JNAnT3ae0cJX2jbhv5peGvJkU=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ub9Wl+hIoPZ4YipAjnO8fPnwlHH4Va4EwRhKnqv19fg=
+			6MJt2CSNt5o7Kuj+WGfLK9/ArcRfJDnTW78uqNBNjao=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2D4WSPVNxsqGsEvZj3Lyt2XiwxBnPVXzq3pPR8qedXk=
+			EIkXZeE5I9urXiCRzxAXXyOPV/XlqffW2ZDkQQy4iYY=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mvYKdAMIcDAz0o6bgF1EIhOgpGpEArL4yND7fuBphww=
+			qYQb/K6W/TrMpvejX0JNAnT3ae0cJX2jbhv5peGvJkU=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NEK10Z6lDM1YkOZxbOeqOdfsbNIPPVeRr4ujHdjWmMk=
+			uX5ISr+fb0WWxRMzePZ5B6JE5itKgzXVXoUUcMk3Log=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			L+dmJOSAW2cHqGkGP3seILArH/2yxcdX/2YgKUEdcMw=
+			sCZlmgnoJP2WlPcvI2VKamGqqx29fPD5wh18SwaYVsg=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CZg5WIhRlHKzw+kutB6xsjoMXfCwJP8DYkA+vpnXBJU=
+			XaIOP43rkuHqxJSrmNQFWhaQnQenE3SSBNc3NO7OshQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NEK10Z6lDM1YkOZxbOeqOdfsbNIPPVeRr4ujHdjWmMk=
+			uX5ISr+fb0WWxRMzePZ5B6JE5itKgzXVXoUUcMk3Log=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			L+dmJOSAW2cHqGkGP3seILArH/2yxcdX/2YgKUEdcMw=
+			sCZlmgnoJP2WlPcvI2VKamGqqx29fPD5wh18SwaYVsg=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CZg5WIhRlHKzw+kutB6xsjoMXfCwJP8DYkA+vpnXBJU=
+			XaIOP43rkuHqxJSrmNQFWhaQnQenE3SSBNc3NO7OshQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -474,11 +474,11 @@
 			d7ZyQqdk0RVZLb6vE//tCkwFUpshTy4paVnmFXZMOt8=
 			</data>
 		</dict>
-		<key>View.nib</key>
+		<key>UIPreventorButton.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h5qEI6N9d8cXAbXSM6TNyYji1yhwdmeP02A6ql+th78=
+			r1i3e+M2Bga0RMylEDin4AnlAGR08EPJjobKQnVjRmM=
 			</data>
 		</dict>
 		<key>alertCancel.json</key>
