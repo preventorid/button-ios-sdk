@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '0.2.3'
+  s.version          = '1.0.1'
   s.summary          = 'PreventorSDK aims to give users truth about their identity, through the use of AI among other resources'
 
 # This description is used to generate tags and improve search results.
