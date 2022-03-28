@@ -4,6 +4,7 @@
 import AVFoundation
 import Alamofire
 import Combine
+import CommonCrypto
 import DocumentReader
 import Foundation
 import Lottie
@@ -54,6 +55,7 @@ public struct PSDKConfig {
 public enum PSDKFlowID : Swift.String {
   case WF01
   case WF02
+  case `default`
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
