@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		x4GFhA5wnv7Ofjl2fD0Wc2pjXSw=
+		CyKLXYOTEbhJk6zVOtqLYrbnYrg=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		7wsZYL9eWjzd8cU1Mu8h+qZEtEU=
+		Hlzi52/TgOWAffuespBl6KxyGew=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		7wsZYL9eWjzd8cU1Mu8h+qZEtEU=
+		Hlzi52/TgOWAffuespBl6KxyGew=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		4wIsdsbIOg+dQS7uVZaWXf40nn8=
+		AgGKgwgvi0ou3aLhtSz5eTPiV6g=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		4wIsdsbIOg+dQS7uVZaWXf40nn8=
+		AgGKgwgvi0ou3aLhtSz5eTPiV6g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -229,7 +229,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3E/T1fTW8srbPiEdoVDO9rXXMHxNlxX7gltb+/xeC5w=
+			c/qUjdGrR+rYHmKlLr6nxRSviMBo2JIefAj7U6rt3MQ=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -306,7 +306,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jcq2bnwjkGJDxqojbWZAOYIan9xlI9QX0Rre9KrqvXQ=
+			QgsnLxeb/nXKPWT1gfT9dQjxWMZc9dgN7S5DA9RFtfE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
@@ -327,7 +327,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jcq2bnwjkGJDxqojbWZAOYIan9xlI9QX0Rre9KrqvXQ=
+			QgsnLxeb/nXKPWT1gfT9dQjxWMZc9dgN7S5DA9RFtfE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -348,7 +348,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uVAoxQyZF/Pe3gGmfs4K9mVTgJ3OCzqrbzOcNb9XIJ8=
+			8E22ObRB1f9R/03D/gYnZhOpNJSgSSvj4wmvtkAuqbs=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -369,7 +369,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uVAoxQyZF/Pe3gGmfs4K9mVTgJ3OCzqrbzOcNb9XIJ8=
+			8E22ObRB1f9R/03D/gYnZhOpNJSgSSvj4wmvtkAuqbs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
