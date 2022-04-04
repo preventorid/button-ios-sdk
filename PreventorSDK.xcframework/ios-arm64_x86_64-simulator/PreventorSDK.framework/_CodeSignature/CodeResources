@@ -4,9 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Arial-Bold.ttf</key>
+		<data>
+		5Muq2wqbCrQiDOKW0hcKfelNE+g=
+		</data>
+		<key>Arial-Light.ttf</key>
+		<data>
+		HPPKjKOUQ6vyP4ZbkOe0J9kAg9w=
+		</data>
+		<key>Arial-Regular.ttf</key>
+		<data>
+		7T5ktvvXyDSJtKLhs9ZTloNZpJc=
+		</data>
 		<key>Assets.car</key>
 		<data>
-		CyKLXYOTEbhJk6zVOtqLYrbnYrg=
+		h88uoV2YwOHqlxiFFXnmJI5+e/M=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
@@ -44,6 +56,10 @@
 		<data>
 		WyinDgm0LzvYx/z0tAx+dDfFvUU=
 		</data>
+		<key>Login.json</key>
+		<data>
+		I1iCxSy1MAYWhyP/pRfM+bO2QL0=
+		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
 		IdAtGBBNdT7TNYJ9gonZxXiNrFs=
@@ -54,7 +70,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Hlzi52/TgOWAffuespBl6KxyGew=
+		2iyMZst9vXCyknKhh3ttWDEAWQU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -66,7 +82,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Hlzi52/TgOWAffuespBl6KxyGew=
+		2iyMZst9vXCyknKhh3ttWDEAWQU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -78,7 +94,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		AgGKgwgvi0ou3aLhtSz5eTPiV6g=
+		ZydjQlTEX84ausV9lpWOESIA08I=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -90,7 +106,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		AgGKgwgvi0ou3aLhtSz5eTPiV6g=
+		ZydjQlTEX84ausV9lpWOESIA08I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -225,11 +241,32 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Arial-Bold.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1y2yH5JCrt1rkX2FSa1ZIXZrJNX40L7P2i/0xiCzwuA=
+			</data>
+		</dict>
+		<key>Arial-Light.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5dW1Zy1GtEgjRqZpUSHK4BEDclaMswunI4CIhuzaTBI=
+			</data>
+		</dict>
+		<key>Arial-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ull5giWRo0R8/EnZQ9b3aDUI4lVDQHhxwO2P7QX9K9k=
+			</data>
+		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c/qUjdGrR+rYHmKlLr6nxRSviMBo2JIefAj7U6rt3MQ=
+			UCIUciLa3L/cT8JidB95W6i1hLFU8JWBCQmHpZSOgVU=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -288,6 +325,13 @@
 			SoyIovK9JA16Im2mzuYSWm0CQEV///T1C+VVYA376fI=
 			</data>
 		</dict>
+		<key>Login.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+wDVFBA10GrrM7UdN7g1AGHaBhnIjd00v+MgzqimbPw=
+			</data>
+		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
@@ -306,7 +350,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QgsnLxeb/nXKPWT1gfT9dQjxWMZc9dgN7S5DA9RFtfE=
+			uM/pXPMBXtJjRk+qk2K438sfVoJCY7sW0omqVKTjAJQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
@@ -327,7 +371,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QgsnLxeb/nXKPWT1gfT9dQjxWMZc9dgN7S5DA9RFtfE=
+			uM/pXPMBXtJjRk+qk2K438sfVoJCY7sW0omqVKTjAJQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -348,7 +392,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8E22ObRB1f9R/03D/gYnZhOpNJSgSSvj4wmvtkAuqbs=
+			DwuZXNItgBo66tZ9cZkcP4Ag1a6tbiu0L2TVaPfbHX8=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -369,7 +413,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8E22ObRB1f9R/03D/gYnZhOpNJSgSSvj4wmvtkAuqbs=
+			DwuZXNItgBo66tZ9cZkcP4Ag1a6tbiu0L2TVaPfbHX8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
