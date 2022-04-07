@@ -1,9 +1,8 @@
 # PreventorSDK
 
-A description of this package.
+PreventorSDK for iOS
+Preventor identifies, onboards, and monitors your clients in a single, AI-powered platform.
 
-
-A description of this pod.
 [![CI Status](https://img.shields.io/travis/PreventorID/PreventorSDK.svg?style=flat)](https://travis-ci.org/PreventorID/PreventorSDK)
 [![Version](https://img.shields.io/cocoapods/v/PreventorSDK.svg?style=flat)](https://cocoapods.org/pods/PreventorSDK)
 [![License](https://img.shields.io/cocoapods/l/PreventorSDK.svg?style=flat)](https://cocoapods.org/pods/PreventorSDK)
