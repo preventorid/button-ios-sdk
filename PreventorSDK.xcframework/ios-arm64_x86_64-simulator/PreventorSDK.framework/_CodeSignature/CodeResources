@@ -18,7 +18,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		7JR/wST1fsAgCcrjZ1Duh8Pzy5k=
+		0EdkKTTt+oARiRefaBOhEzL3twc=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
-		QYz2N8bEE0aI/zkgT5+q0O3QQy8=
+		3qXXoWWBazC+HaYyXp8cvMzDulg=
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		WyinDgm0LzvYx/z0tAx+dDfFvUU=
+		tFoJf2Z+n1bjAZ0udXvMTvnXn9k=
 		</data>
 		<key>Login.json</key>
 		<data>
@@ -62,51 +62,27 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		IdAtGBBNdT7TNYJ9gonZxXiNrFs=
+		lhC5wYWfHAhJgnGkfxRch2SYeqQ=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		4fZYZmzIcq13apWek1ZnyGibkEg=
+		in1/DBy95n5Gdryz+fsEKwmq1pQ=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		18csC9GsE0AT1XQB6FGxsyWIceg=
-		</data>
-		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		IdAtGBBNdT7TNYJ9gonZxXiNrFs=
-		</data>
-		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		4fZYZmzIcq13apWek1ZnyGibkEg=
-		</data>
-		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		18csC9GsE0AT1XQB6FGxsyWIceg=
+		Ogds9hNVHsAF1TZAOR1/Hzhzm6k=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Ax0X3eVDgLzIgZSBFs0dC84pc3E=
+		wyD1jLHDd5V/lclVsDkZKdhBk3Q=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		C3kT89erp7jg8stBJiKKkITQCV8=
+		6BhMk7JjBHUHIrmPQtPUWF6Evmw=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		eyz6nKnz0Ewpew3Ody4STy/clC4=
-		</data>
-		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		Ax0X3eVDgLzIgZSBFs0dC84pc3E=
-		</data>
-		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftinterface</key>
-		<data>
-		C3kT89erp7jg8stBJiKKkITQCV8=
-		</data>
-		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		eyz6nKnz0Ewpew3Ody4STy/clC4=
+		z0TQ+GfPXGU4egkCM7ZJiKixAnM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -266,7 +242,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lpOWVGozuaFvyNNphGP5lXDt78YoHBbrMlMZpbOfDQ0=
+			8UXIzddisRMlMhWQGoiUzsY/4+YJOhDUmdm6RCoRAPo=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -280,7 +256,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IINNKYu6ANUafeIjjlK0IKrnedKLviDJudihIwzdLSM=
+			ujGH1ZGXjuFom9ylkr3UIzQNu6/68U/xSPenwvRdCec=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK.h</key>
@@ -336,84 +312,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6MJt2CSNt5o7Kuj+WGfLK9/ArcRfJDnTW78uqNBNjao=
+			NjpP8S/M1YZXmiAC5r3YYg302KN8lo8/2s0HIzY9dLk=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CC961kVH7GE62faF/vNzUXN3gMwNktrqBpqxH4c/8DY=
+			wv74vOwNFl0cuVp/O+PjgMeyWfMUJY89Nnw1dkGsTeE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UUvA9fi3G8ZXPycrHZjzkp31cknh+q6l1aEC3P0Ur1Y=
-			</data>
-		</dict>
-		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			6MJt2CSNt5o7Kuj+WGfLK9/ArcRfJDnTW78uqNBNjao=
-			</data>
-		</dict>
-		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			CC961kVH7GE62faF/vNzUXN3gMwNktrqBpqxH4c/8DY=
-			</data>
-		</dict>
-		<key>Modules/PreventorSDK.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			UUvA9fi3G8ZXPycrHZjzkp31cknh+q6l1aEC3P0Ur1Y=
+			WtkXwBaSKBYKN0dA8ElT8Q5gGlzfQ+To4Ck6LWh3HMk=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uX5ISr+fb0WWxRMzePZ5B6JE5itKgzXVXoUUcMk3Log=
+			4VlZaUWRIE5j9CvoDNePtodJ2D7pQKHQacLfR8lBu8E=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QCGtJo96Uc9jSj6dTQ4rwB1pkz6x0D/gWslOHvzN0yA=
+			1FzYqy908fySa4OUs++Nrq0UzCb6c0f0YbzNsXpByrc=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RsPfNWPNcNnJEpAxyQm6LNxuVll83DIj5E9xwEbT1wY=
-			</data>
-		</dict>
-		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			uX5ISr+fb0WWxRMzePZ5B6JE5itKgzXVXoUUcMk3Log=
-			</data>
-		</dict>
-		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			QCGtJo96Uc9jSj6dTQ4rwB1pkz6x0D/gWslOHvzN0yA=
-			</data>
-		</dict>
-		<key>Modules/PreventorSDK.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			RsPfNWPNcNnJEpAxyQm6LNxuVll83DIj5E9xwEbT1wY=
+			rxY4sgdXQ/GUqoliWbS0tntU101a8YcKhEB7Fw7HaHg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
