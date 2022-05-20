@@ -287,7 +287,7 @@
       "SubTitleMicroFrontEnd": "Para continuar, habilite el acceso a su cámara en la configuración de su navegador.",
       "SubTitleMobile": "Para continuar, habilite el acceso a su cámara en la configuración de su celular."
     },
-    "CancelVerification": {
+    "GenericView": {
       "Title": "Cancelar verificación",
       "SubTitle": "Esto puede afectar su capacidad para acceder al servicio.\n\n¿Estás seguro de continuar?"
     },

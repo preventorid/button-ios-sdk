@@ -1,0 +1,4 @@
+framework module PSDKUIKit {
+  header "PSDKUIKit-Swift.h"
+  requires objc
+}

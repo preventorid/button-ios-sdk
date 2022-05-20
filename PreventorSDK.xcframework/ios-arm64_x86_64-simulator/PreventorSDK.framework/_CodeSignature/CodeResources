@@ -4,85 +4,41 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Arial-Bold.ttf</key>
-		<data>
-		5Muq2wqbCrQiDOKW0hcKfelNE+g=
-		</data>
-		<key>Arial-Light.ttf</key>
-		<data>
-		HPPKjKOUQ6vyP4ZbkOe0J9kAg9w=
-		</data>
-		<key>Arial-Regular.ttf</key>
-		<data>
-		7T5ktvvXyDSJtKLhs9ZTloNZpJc=
-		</data>
-		<key>Assets.car</key>
-		<data>
-		nw4Yr15/WzGbQl/aHC5VHspw0AM=
-		</data>
-		<key>Forza-Medium.ttf</key>
-		<data>
-		OPvSlle4Dl12fqmrN2tQMz5uqHM=
-		</data>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
-		3qXXoWWBazC+HaYyXp8cvMzDulg=
+		RCK5kC7bMPgGHJoHj4iK2dkG3VY=
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
 		hxFK/imnALvsQT6/8wpXzUM/rEU=
 		</data>
-		<key>Hind-Bold.ttf</key>
-		<data>
-		yf7nlzIAPC4K6nVTLETUKvSrcdk=
-		</data>
-		<key>Hind-Light.ttf</key>
-		<data>
-		YN9D6lvwkYEWMmIUmSSIHD2uvGM=
-		</data>
-		<key>Hind-Medium.ttf</key>
-		<data>
-		Tdf/RCiFydNUXTkaTkGKlHlhppo=
-		</data>
-		<key>Hind-Regular.ttf</key>
-		<data>
-		Tajtkdq6AUCIHSNuq1VQvobfHfo=
-		</data>
-		<key>Hind-SemiBold.ttf</key>
-		<data>
-		7QBHAl3s/7O7AlqhCfkNaWusGOg=
-		</data>
 		<key>Info.plist</key>
 		<data>
 		tFoJf2Z+n1bjAZ0udXvMTvnXn9k=
 		</data>
-		<key>Login.json</key>
-		<data>
-		I1iCxSy1MAYWhyP/pRfM+bO2QL0=
-		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		lhC5wYWfHAhJgnGkfxRch2SYeqQ=
+		2/+4VDVa1BhfFXFRYqgiO7KL0HA=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		in1/DBy95n5Gdryz+fsEKwmq1pQ=
+		yECdezDy7t1jfQpEb2EaPw0+OHc=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Ogds9hNVHsAF1TZAOR1/Hzhzm6k=
+		6w34CXDw6W3G+c2quoT6lkdTdd0=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		wyD1jLHDd5V/lclVsDkZKdhBk3Q=
+		FfrjilxTeu7xuIJRDYTYmH71xtY=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		6BhMk7JjBHUHIrmPQtPUWF6Evmw=
+		1NSN7tvYY2aMOlMDTBNGDLFkZa4=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		z0TQ+GfPXGU4egkCM7ZJiKixAnM=
+		c2n93ORL3J7O9v5nvxGuWkdrfWI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -95,22 +51,6 @@
 		<key>UIPreventorButton.nib</key>
 		<data>
 		Z7guVJuoPnw8+IwGG8rxv0zcAlw=
-		</data>
-		<key>alertCancel.json</key>
-		<data>
-		yGXMFBcVzm049itUR+giIyVAGvc=
-		</data>
-		<key>biometrics.json</key>
-		<data>
-		1uiDtPqxjWYokWZSZ7DHYfHU2tU=
-		</data>
-		<key>congratulations.json</key>
-		<data>
-		b2xpLaAHGklwhKiNPbf0HFVx2pI=
-		</data>
-		<key>digitalHasben.json</key>
-		<data>
-		efXiQVXY0zGNb/DO9jsPFDD8XLg=
 		</data>
 		<key>en.lproj/ErrorMock.json</key>
 		<dict>
@@ -143,16 +83,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QJvSISYaWYjwJ0xHe0QaS8b4tHM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>en.lproj/phones.json</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fwzRwxqHQTsk2/rVF9u6/lFokdc=
+			mGEEnRCoJBbY99id5Ioq3XaOFm4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -188,75 +119,23 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UJmwPXa5qmvdbPLqrdWDdO/81Jk=
+			A1vuDzfMfdlMrnL2a7sk89TZIT0=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>es.lproj/phones.json</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fwzRwxqHQTsk2/rVF9u6/lFokdc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>preloader.json</key>
-		<data>
-		VSWoG30tarcpoeRpeUlv8nggPTU=
-		</data>
 		<key>regula.license</key>
 		<data>
 		O54dBKQttB9MfA2p1Or8ueqn3DY=
 		</data>
-		<key>startIdentityVerification.json</key>
-		<data>
-		Pg32lAGeV/Y9SNEYf8nU6kd8zow=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Arial-Bold.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1y2yH5JCrt1rkX2FSa1ZIXZrJNX40L7P2i/0xiCzwuA=
-			</data>
-		</dict>
-		<key>Arial-Light.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			5dW1Zy1GtEgjRqZpUSHK4BEDclaMswunI4CIhuzaTBI=
-			</data>
-		</dict>
-		<key>Arial-Regular.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Ull5giWRo0R8/EnZQ9b3aDUI4lVDQHhxwO2P7QX9K9k=
-			</data>
-		</dict>
-		<key>Assets.car</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			mPB1gLCuVn9paDnSx9EcV3lzvwVTl979+BFqcyRO5UU=
-			</data>
-		</dict>
-		<key>Forza-Medium.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			RDsBYPDpjHy4ljjfbVhgO8CjzwkG9/E6fB0yoJcJ//A=
-			</data>
-		</dict>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ujGH1ZGXjuFom9ylkr3UIzQNu6/68U/xSPenwvRdCec=
+			Klr7M6gVEVcWAOMlmS2+8pwD28xulPlI7cFaVxTwTWI=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK.h</key>
@@ -266,88 +145,46 @@
 			jSof9BkY1QB9MnqkWEz+Lb4jT1HWxvoYh0QJpS15fXI=
 			</data>
 		</dict>
-		<key>Hind-Bold.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			65/JG9FENiQEi00xYEfpE9GxXVvKiCLksmSKzA9NRYY=
-			</data>
-		</dict>
-		<key>Hind-Light.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			lXKo3zNhtrE5/+d86QYtPE6S195xE5PdbJmKSpimnz4=
-			</data>
-		</dict>
-		<key>Hind-Medium.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			SDF9OIEX635pqNcqrzX+yBiCzJWBEVvsUemGVK4ExTw=
-			</data>
-		</dict>
-		<key>Hind-Regular.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ZEavlPtLI7UKB4i2uXRpFMPA+ySXV3/PozLf3x2iYZ4=
-			</data>
-		</dict>
-		<key>Hind-SemiBold.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			SoyIovK9JA16Im2mzuYSWm0CQEV///T1C+VVYA376fI=
-			</data>
-		</dict>
-		<key>Login.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			+wDVFBA10GrrM7UdN7g1AGHaBhnIjd00v+MgzqimbPw=
-			</data>
-		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NjpP8S/M1YZXmiAC5r3YYg302KN8lo8/2s0HIzY9dLk=
+			2yC1DVmucvXgdoSE5Q4EDuE2QdE/yXMgx3v3g+wAsdI=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wv74vOwNFl0cuVp/O+PjgMeyWfMUJY89Nnw1dkGsTeE=
+			X/6FQFxErSP4K22rVBdCw7JiZEVdkcfLFEDuqtnIpZQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WtkXwBaSKBYKN0dA8ElT8Q5gGlzfQ+To4Ck6LWh3HMk=
+			vdZC1rBGKwraNEYFc/KV1FZtc23BFESDRmQp/adgad0=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4VlZaUWRIE5j9CvoDNePtodJ2D7pQKHQacLfR8lBu8E=
+			qbFNzOsDgT0k0jP8fGUTLA1nEo38Zvp6Syz2X2rHUp0=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1FzYqy908fySa4OUs++Nrq0UzCb6c0f0YbzNsXpByrc=
+			lm/tVWT6kJAJEmFyFZ63NPbDiI+2dkvx6PMVIxDTwCE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rxY4sgdXQ/GUqoliWbS0tntU101a8YcKhEB7Fw7HaHg=
+			hGKfsc8lY5WBZRSaGPXCfQTVzSFV8OPL0tL0VZM8CW0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -371,34 +208,6 @@
 			r1i3e+M2Bga0RMylEDin4AnlAGR08EPJjobKQnVjRmM=
 			</data>
 		</dict>
-		<key>alertCancel.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			GHntv1RGJJfUBEhRxFl0d6fdd3ZfwduDRORxVnYTO3M=
-			</data>
-		</dict>
-		<key>biometrics.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			fVhO57oKzgNZgm2hE4DC2s2vQNWmi1O2yFufDSKbZi0=
-			</data>
-		</dict>
-		<key>congratulations.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			xd25TypjQJLxBckTZaotIhKHMpYP7McAIeTg4HkHDpM=
-			</data>
-		</dict>
-		<key>digitalHasben.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			WrXPV+Z0Lqm0idRZ/XOl0Q5a7z9FommTu7aKLI7viKE=
-			</data>
-		</dict>
 		<key>en.lproj/ErrorMock.json</key>
 		<dict>
 			<key>hash2</key>
@@ -430,16 +239,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CYSS69hxUxPDaD3hCC2h3s6GjOE0s8/KorCAjN0RwSs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>en.lproj/phones.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			zPXXN4WqJgUSCtFxLCWMkbVpQbKGbk8flhXAZ9tixd0=
+			FFJkeH4Zbukq85BZ0TgjMn7vLZCMZkdv3YHe8rxGwOo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -475,39 +275,16 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5B4G2K4kRYFhOgI5v2GBxUbrfGOwL8uxKfxZ9iTHqWM=
+			ltrz0FmuPEJkhVEd6hh+Op13KBG9k3cCLSc5Ql2CTuw=
 			</data>
 			<key>optional</key>
 			<true/>
-		</dict>
-		<key>es.lproj/phones.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			zPXXN4WqJgUSCtFxLCWMkbVpQbKGbk8flhXAZ9tixd0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>preloader.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			5rHiYhaPRzv6Vvw4dSEjVoBdyg1LmNMHS3YuUvHqi3s=
-			</data>
 		</dict>
 		<key>regula.license</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			cHJjU4bB4ZTCvgOr8PmIlu3uVNoqFrtV9jIUDgJ314s=
-			</data>
-		</dict>
-		<key>startIdentityVerification.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			20fcNK+uSA9+HQwRS2WY55rLN/PAL5Udg2ZSGtb+tg0=
 			</data>
 		</dict>
 	</dict>

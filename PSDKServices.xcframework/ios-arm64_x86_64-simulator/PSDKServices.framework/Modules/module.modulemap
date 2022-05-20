@@ -1,0 +1,11 @@
+framework module PSDKServices {
+  umbrella header "PSDKServices.h"
+
+  export *
+  module * { export * }
+}
+
+module PSDKServices.Swift {
+    header "PSDKServices-Swift.h"
+    requires objc
+}

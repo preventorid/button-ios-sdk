@@ -8,8 +8,9 @@ import CommonCrypto
 import CoreNFC
 import DocumentReader
 import Foundation
-import Lottie
 import Network
+import PSDKServices
+import PSDKUIKit
 @_exported import PreventorSDK
 import Swift
 import SwiftUI
@@ -21,17 +22,20 @@ public enum PSDKErrorCode : Swift.String {
   case BIOMETRIC_AUTHENTICATION_FAILED
   case BAD_STEP_BY_USER
   case MISSING_PARAMETERS
+  case TIME_OUT
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
+public struct PSDKResult {
+}
 public protocol PSDKDelegate {
   func onStart()
-  func onFinish()
+  func onFinish(result: PreventorSDK.PSDKResult)
   func onError(error: PreventorSDK.PSDKErrorCode)
-  func onSubmitted()
+  func onSubmitted(result: PreventorSDK.PSDKResult)
 }
 public struct PreventorButton : SwiftUI.View {
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
@@ -49,19 +53,6 @@ public struct PreventorButton : SwiftUI.View {
     @_Concurrency.MainActor(unsafe) @objc get
   }
   @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers @available(iOS 13.0, *)
-@_Concurrency.MainActor(unsafe) public class IntrospectionUIView : UIKit.UIView {
-  @objc deinit
-}
-@available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
-public struct UIKitIntrospectionView<TargetViewType> : SwiftUI.UIViewRepresentable where TargetViewType : UIKit.UIView {
-  public init(selector: @escaping (PreventorSDK.IntrospectionUIView) -> TargetViewType?, customize: @escaping (TargetViewType) -> Swift.Void)
-  @_Concurrency.MainActor(unsafe) public func makeUIView(context: SwiftUI.UIViewRepresentableContext<PreventorSDK.UIKitIntrospectionView<TargetViewType>>) -> PreventorSDK.IntrospectionUIView
-  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: PreventorSDK.IntrospectionUIView, context: SwiftUI.UIViewRepresentableContext<PreventorSDK.UIKitIntrospectionView<TargetViewType>>)
-  public typealias Body = Swift.Never
-  public typealias Coordinator = Swift.Void
-  public typealias UIViewType = PreventorSDK.IntrospectionUIView
 }
 public struct PSDKConfig {
   public init(flowID: PreventorSDK.PSDKFlowID, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
@@ -100,92 +91,6 @@ public enum PSDKResultState {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) public func initView()
   @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers @available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
-@_Concurrency.MainActor(unsafe) public class IntrospectionUIViewController : UIKit.UIViewController {
-  @objc deinit
-}
-@available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
-public struct UIKitIntrospectionViewController<TargetViewControllerType> : SwiftUI.UIViewControllerRepresentable where TargetViewControllerType : UIKit.UIViewController {
-  public init(selector: @escaping (UIKit.UIViewController) -> TargetViewControllerType?, customize: @escaping (TargetViewControllerType) -> Swift.Void)
-  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: SwiftUI.UIViewControllerRepresentableContext<PreventorSDK.UIKitIntrospectionViewController<TargetViewControllerType>>) -> PreventorSDK.IntrospectionUIViewController
-  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: PreventorSDK.IntrospectionUIViewController, context: SwiftUI.UIViewControllerRepresentableContext<PreventorSDK.UIKitIntrospectionViewController<TargetViewControllerType>>)
-  public typealias Body = Swift.Never
-  public typealias Coordinator = Swift.Void
-  public typealias UIViewControllerType = PreventorSDK.IntrospectionUIViewController
-}
-@available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
-extension SwiftUI.View {
-  public func inject<SomeView>(_ view: SomeView) -> some SwiftUI.View where SomeView : SwiftUI.View
-  
-}
-@available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
-extension SwiftUI.View {
-  public func introspect<TargetView>(selector: @escaping (PreventorSDK.IntrospectionUIView) -> TargetView?, customize: @escaping (TargetView) -> ()) -> some SwiftUI.View where TargetView : UIKit.UIView
-  
-  public func introspectNavigationController(customize: @escaping (UIKit.UINavigationController) -> ()) -> some SwiftUI.View
-  
-  public func introspectSplitViewController(customize: @escaping (UIKit.UISplitViewController) -> ()) -> some SwiftUI.View
-  
-  public func introspectViewController(customize: @escaping (UIKit.UIViewController) -> ()) -> some SwiftUI.View
-  
-  public func introspectTabBarController(customize: @escaping (UIKit.UITabBarController) -> ()) -> some SwiftUI.View
-  
-  public func introspectTableView(customize: @escaping (UIKit.UITableView) -> ()) -> some SwiftUI.View
-  
-  public func introspectTableViewCell(customize: @escaping (UIKit.UITableViewCell) -> ()) -> some SwiftUI.View
-  
-  public func introspectScrollView(customize: @escaping (UIKit.UIScrollView) -> ()) -> some SwiftUI.View
-  
-  public func introspectTextField(customize: @escaping (UIKit.UITextField) -> ()) -> some SwiftUI.View
-  
-  public func introspectTextView(customize: @escaping (UIKit.UITextView) -> ()) -> some SwiftUI.View
-  
-  @available(tvOS, unavailable)
-  public func introspectSwitch(customize: @escaping (UIKit.UISwitch) -> ()) -> some SwiftUI.View
-  
-  @available(tvOS, unavailable)
-  public func introspectSlider(customize: @escaping (UIKit.UISlider) -> ()) -> some SwiftUI.View
-  
-  @available(tvOS, unavailable)
-  public func introspectStepper(customize: @escaping (UIKit.UIStepper) -> ()) -> some SwiftUI.View
-  
-  @available(tvOS, unavailable)
-  public func introspectDatePicker(customize: @escaping (UIKit.UIDatePicker) -> ()) -> some SwiftUI.View
-  
-  public func introspectSegmentedControl(customize: @escaping (UIKit.UISegmentedControl) -> ()) -> some SwiftUI.View
-  
-  @available(iOS 14.0, *)
-  @available(tvOS, unavailable)
-  public func introspectColorWell(customize: @escaping (UIKit.UIColorWell) -> ()) -> some SwiftUI.View
-  
-}
-public typealias PlatformView = UIKit.UIView
-public typealias PlatformViewController = UIKit.UIViewController
-public enum Introspect {
-  public static func findChild<AnyViewType>(ofType type: AnyViewType.Type, in root: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func findChild<AnyViewControllerType>(ofType type: AnyViewControllerType.Type, in root: PreventorSDK.PlatformViewController) -> AnyViewControllerType? where AnyViewControllerType : UIKit.UIViewController
-  public static func findChildUsingFrame<AnyViewType>(ofType type: AnyViewType.Type, in root: PreventorSDK.PlatformView, from originalEntry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func previousSibling<AnyViewType>(containing type: AnyViewType.Type, from entry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func previousSibling<AnyViewType>(ofType type: AnyViewType.Type, from entry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  @available(macOS, unavailable)
-  public static func previousSibling<AnyViewControllerType>(containing type: AnyViewControllerType.Type, from entry: PreventorSDK.PlatformViewController) -> AnyViewControllerType? where AnyViewControllerType : UIKit.UIViewController
-  public static func previousSibling<AnyViewControllerType>(ofType type: AnyViewControllerType.Type, from entry: PreventorSDK.PlatformViewController) -> AnyViewControllerType? where AnyViewControllerType : UIKit.UIViewController
-  public static func nextSibling<AnyViewType>(containing type: AnyViewType.Type, from entry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func nextSibling<AnyViewType>(ofType type: AnyViewType.Type, from entry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func findAncestor<AnyViewType>(ofType type: AnyViewType.Type, from entry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func findAncestorOrAncestorChild<AnyViewType>(ofType type: AnyViewType.Type, from entry: PreventorSDK.PlatformView) -> AnyViewType? where AnyViewType : UIKit.UIView
-  public static func findHostingView(from entry: PreventorSDK.PlatformView) -> PreventorSDK.PlatformView?
-  public static func findViewHost(from entry: PreventorSDK.PlatformView) -> PreventorSDK.PlatformView?
-}
-public enum TargetViewSelector {
-  public static func siblingContaining<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
-  public static func siblingContainingOrAncestor<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
-  public static func siblingContainingOrAncestorOrAncestorChild<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
-  public static func siblingOfType<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
-  public static func siblingOfTypeOrAncestor<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
-  public static func ancestorOrSiblingContaining<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
-  public static func ancestorOrSiblingOfType<TargetView>(from entry: PreventorSDK.PlatformView) -> TargetView? where TargetView : UIKit.UIView
 }
 extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
