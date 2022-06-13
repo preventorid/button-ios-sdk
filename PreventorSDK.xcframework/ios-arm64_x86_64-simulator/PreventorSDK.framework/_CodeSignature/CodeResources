@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		yECdezDy7t1jfQpEb2EaPw0+OHc=
+		79FpASWGrcsypIgtgSPXglOZCmI=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		6BcVppOu8WTqEAu3pIlzpSRf+WI=
+		z98VeL/LrVzGoNjLUBTAIxzR4hE=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		1NSN7tvYY2aMOlMDTBNGDLFkZa4=
+		64PlPdhCfEpKHUHezMj1CcY0z0A=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ttu18T5Em4zpWtQr+o46AHAqTjc=
+		m9jCaVyyk2blhPTJtFIQ6AJ3vHQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,7 +74,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g5xSwEEzEvWZRVYeyqZSlQMkFWc=
+			o0a1wbgwrw3fpa6z3RVmzU1mFcs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -83,7 +83,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mGEEnRCoJBbY99id5Ioq3XaOFm4=
+			+ehsqwFc7QeaCFGFbSri2kL+270=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -110,7 +110,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g5xSwEEzEvWZRVYeyqZSlQMkFWc=
+			lIEwgkqdNaPnegBiFmz9PIW0cG8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -156,14 +156,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X/6FQFxErSP4K22rVBdCw7JiZEVdkcfLFEDuqtnIpZQ=
+			fXl+NyYmoe9yYCaGu86T9jA6axrfM2Yky+dQ8VrJlvQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PLmyUDzdRT9DWGzTW8HKs6kwznRitDOCl5htPp74bVQ=
+			nEVE1fGc87B4co/59r0f7g165x5O2XzuzjsNM2kEp0M=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -177,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lm/tVWT6kJAJEmFyFZ63NPbDiI+2dkvx6PMVIxDTwCE=
+			4V+4wgk5Drv1sa9MmnK6ZeGHQ1D0MwRH7HGgeU4s5mk=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			97ZAF+0kNnqKoNS3t/c7pBbwGxdafoZZ2xjf23f4VFk=
+			eXZJU+ArnxlBQV+BIoLHn8Gp8wunb6PWGmX/cbumils=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -230,7 +230,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CRV7Tilif5/twna2pGnWrteqOOWGVgeC2bTTJZlvzTI=
+			/oIR5wY/qg3tAZKxawWKQjfiEcaZ5AR6Ci/qLyHX6Zs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -239,7 +239,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FFJkeH4Zbukq85BZ0TgjMn7vLZCMZkdv3YHe8rxGwOo=
+			ubaioqgmxQ9ColWaLE/SK3g/yQYIEbHuyUuDhctEs6E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -266,7 +266,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CRV7Tilif5/twna2pGnWrteqOOWGVgeC2bTTJZlvzTI=
+			Pp35oHM/kn/GFD5m7wDUGKQTBXewyyKlQDyjeuAMK80=
 			</data>
 			<key>optional</key>
 			<true/>

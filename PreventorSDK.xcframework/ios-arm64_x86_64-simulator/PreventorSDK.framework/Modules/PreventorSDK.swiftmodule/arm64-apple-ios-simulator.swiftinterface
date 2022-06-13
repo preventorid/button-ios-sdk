@@ -9,6 +9,7 @@ import CoreNFC
 import DocumentReader
 import Foundation
 import Network
+import PSDKCommon
 import PSDKServices
 import PSDKUIKit
 @_exported import PreventorSDK
@@ -60,6 +61,8 @@ public struct PSDKConfig {
 public enum PSDKFlowID : Swift.String {
   case WF01
   case WF02
+  case WF03
+  case WF04
   case `default`
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String

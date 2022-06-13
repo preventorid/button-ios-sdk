@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>000_beginning_playground.json</key>
+		<data>
+		9SrAzMN51aKjRQ5iGYqso7chxiw=
+		</data>
 		<key>Arial-Bold.ttf</key>
 		<data>
 		5Muq2wqbCrQiDOKW0hcKfelNE+g=
@@ -18,7 +22,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		ZmcrEDC3jmgUHub7UXpj1n5Rk1Y=
+		LtE8zQRUZ+39G3x5gHIOIamFDO0=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
@@ -66,11 +70,11 @@
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		O02J8FwJzhulQbvIdLfSyYt29vo=
+		1iQZitRK515ozABBV1lG1Cw1zrY=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Qww0POrgeehG7Fgn1x/MDfO3bAw=
+		vqy2BFTKYM01X/ha8jHrDUIz87M=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -78,31 +82,19 @@
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		z2/sKgp8cnoy2bxFMtZIECfrBxY=
+		USny4+ULQFTFWqQCC/MtjtpThuY=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		cQYPl3e9TWANTcYVTSBj5JhBK8g=
+		VMT85t38/Nq+X82RuvQR6Hs4vTs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		dHtl0pC5+jgu57Vh8eX7WASDajs=
 		</data>
-		<key>alertCancel.json</key>
+		<key>done_congratulations_check.json</key>
 		<data>
-		yGXMFBcVzm049itUR+giIyVAGvc=
-		</data>
-		<key>biometrics.json</key>
-		<data>
-		1uiDtPqxjWYokWZSZ7DHYfHU2tU=
-		</data>
-		<key>congratulations.json</key>
-		<data>
-		b2xpLaAHGklwhKiNPbf0HFVx2pI=
-		</data>
-		<key>digitalHasben.json</key>
-		<data>
-		efXiQVXY0zGNb/DO9jsPFDD8XLg=
+		C5bRBJd0/+04rHC9/76h8DKo9iU=
 		</data>
 		<key>en.lproj/phones.json</key>
 		<dict>
@@ -126,9 +118,17 @@
 		<data>
 		VSWoG30tarcpoeRpeUlv8nggPTU=
 		</data>
+		<key>scan_document_front_back.json</key>
+		<data>
+		HyaRobhZb6gA+be6tj150kWuuRs=
+		</data>
 		<key>startIdentityVerification.json</key>
 		<data>
-		Pg32lAGeV/Y9SNEYf8nU6kd8zow=
+		KxuKMNWmKGOMiurXjN6jxgLNjeg=
+		</data>
+		<key>stop_message_alert.json</key>
+		<data>
+		EwHa3FGNxYwfmVrnJuRJ04RpOfE=
 		</data>
 		<key>timeout_session.json</key>
 		<data>
@@ -137,6 +137,13 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>000_beginning_playground.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GUZLd0wwa9pOKmZLTxg7igQuY9jZwNl6ukev5un9WqE=
+			</data>
+		</dict>
 		<key>Arial-Bold.ttf</key>
 		<dict>
 			<key>hash2</key>
@@ -162,7 +169,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xfwxPwvxZMv6ROdu1rHbjCyHLEe/be0vEilPB8Ko/sM=
+			J7OG8/saqnsZ5d8/gEoL0I0PN1uipWG3oI8wqQ8QS6A=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -239,14 +246,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N33SvOP+8iZuBsBqczE3aP1G7Owx1K3tdCsUHTdAs3g=
+			kRtIWldWqRl4A+JWFNp4tKVSA0++77IvgUV/p3Qo7Pk=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MrU8+USHDl8fSBf/lUQra7AMmY5tvw2D3c831I3MZPQ=
+			xT89VHSYZWZ4rSF0luDrd4y8mZz3C8dE8G9U4blHJZY=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -260,14 +267,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CUL2jcn+43za2N35WdNevDL+m8wSrF+9RRtVZTjCi80=
+			DUb51pJ5tlDGGVIZLyzcooYWWU80AWQKOfn0y2Vd2+k=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5KsZ0y2ib9DVE3oyu6HsM3LyWlnKjSJv0mwdG75RCQQ=
+			x391nrOhkokjx2Xf7t9o4kEb/fTP1MJstLb4iAxTVUU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -277,32 +284,11 @@
 			rawSlNg5Iokufrm8q24ZDVKfICVjXahQXsAfqxHJu18=
 			</data>
 		</dict>
-		<key>alertCancel.json</key>
+		<key>done_congratulations_check.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GHntv1RGJJfUBEhRxFl0d6fdd3ZfwduDRORxVnYTO3M=
-			</data>
-		</dict>
-		<key>biometrics.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			fVhO57oKzgNZgm2hE4DC2s2vQNWmi1O2yFufDSKbZi0=
-			</data>
-		</dict>
-		<key>congratulations.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			xd25TypjQJLxBckTZaotIhKHMpYP7McAIeTg4HkHDpM=
-			</data>
-		</dict>
-		<key>digitalHasben.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			WrXPV+Z0Lqm0idRZ/XOl0Q5a7z9FommTu7aKLI7viKE=
+			vHZF0/v6O00gDmzfCrzxgheUADWVrjJeAzKbvfhqK7U=
 			</data>
 		</dict>
 		<key>en.lproj/phones.json</key>
@@ -330,11 +316,25 @@
 			5rHiYhaPRzv6Vvw4dSEjVoBdyg1LmNMHS3YuUvHqi3s=
 			</data>
 		</dict>
+		<key>scan_document_front_back.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Bj6oQCmZkasQAkEerOvr40duEpFrRnBMsDlnYTLgjq0=
+			</data>
+		</dict>
 		<key>startIdentityVerification.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			20fcNK+uSA9+HQwRS2WY55rLN/PAL5Udg2ZSGtb+tg0=
+			4wMr/CQHiVnl2ryuK81QgsIlmBGfcangeAGp/62frCU=
+			</data>
+		</dict>
+		<key>stop_message_alert.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wTO1GrqTf1rcTynKnOgfJx7QXmw79niL6jlBzlTBXWw=
 			</data>
 		</dict>
 		<key>timeout_session.json</key>

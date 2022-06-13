@@ -15,6 +15,7 @@ let package = Package(
                                                  "Alamofire",
                                                  "PSDKUIKit",
                                                  "PSDKServices",
+                                                 "PSDKCommon",
                                                  "DocumentReaderCore",
                                                  "DocumentReader",
                                                  "RegulaCommon"])
@@ -26,6 +27,7 @@ let package = Package(
         .binaryTarget(name: "Alamofire", path: "Alamofire.xcframework"),
         .binaryTarget(name: "PSDKUIKit", path: "PSDKUIKit.xcframework"),
         .binaryTarget(name: "PSDKServices", path: "PSDKServices.xcframework"),
+        .binaryTarget(name: "PSDKCommon", path: "PSDKCommon.xcframework"),
         .binaryTarget(name: "DocumentReaderCore",
                       url: "https://pods.regulaforensics.com/FullRFID/6.1.5791/DocumentReaderCore_fullrfid_6.1.5791.zip",
                       checksum: "2cac3da9baf9b8342113ee410b3f507a7991f833a6b95663bf7b1d48ad5b800f"),

@@ -224,6 +224,21 @@ public enum ProcessType : Swift.String {
     get
   }
 }
+public struct UserConfirmationRequest : Swift.Codable {
+  public let isOK: Swift.String
+  public init(isOK: PSDKServices.UserConfirmationRequest.Attribute)
+  public enum Attribute : Swift.String {
+    case Y
+    case N
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
 public struct GeneralSettingsResponse : Swift.Codable {
   public var theme: PSDKServices.Theme?
   public var facialAnalysis: PSDKServices.FacialAnalysis?
@@ -237,6 +252,7 @@ public struct GeneralSettingsResponse : Swift.Codable {
   public var defaultWorkflow: PSDKServices.Workflow?
   public var deviceTracking: PSDKServices.DeviceTracking?
   public var workflows: [PSDKServices.Workflow]
+  public var onboardingMaxRetries: Swift.Int?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -388,6 +404,7 @@ public class PSDKRepository {
   public func onboardingSDK(request: PSDKServices.OnboardingSDKRequest, success: @escaping (_ response: PSDKServices.OnboardingResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
   public func onboardingSDKRetry(request: PSDKServices.OnboardingSDKRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.OnboardingResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
   public func cachedTransaction(ticket: Swift.String, success: @escaping (_ response: PSDKServices.UserDataResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
+  public func userConfirmation(request: PSDKServices.UserConfirmationRequest, ticket: Swift.String, success: @escaping (_ response: Foundation.Data?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
   public func sendOtp(request: PSDKServices.OtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.OtpResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
   public func validateOtp(request: PSDKServices.ValidateOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.ValidateOtpResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
   public func continueOnboarding(request: PSDKServices.ContinueOnboardingRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.ContinueOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
@@ -499,6 +516,9 @@ extension PSDKServices.TransactionStatus : Swift.RawRepresentable {}
 extension PSDKServices.ProcessType : Swift.Equatable {}
 extension PSDKServices.ProcessType : Swift.Hashable {}
 extension PSDKServices.ProcessType : Swift.RawRepresentable {}
+extension PSDKServices.UserConfirmationRequest.Attribute : Swift.Equatable {}
+extension PSDKServices.UserConfirmationRequest.Attribute : Swift.Hashable {}
+extension PSDKServices.UserConfirmationRequest.Attribute : Swift.RawRepresentable {}
 extension PSDKServices.TypeEnum : Swift.Equatable {}
 extension PSDKServices.TypeEnum : Swift.Hashable {}
 extension PSDKServices.TypeEnum : Swift.RawRepresentable {}

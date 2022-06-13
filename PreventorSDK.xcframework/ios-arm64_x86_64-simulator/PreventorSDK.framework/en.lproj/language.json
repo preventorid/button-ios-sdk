@@ -16,10 +16,13 @@
     "Retry": "RETRY",
     "GoSettings": "GO SETTINGS",
     "No": "NO",
+    "Yes": "YES",
     "YesConfirm": "YES, CONFIRM",
     "OpenCamera": "OPEN CAMERA",
     "Send": "SEND",
-    "NoReturn": "NO, RETURN"
+    "NoReturn": "NO, RETURN",
+    "Close": "CLOSE",
+    "IamHere": "I AM HERE"
   },
   "Validation": {
     "FieldRequired": "This field is required.",
@@ -39,14 +42,105 @@
   },
   "Message": {
     "EnterTheFollowinglink": "Enter the following secure link to verify.",
-    "AnErrorOccurred": "An error occurred, please try again",
-    "NoInternet": "No internet access",
-    "InvalidEmailOrTries": "Email is not invited or limit of tries exceeded",
-    "EnablePermissions": "Go to settings to enable permissions",
-    "SizeImage": "The image should be 180x40px"
+    "AnErrorOccurred": "An error occurred, please try again.",
+    "NoInternet": "No internet access.",
+    "InvalidEmailOrTries": "Email is not invited or limit of tries exceeded.",
+    "EnablePermissions": "Go to settings to enable permissions.",
+    "SizeImage": "The image should be 180x40px",
+    "DocumentNoPermitted": "Document type not allowed.",
+    "DigitalTemplatesAvailable": "Digital templates available.",
+    "SelectAnotherDocument": "Do you have a another identity document?",
+    "WouldAnotherDocument": "Would you like to try again with \nanother identity document?",
+    "OnBoardingError": [
+      {
+        "code": "PVT-NVLD-STTS",
+        "message": "Provided document seems to be non authentic."
+      },
+      {
+        "code": "PVT-DCM-TP-NRCG",
+        "message": "Provided image does not seem to be a valid document's picture."
+      },
+      {
+        "code": "PVT-DATA-EXTR",
+        "message": "Document data could not be retrieved. It seems that your document picture is not valid."
+      },
+      {
+        "code": "PVT-RQD-FLD-MSSN",
+        "message": "Some required fields could not be retrieved from OCR reading."
+      },
+      {
+        "code": "PVT-CTR-NT-LLWD",
+        "message": "Sorry, the identity document used is not permitted, please use other identity document to verify your identity."
+      },
+      {
+        "code": "PVT-CTR-MSMTCH",
+        "message": "Sorry, the identity document used is not permitted, please use other identity document to verify your identity."
+      },
+      {
+        "code": "PVT-OCR-AG-NT-RNG",
+        "message": "Owner's age specified in document is not in allowed range."
+      },
+      {
+        "code": "PVT-DCMT-NT-LLWD",
+        "message": "Sorry, the identity document used is not permitted, please use other identity document to verify your identity."
+      },
+      {
+        "code": "PVT-PRT-IMG-MSSN",
+        "message": "Required portrait image could not be retrieved from OCR reading."
+      },
+      {
+        "code": "PVT-FA-AG-NT-RNG",
+        "message": "Owner's age specified in document is not in selfies estimated age range."
+      },
+      {
+        "code": "PVT-GND-MSMTCH",
+        "message": "Document's gender field does not match with selfie estimated gender."
+      },
+      {
+        "code": "PVT-PHT-MTC-MSMTCH",
+        "message": "Self-portraits do not fulfill minimum requirements or do not match to each other."
+      },
+      {
+        "code": "PVT-NXPCT-XCPT",
+        "message": "An unexpected error occured during this process execution."
+      },
+      {
+        "code": "DMNTPCMSSN",
+        "message": "One of the required document pictures is missing."
+      },
+      {
+        "code": "TRNSPRCFLD",
+        "message": "Some required fields could not be retrieved from OCR reading."
+      },
+      {
+        "code": "PVT-DCMT-TP-MSMTCH",
+        "message": "Provided document's type seems to be different from selected type."
+      },
+      {
+        "code": "PVT-NVLD-RDNG",
+        "message": "Some data could not be read correctly or no data could be retrieved at all."
+      },
+      {
+        "code": "PVT-XPRD-DCMT",
+        "message": "Sorry, your document has expired."
+      },
+      {
+        "code": "PVT-SCR-LSS-THRSLD",
+        "message": "One or both pictures of your document got a score less than configured threshold."
+      },
+      {
+        "code": "PVT-NO-DCT-DTCT",
+        "message": "No document could be detected in one or both of your provided pictures."
+      },
+      {
+        "code": "PVT-DD-NXPCTD-XCPT",
+        "message": "An unexpected error has been raised during document detection process."
+      }
+    ]
   },
   "Label": {
-    "Required": "* Required"
+    "Required": "* Required",
+    "ProcessingInformation": "Processing information"
   },
   "Placeholder": {
     "SelectTypeId": "Select type of ID",
@@ -61,12 +155,13 @@
     "Country": "Country",
     "Nationality": "Nationality",
     "Dob": "DOB",
-    "EmailAddress": "Email",
+    "EmailAddress": "Email address",
     "VerificationCode": "Verification code",
     "PhoneNumber": "Phone number",
     "Passport": "Passport",
     "DriverLicense": "Driver License",
     "IdCard": "National ID card",
+    "ResidentPermitCard": "Resident Permit Card",
     "Visa": "Visa",
     "EnterEmail": "Enter email address",
     "EnterPhone": "Enter your phone number"
@@ -140,17 +235,17 @@
     },
     "Start": {
       "Title": "Start your identity verification",
-      "SubTitle": "We'll walk you through a seamless process to verify your identity"
+      "SubTitle": "We'll walk you through a seamless \nprocess to verify your identity"
     },
     "PrepareSteps": {
-      "Title": "Prepare for identity verification",
+      "Title": "Prepare for\nidentity verification",
       "Steps": {
         "Step1": "Prepare your government-issued ID to be scanned.",
         "Step2": "Position yourself in good light for a selfie.",
         "Step3": "Have your email address ready to be verified.",
         "Step4": "Have your mobile phone ready to be verified."
       },
-      "Agreements": "By cickling continue you agree with the <a href=\"https://preventor.com/terms-of-service\">terms of service</a> and our <a href=\"https://preventor.com/privacy-policy\">privacy policy.</a>"
+      "Agreements": "By clicking continue you agree with the <a href=\"https://preventor.com/terms-of-service\" target=\"_blank\">terms of service</a> and our <a href=\"https://preventor.com/privacy-policy\" target=\"_blank\">privacy policy.</a>"
     },
     "ChooseCountry": {
       "Title": "From which country \nis your document?",
@@ -158,9 +253,14 @@
     },
     "ChooseDocument": {
       "Title": "Choose the type of document",
-      "SubTitle": "Please select the type of government-issued ID from the dropdown list."
+      "SubTitle": "Please select the type of identity document from the dropdown list."
     },
     "GlobalDocument": {
+      "Title": "Get ready to scan your\n",
+      "Instructions": {
+        "Step1": "Place the document on a dark, flat surface in excellent lighting.",
+        "Step2": "Avoid glare and shadow."
+      },
       "Passport": {
         "Title": "Get ready to scan your passport",
         "SubTitle": "Open the page showing your personal information and continue on the next screen."
@@ -172,6 +272,10 @@
       "IdCard": {
         "Title": "Get ready to scan your national ID card",
         "SubTitle": "Prepare your ID card to take a picture of the front and back and continue on the next screen."
+      },
+      "ResidentPermitCard": {
+        "Title": "Get ready to scan your resident permit card",
+        "SubTitle": "Prepare your resident permit card to take a picture of the front and back and continue on the next screen."
       },
       "Visa": {
         "Title": "Get ready to scan your visa",
@@ -185,12 +289,22 @@
     },
     "PrepareSelfie": {
       "Title": "Get ready for your selfie",
-      "SubTitle": "Position yourself in good lighting and follow instructions on the next screen."
+      "SubTitle": "Position yourself in good lighting and follow instructions on the next screen.",
+      "Instructions": {
+        "Step1": "Position yourself in good lighting.",
+        "Step2": "Use a neutral expression, no smiling and have your eyes open.",
+        "Step3": "Make sure your face is centered within the two circles."
+      }
+    },
+    "PrepareRfid": {
+      "Title": "Ready to scan",
+      "SubTitle": "To complete your verification, we also need to scan the electronic chip \nfrom your document.",
+      "SubTitle2": "Prepare to hold your phone near your ID \nto scan the electronic chip."
     },
     "CameraSelfie": {
       "Correct": {
         "Title": "Hold tight",
-        "SubTitle": "Well done! one more challenge"
+        "SubTitle": "One more challenge"
       },
       "Outside": {
         "Title": "Match circles",
@@ -198,21 +312,75 @@
       },
       "Far": {
         "Title": "Match circles",
-        "SubTitle": "Face not detected, position your face inside the circle"
+        "SubTitle": "Move closer until circles are green"
+      },
+      "Capturing": {
+        "Title": "Hold tight",
+        "SubTitle": "Doing great"
       }
+    },
+    "CameraDocument": {
+      "Title": "Avoid glare and shadow.\nUse a flat surface in good lighting."
+    },
+    "ConfirmPhotoDocument": {
+      "Title": "Use this image?"
     },
     "VerifyingIdentity": {
       "Title": "Verifying your identity"
     },
+    "FailedAttempts": {
+      "Title": "Your identity verification\nhas been submitted",
+      "SubTitle": "We’ll review your information and we’ll \nget back to you as soon as possible."
+    },
+    "ExceededAttempts": {
+      "Title": "We coudn’t confirm \nyour identify",
+      "SubTitle": "You've exceeded the maximum limit of attempts to verify your identify\n\nLet’s try that again, but first, please:",
+      "Instructions": {
+        "Step1": "Position yourself in good lighting with a neutral expression, no smiling.",
+        "Step2": "Place the document on a dark, flat surface in excellent lighting.",
+        "Step3": "Prepare to select the type of ID and to take a picture."
+      }
+    },
+    "TryAgainRfid": {
+      "Title": "Let’s try that again",
+      "SubTitle": "But first, please make sure of the following:",
+      "Instructions": {
+        "Step1": "Hold your phone near your ID to scan the electronic chip."
+      }
+    },
     "TryAgainDocument": {
       "Title": "Let’s try that again",
-      "SubTitle": "But first, please make sure you take the photo in a well-lit flat surface."
+      "Title2": "We coudn’t complete \nyour identify verification",
+      "SubTitle": "But first, please make sure of the following:",
+      "Instructions": {
+        "Step1": "Place the document on a dark, flat surface in excellent lighting.",
+        "Step2": "Avoid glare and shadow."
+      }
+    },
+    "TryAgainDocumentNative": {
+      "Title": "Let’s try that again",
+      "SubTitle": "But first, please make sure of the following:",
+      "Instructions": {
+        "Step1": "Allow camera access to scan your identity document.",
+        "Step2": "Place the document on a dark, flat surface in a excellent lighting.",
+        "Step3": "Position your smartphone camera directly over the document (no angle). Avoid glare and shadow."
+      }
     },
     "TryAgainSelfie": {
       "Title": "Let’s try that again",
-      "SubTitle": "But first, please make sure you are in good light environment, use neutral expression, no smiling, no glare or extreme lighting."
+      "SubTitle": "But first, please make sure of the following:",
+      "Instructions": {
+        "Step1": "Position yourself in good lighting.",
+        "Step2": "Use a neutral expression, no smiling and have your eyes open.",
+        "Step3": "Make sure your face is centered within the two circles."
+      }
+    },
+    "TimeOut": {
+      "Title": "Are you still there?",
+      "SubTitle": "If not, we'll close this session in:"
     },
     "PersonalInformation": {
+      "Title": "Is this information correct?",
       "CardPersonalInformation": {
         "Title": "Personal information",
         "Sex": {
@@ -221,7 +389,9 @@
         },
         "Nationality": "Nationality",
         "Dob": "Date of birth",
-        "Age": "Age"
+        "Age": "Age",
+        "Names": "Names",
+        "AgeGender": "Age and gender"
       },
       "CardAddress": {
         "Title": "Address"
@@ -268,7 +438,7 @@
       "Title": "Onboarding in progress"
     },
     "IdentityVerificationSubmitted": {
-      "Title": "Your identity verification has been submitted",
+      "Title": "Your identity verification\nhas been submitted",
       "SubTitle": "We’ll review your information and we’ll get back to you as soon as possible."
     },
     "StreamLineSubmitted": {
@@ -283,11 +453,15 @@
       }
     },
     "DeniedAccessCamera": {
-      "Title": "You have denied access to your camera",
-      "SubTitleMicroFrontEnd": "In order to continue, please enable access to your camera in your browser settings.",
+      "Title": "You have denied access to your camera.",
+      "SubTitleMicroFrontEnd": "In order to continue,\nplease enable access to your camera in your browser settings.",
       "SubTitleMobile": "In order to continue, please enable access to your camera in your phone settings."
     },
-    "GenericView": {
+    "DeniedDeviceId": {
+      "Title": "You have denied access to your device id.",
+      "SubTitleMobile": "In order to continue, please enable access to your device id in your phone settings."
+    },
+    "CancelVerification": {
       "Title": "Cancel verification",
       "SubTitle": "This may impact your ability to access the service.\n\nAre you sure to continue?"
     },
@@ -300,3 +474,5 @@
     "PoweredBy": "Powered by"
   }
 }
+
+
