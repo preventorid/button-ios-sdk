@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PSDKCommon
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKCommon
 import Foundation
 @_exported import PSDKCommon
 import Swift
@@ -41,6 +41,7 @@ public struct LSDKFooter : Swift.Codable {
 public struct LSDKLabel : Swift.Codable {
   public let labelRequired: Swift.String, processingInformation: Swift.String, and: Swift.String, readmore: Swift.String
   public let readless: Swift.String, male: Swift.String, female: Swift.String
+  public let documentNoPermitted: Swift.String, documentExpired: Swift.String, documentAuthority: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -92,6 +93,7 @@ public struct LSDKPages : Swift.Codable {
   public let deniedAccessCamera: PSDKCommon.LSDKDeniedAccessCamera
   public let deniedDeviceId: PSDKCommon.LSDKDeniedDeviceId
   public let cancelVerification: PSDKCommon.LSDKCancelVerification, error: PSDKCommon.LSDKCancelVerification
+  public let informationNoMatch: PSDKCommon.LSDKConfirmPhotoDocument
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -219,8 +221,9 @@ public struct LSDKSex : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKLabels : Swift.Codable {
-  public let surname: Swift.String, givenName: Swift.String, dob: Swift.String, sex: Swift.String
-  public let countryOfCitizenship: Swift.String, expirationDate: Swift.String, issuingAuthority: Swift.String, address: Swift.String
+  public let number: Swift.String, documentNumber: Swift.String, surname: Swift.String, givenName: Swift.String
+  public let dob: Swift.String, sex: Swift.String, countryOfCitizenship: Swift.String, expirationDate: Swift.String
+  public let issuingAuthority: Swift.String, address: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -257,7 +260,7 @@ public struct LSDKSetting : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKTryAgainDocument : Swift.Codable {
-  public let title: Swift.String, title2: Swift.String, subTitle: Swift.String
+  public let title: Swift.String, title2: Swift.String, subTitle: Swift.String, possibleError: Swift.String
   public let instructions: PSDKCommon.LSDKSteps
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -287,11 +290,17 @@ public struct LSDKValidation : Swift.Codable {
   public let fieldRequired: Swift.String, enterVerificationCode: Swift.String
   public let email: PSDKCommon.LSDKEmail
   public let phoneNumber: PSDKCommon.LSDKPhoneNumber
+  public let otp: PSDKCommon.LSDKOtp
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKEmail : Swift.Codable {
   public let invalid: Swift.String, pleaseEnter: Swift.String, noInvited: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct LSDKOtp : Swift.Codable {
+  public let invalidOtpCode: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }

@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PSDKUIKit
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKUIKit
 import AVFoundation
 import Combine
 import Foundation
@@ -423,10 +423,6 @@ extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func displayTooltip(show: Swift.Bool = true, _ message: Swift.String, completion: (() -> Swift.Void)? = nil)
 }
 extension UIKit.UIImage {
-  public func resized(to size: CoreGraphics.CGSize) -> UIKit.UIImage
-  public func resizeImage(newWidth: CoreGraphics.CGFloat) -> UIKit.UIImage?
-}
-extension UIKit.UIImage {
   public static var footerLogo: UIKit.UIImage {
     get
   }
@@ -487,7 +483,7 @@ extension UIKit.UIImage {
   public static var biometricsSelfie: UIKit.UIImage {
     get
   }
-  public static var scanDocumentError: UIKit.UIImage {
+  public static var psdkScanDocumentError: UIKit.UIImage {
     get
   }
   public static var scanChipId: UIKit.UIImage {
@@ -524,6 +520,12 @@ extension UIKit.UIImage {
     get
   }
   public static var psdkPhoneNumberOtp: UIKit.UIImage {
+    get
+  }
+  public static var psdkPhoneNotification: UIKit.UIImage {
+    get
+  }
+  public static var psdkUserConfirmationError: UIKit.UIImage {
     get
   }
   public func toBase64() -> Swift.String?
@@ -589,7 +591,7 @@ extension SwiftUI.Image {
   public static var biometricsSelfie: SwiftUI.Image {
     get
   }
-  public static var scanDocumentError: SwiftUI.Image {
+  public static var psdkScanDocumentError: SwiftUI.Image {
     get
   }
   public static var scanChipId: SwiftUI.Image {
@@ -626,6 +628,12 @@ extension SwiftUI.Image {
     get
   }
   public static var psdkPhoneNumberOtp: SwiftUI.Image {
+    get
+  }
+  public static var psdkPhoneNotification: SwiftUI.Image {
+    get
+  }
+  public static var psdkUserConfirmationError: SwiftUI.Image {
     get
   }
 }
@@ -869,8 +877,6 @@ extension PSDKUIKit.PSDKDateTextFieldWrapped {
     @objc deinit
   }
 }
-public struct PUIKitLanguage {
-}
 public struct CircularProgressBar : SwiftUI.View {
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
@@ -1023,7 +1029,7 @@ extension UIKit.UIApplication {
 public struct ExpandableText : SwiftUI.View {
   public static var moreMessage: Swift.String
   public static var lessMessage: Swift.String
-  public init(_ text: Swift.String, lineLimit: Swift.Int = 3, font: UIKit.UIFont = .psdkF18)
+  public init(_ text: Swift.String, lineLimit: Swift.Int = 3, font: UIKit.UIFont = .psdkF16)
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
@@ -1090,6 +1096,21 @@ public struct DraggableView<Content> : SwiftUI.View where Content : SwiftUI.View
     get
   }
   public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit13DraggableViewV4bodyQrvp", 0) __<Content>
+}
+public enum WechatCompressType {
+  case session
+  case timeline
+  public static func == (a: PSDKUIKit.WechatCompressType, b: PSDKUIKit.WechatCompressType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIImage {
+  public func compressTo(_ expectedSizeInMb: Swift.Int) -> UIKit.UIImage?
+  public func resized(to size: CoreGraphics.CGSize) -> UIKit.UIImage
+  public func resizeImage(newWidth: CoreGraphics.CGFloat) -> UIKit.UIImage?
+  public func wxCompress(type: PSDKUIKit.WechatCompressType = .timeline) -> Foundation.Data?
 }
 extension Swift.String {
   public func appendToURL(_ fileURL: Foundation.URL) throws
@@ -1336,7 +1357,7 @@ public protocol TextFieldStoreDelegate {
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
-  @Combine.Published @_Concurrency.MainActor(unsafe) @_projectedValueProperty($validationResult) public var validationResult: PSDKUIKit.ValidationResult {
+  @Combine.Published @_projectedValueProperty($validationResult) @_Concurrency.MainActor(unsafe) public var validationResult: PSDKUIKit.ValidationResult {
     get
     set
     _modify
@@ -1356,7 +1377,7 @@ public protocol TextFieldStoreDelegate {
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
-  @Combine.Published @_Concurrency.MainActor(unsafe) @_projectedValueProperty($text) public var text: Swift.String {
+  @Combine.Published @_projectedValueProperty($text) @_Concurrency.MainActor(unsafe) public var text: Swift.String {
     get
     set
     _modify
@@ -1419,3 +1440,5 @@ extension PSDKUIKit.Fonts : Swift.Hashable {}
 extension PSDKUIKit.Fonts : Swift.RawRepresentable {}
 extension PSDKUIKit.DraggableView.DragDirection : Swift.Equatable {}
 extension PSDKUIKit.DraggableView.DragDirection : Swift.Hashable {}
+extension PSDKUIKit.WechatCompressType : Swift.Equatable {}
+extension PSDKUIKit.WechatCompressType : Swift.Hashable {}

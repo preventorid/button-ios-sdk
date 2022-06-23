@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PSDKServices
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKServices
 import Alamofire
 import Foundation
 @_exported import PSDKServices
@@ -169,12 +169,16 @@ public enum OtpType : Swift.String, Swift.Encodable {
     get
   }
 }
+public struct OtpPhoneRequest : Swift.Encodable {
+  public init(phoneCountryCode: Swift.String, phoneNumber: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
 public struct OtpRequest : Swift.Encodable {
-  public init(type: PSDKServices.OtpType, email: Swift.String? = nil, phone: Swift.String? = nil)
+  public init(type: PSDKServices.OtpType, email: Swift.String? = nil, phone: PSDKServices.OtpPhoneRequest? = nil)
   public func encode(to encoder: Swift.Encoder) throws
 }
 public struct ValidateOtpRequest : Swift.Encodable {
-  public init(type: PSDKServices.OtpType, email: Swift.String? = nil, phone: Swift.String? = nil, code: Swift.String)
+  public init(type: PSDKServices.OtpType, email: Swift.String? = nil, phone: PSDKServices.OtpPhoneRequest? = nil, code: Swift.String)
   public func encode(to encoder: Swift.Encoder) throws
 }
 public struct OnboardingResponse : Swift.Decodable {
