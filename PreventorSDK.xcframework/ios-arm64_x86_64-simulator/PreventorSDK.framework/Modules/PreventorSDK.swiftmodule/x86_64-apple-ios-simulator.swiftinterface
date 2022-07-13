@@ -45,16 +45,6 @@ public struct PreventorButton : SwiftUI.View {
   public init()
   public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UIPreventorButton3 : UIKit.UIButton {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc override dynamic public func awakeFromNib()
-  @_Concurrency.MainActor(unsafe) public func initView()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
-    @_Concurrency.MainActor(unsafe) @objc get
-  }
-  @objc deinit
-}
 public struct PSDKConfig {
   public init(flowID: PreventorSDK.PSDKFlowID, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
 }

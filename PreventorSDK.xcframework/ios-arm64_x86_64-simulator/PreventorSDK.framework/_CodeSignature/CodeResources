@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
-		RCK5kC7bMPgGHJoHj4iK2dkG3VY=
+		JWh5tq52u7neNSGkOTfP9x7DE7k=
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		79FpASWGrcsypIgtgSPXglOZCmI=
+		ZcSNuZpMTFXzsQOBJ8yZ4HzpZmA=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		l+B7fUHXGNNsfMuPZmGY78AZY4U=
+		P9VmejS58jS3BAVM92ZWN0mMf2s=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		64PlPdhCfEpKHUHezMj1CcY0z0A=
+		YUa4Tufx8jvgLA4/VsKmfqAgUYU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9pQCxk+GcbzKcDK6iZ5QDgxqOJw=
+		hn/W4KZstz0XCKGpZQdEMMQ/sjQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Klr7M6gVEVcWAOMlmS2+8pwD28xulPlI7cFaVxTwTWI=
+			WNfFgqgKxFC7uB4qRR4eR+inDv7bCIPlruSulNWy0Vg=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK.h</key>
@@ -156,14 +156,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fXl+NyYmoe9yYCaGu86T9jA6axrfM2Yky+dQ8VrJlvQ=
+			MzNx6c+C2FywOFgXW1cZ2uA57zPxyhnfnIxZ7RJcV1c=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tCbSgQ4pFgL3xa88SnFQzEipnynbNKGRFo9bli70rAg=
+			499d0YJ3qFwV6D4A7gU3CfuZtUznAaYq2F4bo2ytqZk=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -177,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4V+4wgk5Drv1sa9MmnK6ZeGHQ1D0MwRH7HGgeU4s5mk=
+			++88a4xk2UtSC/OZlsjlR16kX00Grn1vPnpFRwB/4QE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p8qUyJTBCFa08U6bFmZR3mF6BjmlP66xfZjxt6XeYr4=
+			CJSr1C+orvZBICdLyoLBRSPN+uKgiQ1wFl98HlXkTIg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

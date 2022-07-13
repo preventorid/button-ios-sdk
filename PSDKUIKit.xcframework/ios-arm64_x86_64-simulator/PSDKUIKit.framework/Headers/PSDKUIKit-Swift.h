@@ -219,11 +219,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @class NSCoder;
 
+SWIFT_CLASS("_TtC9PSDKUIKit13PSDKBarButton")
+@interface PSDKBarButton : UIBarButtonItem
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 /// Introspection UIView that is inserted alongside the target view.
-SWIFT_CLASS("_TtC9PSDKUIKit19IntrospectionUIView") SWIFT_AVAILABILITY(ios,introduced=13.0)
-@interface IntrospectionUIView : UIView
+SWIFT_CLASS("_TtC9PSDKUIKit23PSDKIntrospectionUIView") SWIFT_AVAILABILITY(ios,introduced=13.0)
+@interface PSDKIntrospectionUIView : UIView
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
@@ -234,21 +244,12 @@ SWIFT_CLASS("_TtC9PSDKUIKit19IntrospectionUIView") SWIFT_AVAILABILITY(ios,introd
 @class NSBundle;
 
 /// Introspection UIViewController that is inserted alongside the target view controller.
-SWIFT_CLASS("_TtC9PSDKUIKit29IntrospectionUIViewController") SWIFT_AVAILABILITY(macos,introduced=10.15.0) SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0)
-@interface IntrospectionUIViewController : UIViewController
+SWIFT_CLASS("_TtC9PSDKUIKit33PSDKIntrospectionUIViewController") SWIFT_AVAILABILITY(macos,introduced=10.15.0) SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0)
+@interface PSDKIntrospectionUIViewController : UIViewController
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
-
-
-
-SWIFT_CLASS("_TtC9PSDKUIKit13PSDKBarButton")
-@interface PSDKBarButton : UIBarButtonItem
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -488,11 +489,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @class NSCoder;
 
+SWIFT_CLASS("_TtC9PSDKUIKit13PSDKBarButton")
+@interface PSDKBarButton : UIBarButtonItem
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 /// Introspection UIView that is inserted alongside the target view.
-SWIFT_CLASS("_TtC9PSDKUIKit19IntrospectionUIView") SWIFT_AVAILABILITY(ios,introduced=13.0)
-@interface IntrospectionUIView : UIView
+SWIFT_CLASS("_TtC9PSDKUIKit23PSDKIntrospectionUIView") SWIFT_AVAILABILITY(ios,introduced=13.0)
+@interface PSDKIntrospectionUIView : UIView
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
@@ -503,21 +514,12 @@ SWIFT_CLASS("_TtC9PSDKUIKit19IntrospectionUIView") SWIFT_AVAILABILITY(ios,introd
 @class NSBundle;
 
 /// Introspection UIViewController that is inserted alongside the target view controller.
-SWIFT_CLASS("_TtC9PSDKUIKit29IntrospectionUIViewController") SWIFT_AVAILABILITY(macos,introduced=10.15.0) SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0)
-@interface IntrospectionUIViewController : UIViewController
+SWIFT_CLASS("_TtC9PSDKUIKit33PSDKIntrospectionUIViewController") SWIFT_AVAILABILITY(macos,introduced=10.15.0) SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0)
+@interface PSDKIntrospectionUIViewController : UIViewController
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
-
-
-
-SWIFT_CLASS("_TtC9PSDKUIKit13PSDKBarButton")
-@interface PSDKBarButton : UIBarButtonItem
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

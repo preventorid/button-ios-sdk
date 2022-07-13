@@ -39,7 +39,7 @@ public struct LSDKFooter : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKLabel : Swift.Codable {
-  public let labelRequired: Swift.String, processingInformation: Swift.String, and: Swift.String, readmore: Swift.String
+  public let labelRequired: Swift.String, processingInformation: Swift.String, processing: Swift.String, and: Swift.String, readmore: Swift.String
   public let readless: Swift.String, male: Swift.String, female: Swift.String
   public let documentNoPermitted: Swift.String, documentExpired: Swift.String, documentAuthority: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
@@ -109,6 +109,7 @@ public struct LSDKCameraDocumentNative : Swift.Codable {
 }
 public struct LSDKCameraSelfie : Swift.Codable {
   public let correct: PSDKCommon.LSDKCancelVerification, outside: PSDKCommon.LSDKCancelVerification, far: PSDKCommon.LSDKCancelVerification, capturing: PSDKCommon.LSDKCancelVerification
+  public let motionDetection: PSDKCommon.LSDKCancelVerification, motionDetectionDone: PSDKCommon.LSDKCancelVerification
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }

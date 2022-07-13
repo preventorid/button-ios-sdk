@@ -229,15 +229,6 @@ SWIFT_CLASS("_TtC12PreventorSDK17UIPreventorButton")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-SWIFT_CLASS("_TtC12PreventorSDK18UIPreventorButton3")
-@interface UIPreventorButton3 : UIButton
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-- (void)awakeFromNib;
-@property (nonatomic, readonly) CGSize intrinsicContentSize;
-@end
-
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif
@@ -472,15 +463,6 @@ SWIFT_CLASS("_TtC12PreventorSDK17UIPreventorButton")
 @interface UIPreventorButton : UIButton
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC12PreventorSDK18UIPreventorButton3")
-@interface UIPreventorButton3 : UIButton
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-- (void)awakeFromNib;
-@property (nonatomic, readonly) CGSize intrinsicContentSize;
 @end
 
 #if __has_attribute(external_source_symbol)
