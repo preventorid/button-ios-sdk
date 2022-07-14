@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		P9VmejS58jS3BAVM92ZWN0mMf2s=
+		NAtwvfQ8USNA4tIg2qUYdn3E18s=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		hn/W4KZstz0XCKGpZQdEMMQ/sjQ=
+		pK23v9bKEgHH0TNFiTSUHZOeqEY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -163,7 +163,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			499d0YJ3qFwV6D4A7gU3CfuZtUznAaYq2F4bo2ytqZk=
+			lxc5cBimewUptMTENYQilCHAXt14hLT+4baKkMJKxpE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -184,7 +184,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CJSr1C+orvZBICdLyoLBRSPN+uKgiQ1wFl98HlXkTIg=
+			0fGMIGFaL5EINfMrxuokOAk7rNkUXNEoZR/wL6C3m+Q=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

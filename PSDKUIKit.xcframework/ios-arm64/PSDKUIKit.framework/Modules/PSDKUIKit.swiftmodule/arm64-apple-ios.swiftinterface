@@ -1360,6 +1360,13 @@ extension SwiftUI.Image {
     get
   }
 }
+public struct PrivacyPolicyView : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init(agreements: Swift.String)
+  public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit17PrivacyPolicyViewV4bodyQrvp", 0) __
+}
 public protocol TFState {
 }
 public struct PSDKTFEmptyState : PSDKUIKit.TFState {
