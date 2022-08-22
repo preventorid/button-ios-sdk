@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/PSDKServices-Swift.h</key>
 		<data>
-		8AIcq/Qdh2OASSM7v8KacXnX9aA=
+		hy9lfOPJC5pMCp20AjDx5fA103E=
 		</data>
 		<key>Headers/PSDKServices.h</key>
 		<data>
@@ -14,19 +14,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		X6yhWqKr81LsT49wkcMbfVsVKzA=
+		U7aPQSw170ZPTEzoBtWBG8HmcPA=
 		</data>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		tUe8PNbGoMcK93EuoLcLXLyrSqo=
+		xLgkI84EIHSntxyGid5OKszrfN4=
 		</data>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		xfWJrPQ1so0QlYynUHu1PRuibW8=
+		L57Utrm2KBzoHE5nZAK/UuQRrQk=
 		</data>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		NSTtrT9n9l6NVjgPF2/bH4O3Uik=
+		fricNlQ15giRGaVHjkpyjNlQin4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -39,7 +39,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oFyrvEEt4xo4CZ7fs/Coh37dPGT5TOnXNItC5NyqyGQ=
+			rDoDtqO8vSAPsMpLyxyqCJlQzYo2SNElTIoOLAYMmFs=
 			</data>
 		</dict>
 		<key>Headers/PSDKServices.h</key>
@@ -53,21 +53,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QmUi5rqDN3vnrwtrEBH6qqXrBl11T8Emr82SmYcUTgw=
+			Dr3YvHpIR8OAuoqosKnHeH34Vs/OvN/ZFGn3qpoBQUg=
 			</data>
 		</dict>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k0CMjqSqsyxS/hybGqc/knHyYbH8CoRMMDoqWCJt2Ls=
+			wH/zsApM9MKq/XfyMclEuEMACSk8P1TPa1Vkiac51oo=
 			</data>
 		</dict>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Tx3d/ylgRrf2TH0I+43kE2BoQDdi2QBRQKokVmN+aWE=
+			EpE8vozzB1MBc70mXVGeqPM0UFwi+dijl3u2+6WjjUg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

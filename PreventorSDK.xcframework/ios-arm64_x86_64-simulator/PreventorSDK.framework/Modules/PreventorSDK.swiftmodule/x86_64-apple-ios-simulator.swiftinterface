@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PreventorSDK
 import AVFoundation
 import Alamofire
@@ -46,19 +46,7 @@ public struct PreventorButton : SwiftUI.View {
   public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
 }
 public struct PSDKConfig {
-  public init(flowID: PreventorSDK.PSDKFlowID, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
-}
-public enum PSDKFlowID : Swift.String {
-  case WF01
-  case WF02
-  case WF03
-  case WF04
-  case `default`
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
+  public init(flowID: Swift.String, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
 }
 public enum PSDKResultState {
   case none
@@ -88,8 +76,5 @@ public enum PSDKResultState {
 extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
 extension PreventorSDK.PSDKErrorCode : Swift.RawRepresentable {}
-extension PreventorSDK.PSDKFlowID : Swift.Equatable {}
-extension PreventorSDK.PSDKFlowID : Swift.Hashable {}
-extension PreventorSDK.PSDKFlowID : Swift.RawRepresentable {}
 extension PreventorSDK.PSDKResultState : Swift.Equatable {}
 extension PreventorSDK.PSDKResultState : Swift.Hashable {}
