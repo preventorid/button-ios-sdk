@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		L57Utrm2KBzoHE5nZAK/UuQRrQk=
+		YagCyR4dYWprHRH1HryWofr4Tpc=
 		</data>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		fricNlQ15giRGaVHjkpyjNlQin4=
+		bBaUYbLPWA2h+dU/yXrW9sE7/2A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -60,14 +60,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wH/zsApM9MKq/XfyMclEuEMACSk8P1TPa1Vkiac51oo=
+			sDgmcD6+pGdpJmFmZr6ntNFbFaQOEjBfXBFXSJqO4Wk=
 			</data>
 		</dict>
 		<key>Modules/PSDKServices.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EpE8vozzB1MBc70mXVGeqPM0UFwi+dijl3u2+6WjjUg=
+			ErIL0by4AL/L9BNgxFmeJW+5P3TvrvFCoVYYQnrQaCM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

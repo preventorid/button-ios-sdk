@@ -23,7 +23,8 @@ public struct LSDKButton : Swift.Codable {
   public let save: Swift.String, finish: Swift.String, front: Swift.String, back: Swift.String
   public let retake: Swift.String, retry: Swift.String, goSettings: Swift.String, no: Swift.String
   public let yes: Swift.String, yesConfirm: Swift.String, openCamera: Swift.String, send: Swift.String
-  public let noReturn: Swift.String, close: Swift.String, iamHere: Swift.String, buttonContinue: Swift.String, signUp: Swift.String
+  public let noReturn: Swift.String, close: Swift.String, iamHere: Swift.String, buttonContinue: Swift.String
+  public let signUp: Swift.String, uploadPhoto: Swift.String, clear: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -66,9 +67,10 @@ public struct LSDKPages : Swift.Codable {
   public let setting: PSDKCommon.LSDKSetting
   public let invite: PSDKCommon.LSDKInvite
   public let register: PSDKCommon.LSDKRegister
+  public let successRegister: PSDKCommon.LSDKCancelVerification
   public let letsGetYouVerified: PSDKCommon.LSDKLetsGetYouVerified
   public let secureLinkSent: PSDKCommon.LSDKSecureLinkSent
-  public let start: PSDKCommon.LSDKCancelVerification
+  public let start: PSDKCommon.LSDKCancelVerification, startAuthentication: PSDKCommon.LSDKCancelVerification
   public let prepareSteps: PSDKCommon.LSDKPrepareSteps
   public let prepareAuthentication: PSDKCommon.LSDKPrepareAuthentication
   public let chooseCountry: PSDKCommon.LSDKCancelVerification, chooseDocument: PSDKCommon.LSDKCancelVerification
@@ -83,7 +85,7 @@ public struct LSDKPages : Swift.Codable {
   public let exceededAttempts: PSDKCommon.LSDKExceededAttempts
   public let tryAgainRfid: PSDKCommon.LSDKTryAgainRfid
   public let tryAgainDocument: PSDKCommon.LSDKTryAgainDocument
-  public let tryAgainDocumentNative: PSDKCommon.LSDKExceededAttempts, tryAgainSelfie: PSDKCommon.LSDKExceededAttempts
+  public let tryAgainDocumentNative: PSDKCommon.LSDKTryAgainDocument, tryAgainSelfie: PSDKCommon.LSDKTryAgainDocument
   public let timeOut: PSDKCommon.LSDKCancelVerification
   public let personalInformation: PSDKCommon.LSDKPersonalInformation
   public let editPersonalInformation: PSDKCommon.LSDKEditPersonalInformation
@@ -98,6 +100,7 @@ public struct LSDKPages : Swift.Codable {
   public let deniedDeviceId: PSDKCommon.LSDKDeniedDeviceId
   public let cancelVerification: PSDKCommon.LSDKCancelVerification, error: PSDKCommon.LSDKCancelVerification
   public let informationNoMatch: PSDKCommon.LSDKConfirmPhotoDocument
+  public let uploadDocument: PSDKCommon.LSDKUploadDocument
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -175,7 +178,7 @@ public struct LSDKGlobalDocument : Swift.Codable {
 }
 public struct LSDKIntegrationButton : Swift.Codable {
   public let title: Swift.String, subTitle: Swift.String, settings: Swift.String, menuTitle: Swift.String, deleteAccount: Swift.String, theme: Swift.String
-  public let usage: Swift.String, website: Swift.String, contact: Swift.String, verifications: Swift.String
+  public let usage: Swift.String, website: Swift.String, contact: Swift.String, verifications: Swift.String, welcomeBack: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -256,6 +259,7 @@ public struct LSDKPrepareSteps : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKSteps : Swift.Codable {
+  public let title: Swift.String?
   public let step1: Swift.String?, step2: Swift.String?, step3: Swift.String?, step4: Swift.String?
   public let step5: Swift.String?
   public func encode(to encoder: Swift.Encoder) throws
@@ -282,8 +286,20 @@ public struct LSDKSetting : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKTryAgainDocument : Swift.Codable {
-  public let title: Swift.String, title2: Swift.String, subTitle: Swift.String, possibleError: Swift.String
+  public let title: Swift.String?, title2: Swift.String?, subTitle: Swift.String?, possibleError: Swift.String?
   public let instructions: PSDKCommon.LSDKSteps
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct LSDKUploadDocument : Swift.Codable {
+  public let title: Swift.String, front: Swift.String, back: Swift.String
+  public let tips: PSDKCommon.LSDKTips
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct LSDKTips : Swift.Codable {
+  public let title: Swift.String
+  public let items: [Swift.String]
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }

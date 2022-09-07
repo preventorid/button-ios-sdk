@@ -123,6 +123,19 @@ extension CoreVideo.CVBuffer {
     get
   }
 }
+public struct OptionalScrollViewModifier : SwiftUI.ViewModifier {
+  public enum Option {
+    case sizeClass
+    case custom(Swift.Bool)
+  }
+  @_Concurrency.MainActor(unsafe) public func body(content: PSDKUIKit.OptionalScrollViewModifier.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit26OptionalScrollViewModifierV4body7contentQr7SwiftUI01_dE8_ContentVyACG_tF", 0) __
+}
+extension SwiftUI.View {
+  public func withAdaptiveScrollView(option: PSDKUIKit.OptionalScrollViewModifier.Option = .sizeClass) -> some SwiftUI.View
+  
+}
 extension SwiftUI.View {
   @available(iOSApplicationExtension, unavailable)
   public func withKeyboardEnabled(bottom: CoreGraphics.CGFloat = 16) -> some SwiftUI.View
@@ -225,6 +238,12 @@ extension SwiftUI.Color {
   public static var psdkColorGold: SwiftUI.Color {
     get
   }
+  public static var psdkRedLowEmphasis: SwiftUI.Color {
+    get
+  }
+  public static var psdkRedMediumEmphasis: SwiftUI.Color {
+    get
+  }
 }
 @available(iOS 14.0, *)
 extension SwiftUI.Color {
@@ -304,11 +323,53 @@ extension UIKit.UIColor {
   public static var psdkColorGold: UIKit.UIColor {
     get
   }
+  public static var psdkRedLowEmphasis: UIKit.UIColor {
+    get
+  }
+  public static var psdkRedMediumEmphasis: UIKit.UIColor {
+    get
+  }
   public func toHexString() -> Swift.String
   public func rgb() -> Swift.Int?
+  public var color: SwiftUI.Color {
+    get
+  }
 }
 extension Foundation.Date {
   public func getStringDate(dateFormat: Swift.String, locale: Foundation.Locale = .current) -> Swift.String
+}
+public struct PSDKAlertModel {
+  public enum PresentationMode {
+    case modal, fullScreen
+    public static func == (a: PSDKUIKit.PSDKAlertModel.PresentationMode, b: PSDKUIKit.PSDKAlertModel.PresentationMode) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct Action {
+    public init(label: Swift.String, shouldDismissOnAction: Swift.Bool = true, action: @escaping () -> Swift.Void)
+  }
+  public init(@SwiftUI.ViewBuilder title: () -> SwiftUI.Text, @SwiftUI.ViewBuilder detail: () -> SwiftUI.Text? = {nil}, primaryAction: PSDKUIKit.PSDKAlertModel.Action?, image: SwiftUI.Image?)
+  public init(title: SwiftUI.Text, detail: SwiftUI.Text? = nil, primaryAction: PSDKUIKit.PSDKAlertModel.Action?, image: SwiftUI.Image?)
+  public init(title: Swift.String, detail: Swift.String? = nil, primaryAction: PSDKUIKit.PSDKAlertModel.Action?, image: SwiftUI.Image?)
+}
+extension PSDKUIKit.PSDKAlertModel {
+  public func fullScreenMode() -> PSDKUIKit.PSDKAlertModel
+  public func withPrimaryAction(_ action: () -> PSDKUIKit.PSDKAlertModel.Action?) -> PSDKUIKit.PSDKAlertModel
+  public func withSecondaryAction(_ action: () -> PSDKUIKit.PSDKAlertModel.Action?) -> PSDKUIKit.PSDKAlertModel
+  public func withBackgroundColor(_ color: UIKit.UIColor) -> PSDKUIKit.PSDKAlertModel
+  public func withForegroundColor(_ color: UIKit.UIColor) -> PSDKUIKit.PSDKAlertModel
+  public func withFeedback(_ feedbackType: UIKit.UINotificationFeedbackGenerator.FeedbackType) -> PSDKUIKit.PSDKAlertModel
+  public func withTopPriority() -> PSDKUIKit.PSDKAlertModel
+  public func withImage(_ image: SwiftUI.Image) -> PSDKUIKit.PSDKAlertModel
+  public func withAccentColor(_ color: UIKit.UIColor) -> PSDKUIKit.PSDKAlertModel
+  public func onPresent(_ completion: @escaping () -> Swift.Void) -> PSDKUIKit.PSDKAlertModel
+  public func onDismiss(_ completion: @escaping () -> Swift.Void) -> PSDKUIKit.PSDKAlertModel
+  public func withContentAlignment(_ alignment: SwiftUI.TextAlignment) -> PSDKUIKit.PSDKAlertModel
+  public func withCustomDetailView<Content>(@SwiftUI.ViewBuilder content: () -> Content) -> PSDKUIKit.PSDKAlertModel where Content : SwiftUI.View
+  public func withID(_ id: Swift.String) -> PSDKUIKit.PSDKAlertModel
+  public func plainStyle() -> PSDKUIKit.PSDKAlertModel
 }
 @_Concurrency.MainActor(unsafe) public struct PSDKDemiModal : SwiftUI.ViewModifier {
   @_Concurrency.MainActor(unsafe) public init(presented: SwiftUI.Binding<Swift.Bool>, router: PSDKUIKit.PSDKModalRouter, opacity: Swift.Double = 0.8)
@@ -408,6 +469,13 @@ public struct PSDKTextFieldAttributes {
   public static var messagesDefault: PSDKCommon.LSDKEmail?
   public init(hint: Swift.String = "", editable: Swift.Bool = true, isRequired: Swift.Bool = false, formatRegex: Swift.String = "(?s).*", minLength: Swift.Int = 0, maxLength: Swift.Int = infinity, autocapitalization: UIKit.UITextAutocapitalizationType = .sentences, keyboardType: UIKit.UIKeyboardType = .default)
 }
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class PSDKAlertViewController : SwiftUI.UIHostingController<PSDKUIKit.PSDKAlertView> {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public init(alertModel: PSDKUIKit.PSDKAlertModel)
+  @objc deinit
+}
 extension CoreImage.CIImage {
   public var cgImage: CoreGraphics.CGImage? {
     get
@@ -425,6 +493,14 @@ public struct PSDKUIKitIntrospectionView<TargetViewType> : SwiftUI.UIViewReprese
   public typealias Body = Swift.Never
   public typealias Coordinator = Swift.Void
   public typealias UIViewType = PSDKUIKit.PSDKIntrospectionUIView
+}
+public class PSDKAlertManager {
+  public init(rootViewController: UIKit.UIViewController = UIViewController())
+  public static func setup(rootViewController: UIKit.UIViewController)
+  public static func present(alertModel: PSDKUIKit.PSDKAlertModel)
+  public static func dismissCurrent(_ completion: (() -> Swift.Void)? = nil)
+  public static func isPresenting() -> Swift.Bool
+  @objc deinit
 }
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func loadNib() -> UIKit.UIView
@@ -546,6 +622,15 @@ extension UIKit.UIImage {
   public static var psdkReadySelfie: UIKit.UIImage {
     get
   }
+  public static var psdkCongratulations: UIKit.UIImage {
+    get
+  }
+  public static var psdkScanBack: UIKit.UIImage {
+    get
+  }
+  public static var psdkScanFront: UIKit.UIImage {
+    get
+  }
   public func toBase64() -> Swift.String?
 }
 extension SwiftUI.Image {
@@ -655,6 +740,15 @@ extension SwiftUI.Image {
     get
   }
   public static var psdkErrorSelfie: SwiftUI.Image {
+    get
+  }
+  public static var psdkCongratulations: SwiftUI.Image {
+    get
+  }
+  public static var psdkScanBack: SwiftUI.Image {
+    get
+  }
+  public static var psdkScanFront: SwiftUI.Image {
     get
   }
 }
@@ -1016,6 +1110,13 @@ public enum PSDKValidationResult : Swift.Equatable {
   case warning
   public static func == (a: PSDKUIKit.PSDKValidationResult, b: PSDKUIKit.PSDKValidationResult) -> Swift.Bool
 }
+public struct PSDKAccordionView<Content> : SwiftUI.View where Content : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init(showAccordion: SwiftUI.Binding<Swift.Bool>, title: Swift.String, startIcon: SwiftUI.Image? = Image.psdkHelpIcon, content: @escaping () -> Content)
+  public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit17PSDKAccordionViewV4bodyQrvp", 0) __<Content>
+}
 public struct PSDKCircleWindows : SwiftUI.Shape {
   public func path(in rect: CoreGraphics.CGRect) -> SwiftUI.Path
   public init(size: CoreGraphics.CGSize, origin: CoreGraphics.CGPoint)
@@ -1032,6 +1133,13 @@ public struct PSDKCircleWindows : SwiftUI.Shape {
   
   @_Concurrency.MainActor(unsafe) public func createDropdownElement(_ item: PSDKUIKit.PSDKPhoneTextField<State>.Item) -> PSDKUIKit.PSDKDropdownOptionElement<PSDKUIKit.PSDKPhoneTextField<State>.Item>
   public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit18PSDKPhoneTextFieldV4bodyQrvp", 0) __<State>
+}
+public struct PSDKAlertView : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init(model: PSDKUIKit.PSDKAlertModel)
+  public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit13PSDKAlertViewV4bodyQrvp", 0) __
 }
 extension UIKit.UIApplication {
   @_Concurrency.MainActor(unsafe) public func endEditing()
@@ -1148,6 +1256,7 @@ extension Swift.String {
 public class PSDKModalRouter : Combine.ObservableObject {
   public init()
   public init(root: PSDKUIKit.PSDKModalRoute)
+  public func pushRoute(_ route: PSDKUIKit.PSDKModalRoute)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
@@ -1250,6 +1359,12 @@ extension UIKit.UIImage {
   public static var psdkDelete: UIKit.UIImage {
     get
   }
+  public static var psdkHelpIcon: UIKit.UIImage {
+    get
+  }
+  public static var psdkDangerRedIcon: UIKit.UIImage {
+    get
+  }
 }
 extension SwiftUI.Image {
   public static var psdkBrush: SwiftUI.Image {
@@ -1348,6 +1463,12 @@ extension SwiftUI.Image {
   public static var psdkDelete: SwiftUI.Image {
     get
   }
+  public static var psdkHelpIcon: SwiftUI.Image {
+    get
+  }
+  public static var psdkDangerRedIcon: SwiftUI.Image {
+    get
+  }
 }
 public struct PrivacyPolicyView : SwiftUI.View {
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
@@ -1435,10 +1556,38 @@ public struct PSDKDocumentModel : PSDKUIKit.PSDKIdentifiable {
   public init(_ code: Swift.String, _ icon: SwiftUI.Image, _ description: Swift.String)
   public typealias ID = Foundation.UUID
 }
+public enum PSDKWindowIdentifier : Swift.String {
+  case main, alert
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class PSDKLoader {
+  public static func present()
+  public static func dismiss()
+  public static func isPresenting() -> Swift.Bool
+  @objc deinit
+}
+public struct PSDKLoaderView : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init(_ isTranslucent: Swift.Bool = false)
+  public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit14PSDKLoaderViewV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers public class PSDKLoaderV2 {
+  public static func present()
+  public static func dismiss()
+  @objc deinit
+}
 extension PSDKUIKit.PressedMode : Swift.Equatable {}
 extension PSDKUIKit.PressedMode : Swift.Hashable {}
 extension PSDKUIKit.PSDKFlowLayout.Mode : Swift.Equatable {}
 extension PSDKUIKit.PSDKFlowLayout.Mode : Swift.Hashable {}
+extension PSDKUIKit.PSDKAlertModel.PresentationMode : Swift.Equatable {}
+extension PSDKUIKit.PSDKAlertModel.PresentationMode : Swift.Hashable {}
 extension PSDKUIKit.PSDKCountryModel.CodingKeys : Swift.Equatable {}
 extension PSDKUIKit.PSDKCountryModel.CodingKeys : Swift.Hashable {}
 extension PSDKUIKit.PSDKCountryModel.CodingKeys : Swift.RawRepresentable {}
@@ -1458,3 +1607,6 @@ extension PSDKUIKit.PSDKDraggableView.DragDirection : Swift.Equatable {}
 extension PSDKUIKit.PSDKDraggableView.DragDirection : Swift.Hashable {}
 extension PSDKUIKit.WechatCompressType : Swift.Equatable {}
 extension PSDKUIKit.WechatCompressType : Swift.Hashable {}
+extension PSDKUIKit.PSDKWindowIdentifier : Swift.Equatable {}
+extension PSDKUIKit.PSDKWindowIdentifier : Swift.Hashable {}
+extension PSDKUIKit.PSDKWindowIdentifier : Swift.RawRepresentable {}

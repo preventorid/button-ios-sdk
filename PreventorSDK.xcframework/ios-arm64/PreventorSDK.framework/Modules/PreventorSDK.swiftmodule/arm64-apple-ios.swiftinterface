@@ -45,6 +45,17 @@ public struct PreventorButton : SwiftUI.View {
   public init()
   public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
 }
+extension Swift.Bool : SwiftUI.VectorArithmetic {
+  public static func - (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
+  public static func + (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
+  public mutating func scale(by rhs: Swift.Double)
+  public var magnitudeSquared: Swift.Double {
+    get
+  }
+  public static var zero: Swift.Bool {
+    get
+  }
+}
 public struct PSDKConfig {
   public init(flowID: Swift.String, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
 }
@@ -62,6 +73,7 @@ public enum PSDKResultState {
 }
 @_hasMissingDesignatedInitializers public class PSDK {
   public static let shared: PreventorSDK.PSDK
+  public func startID(controller: UIKit.UIViewController)
   public func callBack(delegate: PreventorSDK.PSDKDelegate)
   public func initialize(config: PreventorSDK.PSDKConfig)
   public func isRegulaComplete(_ callBack: @escaping (Swift.Bool) -> Swift.Void)
@@ -72,6 +84,10 @@ public enum PSDKResultState {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) public func initView()
   @objc deinit
+}
+extension SwiftUI.View {
+  public func startPreventorSDK(isPresented: SwiftUI.Binding<Swift.Bool>, onComplete: @escaping () -> Swift.Void) -> some SwiftUI.View
+  
 }
 extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}

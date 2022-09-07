@@ -32,10 +32,12 @@ public struct PSDKIdentityVerificationRequest : Swift.Encodable {
   public func encode(to encoder: Swift.Encoder) throws
 }
 public struct PSDKPortraitsSDKRequest : Swift.Encodable {
-  public let picture1: Swift.String?
-  public let picture2: Swift.String?
-  public init(picture1: Swift.String?, picture2: Swift.String?)
+  public init(pictureSource: PSDKServices.DocumentSourceType? = nil, picture1: Swift.String?, picture2: Swift.String?)
   public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKError {
+  public let code: Swift.Int?
+  public let message: Swift.String?
 }
 public protocol PSDKBaseResponse : Swift.Decodable {
   var statusCode: Swift.Int? { get set }
@@ -76,7 +78,7 @@ public struct PSDKCOFailureMessage : Swift.Decodable {
   public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers public class PSDKSettingRepository : PSDKServices.PSDKRepository {
-  public func getSettingsGeneral(token: Swift.String, success: @escaping (PSDKServices.PSDKGeneralSettingsResponse) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  public func getSettingsGeneral(token: Swift.String, success: @escaping (PSDKServices.PSDKGeneralSettingsResponse) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
   public func setTheme(theme: PSDKServices.PSDKTheme, success: @escaping (Foundation.Data?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
   public func setLogo(logo: Swift.String, success: @escaping (Foundation.Data?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
   override public init(delegate: PSDKServices.PSDKRepositoryDelegate)
@@ -189,6 +191,29 @@ public struct PSDKBiometricVerificationResponse : PSDKServices.PSDKBaseResponse 
   public let disposition: Swift.String?
   public init(from decoder: Swift.Decoder) throws
 }
+public enum PSDKAbandonedType : Swift.String {
+  case LOGGED_OUT
+  case TIMEOUT
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKAbandonedRequest : Swift.Encodable {
+  public init(disposition: PSDKServices.PSDKAbandonedType)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum DocumentSourceType : Swift.String {
+  case FILE_UPLOAD
+  case CAMERA_SCAN
+  case SDK_SCAN
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public struct PSDKIdentitySDKVerificationRequest : Swift.Encodable {
   public init(documentType: Swift.String, documentIssuingCountry: Swift.String?, ocrData: Swift.String, document: PSDKServices.PSDKPortraitsSDKRequest)
   public func encode(to encoder: Swift.Encoder) throws
@@ -264,8 +289,10 @@ public enum PSDKTransactionStatus : Swift.String {
   case FAILED
   case IN_PROGRESS
   case COMPLETED
+  case NEEDS_REVIEW
   case REJECTED
   case ACCEPTED
+  case END_USER_RUNNING
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -473,23 +500,24 @@ public class PSDKRepository {
     get
   }
   public init(delegate: PSDKServices.PSDKRepositoryDelegate)
-  public func registerUser(request: PSDKServices.PSDKRegisterUserRequest, success: @escaping (_ response: PSDKServices.PSDKRegisterUserResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func getCountry(success: @escaping (_ response: [PSDKServices.PSDKCountryModelResponse]?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func onboarding(request: PSDKServices.PSDKOnboardingRequest, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func onboardingRetry(request: PSDKServices.PSDKOnboardingRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func onboardingSDK(request: PSDKServices.PSDKOnboardingSDKRequest, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func onboardingSDKRetry(request: PSDKServices.PSDKOnboardingSDKRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func biometricVerification(request: PSDKServices.PSDKBiometricVerificationRequest, ticket: Swift.String? = nil, success: @escaping (_ response: PSDKServices.PSDKBiometricVerificationResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func identityVerification(request: PSDKServices.PSDKIdentityVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func identitySDKVerification(request: PSDKServices.PSDKIdentitySDKVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, ivBase64: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func cachedTransaction(ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKUserDataResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func userConfirmation(request: PSDKServices.PSDKUserConfirmationRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func sendOtp(request: PSDKServices.PSDKOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOtpResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func validateOtp(request: PSDKServices.PSDKValidateOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKValidateOtpResponse) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func continueOnboarding(request: PSDKServices.PSDKContinueOnboardingRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKContinueOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func regulaApi(data: Foundation.Data, success: @escaping (_ response: Swift.String?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func getRegulaDatabase(db: PSDKServices.PSDKRegulaDatabaseName, success: @escaping (_ response: Foundation.URL?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
-  public func livenesDetection(request: PSDKServices.PSDKLivenesDetectionRequest, success: @escaping (_ response: PSDKServices.PSDKLivenesDetectionResponse?) -> Swift.Void, failure: @escaping (_ error: Alamofire.AFError) -> Swift.Void)
+  public func registerUser(request: PSDKServices.PSDKRegisterUserRequest, success: @escaping (_ response: PSDKServices.PSDKRegisterUserResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func getCountry(success: @escaping (_ response: [PSDKServices.PSDKCountryModelResponse]?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func onboarding(request: PSDKServices.PSDKOnboardingRequest, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func onboardingRetry(request: PSDKServices.PSDKOnboardingRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func onboardingSDK(request: PSDKServices.PSDKOnboardingSDKRequest, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func onboardingSDKRetry(request: PSDKServices.PSDKOnboardingSDKRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func biometricVerification(request: PSDKServices.PSDKBiometricVerificationRequest, ticket: Swift.String? = nil, success: @escaping (_ response: PSDKServices.PSDKBiometricVerificationResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func identityVerification(request: PSDKServices.PSDKIdentityVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func identitySDKVerification(request: PSDKServices.PSDKIdentitySDKVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, ivBase64: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func cachedTransaction(ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKUserDataResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func userConfirmation(request: PSDKServices.PSDKUserConfirmationRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func sendOtp(request: PSDKServices.PSDKOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOtpResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func validateOtp(request: PSDKServices.PSDKValidateOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKValidateOtpResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func continueOnboarding(request: PSDKServices.PSDKContinueOnboardingRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKContinueOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func abandonedSDK(request: PSDKServices.PSDKAbandonedRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func regulaApi(data: Foundation.Data, success: @escaping (_ response: Swift.String?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func getRegulaDatabase(db: PSDKServices.PSDKRegulaDatabaseName, success: @escaping (_ response: Foundation.URL?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func livenesDetection(request: PSDKServices.PSDKLivenesDetectionRequest, success: @escaping (_ response: PSDKServices.PSDKLivenesDetectionResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
   @objc deinit
 }
 public struct PSDKContinueOnboardingResponse : PSDKServices.PSDKBaseResponse {
@@ -504,7 +532,7 @@ public struct PSDKUserDataResponse : PSDKServices.PSDKBaseResponse {
   public var status: PSDKServices.PSDKStatusDecodable?
   public var code: Swift.String?
   public var message: PSDKServices.PSDKMessage?
-  public let ocrFields: PSDKServices.PSDKUserDataModelResponse?
+  public let data: PSDKServices.PSDKUserDataModelResponse?
   public let ocrValidations: [PSDKServices.PSDKOcrValidationsResponse]?
   public let error: PSDKServices.PSDKUserDataResponseError?
   public let idProofingResults: PSDKServices.PSDKProfingResut?
@@ -513,17 +541,17 @@ public struct PSDKUserDataResponse : PSDKServices.PSDKBaseResponse {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct PSDKProfingResut : Swift.Decodable {
-  public let generalStatus: Swift.String
-  public let actualAgeOutOfRange: Swift.String
-  public let imageQuality: Swift.String
-  public let readability: Swift.String
-  public let permittedIssuingCountry: Swift.String
-  public let permittedDocumentType: Swift.String
-  public let authenticity: Swift.String
-  public let recognizedDocumentType: Swift.String
-  public let documentExpiry: Swift.String
-  public let mrz: Swift.String
-  public let minimumRequiredFieldsRead: Swift.String
+  public let generalStatus: Swift.String?
+  public let actualAgeOutOfRange: Swift.String?
+  public let imageQuality: Swift.String?
+  public let readability: Swift.String?
+  public let permittedIssuingCountry: Swift.String?
+  public let permittedDocumentType: Swift.String?
+  public let authenticity: Swift.String?
+  public let recognizedDocumentType: Swift.String?
+  public let documentExpiry: Swift.String?
+  public let mrz: Swift.String?
+  public let minimumRequiredFieldsRead: Swift.String?
   public init(from decoder: Swift.Decoder) throws
 }
 public struct PSDKUserDataResponseError : Swift.Decodable {
@@ -573,9 +601,9 @@ public struct PSDKLivenesDetectionResponse : PSDKServices.PSDKBaseResponse {
   public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers public class PSDKAuthenticationRepository : PSDKServices.PSDKRepository {
-  public func validateUser(email: PSDKServices.PSDKValidateUserRequest, success: @escaping (PSDKServices.PSDKApidispatchResponseDefault?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
-  public func validateApiKey(success: @escaping (PSDKServices.PSDKApiKeyResponse) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
-  public func authToken(success: @escaping (PSDKServices.PSDKAuthTokenResponse) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  public func validateUser(email: PSDKServices.PSDKValidateUserRequest, success: @escaping (PSDKServices.PSDKLoginResponse?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func validateApiKey(success: @escaping (PSDKServices.PSDKApiKeyResponse) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func authToken(success: @escaping (PSDKServices.PSDKAuthTokenResponse) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
   public func deleteUser(email: Swift.String, success: @escaping (Swift.Bool) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
   override public init(delegate: PSDKServices.PSDKRepositoryDelegate)
   @objc deinit
@@ -605,9 +633,29 @@ public struct PSDKApidispatchResponseDefault : PSDKServices.PSDKBaseResponse {
   public var statusCode: Swift.Int?
   public init(from decoder: Swift.Decoder) throws
 }
+public struct PSDKLoginResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public var flow: Swift.String?
+  public var identifier: Swift.String?
+  public var companyName: Swift.String?
+  public var country: Swift.String?
+  public var fullName: Swift.String?
+  public var jobTitle: Swift.String?
+  public var name: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
 extension PSDKServices.PSDKRegulaDatabaseName : Swift.Equatable {}
 extension PSDKServices.PSDKRegulaDatabaseName : Swift.Hashable {}
 extension PSDKServices.PSDKRegulaDatabaseName : Swift.RawRepresentable {}
+extension PSDKServices.PSDKAbandonedType : Swift.Equatable {}
+extension PSDKServices.PSDKAbandonedType : Swift.Hashable {}
+extension PSDKServices.PSDKAbandonedType : Swift.RawRepresentable {}
+extension PSDKServices.DocumentSourceType : Swift.Equatable {}
+extension PSDKServices.DocumentSourceType : Swift.Hashable {}
+extension PSDKServices.DocumentSourceType : Swift.RawRepresentable {}
 extension PSDKServices.PSDKSentStatus : Swift.Equatable {}
 extension PSDKServices.PSDKSentStatus : Swift.Hashable {}
 extension PSDKServices.PSDKSentStatus : Swift.RawRepresentable {}

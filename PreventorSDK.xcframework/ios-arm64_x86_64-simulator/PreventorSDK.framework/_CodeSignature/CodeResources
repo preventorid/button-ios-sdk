@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		rP37eQ1Cn0H2GhCZB/Tj6ba767w=
+		/j6OnibWY0yeD1k0hhE92jO1zhg=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		MTcHhf6fmWYU2s6Bc88V+9Fc7/w=
+		IiLUBNNkk6ojcDgfgIO38ZggkDU=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		9gOHUTLat/8F2/E8YRiHK4cOY30=
+		+TKFtTCt05gxiP8BkYjmZazhExM=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		UwsG0hx1bhXtFADG6TroFjyLTQQ=
+		kZPUebzQgwsXja8vFy7J9VWITU8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>UIPreventorButton.nib</key>
 		<data>
-		X5KcV1rrdrHmUuERGRaPuuNQ+zY=
+		AeudyWADD9h34CRCwctBRccUIvs=
 		</data>
 		<key>en.lproj/ErrorMock.json</key>
 		<dict>
@@ -156,14 +156,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MGxh+YaNYiDipS4oH68m8f4LanB5rOtodzruF1oc5nE=
+			21Ems3rQV+7dIQidda+JsTpgW77NM2z01/W8ejO+ha0=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CkrL1eEF/16wlCAchYs5YrhkL/CeDmHGNaxl6c9LllI=
+			5QfG90bzEcQGjhjlN/doy39VDNs12JVFSTkpHbNNm3E=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -177,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YjGugvro8lTWCjTnUOyBzAzBUVrvNPIXFf1HjG258Wg=
+			tbTa0fDxTE14I2mTSpTR9JmSdaDGc3QOBP6Fpdx6Vvc=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cY1N0CR+V3/jlr732yH1cxQpcjmXmRrApwKHXHrhum4=
+			VLhNdheY/CjwJsa4YfFdY9+l4ZN5N+sr8LTnCbibiSA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -205,7 +205,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hoJfGbB4i1hOTeH7XKPmUaIg7njSkOR6sS4NCbc9rVc=
+			4KKNGyszOFA4W3QmOMduG0SLBb4xpjGDlIhMeD6oObM=
 			</data>
 		</dict>
 		<key>en.lproj/ErrorMock.json</key>
