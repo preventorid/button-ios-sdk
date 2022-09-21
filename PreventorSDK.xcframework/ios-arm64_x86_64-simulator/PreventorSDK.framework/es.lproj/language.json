@@ -16,14 +16,23 @@
     "Retry": "VOLVER A PROCESAR",
     "GoSettings": "IR A CONFIGURACIÓN",
     "No": "NO",
+    "Yes": "SI",
     "YesConfirm": "SI, CONFIRMAR",
     "OpenCamera": "ABRIR CÁMARA",
     "Send": "ENVIAR",
-    "NoReturn": "NO, RETORNAR"
+    "NoReturn": "NO, RETORNAR",
+    "Close": "CERRAR",
+    "IamHere": "ESTOY AQUÍ",
+    "Continue": "CONTINUAR",
+    "SignUp": "REGISTRARSE",
+    "SingIn": "INICIAR SESIÓN",
+    "UploadPhoto": "SUBIR FOTO",
+    "Clear": "LIMPIAR"
   },
   "Validation": {
     "FieldRequired": "Este campo es requerido.",
     "EnterVerificationCode": "Por favor ingrese el código de verificación.",
+    "ImageWeight": "Imagen demasiado grande, seleccione un archivo de menos de {{size}}.",
     "Email": {
       "Invalid": "Correo inválido.",
       "PleaseEnter": "Por favor ingrese su correo.",
@@ -35,18 +44,162 @@
       "TooShort": "Número muy corto",
       "TooLong": "Número muy largo",
       "PleaseEnter": "Por favor ingrese su número de teléfono."
+    },
+    "OTP": {
+      "InvalidOtpCode": "Código inválido"
     }
   },
   "Message": {
     "EnterTheFollowinglink": "Ingrese el siguiente enlace seguro para verificar.",
-    "AnErrorOccurred": "Ha ocurrido un error. Por favor intente de nuevo",
-    "NoInternet": "Sin acceso a Internet",
-    "InvalidEmailOrTries": "Correo electrónico no invitado o se superó el límite de intentos",
-    "EnablePermissions": "Vaya a la configuración para habilitar los permisos",
-    "SizeImage": "La imagen deber ser de 180x40px"
+    "AnErrorOccurred": "Ha ocurrido un error. Por favor intente de nuevo.",
+    "NoInternet": "Sin acceso a Internet.",
+    "InvalidEmailOrTries": "Correo electrónico no invitado o se superó el límite de intentos.",
+    "EnablePermissions": "Vaya a la configuración para habilitar los permisos.",
+    "SizeImage": "La imagen deber ser de 180x40px",
+    "DocumentNoPermitted": "Tipo de documento no permitido.",
+    "DigitalTemplatesAvailable": "Plantillas digitales disponibles.",
+    "SelectAnotherDocument": "¿Tienes otro documento de identidad?",
+    "WouldAnotherDocument": "¿Le gustaría volver a intentarlo?",
+    "NeedMoreTime": "¿Necesitas más tiempo?",
+    "EmailAlreadyRegistered": "El correo ya fue registrado",
+    "EmailNoFlow": "El correo no tiene un flujo asignado",
+    "OnBoardingError": [
+      {
+        "code": "PVT-NVLD-STTS",
+        "message": "El documento provisto parece no ser auténtico."
+      },
+      {
+        "code": "PVT-DCM-TP-NRCG",
+        "message": "La imagen proporcionada no parece ser la imagen de un documento válido."
+      },
+      {
+        "code": "PVT-DATA-EXTR",
+        "message": "No se pudieron recuperar los datos del documento. Parece que la imagen de su documento no es válida."
+      },
+      {
+        "code": "PVT-RQD-FLD-MSSN",
+        "message": "Algunos campos obligatorios no se pudieron recuperar de la lectura de OCR."
+      },
+      {
+        "code": "PVT-CTR-NT-LLWD",
+        "message": "Lo sentimos, el documento de identidad utilizado no está permitido."
+      },
+      {
+        "code": "PVT-CTR-MSMTCH",
+        "message": "Lo sentimos, el documento de identidad utilizado no está permitido."
+      },
+      {
+        "code": "PVT-OCR-AG-NT-RNG",
+        "message": "La edad del propietario especificada en el documento no está dentro del rango permitido."
+      },
+      {
+        "code": "PVT-DCMT-NT-LLWD",
+        "message": "Lo sentimos, el documento de identidad utilizado no está permitido."
+      },
+      {
+        "code": "PVT-PRT-IMG-MSSN",
+        "message": "La imagen de retrato requerida no se pudo recuperar de la lectura de OCR."
+      },
+      {
+        "code": "PVT-FA-AG-NT-RNG",
+        "message": "La edad del propietario especificada en el documento no está en el rango de edad estimado de selfies."
+      },
+      {
+        "code": "PVT-GND-MSMTCH",
+        "message": "El campo de género del documento no coincide con el género estimado de la selfie."
+      },
+      {
+        "code": "PVT-PHT-MTC-MSMTCH",
+        "message": "Los autorretratos no cumplen los requisitos mínimos o no coinciden entre sí."
+      },
+      {
+        "code": "PVT-NXPCT-XCPT",
+        "message": "Se produjo un error inesperado durante la ejecución de este proceso."
+      },
+      {
+        "code": "DMNTPCMSSN",
+        "message": "Falta una de las imágenes requeridas del documento."
+      },
+      {
+        "code": "TRNSPRCFLD",
+        "message": "Algunos campos obligatorios no se pudieron recuperar de la lectura de OCR."
+      },
+      {
+        "code": "PVT-DCMT-TP-MSMTCH",
+        "message": "El tipo de documento proporcionado parece ser diferente del tipo seleccionado."
+      },
+      {
+        "code": "PVT-NVLD-RDNG",
+        "message": "Algunos datos no se pudieron leer correctamente o no se pudieron recuperar datos."
+      },
+      {
+        "code": "PVT-XPRD-DCMT",
+        "message": "Lo sentimos, parece que su documento ha caducado."
+      },
+      {
+        "code": "PVT-SCR-LSS-THRSLD",
+        "message": "Una o ambas imágenes de su documento obtuvieron una puntuación inferior al umbral configurado."
+      },
+      {
+        "code": "PVT-NO-DCT-DTCT",
+        "message": "No se pudo detectar ningún documento en una o ambas imágenes proporcionadas."
+      },
+      {
+        "code": "PVT-DD-NXPCTD-XCPT",
+        "message": "Se ha generado un error inesperado durante el proceso de detección de documentos."
+      },
+      {
+        "code": "PVT_E0001",
+        "message": "Something went wrong"
+      },
+      {
+        "code": "PVT_E0002",
+        "message": "General error"
+      },
+      {
+        "code": "PVT_E0003",
+        "message": "Lo sentimos, el documento de identidad utilizado no está permitido."
+      },
+      {
+        "code": "PVT_E0004",
+        "message": "Lo sentimos, parece que su documento ha caducado."
+      },
+      {
+        "code": "PVT_E0005",
+        "message": "Lo sentimos, nuestra verificación de identidad digital no está permitida en su ubicación."
+      },
+      {
+        "code": "PVT_E0006",
+        "message": "Lo sentimos, tu verificación de identidad ha sido rechazada debido a algún resultado negativo."
+      },
+      {
+        "code": "PVT_E0007",
+        "message": "Lo sentimos, nuestro personal debe revisar su verificación de identidad."
+      },
+      {
+        "code": "PVT_E0008",
+        "message": "Lo sentimos, la prueba de identificación debe recuperarse nuevamente."
+      },
+      {
+        "code": "PVT_E0009",
+        "message": "Lo sentimos, ha confirmado que los datos leídos no son correctos. Inténtalo de nuevo."
+      }
+    ]
   },
   "Label": {
-    "Required": "* Requerido"
+    "Required": "* Requerido",
+    "ProcessingInformation": "Procesando información",
+    "Processing": "Procesando",
+    "And": "Y",
+    "Readmore": "más",
+    "Readless": "menos",
+    "Male": "Masculino",
+    "Female": "Femenino",
+    "FlashOn": "Flash on",
+    "DocumentNoPermitted": "Tipo de documento no permitido",
+    "DocumentExpired": "Documento expirado",
+    "DocumentAuthority": "No se permite la autoridad emisora del documento",
+    "Agreements": "Al hacer clic en continuar, acepta los <a href=\"https://preventor.com/terms-of-service\" target=\"_blank\">términos de servicio</a> y nuestra <a href=\"https://preventor.com/privacy-policy\" target=\"_blank\">política de privacidad.</a>"
   },
   "Placeholder": {
     "SelectTypeId": "Seleccione tipo de identificación",
@@ -67,20 +220,38 @@
     "Passport": "Pasaporte",
     "DriverLicense": "Licencia de Conducir",
     "IdCard": "Documento de Identidad",
+    "ResidentPermitCard": "Permiso de residencia",
     "Visa": "Visa",
     "EnterEmail": "Ingresar correo",
     "EnterPhone": "Ingresar número de teléfono"
   },
+  "Documents": {
+    "Passport": "Pasaporte",
+    "DriverLicense": "Licencia de Conducir",
+    "IdCard": "Documento de Identidad",
+    "ResidentPermitCard": "Permiso de residencia",
+    "Visa": "Visa",
+    "VotingCard": "Credencial de Elector",
+    "IdentityDocument": "Documento de identidad"
+  },
   "Pages": {
     "IntegrationButton": {
-      "Title": "Este es el comienzo\nde la verificación de identidad",
+      "VerificationTitle": "Este es el comienzo\nde su verificación de identidad",
+      "AuthenticationTitle": "Este es el comienzo\nde su autenticacion",
       "SubTitle": "El siguiente botón iniciará\nel proceso, integraras este\nbotón con tu aplicación.",
       "MenuTitle": "Menu",
+      "Settings": "Configuraciones",
+      "AboutUs": "Sobre nosotros",
+      "DeleteAccount": "Borrar cuenta",
       "Theme": "Tema",
       "Usage": "Uso",
       "Website": "Website",
       "Contact": "Contáctanos",
-      "Verifications": "Verificaciones"
+      "Verifications": "Verificaciones",
+      "WelcomeBack": "Bienvenido de nuevo\n"
+    },
+    "DeleteAccount": {
+      "Title": "¿Está seguro de eliminar su cuenta?"
     },
     "Usage": {
       "Verifications": "Verificaciones",
@@ -104,8 +275,22 @@
       "Paragraph": "Párrafo y botón"
     },
     "Invite": {
-      "Title": "Bienvenido a\nPreventor ID",
-      "SubTitle": "Ingrese su correo de invitación\nen el cuadro de texto a continuación."
+      "Title": "Bienvenido-Inicie sesión en Preventor ID",
+      "SubTitle": "Por favor ingrese su correo de invitación",
+      "NotRegistered": "¿No registrado?"
+    },
+    "Register": {
+      "Title": "Registrarse",
+      "SubTitle": "a Preventor ID",
+      "WorkEmail": "Correo de trabajo *",
+      "FullName": "Nombre completo *",
+      "CompanyName": "Nombre de empresa *",
+      "JobTitle": "Puesto de trabajo *",
+      "Country": "País *"
+    },
+    "SuccessRegister": {
+      "Title": "Gracias por registrarte",
+      "SubTitle": "Le notificaremos por correo electrónico cuando se complete el registro"
     },
     "LetsGetYouVerified": {
       "Title": "Vamos a verificarte",
@@ -142,15 +327,29 @@
       "Title": "Comience la verificación de su identidad",
       "SubTitle": "Lo guiaremos a través de un proceso perfecto para verificar su identidad"
     },
+    "StartAuthentication": {
+      "Title": "Comience la verificación de su autenticación",
+      "SubTitle": "Lo guiaremos a través de un proceso perfecto para verificar su autenticación"
+    },
     "PrepareSteps": {
-      "Title": "Prepárese para la verificación de identidad",
+      "Title": "¡Prepárate para ser verificado!",
       "Steps": {
-        "Step1": "Prepare su identificación emitida por el gobierno para escanearla.",
-        "Step2": "Colóquese con buena luz para una selfie.",
-        "Step3": "Tenga su dirección de correo electrónico lista para ser verificada.",
-        "Step4": "Tenga su teléfono móvil listo para ser verificado."
+        "Step1": "Prepárate para tomarte una selfie.",
+        "Step2": "Prepara tu documento de identidad para ser escaneado, aceptamos:",
+        "Step3": "Ten listo tu dirección de correo electrónico.",
+        "Step4": "Ten listo tu teléfono móvil.",
+        "Step5": "Ten listo tu comprobante de residencia."
       },
-      "Agreements": "Al hacer clic en continuar, acepta los <a href=\"https://preventor.com/terms-of-service\">términos de servicio</a> y nuestra <a href=\"https://preventor.com/privacy-policy\">política de privacidad.</a>"
+      "Agreements": "Al hacer clic en continuar, acepta los <a href=\"https://preventor.com/terms-of-service\" target=\"_blank\">términos de servicio</a> y nuestra <a href=\"https://preventor.com/privacy-policy\" target=\"_blank\">política de privacidad.</a>"
+    },
+    "PrepareAuthentication": {
+      "Title": "Preventor autenticador",
+      "Steps": {
+        "Step1": "Prepárate para tomarte una selfie.",
+        "Step2": "Colóquese en una buena iluminación.",
+        "Step3": "Use una expresión neutral, sin sonreír y con los ojos abiertos.",
+        "Step4": "Coloque su cara dentro del círculo en la pantalla hasta que aparezcan dos círculos verdes."
+      }
     },
     "ChooseCountry": {
       "Title": "¿De qué país \nes su documento?",
@@ -161,6 +360,12 @@
       "SubTitle": "Seleccione el tipo de identificación emitida por el gobierno de la lista desplegable."
     },
     "GlobalDocument": {
+      "Title": "Prepárese para escanear su\n",
+      "Instructions": {
+        "Title": "Consejos para sacar la foto de tu documento",
+        "Step1": "Coloque el documento sobre una superficie oscura y plana con excelente iluminación.",
+        "Step2": "Evite el deslumbramiento y la sombra."
+      },
       "Passport": {
         "Title": "Prepárese para escanear su pasaporte",
         "SubTitle": "Abra la página que muestra su información personal y continúe en la siguiente pantalla."
@@ -172,6 +377,10 @@
       "IdCard": {
         "Title": "Prepárese para escanear su tarjeta de identificación nacional",
         "SubTitle": "Prepare su tarjeta de identificación para tomar una fotografía de la parte delantera y trasera y continúe en la siguiente pantalla."
+      },
+      "ResidentPermitCard": {
+        "Title": "Prepárese para escanear su tarjeta de permiso de residencia",
+        "SubTitle": "Prepare su tarjeta de permiso de residencia para tomar una fotografía de la parte delantera y trasera y continúe en la siguiente pantalla."
       },
       "Visa": {
         "Title": "Prepárese para escanear su visa",
@@ -185,34 +394,136 @@
     },
     "PrepareSelfie": {
       "Title": "Prepárate para tu selfie",
-      "SubTitle": "Colóquese en una buena iluminación y siga las instrucciones de la siguiente pantalla."
+      "SubTitle": "Colóquese en una buena iluminación y siga las instrucciones de la siguiente pantalla.",
+      "Instructions": {
+        "Title": "Consejos para tomar tu selfie",
+        "Step1": "Colóquese en una buena iluminación.",
+        "Step2": "Use una expresión neutral, sin sonreír y con los ojos abiertos.",
+        "Step3": "Coloque su cara dentro del círculo en la pantalla hasta que aparezcan dos círculos verdes."
+      }
+    },
+    "PrepareRfid": {
+      "Title": "Escanea tu documento electrónico",
+      "SubTitle": "Consejos para escanear tu documento electrónico",
+      "SubTitle2": "Prepárese para sostener su teléfono cerca de su identificación para escanear el chip electrónico."
     },
     "CameraSelfie": {
       "Correct": {
         "Title": "Manténganse firme",
-        "SubTitle": "¡Bien hecho! un desafío más"
+        "SubTitle": "¡Un desafío más!"
       },
       "Outside": {
-        "Title": "Haz coincidir los círculos",
+        "Title": "Combina los círculos",
         "SubTitle": "Rostro no detectado, coloque su rostro dentro del círculo"
       },
       "Far": {
-        "Title": "Haz coincidir los círculos",
-        "SubTitle": "Rostro no detectado, coloque su rostro dentro del círculo"
+        "Title": "Combina los círculos",
+        "SubTitle": "Acérquese hasta que los círculos sean verdes."
+      },
+      "Capturing": {
+        "Title": "Manténganse firme",
+        "SubTitle": "Lo estás haciendo bien"
+      },
+      "MotionDetection": {
+        "Title": "Un desafío más",
+        "SubTitle": "Solo inclina un poco con la cabeza"
+      },
+      "MotionDetectionDone": {
+        "Title": "Manténganse firme",
+        "SubTitle": "¡Buen trabajo!"
       }
+    },
+    "CameraDocument": {
+      "Title": "Escanea tu documento",
+      "FrontPage": "Lado frontal",
+      "BackPage": "Lado reverso"
+    },
+    "CameraDocumentNative": {
+      "TitleFront": "Prepare el lado frontal de su documento",
+      "TitleBack": "Prepare el lado reverso de su documento"
+    },
+    "ConfirmPhotoDocument": {
+      "Title": "¿Usar esta imagen?"
     },
     "VerifyingIdentity": {
       "Title": "Verificando tu identidad"
     },
+    "FailedAttempts": {
+      "Title": "Su verificación de identidad\nha sido enviada.",
+      "SubTitle": "Revisaremos su información y nos comunicaremos con usted lo antes posible."
+    },
+    "ExceededAttempts": {
+      "Title": "Has superado el límite máximo de intentos",
+      "SubTitle": "Intentémoslo de nuevo, pero primero, por favor:",
+      "Instructions": {
+        "Step1": "Colóquese en una buena iluminación con una expresión neutral, sin sonreír.",
+        "Step2": "Coloque el documento sobre una superficie oscura y plana con excelente iluminación.",
+        "Step3": "Prepárese para seleccionar el tipo de identificación y tomar una foto."
+      }
+    },
+    "TryAgainRfid": {
+      "Title": "Intentémoslo de nuevo",
+      "SubTitle": "Pero primero, sostenga su teléfono cerca\ntu DNI para escanear el chip electrónico.",
+      "Instructions": {
+        "Step1": "Sostenga su teléfono cerca de su identificación para escanear el chip electrónico."
+      }
+    },
     "TryAgainDocument": {
       "Title": "Intentémoslo de nuevo",
-      "SubTitle": "Pero primero, asegúrese de tomar la foto en una superficie plana bien iluminada."
+      "Title2": "No pudimos completar\nsu verificación de identidad",
+      "SubTitle": "Pero primero, asegúrese de lo siguiente:",
+      "PossibleError": "Si considera que se trata de un error o tiene otro documento de identidad, por favor inténtelo de nuevo.",
+      "Instructions": {
+        "Title": "Consejos para sacar la foto de tu documento",
+        "Step1": "Coloque el documento sobre una superficie oscura y plana con excelente iluminación.",
+        "Step2": "Evite el deslumbramiento y la sombra."
+      }
+    },
+    "IdExpired": {
+      "Title": "Documento de identidad caducado",
+      "Description": "Su documento de identidad ha caducado, sin embargo, si considera que se trata de un error o si tiene otro documento de identidad, inténtelo de nuevo."
+    },
+    "IdNotPermitted": {
+      "Title": "Documento de identidad no permitido",
+      "Instruction": "Documentos de identidad permitidos"
+    },
+    "TryAgainDocumentNative": {
+      "Title": "No pudimos tomar una buena foto de su identificación",
+      "SubTitle": "Pero primero, asegúrese de lo siguiente:",
+      "Instructions": {
+        "Step1": "Usemos tu cámara de una mejor manera.",
+        "Step2": "Coloque el documento sobre una superficie oscura y plana con excelente iluminación.",
+        "Step3": "Evite el deslumbramiento y la sombra."
+      }
     },
     "TryAgainSelfie": {
       "Title": "Intentémoslo de nuevo",
-      "SubTitle": "Pero primero, asegúrese de estar en un entorno de buena luz, use una expresión neutra, sin sonrisas, sin deslumbramientos o iluminación extrema."
+      "SubTitle": "Pero primero, asegúrese de lo siguiente:",
+      "Instructions": {
+        "Title": "Consejos para tomar tu selfie",
+        "Step1": "Colóquese en una buena iluminación.",
+        "Step2": "Use una expresión neutral, sin sonreír y con los ojos abiertos.",
+        "Step3": "Asegúrate de que tu cara esté centrada dentro de los dos círculos."
+      }
+    },
+    "TimeOut": {
+      "Title": "¿Sigues ahí?",
+      "SubTitle": "Si no, cerraremos esta sesión en:"
     },
     "PersonalInformation": {
+      "Title": "¿Es correcta esta información?",
+      "Labels": {
+        "Number": "número",
+        "DocumentNumber": "Número de {{document}}",
+        "Surname": "Apellidos",
+        "GivenName": "Nombres",
+        "Dob": "Fecha de nacimiento",
+        "Sex": "Sexo",
+        "CountryOfCitizenship": "País de Ciudadanía",
+        "ExpirationDate": "Fecha de caducidad",
+        "IssuingAuthority": "Autoridad emisora",
+        "Address": "Dirección"
+      },
       "CardPersonalInformation": {
         "Title": "Información personal",
         "Sex": {
@@ -221,7 +532,9 @@
         },
         "Nationality": "Nacionalidad",
         "Dob": "Nacimiento",
-        "Age": "Edad"
+        "Age": "Edad",
+        "Names": "Nombres",
+        "AgeGender": "Edad y género"
       },
       "CardAddress": {
         "Title": "Dirección"
@@ -247,53 +560,82 @@
       }
     },
     "Email": {
-      "Title": "¿Cuál es tu dirección de correo electrónico?",
+      "Title": "Verifique su correo electrónico",
       "SubTitle": "Enviaremos un código de verificación a este correo electrónico."
     },
     "EmailVerification": {
-      "Title": "Verifique su dirección de correo electrónico",
-      "SubTitle": "Enviamos un código de verificación a",
+      "Title": "Verifique su correo electrónico",
+      "SubTitle": "Enviamos un código de verificación",
       "Resend": "Reenviar el código de verificación"
     },
     "Phone": {
-      "Title": "¿Cuál es tu número de teléfono?",
+      "Title": "Verifique su teléfono",
       "SubTitle": "Enviaremos un código de verificación a este número."
     },
     "PhoneVerification": {
-      "Title": "Verifica tu número de teléfono móvil",
-      "SubTitle": "Enviamos un código de verificación a",
+      "Title": "Verifique su teléfono",
+      "SubTitle": "Enviamos un código de verificación",
       "Resend": "Reenviar el código de verificación"
     },
     "ContinueOnboarding": {
       "Title": "Incorporación en curso"
     },
+    "Authentication": {
+      "Title": "Autenticando"
+    },
     "IdentityVerificationSubmitted": {
-      "Title": "Su verificación de identidad ha sido enviada",
+      "Title": "Su verificación de identidad\nha sido enviada.",
       "SubTitle": "Revisaremos su información y nos comunicaremos con usted lo antes posible."
     },
     "StreamLineSubmitted": {
       "Title": "Su incorporación digital ha sido enviada",
       "SubTitle": "Revisaremos su información y nos comunicaremos con usted lo antes posible."
     },
+    "AuthenticationSubmitted": {
+      "Title": "Su autenticación ha sido enviada",
+      "SubTitle": "Revisaremos su información y nos comunicaremos con usted lo antes posible."
+    },
     "Congratulations": {
       "Title": "¡Felicidades\nya terminaste!",
       "SubTitle": {
         "IdentityVerification": "Se completó su verificación de identidad.",
-        "Streamline": "Se ha completado su incorporación digital."
+        "Streamline": "Se ha completado su incorporación digital.",
+        "Authentication": "Su verificación de identitidad ha sido completada.",
+        "Global" : "Nos pondremos en contacto con usted. ¡Gracias!"
       }
     },
     "DeniedAccessCamera": {
       "Title": "Has denegado el acceso a tu cámara.",
-      "SubTitleMicroFrontEnd": "Para continuar, habilite el acceso a su cámara en la configuración de su navegador.",
+      "SubTitleMicroFrontEnd": "Para continuar,\nhabilite el acceso a su cámara en la configuración de su navegador.",
       "SubTitleMobile": "Para continuar, habilite el acceso a su cámara en la configuración de su celular."
     },
-    "GenericView": {
+    "DeniedDeviceId": {
+      "Title": "Has denegado el acceso a tu id de dispositivo",
+      "SubTitleMobile": "Para continuar, habilite el acceso a su id de dispositivo en la configuración de su celular."
+    },
+    "CancelVerification": {
       "Title": "Cancelar verificación",
       "SubTitle": "Esto puede afectar su capacidad para acceder al servicio.\n\n¿Estás seguro de continuar?"
     },
     "Error": {
-      "Title": "¡UPS!",
+      "Title": "¡Ups!",
       "SubTitle": "Algo salió mal"
+    },
+    "InformationNoMatch": {
+      "Title": "Lamentamos escuchar que su información no coincide"
+    },
+    "UploadDocument": {
+      "Title": "Sube tu documento de identidad",
+      "Front": "Subir el lado FRONTAL del documento",
+      "Back": "Subir el lado REVERSO del documento",
+      "Tips": {
+        "Title": "Consejos para subir tu documento",
+        "Items": [
+          "La imagen debe tener al menos 600 x 600 píxeles pero no más de 1200 x 1200 píxeles.",
+          "La imagen debe estar en formato de archivo JPEG o PNG.",
+          "La imagen debe tener al menos 56 kilobytes pero no más de 10 megabytes."
+        ]
+      }
     }
   },
   "Footer": {

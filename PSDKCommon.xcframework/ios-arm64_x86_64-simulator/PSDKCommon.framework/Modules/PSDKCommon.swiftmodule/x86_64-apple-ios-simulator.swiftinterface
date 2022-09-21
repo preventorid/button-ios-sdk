@@ -101,6 +101,7 @@ public struct LSDKPages : Swift.Codable {
   public let cancelVerification: PSDKCommon.LSDKCancelVerification, error: PSDKCommon.LSDKCancelVerification
   public let informationNoMatch: PSDKCommon.LSDKConfirmPhotoDocument
   public let uploadDocument: PSDKCommon.LSDKUploadDocument
+  public let authenticationFailed: PSDKCommon.LSDKCancelVerification
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -137,7 +138,7 @@ public struct LSDKCongratulations : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct LSDKSubTitle : Swift.Codable {
-  public let identityVerification: Swift.String, streamline: Swift.String, authentication: Swift.String
+  public let identityVerification: Swift.String, streamline: Swift.String, authentication: Swift.String, global: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -179,6 +180,7 @@ public struct LSDKGlobalDocument : Swift.Codable {
 public struct LSDKIntegrationButton : Swift.Codable {
   public let title: Swift.String, subTitle: Swift.String, settings: Swift.String, menuTitle: Swift.String, deleteAccount: Swift.String, theme: Swift.String
   public let usage: Swift.String, website: Swift.String, contact: Swift.String, verifications: Swift.String, welcomeBack: Swift.String
+  public let verificationTitle: Swift.String, authenticationTitle: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }

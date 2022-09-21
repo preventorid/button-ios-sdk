@@ -18,6 +18,22 @@ import SwiftUI
 import UIKit
 import Vision
 import _Concurrency
+public enum ViewID : Swift.String {
+  case START
+  case TERMS
+  case SELFIES
+  case DOCUMENT_PHOTOS
+  case OTP_EMAIL
+  case OTP_PHONE
+  case USER_CONFIRMATION
+  case KYC_ONBOARDING
+  case ID_OTP
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public enum PSDKErrorCode : Swift.String {
   case CANCELLED_BY_USER
   case BIOMETRIC_AUTHENTICATION_FAILED
@@ -37,6 +53,10 @@ public protocol PSDKDelegate {
   func onFinish(result: PreventorSDK.PSDKResult)
   func onError(error: PreventorSDK.PSDKErrorCode)
   func onSubmitted(result: PreventorSDK.PSDKResult)
+  func onPause(verification: PreventorSDK.ViewID?)
+}
+extension PreventorSDK.PSDKDelegate {
+  public func onPause(verification: PreventorSDK.ViewID?)
 }
 public struct PreventorButton : SwiftUI.View {
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
@@ -57,7 +77,16 @@ extension Swift.Bool : SwiftUI.VectorArithmetic {
   }
 }
 public struct PSDKConfig {
-  public init(flowID: Swift.String, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
+  public init(flowID: Swift.String, cifCode: Swift.String? = nil, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
+}
+public enum PSDKFlowType : Swift.String {
+  case AUTHENTICATION
+  case IDENTITY_VERIFICATION
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 public enum PSDKResultState {
   case none
@@ -89,8 +118,14 @@ extension SwiftUI.View {
   public func startPreventorSDK(isPresented: SwiftUI.Binding<Swift.Bool>, onComplete: @escaping () -> Swift.Void) -> some SwiftUI.View
   
 }
+extension PreventorSDK.ViewID : Swift.Equatable {}
+extension PreventorSDK.ViewID : Swift.Hashable {}
+extension PreventorSDK.ViewID : Swift.RawRepresentable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
 extension PreventorSDK.PSDKErrorCode : Swift.RawRepresentable {}
+extension PreventorSDK.PSDKFlowType : Swift.Equatable {}
+extension PreventorSDK.PSDKFlowType : Swift.Hashable {}
+extension PreventorSDK.PSDKFlowType : Swift.RawRepresentable {}
 extension PreventorSDK.PSDKResultState : Swift.Equatable {}
 extension PreventorSDK.PSDKResultState : Swift.Hashable {}
