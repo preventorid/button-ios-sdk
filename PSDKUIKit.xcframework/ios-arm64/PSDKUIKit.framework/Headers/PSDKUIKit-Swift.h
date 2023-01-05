@@ -196,6 +196,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreGraphics;
+@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -218,12 +219,29 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+@class UIViewController;
+@class UIPresentationController;
+
+SWIFT_CLASS("_TtC9PSDKUIKit37InteractiveModalTransitioningDelegate")
+@interface InteractiveModalTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate>
+- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 @class NSCoder;
 
 SWIFT_CLASS("_TtC9PSDKUIKit13PSDKBarButton")
 @interface PSDKBarButton : UIBarButtonItem
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9PSDKUIKit22PSDKDisplayLinkBinding")
+@interface PSDKDisplayLinkBinding : NSObject
+- (void)tick;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -249,6 +267,8 @@ SWIFT_CLASS("_TtC9PSDKUIKit33PSDKIntrospectionUIViewController") SWIFT_AVAILABIL
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
 
 
 

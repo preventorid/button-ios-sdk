@@ -13,6 +13,6 @@ Preventor identifies, onboards, and monitors your clients in a single, AI-powere
   s.swift_version = "5.0"
   s.ios.deployment_target = '13.0'
   s.vendored_frameworks = 'PreventorSDK.xcframework', 'PSDKUIKit.xcframework', 'PSDKServices.xcframework', 'PSDKCommon.xcframework', 'Lottie.xcframework', 'Alamofire.xcframework'
-  s.dependency 'DocumentReader', '6.1.2358'
-  s.dependency 'DocumentReaderFullRFID', '6.1.5791'
+  s.dependency 'DocumentReader', '6.6.2753'
+  s.dependency 'DocumentReaderFullRFID', '6.6.6999'
 end

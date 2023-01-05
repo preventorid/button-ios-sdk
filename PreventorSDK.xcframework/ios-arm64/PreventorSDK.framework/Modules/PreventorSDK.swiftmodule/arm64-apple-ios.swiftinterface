@@ -13,6 +13,7 @@ import PSDKCommon
 import PSDKServices
 import PSDKUIKit
 @_exported import PreventorSDK
+import QuartzCore
 import Swift
 import SwiftUI
 import UIKit
@@ -21,13 +22,13 @@ import _Concurrency
 public enum ViewID : Swift.String {
   case START
   case TERMS
-  case SELFIES
+  case SELFIES_BIOMETRICS
+  case SELFIES_AUTHENTICATION
   case DOCUMENT_PHOTOS
   case OTP_EMAIL
   case OTP_PHONE
   case USER_CONFIRMATION
   case KYC_ONBOARDING
-  case ID_OTP
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -47,6 +48,10 @@ public enum PSDKErrorCode : Swift.String {
   }
 }
 public struct PSDKResult {
+  public let cifCode: Swift.String
+  public let ticketId: Swift.String?
+  public let flowStatus: Swift.String
+  public let dispositionStatus: Swift.String
 }
 public protocol PSDKDelegate {
   func onStart()
@@ -58,12 +63,17 @@ public protocol PSDKDelegate {
 extension PreventorSDK.PSDKDelegate {
   public func onPause(verification: PreventorSDK.ViewID?)
 }
-public struct PreventorButton : SwiftUI.View {
-  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+public enum ProcessType : Swift.String {
+  case ID_PROOFING
+  case FACIAL_ANALYSIS
+  case PHOTO_MATCHING
+  case LIVENESS_DETECTION
+  case DOCUMENT_DETECTION
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
-  public init()
-  public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
 }
 extension Swift.Bool : SwiftUI.VectorArithmetic {
   public static func - (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
@@ -76,8 +86,14 @@ extension Swift.Bool : SwiftUI.VectorArithmetic {
     get
   }
 }
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class FullScreenDelegate : ObjectiveC.NSObject, UIKit.UIViewControllerTransitioningDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func presentationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController?, source: UIKit.UIViewController) -> UIKit.UIPresentationController?
+  @_Concurrency.MainActor(unsafe) @objc final public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc override dynamic public init()
+  @objc deinit
+}
 public struct PSDKConfig {
-  public init(flowID: Swift.String, cifCode: Swift.String? = nil, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String)
+  public init(flowID: Swift.String, cifCode: Swift.String? = nil, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String, invitation: Swift.String? = nil, broker: Swift.String? = nil)
 }
 public enum PSDKFlowType : Swift.String {
   case AUTHENTICATION
@@ -88,24 +104,29 @@ public enum PSDKFlowType : Swift.String {
     get
   }
 }
-public enum PSDKResultState {
+public enum PSDKResultState : Swift.Equatable {
+  public init?(rawValue: Swift.String, value: Swift.String = "nil")
   case none
   case loading
   case success
-  case failed
+  case failed(Swift.String)
   case forbidden
-  public static func == (a: PreventorSDK.PSDKResultState, b: PreventorSDK.PSDKResultState) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
+  public var rawValue: Swift.String {
     get
   }
+  public static func == (lhs: PreventorSDK.PSDKResultState, rhs: PreventorSDK.PSDKResultState) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers public class PSDK {
   public static let shared: PreventorSDK.PSDK
   public func startID(controller: UIKit.UIViewController)
   public func callBack(delegate: PreventorSDK.PSDKDelegate)
+  public func getConfigStatus() -> PreventorSDK.PSDKResultState
   public func initialize(config: PreventorSDK.PSDKConfig)
   public func isRegulaComplete(_ callBack: @escaping (Swift.Bool) -> Swift.Void)
+  public func getSteps(complete: @escaping ([Swift.String]) -> Swift.Void)
+  public func isPausable(isPausable: Swift.Bool)
+  public func setNavigationTitle(title: Swift.String)
+  public func stop(completion: (() -> Swift.Void)? = nil)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UIPreventorButton : UIKit.UIButton {
@@ -114,9 +135,29 @@ public enum PSDKResultState {
   @_Concurrency.MainActor(unsafe) public func initView()
   @objc deinit
 }
+public struct VerifyingView : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init(text: Swift.String)
+  public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK13VerifyingViewV4bodyQrvp", 0) __
+}
 extension SwiftUI.View {
   public func startPreventorSDK(isPresented: SwiftUI.Binding<Swift.Bool>, onComplete: @escaping () -> Swift.Void) -> some SwiftUI.View
   
+}
+extension DocumentReader.CaptureMode {
+  public init(rawValue: Swift.String)
+}
+extension UIKit.UIInterfaceOrientationMask {
+  public init(rawValue: Swift.String)
+}
+public struct PreventorButton : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init()
+  public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
 }
 extension PreventorSDK.ViewID : Swift.Equatable {}
 extension PreventorSDK.ViewID : Swift.Hashable {}
@@ -124,8 +165,9 @@ extension PreventorSDK.ViewID : Swift.RawRepresentable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
 extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
 extension PreventorSDK.PSDKErrorCode : Swift.RawRepresentable {}
+extension PreventorSDK.ProcessType : Swift.Equatable {}
+extension PreventorSDK.ProcessType : Swift.Hashable {}
+extension PreventorSDK.ProcessType : Swift.RawRepresentable {}
 extension PreventorSDK.PSDKFlowType : Swift.Equatable {}
 extension PreventorSDK.PSDKFlowType : Swift.Hashable {}
 extension PreventorSDK.PSDKFlowType : Swift.RawRepresentable {}
-extension PreventorSDK.PSDKResultState : Swift.Equatable {}
-extension PreventorSDK.PSDKResultState : Swift.Hashable {}

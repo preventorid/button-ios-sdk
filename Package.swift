@@ -29,14 +29,14 @@ let package = Package(
         .binaryTarget(name: "PSDKServices", path: "PSDKServices.xcframework"),
         .binaryTarget(name: "PSDKCommon", path: "PSDKCommon.xcframework"),
         .binaryTarget(name: "DocumentReaderCore",
-                      url: "https://pods.regulaforensics.com/FullRFID/6.1.5791/DocumentReaderCore_fullrfid_6.1.5791.zip",
-                      checksum: "2cac3da9baf9b8342113ee410b3f507a7991f833a6b95663bf7b1d48ad5b800f"),
+                      url: "https://pods.regulaforensics.com/FullRFID/6.6.6999/DocumentReaderCore_fullrfid_6.6.6999.zip",
+                      checksum: "a113b2c9dbd158fc63ae136d98e1bf412c502def3a6e5bec3cb88fb3c1ea6b46"),
         .binaryTarget(name: "DocumentReader",
-                      url: "https://pods.regulaforensics.com/DocumentReader/6.1.2358/DocumentReader-6.1.2358.zip",
-                      checksum: "98c369a20fd1f6cbde5e1282e3734a044f6a2217baeb95f0107856640afb21ea"),
+                      url: "https://pods.regulaforensics.com/DocumentReader/6.6.2753/DocumentReader-6.6.2753.zip",
+                      checksum: "4ca53ad4ba3a76a72059aa53c415e8b67eafb41e3066f926e96650c3b8d7ad03"),
         .binaryTarget(name: "RegulaCommon",
-                      url: "https://pods.regulaforensics.com/RegulaCommon/6.1.102/RegulaCommon-6.1.102.zip",
-                      checksum: "3d84f7a68029d4592cb1f707f7332a7cc62193b3dd8f81f897a5357c3a15aabf")
+                      url: "https://pods.regulaforensics.com/RegulaCommon/6.6.203/RegulaCommon-6.6.203.zip",
+                      checksum: "7f8a23d5ea9d3208123953a651b1376d166944400eb6c833eee1e35d6a21fd99")
     ],
     swiftLanguageVersions: [.v5]
 )

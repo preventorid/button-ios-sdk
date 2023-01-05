@@ -22,7 +22,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		OE+dufoAZT/5dv7BRcDg0lHt/U8=
+		pslKcSzdCAN1w6vWSBNV6nYroEU=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/PSDKUIKit-Swift.h</key>
 		<data>
-		r5y8rcArNurv2lKhmcBjwIAlTfc=
+		y6wAmEFy0CeIeDC/R65Por5gxPg=
 		</data>
 		<key>Headers/PreventorUIKit.h</key>
 		<data>
@@ -66,35 +66,55 @@
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		GNd8mxlF42dsd/U+/J3Smg8IrAU=
+		2XGVRqBp7qhxPVxnaqPIR3Rn1Z8=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		YboQIq4ygGGQucwsMDHc/8fF/EU=
+		6T90W3obiRst21/EJ6WiFpDrYAU=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		N8GFDKJKxZ1W00AeM4//8kh855Y=
+		JG4cRQUVg63pGnBB+xbGaHe7r9c=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		/srOhckO1J7CK+6JE01vJX3GR70=
+		REPFbUxtqAOfn982ZlM0LGGtyQ0=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		PiSkDHWnGNXjugbwpYu6TDyhLxE=
+		7ARh2JuBe8+9KvWmy4DX17fe9vk=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		echmvQbubLxV3M+M9hJD/MVK35g=
+		xnUyDqLHFaiCzTwrMGP7m99Kh+Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		dHtl0pC5+jgu57Vh8eX7WASDajs=
 		</data>
+		<key>PSDKColors.json</key>
+		<data>
+		W/AnFx7CyIG3WYHADoCI2HaKFGo=
+		</data>
+		<key>PSDKDarkColors.json</key>
+		<data>
+		NO8pUunpwGSgiidCJXKGgCGQVDU=
+		</data>
+		<key>center_your_face.json</key>
+		<data>
+		mvQdOPyntb1dK1jOMM37gsheVOg=
+		</data>
+		<key>congratulations_done_check.json</key>
+		<data>
+		vhJaI1Ovq3gZMHr4k+CDteeUJKI=
+		</data>
 		<key>done_congratulations_check.json</key>
 		<data>
 		C5bRBJd0/+04rHC9/76h8DKo9iU=
+		</data>
+		<key>done_verified.json</key>
+		<data>
+		DAeboI4QB2P+BEKxrmWZheV7+Mc=
 		</data>
 		<key>en.lproj/phones.json</key>
 		<dict>
@@ -114,6 +134,18 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>loading_processing.json</key>
+		<data>
+		L+Wmc2pi5oB8m24gP9jGvKD6wPM=
+		</data>
+		<key>loading_screen.json</key>
+		<data>
+		RhKu3XI1i8A/u4C3EBJ5d0mW/UE=
+		</data>
+		<key>move_your_face.json</key>
+		<data>
+		R8tlwkE7eVuMz2ygGtvG3Wp7blE=
+		</data>
 		<key>preloader.json</key>
 		<data>
 		VSWoG30tarcpoeRpeUlv8nggPTU=
@@ -121,6 +153,10 @@
 		<key>scan_document_front_back.json</key>
 		<data>
 		HyaRobhZb6gA+be6tj150kWuuRs=
+		</data>
+		<key>scan_face.json</key>
+		<data>
+		UjAuh3BwEOXYQ5+rGKQLu9lwK+s=
 		</data>
 		<key>startIdentityVerification.json</key>
 		<data>
@@ -169,7 +205,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UfFxXpZQiAsZ/JH9TDpJToSfLhAOCh6gYSM/LoTYTT8=
+			bv2oca88U7nb3g+gBmdr0tScJwxaFXGV0Qv1ShWJJgw=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -183,7 +219,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xiXe0y0EiXWAcFNPw0iYRTpKUMX9KUbxrWI4Kp1L+k0=
+			L93meWRTKledlp0KFn8tgsNxN7lcgW6rFyE3Au2x818=
 			</data>
 		</dict>
 		<key>Headers/PreventorUIKit.h</key>
@@ -239,42 +275,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qNiEzMgNSvCyyJ8/O/aQwqXDnsoIrwPJsgmgV4q+m+c=
+			XcGYmf2p5E9ifbWk1oV4iYOhk/aqk4UuFABsXAdwjv8=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S1xOSHQk7vE1orL88yLciRyyBjrIXnbXOvfq6CXsF9E=
+			NciHPWAxrnXCk9TANOihg+30kKAGh8RbtGoY/ycsfYc=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yagv+Um10ydgWH/JCRWJZGhQxW+vQiHcShs0luKiBE8=
+			rrrBWVdkCErCiN918mOFM/RHT8bIFghfXqd/CCA3BMY=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j0ZIA4h3iJlxZl9j1biicc6dy6XOZ9j6rp4GVddXlcc=
+			Hf0jPo/2Pdj4KsAC5Cf0Soc/Lcj7SFMSyrUYZEZiEbQ=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U6Cqm8066KB5zgpab+ky5QCfUCtQVfKEGnkup2vchVk=
+			piNRPhiduscODBDHQobrRmTNoKlX5zPPFqYklY0bDy0=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uWxxFpNsFfXWwfYxGfqXPwsMvO5Dxtfv0L/8BORNugs=
+			R3ehjW8IUHpShnEmrjHxE49DDEdFxwvlKX+kQUNwb2A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -284,11 +320,46 @@
 			rawSlNg5Iokufrm8q24ZDVKfICVjXahQXsAfqxHJu18=
 			</data>
 		</dict>
+		<key>PSDKColors.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7dBE8qoPcbDr+7FW2A2INGO+jbn46tGaNhhnfmCdO94=
+			</data>
+		</dict>
+		<key>PSDKDarkColors.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			m1AikDr57icZCZER8+MAxq4GrSkKgCSn3uM8SiLXwCw=
+			</data>
+		</dict>
+		<key>center_your_face.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LHYIPyLi3k3MUGbdDXWqQBd9opXybJcRbEQCoday7HQ=
+			</data>
+		</dict>
+		<key>congratulations_done_check.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xADuSlr7gDYwe+rxNOiYa65L5Hs3NfhJw4KriPeGK7A=
+			</data>
+		</dict>
 		<key>done_congratulations_check.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			vHZF0/v6O00gDmzfCrzxgheUADWVrjJeAzKbvfhqK7U=
+			</data>
+		</dict>
+		<key>done_verified.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e/AHrxqcwNbz4Zw3/uKRwqcZbICgsDEi/d8gt46euR8=
 			</data>
 		</dict>
 		<key>en.lproj/phones.json</key>
@@ -309,6 +380,27 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>loading_processing.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eePkaV8QWp5YE+a8fGF5vwyXEXdPS7xxlbgRSgAAI0c=
+			</data>
+		</dict>
+		<key>loading_screen.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DCP/+s2EWHHjlxkidfFVyhUAchhnicIxR7IQ2kq7wMI=
+			</data>
+		</dict>
+		<key>move_your_face.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			v0Mq6mDdS+86GUVp91MDKmLV0AQueHU7L1N6x0De+CI=
+			</data>
+		</dict>
 		<key>preloader.json</key>
 		<dict>
 			<key>hash2</key>
@@ -321,6 +413,13 @@
 			<key>hash2</key>
 			<data>
 			Bj6oQCmZkasQAkEerOvr40duEpFrRnBMsDlnYTLgjq0=
+			</data>
+		</dict>
+		<key>scan_face.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ZFY3aCoJwqt5NO2rRy4Xk46AMQ6R4jgAwD6hNsZxrqI=
 			</data>
 		</dict>
 		<key>startIdentityVerification.json</key>
