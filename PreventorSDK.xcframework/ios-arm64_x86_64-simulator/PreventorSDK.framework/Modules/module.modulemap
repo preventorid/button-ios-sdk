@@ -6,6 +6,6 @@ framework module PreventorSDK {
 }
 
 module PreventorSDK.Swift {
-    header "PreventorSDK-Swift.h"
-    requires objc
+  header "PreventorSDK-Swift.h"
+  requires objc
 }

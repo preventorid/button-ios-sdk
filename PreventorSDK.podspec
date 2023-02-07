@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '2.0.0'
+  s.version          = '2.1.0'
   s.summary          = 'Preventor identifies, onboards, and monitors your clients in a single, AI-powered platform.'
   s.description      = <<-DESC 
 Preventor is the next generation self-service digital identity and financial crime risk management platform for individuals and businesses. 
@@ -15,4 +15,4 @@ Preventor identifies, onboards, and monitors your clients in a single, AI-powere
   s.vendored_frameworks = 'PreventorSDK.xcframework', 'PSDKUIKit.xcframework', 'PSDKServices.xcframework', 'PSDKCommon.xcframework', 'Lottie.xcframework', 'Alamofire.xcframework'
   s.dependency 'DocumentReader', '6.6.2753'
   s.dependency 'DocumentReaderFullRFID', '6.6.6999'
-end
+end 

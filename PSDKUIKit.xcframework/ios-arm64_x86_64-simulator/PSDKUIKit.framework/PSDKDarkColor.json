@@ -1,0 +1,20 @@
+{
+    "Brand": {
+        "background_main" : "#323336",
+        "secondary" : "#AAE8F0",
+        "accent" : "#00BAD3",
+    },
+    "OnSurface": {
+        "light" : "#323336",
+        "gray_1" : "#4F5054",
+        "gray_2" : "#77787E",
+        "gray_3" : "#9EA0A7",
+        "gray_4" : "#C6C8D1",
+        "dark" : "#E3E6F1",
+    },
+    "Semantic": {
+        "red" : "#FF6F6F",
+        "yellow" : "#FFD954",
+        "green" : "#57E293",
+    }
+}

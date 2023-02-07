@@ -1,0 +1,503 @@
+{
+  "Button": {
+    "VerifyMe" : "verifique-me",
+    "Next": "Próximo",
+    "IamReady": "Estou pronto",
+    "TryAgain": "Tente novamente",
+    "Confirm": "Confirme",
+    "Save": "Salve",
+    "Finish": "Terminar",
+    "Retake": "Retomar",
+    "Retry": "Tentar novamente",
+    "No": "Não",
+    "Yes": "Sim",
+    "YesConfirm": "Sim, confirme",
+    "Submit": "Enviar",
+    "NoReturn": "Não, volte",
+    "Close": "Perto",
+    "IamHere": "Eu estou aqui",
+    "Continue": "Continuar",
+    "FromGallery": "Da galeria",
+    "Clear": "Limpar",
+    "ScanMyFace": "Escaneie meu rosto",
+    "Skip": "Pular",
+    "NoCancel": "Não, cancelar",
+    "Scan": "Varredura",
+    "Reset": "Redefinir",
+    "Loading": "Carregando",
+    "UploadPhoto": "Carregar foto"
+  },
+  "TitleAppBar": {
+    "IdentityVerification": "Verificação de Identidade"
+  },
+  "Message": {
+    "EmailAlreadyRegistered": "O e-mail já foi registrado",
+    "HoldDocument": "Não mova o documento\n enquanto a borda estiver verde",
+    "TurnFlash": "Ligue a lanterna para melhorar os resultados",
+    "AvoidGlareShadow": "Evite o brilho e a sombra",
+    "InfoMessageError": [
+      {
+        "code": "PVT_LD_E001",
+        "message": "Nenhum rosto detectado."
+      },
+      {
+        "code": "PVT_LD_E002",
+        "message": "Múltiplos rostos detectados."
+      },
+      {
+        "code": "PVT_LD_E003",
+        "message": "A imagem capturada tem qualidade ruim."
+      },
+      {
+        "code": "PVT_LD_E004",
+        "message": "Tente novamente seguindo as instruções."
+      },
+      {
+        "code": "PVT_LD_E005",
+        "message": "A imagem capturada está muito desfocada."
+      },
+      {
+        "code": "PVT_LD_E006",
+        "message": "A imagem capturada é muito clara."
+      },
+      {
+        "code": "PVT_LD_E007",
+        "message": "A imagem capturada está muito escura."
+      },
+      {
+        "code": "PVT_LD_E008",
+        "message": "Imagem muito antiga ou sem tag de criação"
+      },
+      {
+        "code": "PVT_FA_E001",
+        "message": "Rosto não detectado"
+      },
+      {
+        "code": "PVT_AU_E001",
+        "message": "Falha na autenticação"
+      },
+      {
+        "code": "PVT_IP_E001",
+        "message": "Brilho presente na imagem"
+      },
+      {
+        "code": "PVT_IP_E002",
+        "message": "Foco incorreto"
+      },
+      {
+        "code": "PVT_IP_E003",
+        "message": "Baixa resolução"
+      },
+      {
+        "code": "PVT_IP_E004",
+        "message": "Nenhuma cor encontrada"
+      },
+      {
+        "code": "PVT_IP_E005",
+        "message": "Imagem de documento incompleta"
+      },
+      {
+        "code": "PVT_IP_E006",
+        "message": "Não foi possível encontrar o retrato"
+      },
+      {
+        "code": "PVT_IP_E007",
+        "message": "Nem todos os códigos de barras são lidos"
+      },
+      {
+        "code": "PVT_IP_E008",
+        "message": "Documento considerado inseguro"
+      },
+      {
+        "code": "PVT_IP_E009",
+        "message": "MRZ não lido"
+      },
+      {
+        "code": "PVT_IP_E010",
+        "message": "Este processo falhou"
+      },
+      {
+        "code": "PVT-NVLD-STTS",
+        "message": "O documento fornecido parece não ser autêntico."
+      },
+      {
+        "code": "PVT-DCM-TP-NRCG",
+        "message": "A imagem fornecida não parece ser a imagem de um documento válido."
+      },
+      {
+        "code": "PVT-DATA-EXTR",
+        "message": "Os dados do documento não puderam ser recuperados. Parece que a foto do seu documento não é válida."
+      },
+      {
+        "code": "PVT-RQD-FLD-MSSN",
+        "message": "Alguns campos obrigatórios não puderam ser recuperados da leitura de OCR."
+      },
+      {
+        "code": "PVT-CTR-NT-LLWD",
+        "message": "Desculpe, o documento de identidade usado não é permitido."
+      },
+      {
+        "code": "PVT-CTR-MSMTCH",
+        "message": "Desculpe, o documento de identidade usado não é permitido."
+      },
+      {
+        "code": "PVT-OCR-AG-NT-RNG",
+        "message": "A idade do proprietário especificada no documento não está na faixa permitida."
+      },
+      {
+        "code": "PVT-DCMT-NT-LLWD",
+        "message": "Desculpe, o documento de identidade usado não é permitido."
+      },
+      {
+        "code": "PVT-PRT-IMG-MSSN",
+        "message": "A imagem de retrato necessária não pôde ser recuperada da leitura de OCR."
+      },
+      {
+        "code": "PVT-FA-AG-NT-RNG",
+        "message": "A idade do proprietário especificada no documento não está na faixa etária estimada das selfies."
+      },
+      {
+        "code": "PVT-GND-MSMTCH",
+        "message": "O campo de gênero do documento não corresponde ao sexo estimado da selfie."
+      },
+      {
+        "code": "PVT-PHT-MTC-MSMTCH",
+        "message": "Os auto-retratos não cumprem os requisitos mínimos ou não combinam entre si."
+      },
+      {
+        "code": "PVT-NXPCT-XCPT",
+        "message": "Ocorreu um erro inesperado durante a execução deste processo."
+      },
+      {
+        "code": "DMNTPCMSSN",
+        "message": "Falta uma das fotos do documento necessário."
+      },
+      {
+        "code": "TRNSPRCFLD",
+        "message": "Alguns campos obrigatórios não puderam ser recuperados da leitura de OCR."
+      },
+      {
+        "code": "PVT-DCMT-TP-MSMTCH",
+        "message": "O tipo de documento fornecido parece ser diferente do tipo selecionado."
+      },
+      {
+        "code": "PVT-NVLD-RDNG",
+        "message": "Alguns dados não puderam ser lidos corretamente ou nenhum dado pôde ser recuperado."
+      },
+      {
+        "code": "PVT-XPRD-DCMT",
+        "message": "Desculpe, parece que seu documento expirou."
+      },
+      {
+        "code": "PVT-SCR-LSS-THRSLD",
+        "message": "Uma ou ambas as imagens do seu documento obtiveram uma pontuação inferior ao limite configurado."
+      },
+      {
+        "code": "PVT-NO-DCT-DTCT",
+        "message": "Nenhum documento pôde ser detectado em uma ou ambas as imagens fornecidas."
+      },
+      {
+        "code": "PVT-DD-NXPCTD-XCPT",
+        "message": "Um erro inesperado foi gerado durante o processo de detecção de documento."
+      },
+      {
+        "code": "PVT_E0001",
+        "message": "Algo deu errado"
+      },
+      {
+        "code": "PVT_E0002",
+        "message": "Erro geral"
+      },
+      {
+        "code": "PVT_E0003",
+        "message": "Desculpe, o documento de identidade usado não é permitido."
+      },
+      {
+        "code": "PVT_E0004",
+        "message": "Desculpe, parece que seu documento expirou."
+      },
+      {
+        "code": "PVT_E0005",
+        "message": "Desculpe, nossa verificação de identidade digital não é permitida em sua localidade."
+      },
+      {
+        "code": "PVT_E0006",
+        "message": "Desculpe, sua verificação de identidade foi rejeitada devido a algum resultado negativo."
+      },
+      {
+        "code": "PVT_E0007",
+        "message": "Desculpe, sua verificação de identidade precisa ser revisada por nossa equipe."
+      },
+      {
+        "code": "PVT_E0008",
+        "message": "Desculpe, a prova de identidade deve ser tentada novamente."
+      },
+      {
+        "code": "PVT_E0009",
+        "message": "Desculpe, você confirmou que os dados lidos não estão corretos. Por favor, tente novamente."
+      },
+      {
+        "code": "PVT_PM_E001",
+        "message": "Selfies e documentos não correspondem"
+      },
+      {
+        "code": "PVT_DD_E001",
+        "message": "Documento não detectado"
+      }
+    ]
+  },
+  "Label": {
+    "Processing": "Em processamento",
+    "Readmore": "mais",
+    "Readless": "menos",
+    "Male": "Masculino",
+    "Female": "Feminino",
+    "FlashOn": "Flash ligado",
+    "Verifying": "Verificando",
+    "Enrolling": "Matricular",
+    "DidNotReceiveCode": "Não recebeu nenhum código?",
+    "ResendVerificationCode": "reenviar código de verificação",
+    "WeSendCodeEmail": "Enviaremos um código de verificação para este e-mail.",
+    "WeSendCodePhone": "Enviaremos um código de verificação para este número.",
+    "UseImage": "Usar esta imagem?",
+    "Age": "Idade",
+    "Number": "{{document}} número",
+    "DocumentNumber": "Número do documento",
+    "IssuingCountry": "País emissor",
+    "IssuingState": "Estado emissor",
+    "ExpirationDate": "Data de validade",
+    "DateIssue": "Data de emissão",
+    "Surname": "Sobrenome",
+    "GivenName": "Nome dado",
+    "CountryOfCitizenship": "País de cidadania",
+    "Dob": "Data de nascimento",
+    "MaritalStatus": "Estado civil",
+    "Address": "Endereço",
+    "WouldTryAgain": "Você gostaria de tentar de novo?",
+    "PrepareSteps": {
+      "Selfie": "Esteja preparado para tirar uma selfie.",
+      "ListDocument": "Prepare o seu documento de identidade para ser digitalizado, aceitamos:",
+      "Email": "Tenha seu endereço de e-mail pronto.",
+      "Phone": "Tenha seu celular pronto.",
+      "ProofResidency": "Tenha seu comprovante de residência pronto."
+    },
+    "UploadFront": "Carregue a FRENTE do documento",
+    "UploadBack": "Carregar VERSO do documento",
+    "InvalidCode": "O código de verificação inserido está incorreto.",
+    "ExpiredCode": "O código de verificação inserido expirou.",
+    "CameraSelfie": {
+      "Correct": "Segure firme",
+      "Outside": "Centralize seu rosto",
+      "Far": "Centralize seu rosto",
+      "NoFace": "Rosto não detectado",
+      "MotionDetection": {
+        "Titles": [
+          "Mova sua cabeça um pouco",
+          "Mova ligeiramente a cabeça",
+          "Mova sua cabeça para o lado"
+        ]
+      },
+      "MotionDetectionDone": "Bom trabalho!"
+    },
+    "And": "e",
+    "FrontID": "Frente do seu ID",
+    "BackID": "Verso da ID"
+  },
+  "LabelButton": {
+    "ResendCode": "Reenviar código",
+    "PhotoLibrary": "Biblioteca de fotos",
+    "TakePhoto": "Tirar fotos",
+    "ChooseFile": "Escolher arquivo"
+  },
+  "LabelError": {
+    "NumberAlreadyRegister": "Este número já está registrado.",
+    "InvalidEmail": "E-mail inválido",
+    "ImageDimension": "A imagem deve ter pelo menos 600 x 600 pixels, mas não mais que 1200 x 1200 pixels.",
+    "NotPermitted": "não é permitido",
+    "Expired": "expirado",
+    "InvalidOtpCode": "Código inválido"
+  },
+  "HyperLink": {
+    "Agreements": "Ao clicar em continuar você concorda com os <a href=\"https://preventor.com/terms-of-service\" target=\"_blank\">terms of service</a> and our <a href=\"https://preventor.com/privacy-policy\" target=\"_blank\">privacy policy.</a>"
+  },
+  "Placeholder": {
+    "SelectTypeId": "Selecione o tipo de identificação",
+    "EmailAddress": "Endereço de email",
+    "PhoneNumber": "Número de telefone",
+    "SelectCountry": "Selecione o pais"
+  },
+  "Documents": {
+    "Passport": "Passaporte",
+    "DriverLicense": "Carteira de Motorista (CNH)",
+    "IdCard": "Carteira de Identidade (RG),",
+    "ResidentPermitCard": "Ristro de Estrangeiro (RE)",
+    "Visa": "Visto",
+    "VotingCard": "Título de Eleitor",
+    "IdentityDocument": "Documento de identidade"
+  },
+  "Pages": {
+    "PrepareSteps": {
+      "Title": "Prepare-se para ser verificado!"
+    },
+    "Phone": {
+      "Title": "Número de telefone",
+      "SubTitle": "Qual é o seu número de telefone?"
+    },
+    "PhoneVerification": {
+      "Title": "Verifique seu telefone",
+      "SubTitle": "Digite o código enviado para:"
+    },
+    "Email": {
+      "Title": "Endereço de email",
+      "SubTitle": "Qual é o seu e-mail?"
+    },
+    "EmailVerification": {
+      "Title": "Verifique seu e-mail",
+      "SubTitle": "Digite o código enviado para:"
+    },
+    "PrepareSelfie": {
+      "Title": "Prepare-se para sua selfie",
+      "SubTitle": "Por favor, coloque o telefone na frente do seu rosto"
+    },
+    "CameraSelfie": {
+      "Title": "Tire uma selfie rápida"
+    },
+    "ChooseCountry": {
+      "Title": "Escaneie sua ID",
+      "SubTitle": "Selecione o país emissor do ID na lista suspensa"
+    },
+    "ChooseDocument": {
+      "Title": "Escaneie sua ID",
+      "SubTitle": "Selecione seu tipo de identificação"
+    },
+    "GlobalDocument": {
+      "Title": "Prepare-se para escanear sua ID",
+      "SubTitle": "Prepare a frente do seu documento"
+    },
+    "CameraDocument": {
+      "Title": "Escaneie sua ID",
+      "SubTitle": "Certifique-se de que seu documento de identidade mostre claramente seu rosto."
+    },
+    "UploadDocument": {
+      "Title": "Carregue sua ID"
+    },
+    "PrepareRfid": {
+      "Title": "Escaneie sua ID eletrônica"
+    },
+    "PersonalInformation": {
+      "Title": "Esta informação é Correta?"
+    },
+    "Congratulations": {
+      "Title": "Parabéns\n pronto!",
+      "SubTitle": "Sua verificação de identidade foi concluída."
+    },
+    "Error": {
+      "Title": "Há um problema",
+      "SubTitle": "Lamentamos muito.\n estamos trabalhando para corrigi-lo o mais rápido possível. Por favor, aguarde alguns minutos e tente novamente."
+    },
+    "FailedAttempts": {
+      "Title": "Sua verificação de identidade\foi enviada",
+      "SubTitle": "Eu voltarei para você. Obrigado!"
+    }
+  },
+  "Tips": {
+    "Selfie": {
+      "TabTitle": "Guia para ver dicas para tirar sua selfie",
+      "Title": "Dicas para tirar sua selfie",
+      "Items": [
+        "Posicione-se em boa iluminação.",
+        "Use uma expressão neutra, sem sorrir e com os olhos abertos.",
+        "Posicione seu rosto dentro do círculo na tela até que apareçam dois círculos verdes.",
+        "Mova a cabeça ligeiramente quando instruído."
+      ]
+    },
+    "Document": {
+      "TabTitle": "Guia para ver dicas para escanear sua ID",
+      "Title": "Dicas para escanear sua ID",
+      "Items": [
+        "Coloque o documento em uma superfície plana e escura com excelente iluminação.",
+        "Evite o brilho e a sombra."
+      ]
+    },
+    "UploadDocument": {
+      "TabTitle": "Aba para ver dicas para carregar seu ID",
+      "Title": "Dicas para fazer o upload do seu ID",
+      "Items": [
+        "A imagem deve ter pelo menos 600 x 600 pixels, mas não mais que 1200 x 1200 pixels.",
+        "A imagem deve estar no formato de arquivo JPEG ou PNG.",
+        "A imagem deve ter pelo menos 56 kilobytes, mas não mais que 10 megabytes."
+      ]
+    },
+    "ScanRfid": {
+      "TabTitle": "Guia para obter dicas sobre como digitalizar seu eID",
+      "Title": "Dicas sobre como digitalizar seu eID",
+      "Items": [
+        "Prepare-se para segurar o telefone próximo ao seu documento de identidade para escanear o chip eletrônico do seu documento.",
+        "Alguns ePassports, como o US ePassport, possuem um chip RFID embutido na contracapa do documento de viagem."
+      ]
+    }
+  },
+  "BottomSheet": {
+    "TimeOut": {
+      "Title": "Você ainda está aí?",
+      "SubTitle": "Caso contrário, encerraremos esta sessão em:"
+    },
+    "TryAgainSelfie": {
+      "Title": "Vamos tentar isso de novo"
+    },
+    "TryAgainDocument": {
+      "Title": "Vamos tentar isso de novo"
+    },
+    "TryAgainRfid": {
+      "Title": "Vamos tentar isso de novo"
+    },
+    "Expired": {
+      "Title": "Sua sessão expirou",
+      "SubTitle": "Você foi desconectado por inatividade."
+    },
+    "IdNotPermitted": {
+      "Title": "Documentos não permitido",
+      "SubTitle": "Documentos de identidade permitidos:"
+    },
+    "IdExpired": {
+      "Title": "ID expirado",
+      "SubTitle": "Seu documento de identidade expirou, no entanto, se você considera isso um erro ou se você considera isso um erro ou se você possui outro documento de identidade, tente novamente.\n\nDeseja tentar novamente?"
+    },
+    "UploadDocument": {
+      "Title": "Carregar foto"
+    },
+    "UploadError": {
+      "Title": "Erro de mensagem"
+    },
+    "SkipRfid": {
+      "Title": "Tendo problemas para ler o seu ID eletrônico?"
+    },
+    "InformationNoMatch": {
+      "Title": "Desculpe ouvir isso",
+      "SubTitle": "Você gostaria de tentar de novo?"
+    },
+    "CancelVerification": {
+      "Title": "Cancelar verificação",
+      "SubTitle": "As verificações feitas serão perdidas\n\nTem certeza que deseja continuar?"
+    },
+    "ExceededAttempts": {
+      "Title": "Limite máximo de tentativa",
+      "SubTitle": "Você excedeu o limite máximo de tentativas. Não foi possível concluir o processo de verificação."
+    },
+    "LocationDenied": {
+      "Title": "Você negou o acesso à sua localização",
+      "SubTitle": "Para continuar, ative o acesso à sua localização nas configurações do telefone."
+    },
+    "CameraDenied": {
+      "Title": "Você negou o acesso à sua câmera",
+      "SubTitle": "Para continuar, ative o acesso à sua câmera nas configurações do telefone."
+    },
+    "TryAgainOTP": {
+      "Title": "Oops !"
+    },
+    "OTPError": {
+      "Title": "Oops !",
+      "SubTitle": "O código de verificação inserido está incorreto."
+    }
+  }
+}

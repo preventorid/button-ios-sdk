@@ -6,6 +6,6 @@ framework module PSDKCommon {
 }
 
 module PSDKCommon.Swift {
-    header "PSDKCommon-Swift.h"
-    requires objc
+  header "PSDKCommon-Swift.h"
+  requires objc
 }

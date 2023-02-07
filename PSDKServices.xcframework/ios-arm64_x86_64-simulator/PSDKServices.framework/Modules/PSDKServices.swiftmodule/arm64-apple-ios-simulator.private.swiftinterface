@@ -1,0 +1,791 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKServices
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import Foundation
+@_exported import PSDKServices
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+public enum PSDKValidateEmail {
+  public struct Request : Swift.Encodable {
+    public let email: Swift.String
+    public init(email: Swift.String)
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+  public struct Response : PSDKServices.PSDKBaseResponse {
+    public var statusCode: Swift.Int?
+    public var status: PSDKServices.PSDKStatusDecodable?
+    public var code: Swift.String?
+    public var message: PSDKServices.PSDKMessage?
+    public var id: Swift.String?
+    public var deliveryMethod: Swift.String?
+    public var email: Swift.String?
+    public var tenantInfo: PSDKServices.PSDKValidateEmail.PSDKTenantInfo?
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public struct PSDKTenantInfo : Swift.Decodable {
+    public var tenant: Swift.String
+    public var env: Swift.String
+    public var banknu: Swift.String
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+@_inheritsConvenienceInitializers public class PSDKSettingRepository : PSDKServices.PSDKRepository {
+  public func getSettingsGeneral(success: @escaping (PSDKServices.PSDKGeneralSettingsResponse) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func setTheme(theme: PSDKServices.PSDKTheme, success: @escaping (Foundation.Data?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  public func setLogo(logo: Swift.String, success: @escaping (Foundation.Data?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  override public init(delegate: PSDKServices.PSDKRepositoryDelegate)
+  @objc deinit
+}
+public struct PSDKIdGenerateOtpRequest : Swift.Encodable {
+  public init(phone: Swift.String, country: Swift.String)
+  public init(email: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKIdValidateOtpRequest : Swift.Encodable {
+  public init(phone: Swift.String, country: Swift.String, code: Swift.String)
+  public init(email: Swift.String, code: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKIvValidateOtpRequest : Swift.Encodable {
+  public init(code: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKOnboardingRequest : Swift.Codable {
+  public let transactionType: Swift.String
+  public let documentType: Swift.String
+  public let flow: Swift.String
+  public let cifcode: Swift.String
+  public let portraits: PSDKServices.PSDKPortraitsRequest
+  public let documents: PSDKServices.PSDKPortraitsRequest
+  public init(transactionType: Swift.String, documentType: Swift.String, flow: Swift.String, cifcode: Swift.String, portraits: PSDKServices.PSDKPortraitsRequest, documents: PSDKServices.PSDKPortraitsRequest)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKPortraitsRequest : Swift.Codable {
+  public let picture1: Swift.String?
+  public let picture2: Swift.String?
+  public init(picture1: Swift.String?, picture2: Swift.String?)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKOnboardingSDKImages : Swift.Encodable {
+  public let selfPortraits: PSDKServices.PSDKPortraitsSDKRequest
+  public let documents: PSDKServices.PSDKPortraitsSDKRequest
+  public init(selfPortraits: PSDKServices.PSDKPortraitsSDKRequest, documents: PSDKServices.PSDKPortraitsSDKRequest)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKContinuePhoneRequest : Swift.Encodable {
+  public let phoneCountryCode: Swift.String?
+  public let phoneNumber: Swift.String?
+  public init(phoneCountryCode: Swift.String?, phoneNumber: Swift.String?)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKRegisterUserResponse : PSDKServices.PSDKBaseResponse {
+  public var statusCode: Swift.Int?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKPortraitsSDKRequest : Swift.Encodable {
+  public init(pictureSource: PSDKServices.DocumentSourceType? = nil, picture1: Swift.String?, picture2: Swift.String?)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKIdentityVerificationRequest : Swift.Encodable {
+  public init(documentType: Swift.String, documentIssuingCountry: Swift.String?, omitRfid: Swift.Bool, document: PSDKServices.PSDKPortraitsSDKRequest)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers public class PSDKAuthenticationRepository : PSDKServices.PSDKRepository {
+  public func validateEmail(email: PSDKServices.PSDKValidateEmail.Request, success: @escaping (PSDKServices.PSDKValidateEmail.Response?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func validateUser(email: PSDKServices.PSDKValidateUserRequest, success: @escaping (PSDKServices.PSDKLoginResponse?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func validateApiKey(success: @escaping (PSDKServices.PSDKApiKeyResponse) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func authToken(success: @escaping (PSDKServices.PSDKAuthTokenResponse) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func deleteUser(email: Swift.String, success: @escaping (Swift.Bool) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  public func loggedUser(userID: Swift.String, request: PSDKServices.PSDKLoggedUserRequest, success: @escaping (Swift.Bool) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  public func userAbandon(userID: Swift.String, request: PSDKServices.PSDKLoggedUserRequest, success: @escaping (Swift.Bool?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  override public init(delegate: PSDKServices.PSDKRepositoryDelegate)
+  @objc deinit
+}
+public struct PSDKTransactionStartRequest : Swift.Encodable {
+  public init(cifcode: Swift.String?, flow: Swift.String?, fullName: Swift.String? = nil, invitation: Swift.String? = nil, broker: Swift.String? = nil)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKBiometricVerificationRequest : Swift.Encodable {
+  public init(selfPortraits: PSDKServices.PSDKPortraitsSDKRequest)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol PSDKRepositoryDelegate : AnyObject {
+  func getHeadders(_ authType: PSDKServices.PSDKAuthType) -> Alamofire.HTTPHeaders
+}
+public enum PSDKAuthType {
+  case basic
+  case bearer
+  case custom(Swift.String?)
+}
+public class PSDKRepository {
+  public static var isConnectedToInternet: Swift.Bool {
+    get
+  }
+  public init(delegate: PSDKServices.PSDKRepositoryDelegate)
+  public func renewal(userID: Swift.String, success: @escaping (PSDKServices.PSDKRenewal.Response?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func registerUser(request: PSDKServices.PSDKRegisterUserRequest, success: @escaping (_ response: PSDKServices.PSDKRegisterUserResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func getCountry(success: @escaping (_ response: [PSDKServices.PSDKCountryModelResponse]?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func transactionStart(request: PSDKServices.PSDKTransactionStartRequest, success: @escaping (PSDKServices.PSDKTransactionStartResponse?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func transactionClose(ticket: Swift.String, success: @escaping (PSDKServices.PSDKGeneralResponse?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func biometricVerification(request: PSDKServices.PSDKBiometricVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKBiometricVerificationResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func identityVerification(request: PSDKServices.PSDKIdentityVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func identitySDKVerification(request: PSDKServices.PSDKIdentitySDKVerificationRequest, isRetry: Swift.Bool, ticket: Swift.String, ivBase64: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOnboardingResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func authVerification(request: PSDKServices.PSDKBiometricVerificationRequest?, isRetry: Swift.Bool, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKBiometricVerificationResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func cachedTransaction(ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKPollingResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func userConfirmation(request: PSDKServices.PSDKUserConfirmationRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func sendOtp(request: PSDKServices.PSDKOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKOtpResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func validateOtp(request: PSDKServices.PSDKValidateOtpRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKValidateOtpResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func generateInvitationOTP(invitationID: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func validateInvitationOTP(invitationID: Swift.String, code: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func abandonedSDK(request: PSDKServices.PSDKAbandonedRequest, ticket: Swift.String, success: @escaping (_ response: PSDKServices.PSDKGeneralResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func regulaApi(data: Foundation.Data, success: @escaping (_ response: Swift.String?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func getRegulaDatabase(db: PSDKServices.PSDKRegulaDatabaseName, success: @escaping (_ response: Foundation.URL?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func livenesDetection(request: PSDKServices.PSDKLivenesDetectionRequest, success: @escaping (_ response: PSDKServices.PSDKLivenesDetectionResponse?) -> Swift.Void, failure: @escaping (_ error: PSDKServices.PSDKError) -> Swift.Void)
+  public func regulaSettings(success: @escaping (PSDKServices.PSDKRegulaSettings.Response?) -> Swift.Void, failure: @escaping (PSDKServices.PSDKError) -> Swift.Void)
+  public func getIP(completion: @escaping (Swift.String?) -> Swift.Void)
+  @objc deinit
+}
+public struct PSDKLivenesDetectionRequest : Swift.Encodable {
+  public init(liveimage1: Swift.String, liveimage2: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKContinueOnboardingResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKLoggedUserRequest : Swift.Encodable {
+  public init(broker: Swift.String?, brokerName: Swift.String?, unique: Swift.String?, name: Swift.String?)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKApiKeyResponse : Swift.Codable {
+  public var valid: Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKAuthTokenResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let token: Swift.String?
+  public let expiracy: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKApidispatchResponseDefault : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKLoginResponse : PSDKServices.PSDKBaseResponse {
+  public var statusCode: Swift.Int?
+  public let status: PSDKServices.PSDKStatusDecodable?
+  public let code: Swift.String?
+  public let message: PSDKServices.PSDKMessage?
+  public let email: Swift.String?
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let flow: Swift.String?
+  public let flowType: Swift.String?
+  public let cifCode: Swift.String?
+  public let broker: Swift.String?
+  public let brokerName: Swift.String?
+  public let data: PSDKServices.PSDKLoginResponse.Data?
+  public struct Data : Swift.Decodable {
+    public let email: Swift.String?
+    public let deliveryMethod: Swift.String?
+    public let id: Swift.String?
+    public let hasRenewal: Swift.Bool?
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKServiceConstants {
+}
+public enum PSDKRegulaDatabaseName : Swift.String {
+  case africa
+  case asia
+  case autraliaOceania
+  case centralAmerica
+  case northAmerica
+  case southAmerica
+  case full
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension Foundation.Data {
+  public func autodecode<T>() -> T? where T : Swift.Decodable
+}
+public struct PSDKPollingResponse : PSDKServices.PSDKBaseResponse {
+  public var statusCode: Swift.Int?
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var selfiesNotRequired: Swift.Bool?
+  public let data: PSDKServices.PSDKUserDataModelResponse?
+  public let ocrValidations: [PSDKServices.PSDKOcrValidationsResponse]?
+  public let error: PSDKServices.PSDKPollingResponseError?
+  public let idProofingResults: PSDKServices.PSDKProfingResut?
+  public let flowStatus: Swift.String?
+  public let disposition: Swift.String?
+  public let idProofingState: PSDKServices.PSDKPollingResponse.ProofingState?
+  public enum ProofingState : Swift.String, Swift.Decodable {
+    case OK
+    case WARNING
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKProfingResut : Swift.Decodable {
+  public let generalStatus: Swift.String?
+  public let actualAgeOutOfRange: Swift.String?
+  public let imageQuality: Swift.String?
+  public let readability: Swift.String?
+  public let permittedIssuingCountry: Swift.String?
+  public let permittedDocumentType: Swift.String?
+  public let authenticity: Swift.String?
+  public let recognizedDocumentType: Swift.String?
+  public let documentExpiry: Swift.String?
+  public let mrz: Swift.String?
+  public let minimumRequiredFieldsRead: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKPollingResponseError : Swift.Decodable {
+  public let process: Swift.String?
+  public let message: Swift.String?
+  public let code: Swift.String?
+  public let infoMessageErrorCode: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKOcrValidationsResponse : Swift.Decodable {
+  public let fieldName: Swift.String
+  public let required: Swift.Bool
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKUserDataModelResponse : Swift.Decodable {
+  public let fullName: Swift.String?
+  public let firstName: Swift.String?
+  public let middleName: Swift.String?
+  public let lastName: Swift.String?
+  public let givenNames: Swift.String?
+  public let surnames: Swift.String?
+  public let surname: Swift.String?
+  public let secondSurname: Swift.String?
+  public let age: Swift.String?
+  public let address: Swift.String?
+  public let city: Swift.String?
+  public let state: Swift.String?
+  public let zipCode: Swift.String?
+  public let addressCountry: Swift.String?
+  public let dateOfBirth: Swift.String?
+  public let nationality: Swift.String?
+  public let idNumber: Swift.String?
+  public let documentNumber: Swift.String?
+  public let documentIssuingDate: Swift.String?
+  public let documentIssuingState: Swift.String?
+  public let documentIssuingStateName: Swift.String?
+  public let documentIssuingCountry: Swift.String?
+  public let documentExpirationDate: Swift.String?
+  public let category: Swift.String?
+  public let maritalStatus: Swift.String?
+  public let type: Swift.String?
+  public let gender: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKError {
+  public let code: Swift.Int?
+  public let message: Swift.String?
+}
+public protocol PSDKBaseResponse : Swift.Decodable {
+  var statusCode: Swift.Int? { get set }
+  var status: PSDKServices.PSDKStatusDecodable? { get }
+  var code: Swift.String? { get }
+  var message: PSDKServices.PSDKMessage? { get }
+}
+public struct PSDKGeneralResponse : PSDKServices.PSDKBaseResponse {
+  public var statusCode: Swift.Int?
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum PSDKStatusDecodable : Swift.Decodable {
+  case int(Swift.Int)
+  case string(Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public var rawValue: Swift.String {
+    get
+  }
+  public var intValue: Swift.Int? {
+    get
+  }
+}
+public enum PSDKMessage : Swift.Decodable {
+  case string(Swift.String)
+  case coFailureMessage(PSDKServices.PSDKCOFailureMessage)
+  case array([Swift.String])
+  public init(from decoder: Swift.Decoder) throws
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKCOFailureMessage : Swift.Decodable {
+  public let message: Swift.String
+  public let fields: [Swift.String]
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKLivenesDetectionResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let Success: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKIdentitySDKVerificationRequest : Swift.Encodable {
+  public init(documentType: Swift.String, documentIssuingCountry: Swift.String?, ocrData: Swift.String, document: PSDKServices.PSDKPortraitsSDKRequest)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers public class PSDKLanguageRepository : PSDKServices.PSDKRepository {
+  public func getLanguage(language: Swift.String?, success: @escaping (Foundation.Data?) -> Swift.Void, failure: @escaping (Alamofire.AFError) -> Swift.Void)
+  override public init(delegate: PSDKServices.PSDKRepositoryDelegate)
+  @objc deinit
+}
+public enum PSDKAbandonedType : Swift.String {
+  case LOGGED_OUT
+  case TIMEOUT
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKAbandonedRequest : Swift.Encodable {
+  public init(disposition: PSDKServices.PSDKAbandonedType)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum PSDKRegulaSettings {
+  public struct Response : Swift.Decodable {
+    public let multipageProcessing: Swift.Bool
+    public let doublePageSpread: Swift.Bool
+    public let timeOut: Swift.Int
+    public let timeoutFromFirstDetect: Swift.Int
+    public let timeoutFromFirstDocType: Swift.Int
+    public let videoCaptureMotionControl: Swift.Bool
+    public let skipFocusingFrames: Swift.Bool
+    public let captureMode: Swift.String
+    public let pictureOnBoundsReady: Swift.Bool
+    public let cameraWidth: Swift.Int
+    public let cameraHeight: Swift.Int
+    public let screenOrientation: Swift.String
+    public let zoomEnabled: Swift.Bool
+    public let zoomFactor: Swift.Double
+    public let manualCrop: Swift.Bool
+    public let minDPI: Swift.Int
+    public let checkHologram: Swift.Bool
+    public let dateFormat: Swift.String
+    public let perspectiveAngle: Swift.Double?
+    public let imageQuality: PSDKServices.PSDKRegulaSettings.ImageQuality
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public struct ImageQuality : Swift.Decodable {
+    public let glaresCheck: Swift.Bool
+    public let focusCheck: Swift.Bool
+    public let colornessCheck: Swift.Bool
+    public let dpiThreshold: Swift.Double
+    public let angleThreshold: Swift.Double
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public struct PSDKGeneralSettingsResponse : Swift.Codable {
+  public var theme: PSDKServices.PSDKTheme?
+  public var facialAnalysis: PSDKServices.PSDKFacialAnalysis?
+  public var biometricAuthentications: PSDKServices.PSDKBiometricAuthentications?
+  public var identityDocuments: [PSDKServices.PSDKIdentityDocument]?
+  public var language: Swift.String?
+  public var rfid: PSDKServices.PSDKDeviceTracking?
+  public var countryRestriction: PSDKServices.PSDKCountryRestriction?
+  public var gdpr: PSDKServices.PSDKGdpr?
+  public var tenantInfo: PSDKServices.PSDKTenantInfo?
+  public var defaultWorkflow: PSDKServices.PSDKWorkflow?
+  public var deviceTracking: PSDKServices.PSDKDeviceTracking?
+  public var workflows: [PSDKServices.PSDKWorkflow]
+  public var onboardingMaxRetries: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKBiometricAuthentications : Swift.Codable {
+  public var authentications: [PSDKServices.PSDKAuthentication]
+  public var photoMatchQualityScoring: Swift.Double?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKAuthentication : Swift.Codable {
+  public var authenticationType: Swift.String
+  public var enabled: Swift.Bool?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKCountryRestriction : Swift.Codable {
+  public var restrictionScreenEnabled: Swift.Bool?
+  public var enabledValidation: Swift.Bool?
+  public var allowedCountries: [Swift.String]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKWorkflow : Swift.Codable {
+  public let name: Swift.String
+  public let flow: [PSDKServices.PSDKFlow]?
+  public let id: Swift.String
+  public let type: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKFlow : Swift.Codable {
+  public let frontProcess: PSDKServices.PSDKNodeID
+  public let orderNumber: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum PSDKNodeID : Swift.String, Swift.Codable {
+  case SELFIES_BIOMETRICS
+  case SELFIES_AUTHENTICATION
+  case DOCUMENT_PHOTOS
+  case OTP_EMAIL
+  case OTP_PHONE
+  case USER_CONFIRMATION
+  case KYC_ONBOARDING
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKCheck : Swift.Codable {
+  public var orderNumber: Swift.Int
+  public var enabled: Swift.Bool?
+  public var id: Swift.String
+  public var checkDescription: Swift.String?
+  public var type: PSDKServices.PSDKTypeEnum?
+  public var name: Swift.String
+  public var checkRequired: Swift.Bool?
+  public var dependencies: [PSDKServices.PSDKDependency]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKDependency : Swift.Codable {
+  public var check: Swift.String?
+  public var verification: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum PSDKTypeEnum : Swift.String, Swift.Codable {
+  case clientProcess
+  case serverProcess
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKDeviceTracking : Swift.Codable {
+  public var enabled: Swift.Bool?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKFacialAnalysis : Swift.Codable {
+  public var genderComparison: Swift.Bool?
+  public var ageRestriction: Swift.Bool?
+  public var ageRange: PSDKServices.PSDKAgeRange?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKAgeRange : Swift.Codable {
+  public var max: Swift.Int?
+  public var min: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKGdpr : Swift.Codable {
+  public var automaticRemoval: Swift.Bool?
+  public var dataRetentionDaysAmount: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKIdentityDocument : Swift.Codable {
+  public var enabled: Swift.Bool?
+  public var documentType: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKTenantInfo : Swift.Codable {
+  public var clientid: Swift.String
+  public var nickname: Swift.String
+  public var businessName: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKTheme : Swift.Codable {
+  public var language: Swift.String?
+  public var buttonsColor: PSDKServices.PSDKColorModel?
+  public var buttonsTextColor: PSDKServices.PSDKColorModel?
+  public var fontFamily: PSDKServices.PSDKFontFamily?
+  public var accentColor: PSDKServices.PSDKAccentColor?
+  public var logo: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKAccentColor : Swift.Codable {
+  public let dark: PSDKServices.PSDKDark?
+  public let accentDefault: PSDKServices.PSDKCustom?
+  public let light: PSDKServices.PSDKDark?
+  public let custom: PSDKServices.PSDKCustom?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKCustom : Swift.Codable {
+  public let dark: Swift.Bool?
+  public let secondary: Swift.String?
+  public let accent: Swift.String?
+  public let enabled: Swift.Bool?
+  public let background: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKDark : Swift.Codable {
+  public let green: Swift.String?
+  public let gray4: Swift.String?
+  public let light: Swift.String?
+  public let dark: Swift.String?
+  public let yellow: Swift.String?
+  public let gray2: Swift.String?
+  public let gray1: Swift.String?
+  public let gray3: Swift.String?
+  public let red: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKColorModel : Swift.Codable {
+  public var colorDefault: PSDKServices.PSDKCustomColor?
+  public var custom: PSDKServices.PSDKCustomColor?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKCustomColor : Swift.Codable {
+  public let dark: Swift.Bool?
+  public let secondary: Swift.String?
+  public let accent: Swift.String?
+  public var enabled: Swift.Bool?
+  public let background: Swift.String?
+  public var value: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKFontFamily : Swift.Codable {
+  public var paragraphButtons: Swift.String
+  public var heading: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKIdentityVerificationResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let ticket: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKBiometricVerificationResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let ticket: Swift.String?
+  public let error: PSDKServices.PSDKPollingResponseError?
+  public let flowStatus: Swift.String?
+  public let disposition: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKOnboardingResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let token: Swift.String?
+  public let expiracy: Swift.Int?
+  public let user: Swift.String?
+  public let ticket: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKCountryModelResponse : Swift.Codable {
+  public var pvtccountr: Swift.String?
+  public var pvtxcountr: Swift.String?
+  public var pvtxnacion: Swift.String?
+  public var pvtccoulcn: Swift.String?
+  public var pvtccdjlan: Swift.String?
+  public var pvtclniso3: Swift.String?
+  public var pvtccoulnu: Swift.String?
+  public var pvtcincrsk: Swift.String?
+  public var pvtlenable: Swift.String?
+  public var pvtccounum: Swift.String?
+  public var pvtcprefph: Swift.String?
+  public var enable: Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKBiometricVerificationRetryRequest : Swift.Encodable {
+  public init(selfPortraits: PSDKServices.PSDKPortraitsSDKRequest)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKOtpResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let sent: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum PSDKSentStatus : Swift.String {
+  case OK
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKValidateOtpResponse : PSDKServices.PSDKBaseResponse {
+  public var status: PSDKServices.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKServices.PSDKMessage?
+  public var statusCode: Swift.Int?
+  public let validation: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKUserConfirmationRequest : Swift.Codable {
+  public let isOK: Swift.String
+  public let terminateFlow: Swift.Bool?
+  public init(isOK: PSDKServices.PSDKUserConfirmationRequest.PSDKAttribute, terminateFlow: Swift.Bool? = nil)
+  public enum PSDKAttribute : Swift.String {
+    case Y
+    case N
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PSDKTransactionStartResponse : Swift.Decodable {
+  public let ticket: Swift.String
+  public let cifcode: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum DocumentSourceType : Swift.String {
+  case FILE_UPLOAD
+  case CAMERA_SCAN
+  case SDK_SCAN
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKRegisterUserRequest : Swift.Encodable {
+  public let identifier: Swift.String
+  public let companyName: Swift.String
+  public let country: Swift.String
+  public let fullName: Swift.String
+  public let jobTitle: Swift.String
+  public init(identifier: Swift.String, companyName: Swift.String, country: Swift.String, fullName: Swift.String, jobTitle: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum PSDKRenewal {
+  public struct Response : PSDKServices.PSDKBaseResponse {
+    public var statusCode: Swift.Int?
+    public var status: PSDKServices.PSDKStatusDecodable?
+    public var code: Swift.String?
+    public var message: PSDKServices.PSDKMessage?
+    public let id: Swift.String?
+    public let hasDelivered: Swift.Bool?
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public enum PSDKOtpType : Swift.String, Swift.Encodable {
+  case EMAIL
+  case SMS
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKOtpPhoneRequest : Swift.Encodable {
+  public init(phoneCountryCode: Swift.String, phoneNumber: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKOtpRequest : Swift.Encodable {
+  public init(type: PSDKServices.PSDKOtpType, email: Swift.String? = nil, phone: PSDKServices.PSDKOtpPhoneRequest? = nil)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PSDKValidateOtpRequest : Swift.Encodable {
+  public init(type: PSDKServices.PSDKOtpType, email: Swift.String? = nil, phone: PSDKServices.PSDKOtpPhoneRequest? = nil, code: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class Log : Swift.TextOutputStream {
+  public func write(_ string: Swift.String)
+  @objc deinit
+}
+public struct PSDKValidateUserRequest : Swift.Encodable {
+  public init(email: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension PSDKServices.PSDKRegulaDatabaseName : Swift.Equatable {}
+extension PSDKServices.PSDKRegulaDatabaseName : Swift.Hashable {}
+extension PSDKServices.PSDKRegulaDatabaseName : Swift.RawRepresentable {}
+extension PSDKServices.PSDKPollingResponse.ProofingState : Swift.Equatable {}
+extension PSDKServices.PSDKPollingResponse.ProofingState : Swift.Hashable {}
+extension PSDKServices.PSDKPollingResponse.ProofingState : Swift.RawRepresentable {}
+extension PSDKServices.PSDKAbandonedType : Swift.Equatable {}
+extension PSDKServices.PSDKAbandonedType : Swift.Hashable {}
+extension PSDKServices.PSDKAbandonedType : Swift.RawRepresentable {}
+extension PSDKServices.PSDKNodeID : Swift.Equatable {}
+extension PSDKServices.PSDKNodeID : Swift.Hashable {}
+extension PSDKServices.PSDKNodeID : Swift.RawRepresentable {}
+extension PSDKServices.PSDKTypeEnum : Swift.Equatable {}
+extension PSDKServices.PSDKTypeEnum : Swift.Hashable {}
+extension PSDKServices.PSDKTypeEnum : Swift.RawRepresentable {}
+extension PSDKServices.PSDKSentStatus : Swift.Equatable {}
+extension PSDKServices.PSDKSentStatus : Swift.Hashable {}
+extension PSDKServices.PSDKSentStatus : Swift.RawRepresentable {}
+extension PSDKServices.PSDKUserConfirmationRequest.PSDKAttribute : Swift.Equatable {}
+extension PSDKServices.PSDKUserConfirmationRequest.PSDKAttribute : Swift.Hashable {}
+extension PSDKServices.PSDKUserConfirmationRequest.PSDKAttribute : Swift.RawRepresentable {}
+extension PSDKServices.DocumentSourceType : Swift.Equatable {}
+extension PSDKServices.DocumentSourceType : Swift.Hashable {}
+extension PSDKServices.DocumentSourceType : Swift.RawRepresentable {}
+extension PSDKServices.PSDKOtpType : Swift.Equatable {}
+extension PSDKServices.PSDKOtpType : Swift.Hashable {}
+extension PSDKServices.PSDKOtpType : Swift.RawRepresentable {}

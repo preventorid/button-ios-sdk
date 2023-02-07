@@ -1,0 +1,87 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKCommon
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import Foundation
+@_exported import PSDKCommon
+import Swift
+import _Concurrency
+import _StringProcessing
+public protocol PSDKBaseResponse : Swift.Decodable {
+  var statusCode: Swift.Int? { get set }
+  var status: PSDKCommon.PSDKStatusDecodable? { get }
+  var code: Swift.String? { get }
+  var message: PSDKCommon.PSDKMessage? { get }
+}
+public struct PSDKGeneralResponse : PSDKCommon.PSDKBaseResponse {
+  public var statusCode: Swift.Int?
+  public var status: PSDKCommon.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKCommon.PSDKMessage?
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum PSDKStatusDecodable : Swift.Decodable {
+  case int(Swift.Int)
+  case string(Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public var rawValue: Swift.String {
+    get
+  }
+  public var intValue: Swift.Int? {
+    get
+  }
+}
+public enum PSDKMessage : Swift.Decodable {
+  case string(Swift.String)
+  case coFailureMessage(PSDKCommon.PSDKCOFailureMessage)
+  case array([Swift.String])
+  public init(from decoder: Swift.Decoder) throws
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKCOFailureMessage : Swift.Decodable {
+  public let message: Swift.String
+  public let fields: [Swift.String]
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Alamofire.DataRequest {
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : Swift.Decodable
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S?) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : Swift.Decodable
+  public func responseCallable2<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S?) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : PSDKCommon.PSDKBaseResponse
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : PSDKCommon.PSDKBaseResponse
+}
+public struct PSDKError {
+  public let code: Swift.Int?
+  public let message: Swift.String?
+}
+open class PSDKLanguageManager<LSDKLanguage> where LSDKLanguage : Swift.Decodable {
+  open var language: LSDKLanguage!
+  public init()
+  final public func localFile(language: Swift.String) -> LSDKLanguage?
+  @objc deinit
+}
+public protocol APIDomains : ObjectiveC.NSObjectProtocol {
+  var health: Swift.String { get }
+  var base: Swift.String { get }
+  var baseID: Swift.String { get }
+  var cndPreventor: Swift.String { get }
+}
+public protocol APIDelegate : ObjectiveC.NSObjectProtocol {
+  func getHeadders(_ authType: PSDKCommon.PSDKAuthType) -> Alamofire.HTTPHeaders
+}
+@objc open class PSDKAPIBase : ObjectiveC.NSObject {
+  final public let domain: PSDKCommon.APIDomains
+  weak public var delegate: PSDKCommon.APIDelegate?
+  public init(domain: PSDKCommon.APIDomains)
+  @objc deinit
+}
+extension Foundation.Data {
+  public func autodecode<T>() -> T? where T : Swift.Decodable
+}
+public enum PSDKAuthType {
+  case basic
+  case bearer
+  case custom(Swift.String?)
+}

@@ -1,388 +1,87 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKCommon
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
 import Foundation
 @_exported import PSDKCommon
 import Swift
 import _Concurrency
-public struct LSDKLanguage : Swift.Codable {
-  public let button: PSDKCommon.LSDKButton
-  public let validation: PSDKCommon.LSDKValidation
-  public let message: PSDKCommon.LSDKMessage
-  public let label: PSDKCommon.LSDKLabel
-  public let placeholder: PSDKCommon.LSDKPlaceholder
-  public let documents: PSDKCommon.LSDKDocuments
-  public let pages: PSDKCommon.LSDKPages
-  public let footer: PSDKCommon.LSDKFooter
-  public func encode(to encoder: Swift.Encoder) throws
+import _StringProcessing
+public protocol PSDKBaseResponse : Swift.Decodable {
+  var statusCode: Swift.Int? { get set }
+  var status: PSDKCommon.PSDKStatusDecodable? { get }
+  var code: Swift.String? { get }
+  var message: PSDKCommon.PSDKMessage? { get }
+}
+public struct PSDKGeneralResponse : PSDKCommon.PSDKBaseResponse {
+  public var statusCode: Swift.Int?
+  public var status: PSDKCommon.PSDKStatusDecodable?
+  public var code: Swift.String?
+  public var message: PSDKCommon.PSDKMessage?
   public init(from decoder: Swift.Decoder) throws
 }
-public struct LSDKButton : Swift.Codable {
-  public let verifyMe: Swift.String, loading: Swift.String, next: Swift.String, start: Swift.String
-  public let iamReady: Swift.String, tryAgain: Swift.String, edit: Swift.String, confirm: Swift.String
-  public let save: Swift.String, finish: Swift.String, front: Swift.String, back: Swift.String
-  public let retake: Swift.String, retry: Swift.String, goSettings: Swift.String, no: Swift.String
-  public let yes: Swift.String, yesConfirm: Swift.String, openCamera: Swift.String, send: Swift.String
-  public let noReturn: Swift.String, close: Swift.String, iamHere: Swift.String, buttonContinue: Swift.String
-  public let signUp: Swift.String, uploadPhoto: Swift.String, clear: Swift.String, skip: Swift.String, scan: Swift.String, login: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
+public enum PSDKStatusDecodable : Swift.Decodable {
+  case int(Swift.Int)
+  case string(Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public var rawValue: Swift.String {
+    get
+  }
+  public var intValue: Swift.Int? {
+    get
+  }
+}
+public enum PSDKMessage : Swift.Decodable {
+  case string(Swift.String)
+  case coFailureMessage(PSDKCommon.PSDKCOFailureMessage)
+  case array([Swift.String])
+  public init(from decoder: Swift.Decoder) throws
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKCOFailureMessage : Swift.Decodable {
+  public let message: Swift.String
+  public let fields: [Swift.String]
   public init(from decoder: Swift.Decoder) throws
 }
-public struct LSDKDocuments : Swift.Codable {
-  public let passport: Swift.String, driverLicense: Swift.String, idCard: Swift.String, residentPermitCard: Swift.String
-  public let visa: Swift.String, identityDocument: Swift.String, votingCard: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+extension Alamofire.DataRequest {
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : Swift.Decodable
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S?) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : Swift.Decodable
+  public func responseCallable2<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S?) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : PSDKCommon.PSDKBaseResponse
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, success: @escaping (S) -> Swift.Void, failure: @escaping (PSDKCommon.PSDKError) -> Swift.Void) where S : PSDKCommon.PSDKBaseResponse
 }
-public struct LSDKFooter : Swift.Codable {
-  public let poweredBy: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+public struct PSDKError {
+  public let code: Swift.Int?
+  public let message: Swift.String?
 }
-public struct LSDKLabel : Swift.Codable {
-  public let navigationTitle: Swift.String
-  public let labelRequired: Swift.String, processingInformation: Swift.String, processing: Swift.String, and: Swift.String, readmore: Swift.String
-  public let readless: Swift.String, male: Swift.String, female: Swift.String
-  public let documentNoPermitted: Swift.String, documentExpired: Swift.String, documentAuthority: Swift.String, flashOn: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKMessage : Swift.Codable {
-  public let enterTheFollowinglink: Swift.String, anErrorOccurred: Swift.String, noInternet: Swift.String, invalidEmailOrTries: Swift.String
-  public let enablePermissions: Swift.String, sizeImage: Swift.String, documentNoPermitted: Swift.String, digitalTemplatesAvailable: Swift.String
-  public let selectAnotherDocument: Swift.String, wouldAnotherDocument: Swift.String, needMoreTime: Swift.String
-  public let emailAlreadyRegistered: Swift.String, emailNoFlow: Swift.String, verifying: Swift.String, enrolling: Swift.String
-  public let livenessError: [PSDKCommon.LSDKProofingError], idProofingError: [PSDKCommon.LSDKProofingError]
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKProofingError : Swift.Codable {
-  public let code: Swift.String, message: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPages : Swift.Codable {
-  public let integrationButton: PSDKCommon.LSDKIntegrationButton
-  public let invitationCompleted: PSDKCommon.LSDKGeneralPage
-  public let invitationExpired: PSDKCommon.LSDKGeneralPage
-  public let errorIntegration: PSDKCommon.LSDKGeneralPage
-  public let authentication: PSDKCommon.LSDKConfirmPhotoDocument
-  public let deleteAccount: PSDKCommon.LSDKConfirmPhotoDocument
-  public let usage: PSDKCommon.LSDKUsage
-  public let setting: PSDKCommon.LSDKSetting
-  public let invite: PSDKCommon.LSDKInvite
-  public let invitation: PSDKCommon.LSDKBasicPage
-  public let invitationVerification: PSDKCommon.LSDKBasicPage
-  public let register: PSDKCommon.LSDKRegister
-  public let successRegister: PSDKCommon.LSDKGeneralPage
-  public let letsGetYouVerified: PSDKCommon.LSDKLetsGetYouVerified
-  public let secureLinkSent: PSDKCommon.LSDKSecureLinkSent
-  public let start: PSDKCommon.LSDKGeneralPage, startAuthentication: PSDKCommon.LSDKGeneralPage
-  public let prepareSteps: PSDKCommon.LSDKPrepareSteps
-  public let prepareAuthentication: PSDKCommon.LSDKPrepareAuthentication
-  public let chooseCountry: PSDKCommon.LSDKGeneralPage
-  public let chooseDocument: PSDKCommon.LSDKBasicPage
-  public let globalDocument: PSDKCommon.LSDKGeneralPageTips
-  public let prepareSelfie: PSDKCommon.LSDKGeneralPageTips
-  public let prepareRfid: PSDKCommon.LSDKGeneralPageTips
-  public let cameraSelfie: PSDKCommon.LSDKCameraSelfie
-  public let cameraDocument: PSDKCommon.LSDKCameraDocument
-  public let cameraDocumentNative: PSDKCommon.LSDKCameraDocumentNative
-  public let confirmPhotoDocument: PSDKCommon.LSDKGeneralPage
-  public let verifyingIdentity: PSDKCommon.LSDKConfirmPhotoDocument
-  public let failedAttempts: PSDKCommon.LSDKGeneralPage
-  public let exceededAttempts: PSDKCommon.LSDKExceededAttempts
-  public let renewalCompleted: PSDKCommon.LSDKGeneralPage
-  public let renewal: PSDKCommon.LSDKGeneralPage
-  public let saveChanges: PSDKCommon.LSDKGeneralPage
-  public let skipRfid: PSDKCommon.LSDKPageTips
-  public let tryAgainRfid: PSDKCommon.LSDKPageTips
-  public let tryAgainDocument: PSDKCommon.LSDKTryAgainDocument
-  public let idExpired: PSDKCommon.LSDKPrepareDocument
-  public let idNotPermitted: PSDKCommon.LSDKIDNotPermitted
-  public let tryAgainDocumentNative: PSDKCommon.LSDKExceededAttempts
-  public let tryAgainSelfie: PSDKCommon.LSDKTryAgainDocument
-  public let timeOut: PSDKCommon.LSDKGeneralPage
-  public let personalInformation: PSDKCommon.LSDKPersonalInformation
-  public let editPersonalInformation: PSDKCommon.LSDKEditPersonalInformation
-  public let email: PSDKCommon.LSDKBasicPage
-  public let emailVerification: PSDKCommon.LSDKBasicPage
-  public let phone: PSDKCommon.LSDKBasicPage
-  public let phoneVerification: PSDKCommon.LSDKBasicPage
-  public let continueOnboarding: PSDKCommon.LSDKConfirmPhotoDocument
-  public let identityVerificationSubmitted: PSDKCommon.LSDKGeneralPage, streamLineSubmitted: PSDKCommon.LSDKGeneralPage, authenticationSubmitted: PSDKCommon.LSDKGeneralPage
-  public let congratulations: PSDKCommon.LSDKCongratulations
-  public let deniedAccessCamera: PSDKCommon.LSDKDeniedAccessCamera
-  public let deniedDeviceId: PSDKCommon.LSDKDeniedDeviceId
-  public let cancelVerification: PSDKCommon.LSDKBasicPage
-  public let error: PSDKCommon.LSDKGeneralPage
-  public let informationNoMatch: PSDKCommon.LSDKConfirmPhotoDocument
-  public let uploadDocument: PSDKCommon.LSDKUploadDocument
-  public let authenticationFailed: PSDKCommon.LSDKGeneralPage
-  public let maxAttemptLimit: PSDKCommon.LSDKGeneralPage
-  public let otpError: PSDKCommon.LSDKGeneralPage
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKCameraDocument : Swift.Codable {
-  public let title: Swift.String, title2: Swift.String, subTitle: Swift.String, frontPage: Swift.String, backPage: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKCameraDocumentNative : Swift.Codable {
-  public let titleFront: Swift.String, titleBack: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKCameraSelfie : Swift.Codable {
-  public let title: Swift.String
-  public let title2: Swift.String?
-  public let faceDetection: PSDKCommon.LSDKDetection
-  public let motionDetection: PSDKCommon.LSDKDetection
-  public let motionDetectionDone: PSDKCommon.LSDKGeneralPage
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKDetection : Swift.Codable {
-  public let correct: Swift.String
-  public let outside: Swift.String
-  public let far: Swift.String
-  public let capturing: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKBasicPage : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String, subTitle2: Swift.String
-  public let title2: Swift.String?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKGeneralPage : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKConfirmPhotoDocument : Swift.Codable {
-  public let title: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKCongratulations : Swift.Codable {
-  public let title: Swift.String
-  public let subTitle: PSDKCommon.LSDKSubTitle
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKSubTitle : Swift.Codable {
-  public let identityVerification: Swift.String, streamline: Swift.String, authentication: Swift.String, global: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKDeniedAccessCamera : Swift.Codable {
-  public let title: Swift.String, subTitleMicroFrontEnd: Swift.String, subTitleMobile: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKDeniedDeviceId : Swift.Codable {
-  public let title: Swift.String, subTitleMobile: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKEditPersonalInformation : Swift.Codable {
-  public let nameTab: PSDKCommon.LSDKConfirmPhotoDocument, addressTab: PSDKCommon.LSDKConfirmPhotoDocument, nationalityTab: PSDKCommon.LSDKConfirmPhotoDocument
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKVerification : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String, resend: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKExceededAttempts : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String
-  public let items: [Swift.String]
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKIntegrationButton : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String, settings: Swift.String, menuTitle: Swift.String, deleteAccount: Swift.String, theme: Swift.String
-  public let usage: Swift.String, website: Swift.String, contact: Swift.String, verifications: Swift.String, welcomeBack: Swift.String
-  public let verificationTitle: Swift.String, authenticationTitle: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKInvite : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String, notRegistered: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKLetsGetYouVerified : Swift.Codable {
-  public let title: Swift.String
-  public let option1: PSDKCommon.LSDKOption, option2: PSDKCommon.LSDKOption
-  public let prepareDocument: PSDKCommon.LSDKPrepareDocument, useSmartphone: PSDKCommon.LSDKPrepareDocument
-  public let privacyPolicy: Swift.String, dontHaveSmartphone: Swift.String, letsGetYouVerifiedContinue: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKOption : Swift.Codable {
-  public let label: Swift.String, title: Swift.String, optionDescription: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPrepareDocument : Swift.Codable {
-  public let title: Swift.String, description: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKIDNotPermitted : Swift.Codable {
-  public let title: Swift.String, description: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPersonalInformation : Swift.Codable {
-  public let title: Swift.String
-  public let title2: Swift.String?
-  public let labels: PSDKCommon.LSDKLabels
-  public let cardPersonalInformation: PSDKCommon.LSDKCardPersonalInformation
-  public let cardAddress: PSDKCommon.LSDKConfirmPhotoDocument
-  public let cardDocument: PSDKCommon.LSDKCardDocument
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKCardDocument : Swift.Codable {
-  public let title: Swift.String, idType: Swift.String, idNumber: Swift.String, issuingBy: Swift.String
-  public let issuedDate: Swift.String, expiryDate: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKCardPersonalInformation : Swift.Codable {
-  public let title: Swift.String
-  public let sex: PSDKCommon.LSDKSex
-  public let nationality: Swift.String, dob: Swift.String, age: Swift.String, names: Swift.String
-  public let ageGender: Swift.String, yearsOld: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKSex : Swift.Codable {
-  public let male: Swift.String, female: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKLabels : Swift.Codable {
-  public let number: Swift.String, idNumber: Swift.String, documentNumber: Swift.String, surname: Swift.String, givenName: Swift.String
-  public let dob: Swift.String, sex: Swift.String, countryOfCitizenship: Swift.String, expirationDate: Swift.String
-  public let maritalStatus: Swift.String, issuingAuthority: Swift.String, address: Swift.String, issueDate: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPrepareAuthentication : Swift.Codable {
-  public let title: Swift.String
-  public let items: [Swift.String]
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPrepareSteps : Swift.Codable {
-  public let title: Swift.String
-  public let title2: Swift.String?
-  public let items: [Swift.String]
-  public let agreements: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKRegister : Swift.Codable {
-  public let title: Swift.String, title2: Swift.String, workEmail: Swift.String, fullName: Swift.String
-  public let companyName: Swift.String, jobTitle: Swift.String, country: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKSecureLinkSent : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String, subTitle2: Swift.String, didntReceiveTheText: Swift.String
-  public let resendLink: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKSetting : Swift.Codable {
-  public let title: Swift.String, logo: Swift.String, logoParameters: Swift.String, url: Swift.String
-  public let selectFlow: Swift.String, button: Swift.String, backgroundColor: Swift.String, fontColor: Swift.String
-  public let steps: Swift.String, themeColor: Swift.String, font: Swift.String, selectFont: Swift.String
-  public let browse: Swift.String, heading: Swift.String, paragraph: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKTryAgainDocument : Swift.Codable {
-  public let title: Swift.String?, title2: Swift.String?, subTitle: Swift.String?, possibleError: Swift.String?
-  public let tips: PSDKCommon.LSDKTips
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKUploadDocument : Swift.Codable {
-  public let title: Swift.String, title2: Swift.String, front: Swift.String, back: Swift.String
-  public let tips: PSDKCommon.LSDKTips
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKTips : Swift.Codable {
-  public let title: Swift.String
-  public let items: [Swift.String]
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKGeneralPageTips : Swift.Codable {
-  public let title: Swift.String, subTitle: Swift.String, subTitle2: Swift.String
-  public let title2: Swift.String?
-  public let tips: PSDKCommon.LSDKTips
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPageTips : Swift.Codable {
-  public let title: Swift.String
-  public let tips: PSDKCommon.LSDKTips
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKUsage : Swift.Codable {
-  public let verifications: Swift.String, playground: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPlaceholder : Swift.Codable {
-  public let selectTypeId: Swift.String, fullName: Swift.String, firstName: Swift.String, middleName: Swift.String
-  public let surname: Swift.String, address: Swift.String, state: Swift.String, city: Swift.String
-  public let zipCode: Swift.String, country: Swift.String, nationality: Swift.String, dob: Swift.String
-  public let emailAddress: Swift.String, verificationCode: Swift.String, phoneNumber: Swift.String, passport: Swift.String
-  public let driverLicense: Swift.String, idCard: Swift.String, residentPermitCard: Swift.String, visa: Swift.String
-  public let enterEmail: Swift.String, enterPhone: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKValidation : Swift.Codable {
-  public let fieldRequired: Swift.String, enterVerificationCode: Swift.String
-  public let email: PSDKCommon.LSDKEmail
-  public let phoneNumber: PSDKCommon.LSDKPhoneNumber
-  public let otp: PSDKCommon.LSDKOtp
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKEmail : Swift.Codable {
-  public let invalid: Swift.String, pleaseEnter: Swift.String, noInvited: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKOtp : Swift.Codable {
-  public let invalidOtpCode: Swift.String, expiredOtpCode: Swift.String
-  public let resendCode: Swift.String, didntReceiveCode: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct LSDKPhoneNumber : Swift.Codable {
-  public let invalid: Swift.String, invalidCountryCode: Swift.String, tooShort: Swift.String, tooLong: Swift.String
-  public let pleaseEnter: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-open class PSDKLanguageManager {
-  open var language: PSDKCommon.LSDKLanguage!
+open class PSDKLanguageManager<LSDKLanguage> where LSDKLanguage : Swift.Decodable {
+  open var language: LSDKLanguage!
   public init()
-  final public func localFile(language: Swift.String) -> PSDKCommon.LSDKLanguage?
+  final public func localFile(language: Swift.String) -> LSDKLanguage?
   @objc deinit
+}
+public protocol APIDomains : ObjectiveC.NSObjectProtocol {
+  var health: Swift.String { get }
+  var base: Swift.String { get }
+  var baseID: Swift.String { get }
+  var cndPreventor: Swift.String { get }
+}
+public protocol APIDelegate : ObjectiveC.NSObjectProtocol {
+  func getHeadders(_ authType: PSDKCommon.PSDKAuthType) -> Alamofire.HTTPHeaders
+}
+@objc open class PSDKAPIBase : ObjectiveC.NSObject {
+  final public let domain: PSDKCommon.APIDomains
+  weak public var delegate: PSDKCommon.APIDelegate?
+  public init(domain: PSDKCommon.APIDomains)
+  @objc deinit
+}
+extension Foundation.Data {
+  public func autodecode<T>() -> T? where T : Swift.Decodable
+}
+public enum PSDKAuthType {
+  case basic
+  case bearer
+  case custom(Swift.String?)
 }

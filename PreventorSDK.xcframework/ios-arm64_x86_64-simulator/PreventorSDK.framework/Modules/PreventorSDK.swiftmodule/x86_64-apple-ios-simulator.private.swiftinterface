@@ -1,0 +1,184 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PreventorSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import Alamofire
+import Combine
+import CommonCrypto
+import CoreLocation
+import CoreNFC
+import DocumentReader
+import Foundation
+import PSDKCommon
+import PSDKServices
+import PSDKUIKit
+@_exported import PreventorSDK
+import QuartzCore
+import Swift
+import SwiftUI
+import UIKit
+import Vision
+import _Concurrency
+import _StringProcessing
+public enum ViewID : Swift.String {
+  case TERMS
+  case SELFIES_BIOMETRICS
+  case SELFIES_AUTHENTICATION
+  case DOCUMENT_PHOTOS
+  case OTP_EMAIL
+  case OTP_PHONE
+  case USER_CONFIRMATION
+  case KYC_ONBOARDING
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSDKErrorCode : Swift.String {
+  case CANCELLED_BY_USER
+  case BIOMETRIC_AUTHENTICATION_FAILED
+  case BAD_STEP_BY_USER
+  case MISSING_PARAMETERS
+  case TIME_OUT
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PSDKResult {
+  public let cifCode: Swift.String?
+  public let ticketId: Swift.String?
+  public let flowStatus: Swift.String
+  public let dispositionStatus: Swift.String
+}
+public protocol PSDKDelegate {
+  func onStart()
+  func onFinish(result: PreventorSDK.PSDKResult)
+  func onError(error: PreventorSDK.PSDKErrorCode)
+  func onSubmitted(result: PreventorSDK.PSDKResult)
+  func onNextStep(verification: PreventorSDK.ViewID?)
+}
+extension PreventorSDK.PSDKDelegate {
+  public func onStart()
+  public func onFinish(result: PreventorSDK.PSDKResult)
+  public func onError(error: PreventorSDK.PSDKErrorCode)
+  public func onSubmitted(result: PreventorSDK.PSDKResult)
+  public func onNextStep(verification: PreventorSDK.ViewID?)
+}
+public enum ProcessType : Swift.String {
+  case ID_PROOFING
+  case FACIAL_ANALYSIS
+  case PHOTO_MATCHING
+  case LIVENESS_DETECTION
+  case DOCUMENT_DETECTION
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PSDKResultState : Swift.Equatable {
+  public init?(rawValue: Swift.String, value: Swift.String = "nil")
+  case none
+  case loading
+  case success
+  case failed(Swift.String)
+  case forbidden
+  public var rawValue: Swift.String {
+    get
+  }
+  public static func == (lhs: PreventorSDK.PSDKResultState, rhs: PreventorSDK.PSDKResultState) -> Swift.Bool
+}
+extension Swift.Bool : SwiftUI.VectorArithmetic {
+  public static func - (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
+  public static func + (lhs: Swift.Bool, rhs: Swift.Bool) -> Swift.Bool
+  public mutating func scale(by rhs: Swift.Double)
+  public var magnitudeSquared: Swift.Double {
+    get
+  }
+  public static var zero: Swift.Bool {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class FullScreenDelegate : ObjectiveC.NSObject, UIKit.UIViewControllerTransitioningDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func presentationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController?, source: UIKit.UIViewController) -> UIKit.UIPresentationController?
+  @_Concurrency.MainActor(unsafe) @objc final public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+public enum PSDKFlowType : Swift.String {
+  case AUTHENTICATION
+  case IDENTITY_VERIFICATION
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class PSDK {
+  public static let shared: PreventorSDK.PSDK
+  public var delegate: PreventorSDK.PSDKDelegate?
+  public func startID(controller: UIKit.UIViewController)
+  public func getConfigStatus() -> PreventorSDK.PSDKResultState
+  public func initialize(config: PreventorSDK.PSDKConfig, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  public func isRegulaComplete(_ callBack: @escaping (Swift.Bool) -> Swift.Void)
+  public func updateCifCode(cifCode: Swift.String)
+  public func updateFullName(fullName: Swift.String)
+  public func showCongratulations(_ show: Swift.Bool)
+  public func updateFlow(flow: Swift.String)
+  public func getSteps(complete: @escaping ([Swift.String]) -> Swift.Void)
+  public func isPausable(isPausable: Swift.Bool)
+  public func setNavigationTitle(title: Swift.String)
+  public func stop(completion: (() -> Swift.Void)? = nil)
+  public func updateTicket(ticket: Swift.String)
+  public func detach()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UIPreventorButton : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func initView()
+  @objc deinit
+}
+public struct VerifyingView : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init(text: Swift.String)
+  public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK13VerifyingViewV4bodyQrvp", 0) __
+}
+public struct PSDKConfig {
+  public init(flowID: Swift.String? = nil, fullName: Swift.String? = nil, cifCode: Swift.String? = nil, apiKey: Swift.String, tenant: Swift.String, env: Swift.String, banknu: Swift.String, secret: Swift.String, invitation: Swift.String? = nil, broker: Swift.String? = nil)
+}
+extension SwiftUI.View {
+  public func startPreventorSDK(isPresented: SwiftUI.Binding<Swift.Bool>, onComplete: @escaping () -> Swift.Void) -> some SwiftUI.View
+  
+}
+extension DocumentReader.CaptureMode {
+  public init(rawValue: Swift.String)
+}
+extension UIKit.UIInterfaceOrientationMask {
+  public init(rawValue: Swift.String)
+}
+public struct PreventorButton : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public init()
+  public typealias Body = @_opaqueReturnTypeOf("$s12PreventorSDK0A6ButtonV4bodyQrvp", 0) __
+}
+extension PreventorSDK.ViewID : Swift.Equatable {}
+extension PreventorSDK.ViewID : Swift.Hashable {}
+extension PreventorSDK.ViewID : Swift.RawRepresentable {}
+extension PreventorSDK.PSDKErrorCode : Swift.Equatable {}
+extension PreventorSDK.PSDKErrorCode : Swift.Hashable {}
+extension PreventorSDK.PSDKErrorCode : Swift.RawRepresentable {}
+extension PreventorSDK.ProcessType : Swift.Equatable {}
+extension PreventorSDK.ProcessType : Swift.Hashable {}
+extension PreventorSDK.ProcessType : Swift.RawRepresentable {}
+extension PreventorSDK.PSDKFlowType : Swift.Equatable {}
+extension PreventorSDK.PSDKFlowType : Swift.Hashable {}
+extension PreventorSDK.PSDKFlowType : Swift.RawRepresentable {}

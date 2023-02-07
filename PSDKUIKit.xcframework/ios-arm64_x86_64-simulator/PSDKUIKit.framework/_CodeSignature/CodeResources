@@ -22,7 +22,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		pslKcSzdCAN1w6vWSBNV6nYroEU=
+		JaJOh2MAfHzc4sgF55eJn1/yu04=
 		</data>
 		<key>Forza-Medium.ttf</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/PSDKUIKit-Swift.h</key>
 		<data>
-		y6wAmEFy0CeIeDC/R65Por5gxPg=
+		FhhsPg7rbpPX3/ajUKlcl6u9RK8=
 		</data>
 		<key>Headers/PreventorUIKit.h</key>
 		<data>
@@ -58,47 +58,67 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ToemBIOeLyplifFYrVvboOWhefU=
+		u9kQ6losKuLOjNa+8BhROKqy5Y8=
 		</data>
 		<key>Login.json</key>
 		<data>
 		I1iCxSy1MAYWhyP/pRfM+bO2QL0=
 		</data>
+		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		v6u+THYOKjma31Q8PJLTMpXtSXU=
+		</data>
+		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		U5RO3lqi1N7OYYkQyGtlm3+ShGo=
+		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		2XGVRqBp7qhxPVxnaqPIR3Rn1Z8=
+		yvYXfzmNgdKL8OkzWu2+xYyxEQI=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		6T90W3obiRst21/EJ6WiFpDrYAU=
+		U5RO3lqi1N7OYYkQyGtlm3+ShGo=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		JG4cRQUVg63pGnBB+xbGaHe7r9c=
+		kGo7QTLkB+XKLXnps1oZlRFUUOI=
+		</data>
+		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<data>
+		v6u+THYOKjma31Q8PJLTMpXtSXU=
+		</data>
+		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		Iml0rYGLA9EVQAIRg3Ibt2cdUsU=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		REPFbUxtqAOfn982ZlM0LGGtyQ0=
+		KXYwoL1LyNNGo3Lixaa24Jf005A=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		7ARh2JuBe8+9KvWmy4DX17fe9vk=
+		Iml0rYGLA9EVQAIRg3Ibt2cdUsU=
 		</data>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xnUyDqLHFaiCzTwrMGP7m99Kh+Y=
+		F7Cir2nL9i6035tYS05CkwhGaRA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		dHtl0pC5+jgu57Vh8eX7WASDajs=
 		</data>
-		<key>PSDKColors.json</key>
-		<data>
-		W/AnFx7CyIG3WYHADoCI2HaKFGo=
-		</data>
-		<key>PSDKDarkColors.json</key>
+		<key>PSDKCustomColor.json</key>
 		<data>
 		NO8pUunpwGSgiidCJXKGgCGQVDU=
+		</data>
+		<key>PSDKDarkColor.json</key>
+		<data>
+		TX0jT70m6hI2FqSKN33xVK5P1Po=
+		</data>
+		<key>PSDKLightColor.json</key>
+		<data>
+		78MhtSkOvMlcj/I721IWmVpA2TM=
 		</data>
 		<key>center_your_face.json</key>
 		<data>
@@ -142,7 +162,11 @@
 		<data>
 		RhKu3XI1i8A/u4C3EBJ5d0mW/UE=
 		</data>
-		<key>move_your_face.json</key>
+		<key>move_your_face_to_left.json</key>
+		<data>
+		h/6YRi/WpYCQPC+GSUT4kpc5YZg=
+		</data>
+		<key>move_your_face_to_right.json</key>
 		<data>
 		R8tlwkE7eVuMz2ygGtvG3Wp7blE=
 		</data>
@@ -150,6 +174,15 @@
 		<data>
 		VSWoG30tarcpoeRpeUlv8nggPTU=
 		</data>
+		<key>pt-BR.lproj/phones.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fwzRwxqHQTsk2/rVF9u6/lFokdc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>scan_document_front_back.json</key>
 		<data>
 		HyaRobhZb6gA+be6tj150kWuuRs=
@@ -205,7 +238,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bv2oca88U7nb3g+gBmdr0tScJwxaFXGV0Qv1ShWJJgw=
+			86YK5xL1f+it4aP0m/eIRnh1n4SNDUTYkz2BELXdreM=
 			</data>
 		</dict>
 		<key>Forza-Medium.ttf</key>
@@ -219,7 +252,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			L93meWRTKledlp0KFn8tgsNxN7lcgW6rFyE3Au2x818=
+			PHgMO2htmj6znXWWxKj4cSAzptQr7lrGqZAu4egfbvM=
 			</data>
 		</dict>
 		<key>Headers/PreventorUIKit.h</key>
@@ -271,46 +304,74 @@
 			+wDVFBA10GrrM7UdN7g1AGHaBhnIjd00v+MgzqimbPw=
 			</data>
 		</dict>
+		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			G0Kj9xi2gBFr6iOmoaBWrH8zMhbxthGpvSQdZ4qrE6U=
+			</data>
+		</dict>
+		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Wz55yG7RLXMrFvypKN/o3JLqakEl9zw2rWcdgqgxv2M=
+			</data>
+		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XcGYmf2p5E9ifbWk1oV4iYOhk/aqk4UuFABsXAdwjv8=
+			unFerJNNx0nYlJXY5ROBJi2u4mhl9MFkDfK5lNdNw48=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NciHPWAxrnXCk9TANOihg+30kKAGh8RbtGoY/ycsfYc=
+			Wz55yG7RLXMrFvypKN/o3JLqakEl9zw2rWcdgqgxv2M=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rrrBWVdkCErCiN918mOFM/RHT8bIFghfXqd/CCA3BMY=
+			usNQMkLKfraEmAzjkiVgZhM247hBfajSs0VWZT9s1b4=
+			</data>
+		</dict>
+		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			G0Kj9xi2gBFr6iOmoaBWrH8zMhbxthGpvSQdZ4qrE6U=
+			</data>
+		</dict>
+		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			g4AZSD1ku86MavNKc4OTULF/LMGAZNxlBX+F05uRZEQ=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Hf0jPo/2Pdj4KsAC5Cf0Soc/Lcj7SFMSyrUYZEZiEbQ=
+			FqZTznW1KXvlq2J025jn+UwN3bFCtdMC+uYgbAZRkOE=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			piNRPhiduscODBDHQobrRmTNoKlX5zPPFqYklY0bDy0=
+			g4AZSD1ku86MavNKc4OTULF/LMGAZNxlBX+F05uRZEQ=
 			</data>
 		</dict>
 		<key>Modules/PSDKUIKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			R3ehjW8IUHpShnEmrjHxE49DDEdFxwvlKX+kQUNwb2A=
+			lnFfqG6uX6OAJVTtnbNtd519hrUHYQ3BAY5WM8Dmqd4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -320,18 +381,25 @@
 			rawSlNg5Iokufrm8q24ZDVKfICVjXahQXsAfqxHJu18=
 			</data>
 		</dict>
-		<key>PSDKColors.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			7dBE8qoPcbDr+7FW2A2INGO+jbn46tGaNhhnfmCdO94=
-			</data>
-		</dict>
-		<key>PSDKDarkColors.json</key>
+		<key>PSDKCustomColor.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			m1AikDr57icZCZER8+MAxq4GrSkKgCSn3uM8SiLXwCw=
+			</data>
+		</dict>
+		<key>PSDKDarkColor.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oBobbxSQ2vfCFOsYOhCDebFkv2zwUsaP5D3RMw9eTDA=
+			</data>
+		</dict>
+		<key>PSDKLightColor.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			R8M6ZGDCFQwYIh6uHPF5wdYPbqXjHf5/RmWspOyd6S4=
 			</data>
 		</dict>
 		<key>center_your_face.json</key>
@@ -394,7 +462,14 @@
 			DCP/+s2EWHHjlxkidfFVyhUAchhnicIxR7IQ2kq7wMI=
 			</data>
 		</dict>
-		<key>move_your_face.json</key>
+		<key>move_your_face_to_left.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VNCxL+9o956Wqa1O39qfLESa7J2OLWRfr62cXc2nBz4=
+			</data>
+		</dict>
+		<key>move_your_face_to_right.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
@@ -407,6 +482,15 @@
 			<data>
 			5rHiYhaPRzv6Vvw4dSEjVoBdyg1LmNMHS3YuUvHqi3s=
 			</data>
+		</dict>
+		<key>pt-BR.lproj/phones.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zPXXN4WqJgUSCtFxLCWMkbVpQbKGbk8flhXAZ9tixd0=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 		<key>scan_document_front_back.json</key>
 		<dict>

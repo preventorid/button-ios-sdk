@@ -6,6 +6,6 @@ framework module PSDKServices {
 }
 
 module PSDKServices.Swift {
-    header "PSDKServices-Swift.h"
-    requires objc
+  header "PSDKServices-Swift.h"
+  requires objc
 }
