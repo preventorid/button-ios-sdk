@@ -1,7 +1,7 @@
 framework module PSDKCommon {
   umbrella header "PSDKCommon.h"
-
   export *
+
   module * { export * }
 }
 

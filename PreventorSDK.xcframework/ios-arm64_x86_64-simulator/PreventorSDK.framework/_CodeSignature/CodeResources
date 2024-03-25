@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/PreventorSDK-Swift.h</key>
 		<data>
-		fvpmQCNoV1Jlvmwc7F+Ewv5ApmY=
+		YqHW+wiVPcpF6tqFThhcM3Zh2yw=
 		</data>
 		<key>Headers/PreventorSDK.h</key>
 		<data>
@@ -14,51 +14,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZzFKXSh8O0kateqBhTtCWQNdonE=
+		DILXE3joCtbMmrvG+YCGCJQduFs=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		RjDKlrqc+8U7ullOmR3zNx66SI0=
+		Ep+asTORVLIk6L0hB1gNzkF3IlA=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ntmx/xZ3WXeQkblUW5/cmI+LPIM=
+		ze2DwjDqUkAGkU3Y3UEMQEDhjC8=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		2i2YvRWmWr51A7OVjeFoz3QbRQU=
+		mWhg1q/+uCI6bu5/CRvuEd9mNCY=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ntmx/xZ3WXeQkblUW5/cmI+LPIM=
+		ze2DwjDqUkAGkU3Y3UEMQEDhjC8=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		KammtZSch6kJx0TkTu9BNU64+vM=
+		S/+FRBF0XPKB0szzRV+A9LfITN8=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		RjDKlrqc+8U7ullOmR3zNx66SI0=
+		Ep+asTORVLIk6L0hB1gNzkF3IlA=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ZGXwRFlOTaunhGvni9n6iuO7qT4=
+		Ph81O8KOJmzToB+P20rf5bGb7to=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		TuyqV0V2NrD/9Fe02liEQQgH4AU=
+		JHgjaQ4Q2g4CoX2c5KlmOPu2VSQ=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ZGXwRFlOTaunhGvni9n6iuO7qT4=
+		Ph81O8KOJmzToB+P20rf5bGb7to=
 		</data>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		iWDjlPLP4zhwnnR1xOOA6O0EeN8=
+		GaRpSqEbLo/gcS+HOhk0bhYgKoY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		QMQI7eSr88BAgrIvWJM0HIg6nYo=
+		Hp3ZwFgjfgP0ZQmpuYwXQfdqN3o=
 		</data>
 		<key>OnboardingRequestMook.json</key>
 		<data>
@@ -66,7 +66,11 @@
 		</data>
 		<key>UIPreventorButton.nib</key>
 		<data>
-		AeudyWADD9h34CRCwctBRccUIvs=
+		6wdxcTzihRny3B95mecpgP5g0qM=
+		</data>
+		<key>cameraShutter.mp3</key>
+		<data>
+		jBVFcJTlHqBefXTDBrc7eW2S1QM=
 		</data>
 		<key>en.lproj/ErrorMock.json</key>
 		<dict>
@@ -90,7 +94,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3mWIPs6lkxtWkVxNhAA399jnst0=
+			27tR16G9S+pMCJmGfffyQJfLrCk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -99,7 +103,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+qOdQ2wCEX1JsTMpKhVgL6jU/gA=
+			IDYfDiUWeNpzvdngThS21ON52WE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -126,7 +130,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lIEwgkqdNaPnegBiFmz9PIW0cG8=
+			4JS4mXGZ1qI7GMFi28aQYCpRl2Q=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -135,16 +139,28 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			81qMCu5chgI9lrsecWCyqWY92WU=
+			ZA5MB1icqWyuGe8tXwcbBA4e6+8=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>license.txt</key>
+		<data>
+		2WDC8GJZaur5fQoKa/ButhAM/Lc=
+		</data>
+		<key>ping.mp3</key>
+		<data>
+		kMYAXBmCkt4TfBJ82P5ejvC1NKI=
+		</data>
+		<key>promart.pdf</key>
+		<data>
+		oh7oPN++j2+M1zLYI9fa0ov/gs4=
+		</data>
 		<key>pt-BR.lproj/language.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9Oow8IToiXSMVFQxtBHE9t1ONJM=
+			EwiKVHDJwK4hk7a0QeELSQI+nQc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -153,6 +169,10 @@
 		<data>
 		O54dBKQttB9MfA2p1Or8ueqn3DY=
 		</data>
+		<key>soundCompleted.mp3</key>
+		<data>
+		/A29yHeS/MLdW1hdKXY31BZ0UKE=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -160,7 +180,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SNm1GFBNJ9l0L/RUHxWganp+yX+mbG3OVSxJ6ceLNQg=
+			+yAMzhAvc6+c4GkjY2GP0N4BJ5JXfxz52IqZx++i6LE=
 			</data>
 		</dict>
 		<key>Headers/PreventorSDK.h</key>
@@ -174,77 +194,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xtm1v1/7IaLnLEraQvij8OUbtJQkwRepdJGxbkcpMWM=
+			yIj6Vc+fePBDxQDCDxpakx4/8pCIqSBW/6OHGZWEdVQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2D/DL6VIjmv2NXjCOK4Q0z17Qh3i+rVoEw8FWEFieQ8=
+			BWbHv6oqblu/b5GQ6CGg2Kphy2zZSdjpQ6f0p6COQgQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j99Hg6Xt1JXOkRNME+zEpGv3sJALETMUyJq0r8ylZnY=
+			sZdw1cCab59C71SWoAanlKy9RVLdASAkbLNN2TaTtg0=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2D/DL6VIjmv2NXjCOK4Q0z17Qh3i+rVoEw8FWEFieQ8=
+			BWbHv6oqblu/b5GQ6CGg2Kphy2zZSdjpQ6f0p6COQgQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/PPsSazolNo0vXwFX0lfcqXZR7H5O3Bj4yHGX7ap81w=
+			o0IC251NR1O+jokgEXTHj22zbWkuaNWRnQYvRfEJwQ4=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xtm1v1/7IaLnLEraQvij8OUbtJQkwRepdJGxbkcpMWM=
+			yIj6Vc+fePBDxQDCDxpakx4/8pCIqSBW/6OHGZWEdVQ=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K6thMJi5I2BxOKtk0/p8gIeOMmNNWftql8jNpT7XmCE=
+			d1sJSfwW7xdC0SgLlsO2dcp/pSpRaPM1GS8Ap4TvuMA=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3rZVJ7cIqIY1oSAG7EsyIvJCTdPEYgXy0uU70eiiPu4=
+			IvQ2qfNpuRI+vFuseURxcT30gcC54rg8dtIz9G9kPtE=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K6thMJi5I2BxOKtk0/p8gIeOMmNNWftql8jNpT7XmCE=
+			d1sJSfwW7xdC0SgLlsO2dcp/pSpRaPM1GS8Ap4TvuMA=
 			</data>
 		</dict>
 		<key>Modules/PreventorSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ciphUGx51nXawhP+eis1fVVzMAvTnE4OHnbL0fl4Ye4=
+			ndk/bYJnkQ3MQqjOhByq7OEwXoELiipt5OI5IhbFCp8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y2eW68XO2XAnxxKQSiNWfWV5yWXO3JCIcyLi141c1bk=
+			5tWXFaP0F8DRtcdDGt+eSTzAEmDWb9+CbSyzyh5JCmQ=
 			</data>
 		</dict>
 		<key>OnboardingRequestMook.json</key>
@@ -258,7 +278,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4KKNGyszOFA4W3QmOMduG0SLBb4xpjGDlIhMeD6oObM=
+			cjTdEJaCWWF0Bt2OP1n85sRRQasfzZWeW14zBwf6kR0=
+			</data>
+		</dict>
+		<key>cameraShutter.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5tGswqyLZrS/Y/QmMTf5n4euOcSESTSzk2nQbe8rqso=
 			</data>
 		</dict>
 		<key>en.lproj/ErrorMock.json</key>
@@ -283,7 +310,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			T89rtE2bLO1Wq64cv7AlwZwuVO/o2jBpM5p5jOmRHeU=
+			KVGXKz6gTHnj+UPPfQWXMjKnC1/3GCpvtzseHDRDXd4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -292,7 +319,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I+LOnhuMHPZY8rHCMNkW3MMBBs/+v1nWmc+gCToeXUU=
+			37vVOXg6e6xLOBhIqTvNptdBGzco269/skcTYRUy6EQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -319,7 +346,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pp35oHM/kn/GFD5m7wDUGKQTBXewyyKlQDyjeuAMK80=
+			j5zMwB2XtsavoNQ6vYLeZvErqgioiT1x+utZn2aaZpU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -328,16 +355,37 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1qgiKZxEvgq6IY/RUFxlIyejBcZa/2Hj9DD+RIWymRk=
+			nmXUuCl+LbAqk/TajY1cjesLBoptAOtZw9HYo3b1piE=
 			</data>
 			<key>optional</key>
 			<true/>
+		</dict>
+		<key>license.txt</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2xmIXyKp9mte5v2wGHcWvGsudFYCkDobYUZZmuMZJ0I=
+			</data>
+		</dict>
+		<key>ping.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xU0Ij6Jwnms8nOh1lKkYfQ1TONOoxoMnH5xDU6jujJE=
+			</data>
+		</dict>
+		<key>promart.pdf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gXGtG9EHK/uoO79aXCHfG93kEoSXCHC+wMtASjSDEw4=
+			</data>
 		</dict>
 		<key>pt-BR.lproj/language.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ISWaKqgBhw/78fsGhf/jSOR1LPouV9lxxT6kyrQxIPM=
+			xkr1BivnqS36FDcs6n3ML8OPHx8cULB5tJs696D2YRw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -347,6 +395,13 @@
 			<key>hash2</key>
 			<data>
 			cHJjU4bB4ZTCvgOr8PmIlu3uVNoqFrtV9jIUDgJ314s=
+			</data>
+		</dict>
+		<key>soundCompleted.mp3</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7SwxbzO0CCWC4XudtfI3vO1l1o8Ept79TfaEYcpRQ/4=
 			</data>
 		</dict>
 	</dict>

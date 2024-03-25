@@ -32,9 +32,14 @@
   },
   "Message": {
     "EmailAlreadyRegistered": "O e-mail já foi registrado",
-    "HoldDocument": "Não mova o documento\n enquanto a borda estiver verde",
+    "HoldDocument": "Segure o ID enquanto a borda estiver verde",
     "TurnFlash": "Ligue a lanterna para melhorar os resultados",
     "AvoidGlareShadow": "Evite o brilho e a sombra",
+    "DocumentScanning": [
+      "Evite o brilho e a sombra",
+      "Mova o ID ligeiramente para longe da câmera",
+      "Ligue a lanterna para melhorar os resultados"
+    ],
     "InfoMessageError": [
       {
         "code": "PVT_LD_E001",
@@ -243,6 +248,14 @@
       {
         "code": "PVT_DD_E001",
         "message": "Documento não detectado"
+      },
+      {
+        "code": "PVT_IP_E011",
+        "message": "Tipo de documento não reconhecido"
+      },
+      {
+        "code": "PVT_IP_E012",
+        "message": "Um lado do documento não foi encontrado"
       }
     ]
   },

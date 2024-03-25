@@ -32,9 +32,14 @@
   },
   "Message": {
     "EmailAlreadyRegistered": "The email has already been registered",
-    "HoldDocument": "Don't move the document\n while the border is green",
+    "HoldDocument": "Hold the ID while the border is green",
     "TurnFlash": "Turn on the flashlight to improve the results",
     "AvoidGlareShadow": "Avoid glare and shadow",
+    "DocumentScanning": [
+      "Avoid glare and shadow",
+      "Move the ID slightly away from the camera",
+      "Turn on the flashlight to improve the results"
+    ],
     "InfoMessageError": [
       {
         "code": "PVT_LD_E001",
@@ -243,6 +248,14 @@
       {
         "code": "PVT_DD_E001",
         "message": "Document not detected"
+      },
+      {
+        "code": "PVT_IP_E011",
+        "message": "Unrecognized document type"
+      },
+      {
+        "code": "PVT_IP_E012",
+        "message": "A side of the document was not found"
       }
     ]
   },

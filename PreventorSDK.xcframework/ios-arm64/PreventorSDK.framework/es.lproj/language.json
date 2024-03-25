@@ -1,6 +1,6 @@
 {
   "Button": {
-    "VerifyMe" : "Verificarme",
+    "VerifyMe": "Verificarme",
     "Next": "Siguiente",
     "IamReady": "Estoy listo",
     "TryAgain": "Reintentar",
@@ -32,9 +32,14 @@
   },
   "Message": {
     "EmailAlreadyRegistered": "El correo ya fue registrado",
-    "HoldDocument": "No mueva el documento\n mientras el borde es verde",
+    "HoldDocument": "Mantenga el ID mientras el borde es verde",
     "TurnFlash": "Encender la linterna para mejorar los resultados",
     "AvoidGlareShadow": "Evite el brillo y la sombra.",
+    "DocumentScanning": [
+      "Evite el brillo y la sombra",
+      "Mueva el ID ligeramente lejos de la cámara",
+      "Encender la linterna para mejorar los resultados"
+    ],
     "InfoMessageError": [
       {
         "code": "PVT_LD_E001",
@@ -243,6 +248,14 @@
       {
         "code": "PVT_DD_E001",
         "message": "Documento no detectado"
+      },
+      {
+        "code": "PVT_IP_E011",
+        "message": "Tipo de documento no reconocido"
+      },
+      {
+        "code": "PVT_IP_E012",
+        "message": "No se encontró un lado del documento"
       }
     ]
   },
@@ -368,7 +381,7 @@
     },
     "ChooseDocument": {
       "Title": "Escanea tu ID",
-        "SubTitle": "Seleccione su tipo de ID"
+      "SubTitle": "Seleccione su tipo de ID"
     },
     "GlobalDocument": {
       "Title": "Prepárate para escanear tu ID",

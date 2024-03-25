@@ -2,7 +2,7 @@
     "Brand": {
         "background_main" : "#007C8D",
         "secondary" : "#AAE8F0",
-        "accent" : "#00BAD3",
+        "accent" : "#00A2FF"
     },
     "OnSurface": {
         "light" : "#323336",
@@ -16,5 +16,21 @@
         "red" : "#FF6F6F",
         "yellow" : "#FFD954",
         "green" : "#57E293",
+    },
+    "Emphasis": {
+        "high": "#EEEEFF",
+        "medium": "#C3C7CE",
+        "low": "#3F4650"
+    },
+    "Tertiary": {
+        "purple100": "#874EFE",
+        "purple200": "#A669FF",
+        "purple300": "#C584FF",
+        "purple400": "#E6A7FF",
+        "purple500": "#FFBCF0",
+        "pink": "#FA5198",
+        "amber": "#F2DB95",
+        "lime": "#D2E760"
     }
+
 }

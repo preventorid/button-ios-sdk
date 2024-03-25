@@ -5,16 +5,6 @@
     "printedName": "TopLevel",
     "children": [
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "PSDKCommon",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "PSDKBaseResponse",
         "printedName": "PSDKBaseResponse",
@@ -316,7 +306,8 @@
         "genericSig": "<τ_0_0 : Swift.Decodable>",
         "sugared_genericSig": "<Self : Swift.Decodable>",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -1484,13 +1475,212 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
+        "kind": "TypeDecl",
+        "name": "Log",
+        "printedName": "Log",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Log",
+                "printedName": "PSDKCommon.Log",
+                "usr": "s:10PSDKCommon3LogC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10PSDKCommon3LogC6sharedACvpZ",
+            "mangledName": "$s10PSDKCommon3LogC6sharedACvpZ",
+            "moduleName": "PSDKCommon",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Log",
+                    "printedName": "PSDKCommon.Log",
+                    "usr": "s:10PSDKCommon3LogC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10PSDKCommon3LogC6sharedACvgZ",
+                "mangledName": "$s10PSDKCommon3LogC6sharedACvgZ",
+                "moduleName": "PSDKCommon",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Log",
+                    "printedName": "PSDKCommon.Log",
+                    "usr": "s:10PSDKCommon3LogC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10PSDKCommon3LogC6sharedACvsZ",
+                "mangledName": "$s10PSDKCommon3LogC6sharedACvsZ",
+                "moduleName": "PSDKCommon",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10PSDKCommon3LogC6sharedACvMZ",
+                "mangledName": "$s10PSDKCommon3LogC6sharedACvMZ",
+                "moduleName": "PSDKCommon",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "write",
+            "printedName": "write(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10PSDKCommon3LogC5writeyySSF",
+            "mangledName": "$s10PSDKCommon3LogC5writeyySSF",
+            "moduleName": "PSDKCommon",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "read",
+            "printedName": "read()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10PSDKCommon3LogC4readSSSgyF",
+            "mangledName": "$s10PSDKCommon3LogC4readSSSgyF",
+            "moduleName": "PSDKCommon",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getDocument",
+            "printedName": "getDocument()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10PSDKCommon3LogC11getDocument10Foundation3URLVSgyF",
+            "mangledName": "$s10PSDKCommon3LogC11getDocument10Foundation3URLVSgyF",
+            "moduleName": "PSDKCommon",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10PSDKCommon3LogC",
+        "mangledName": "$s10PSDKCommon3LogC",
         "moduleName": "PSDKCommon",
         "declAttributes": [
-          "RawDocComment"
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "TextOutputStream",
+            "printedName": "TextOutputStream",
+            "usr": "s:s16TextOutputStreamP",
+            "mangledName": "$ss16TextOutputStreamP"
+          }
         ]
       },
       {
@@ -1627,223 +1817,55 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(afError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PSDKCommon.PSDKError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PSDKError",
+                    "printedName": "PSDKCommon.PSDKError",
+                    "usr": "s:10PSDKCommon9PSDKErrorV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Alamofire.AFError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AFError",
+                    "printedName": "Alamofire.AFError",
+                    "usr": "s:9Alamofire7AFErrorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10PSDKCommon9PSDKErrorV7afErrorACSg9Alamofire7AFErrorOSg_tcfc",
+            "mangledName": "$s10PSDKCommon9PSDKErrorV7afErrorACSg9Alamofire7AFErrorOSg_tcfc",
+            "moduleName": "PSDKCommon",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
           }
         ],
         "declKind": "Struct",
         "usr": "s:10PSDKCommon9PSDKErrorV",
         "mangledName": "$s10PSDKCommon9PSDKErrorV",
         "moduleName": "PSDKCommon",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "PSDKCommon",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "PSDKLanguageManager",
-        "printedName": "PSDKLanguageManager",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "language",
-            "printedName": "language",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ImplicitlyUnwrappedOptional",
-                "printedName": "τ_0_0?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10PSDKCommon19PSDKLanguageManagerC8languagexSgvp",
-            "mangledName": "$s10PSDKCommon19PSDKLanguageManagerC8languagexSgvp",
-            "moduleName": "PSDKCommon",
-            "isOpen": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ImplicitlyUnwrappedOptional",
-                    "printedName": "τ_0_0?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "GenericTypeParam",
-                        "printedName": "τ_0_0"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10PSDKCommon19PSDKLanguageManagerC8languagexSgvg",
-                "mangledName": "$s10PSDKCommon19PSDKLanguageManagerC8languagexSgvg",
-                "moduleName": "PSDKCommon",
-                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
-                "sugared_genericSig": "<LSDKLanguage where LSDKLanguage : Swift.Decodable>",
-                "implicit": true,
-                "isOpen": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ImplicitlyUnwrappedOptional",
-                    "printedName": "τ_0_0?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "GenericTypeParam",
-                        "printedName": "τ_0_0"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10PSDKCommon19PSDKLanguageManagerC8languagexSgvs",
-                "mangledName": "$s10PSDKCommon19PSDKLanguageManagerC8languagexSgvs",
-                "moduleName": "PSDKCommon",
-                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
-                "sugared_genericSig": "<LSDKLanguage where LSDKLanguage : Swift.Decodable>",
-                "implicit": true,
-                "isOpen": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10PSDKCommon19PSDKLanguageManagerC8languagexSgvM",
-                "mangledName": "$s10PSDKCommon19PSDKLanguageManagerC8languagexSgvM",
-                "moduleName": "PSDKCommon",
-                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
-                "sugared_genericSig": "<LSDKLanguage where LSDKLanguage : Swift.Decodable>",
-                "implicit": true,
-                "isOpen": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "PSDKLanguageManager",
-                "printedName": "PSDKCommon.PSDKLanguageManager<τ_0_0>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:10PSDKCommon19PSDKLanguageManagerC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:10PSDKCommon19PSDKLanguageManagerCACyxGycfc",
-            "mangledName": "$s10PSDKCommon19PSDKLanguageManagerCACyxGycfc",
-            "moduleName": "PSDKCommon",
-            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
-            "sugared_genericSig": "<LSDKLanguage where LSDKLanguage : Swift.Decodable>",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "localFile",
-            "printedName": "localFile(language:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "τ_0_0?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:10PSDKCommon19PSDKLanguageManagerC9localFile8languagexSgSS_tF",
-            "mangledName": "$s10PSDKCommon19PSDKLanguageManagerC9localFile8languagexSgSS_tF",
-            "moduleName": "PSDKCommon",
-            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
-            "sugared_genericSig": "<LSDKLanguage where LSDKLanguage : Swift.Decodable>",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:10PSDKCommon19PSDKLanguageManagerC",
-        "mangledName": "$s10PSDKCommon19PSDKLanguageManagerC",
-        "moduleName": "PSDKCommon",
-        "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
-        "sugared_genericSig": "<LSDKLanguage where LSDKLanguage : Swift.Decodable>",
-        "isOpen": true,
         "declAttributes": [
           "AccessControl"
         ]
@@ -2379,26 +2401,6 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "PSDKCommon",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "PSDKCommon",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "PSDKAuthType",
         "printedName": "PSDKAuthType",
@@ -2541,17 +2543,61 @@
         "mangledName": "$s10PSDKCommon12PSDKAuthTypeO",
         "moduleName": "PSDKCommon",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "PSDKCommon",
-        "declAttributes": [
-          "RawDocComment"
+        "kind": "TypeDecl",
+        "name": "AFError",
+        "printedName": "AFError",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "printDesctiprion",
+            "printedName": "printDesctiprion()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9Alamofire7AFErrorO10PSDKCommonE16printDesctiprionyyF",
+            "mangledName": "$s9Alamofire7AFErrorO10PSDKCommonE16printDesctiprionyyF",
+            "moduleName": "PSDKCommon",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:9Alamofire7AFErrorO",
+        "mangledName": "$s9Alamofire7AFErrorO",
+        "moduleName": "Alamofire",
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          }
         ]
       },
       {
@@ -2561,8 +2607,79 @@
         "children": [
           {
             "kind": "Function",
+            "name": "showLog",
+            "printedName": "showLog(response:log:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DataResponse",
+                "printedName": "Alamofire.DataResponse<τ_0_0, Alamofire.AFError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AFError",
+                    "printedName": "Alamofire.AFError",
+                    "usr": "s:9Alamofire7AFErrorO"
+                  }
+                ],
+                "usr": "s:9Alamofire12DataResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE7showLog8response3logyAA0B8ResponseVyxAA7AFErrorOG_SbtSeRzlF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE7showLog8response3logyAA0B8ResponseVyxAA7AFErrorOG_SbtSeRzlF",
+            "moduleName": "PSDKCommon",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
+            "sugared_genericSig": "<Data where Data : Swift.Decodable>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showCurl",
+            "printedName": "showCurl(log:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DataRequest",
+                "printedName": "Alamofire.DataRequest",
+                "usr": "s:9Alamofire11DataRequestC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE8showCurl3logACSb_tF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE8showCurl3logACSb_tF",
+            "moduleName": "PSDKCommon",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "responseCallable",
-            "printedName": "responseCallable(queue:success:failure:)",
+            "printedName": "responseCallable(queue:log:interceptor:success:failure:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2575,6 +2692,62 @@
                 "printedName": "Dispatch.DispatchQueue",
                 "hasDefaultArg": true,
                 "usr": "c:objc(cs)OS_dispatch_queue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DataResponse",
+                        "printedName": "Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.Data?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Data",
+                                "printedName": "Foundation.Data",
+                                "usr": "s:10Foundation4DataV"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AFError",
+                            "printedName": "Alamofire.AFError",
+                            "usr": "s:9Alamofire7AFErrorO"
+                          }
+                        ],
+                        "usr": "s:9Alamofire12DataResponseV"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -2596,7 +2769,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(PSDKCommon.PSDKError) -> ()",
+                "printedName": "(PSDKCommon.PSDKError?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -2605,16 +2778,24 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "PSDKError",
-                    "printedName": "PSDKCommon.PSDKError",
-                    "usr": "s:10PSDKCommon9PSDKErrorV"
+                    "name": "Optional",
+                    "printedName": "PSDKCommon.PSDKError?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PSDKError",
+                        "printedName": "PSDKCommon.PSDKError",
+                        "usr": "s:10PSDKCommon9PSDKErrorV"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue7success7failureySo012OS_dispatch_G0C_yxcyAD9PSDKErrorVctSeRzlF",
-            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue7success7failureySo012OS_dispatch_G0C_yxcyAD9PSDKErrorVctSeRzlF",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxcyAD9PSDKErrorVSgctSeRzlF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxcyAD9PSDKErrorVSgctSeRzlF",
             "moduleName": "PSDKCommon",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
             "sugared_genericSig": "<S where S : Swift.Decodable>",
@@ -2624,7 +2805,7 @@
           {
             "kind": "Function",
             "name": "responseCallable",
-            "printedName": "responseCallable(queue:success:failure:)",
+            "printedName": "responseCallable(queue:log:interceptor:success:failure:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2637,6 +2818,62 @@
                 "printedName": "Dispatch.DispatchQueue",
                 "hasDefaultArg": true,
                 "usr": "c:objc(cs)OS_dispatch_queue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DataResponse",
+                        "printedName": "Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.Data?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Data",
+                                "printedName": "Foundation.Data",
+                                "usr": "s:10Foundation4DataV"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AFError",
+                            "printedName": "Alamofire.AFError",
+                            "usr": "s:9Alamofire7AFErrorO"
+                          }
+                        ],
+                        "usr": "s:9Alamofire12DataResponseV"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -2666,7 +2903,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(PSDKCommon.PSDKError) -> ()",
+                "printedName": "(PSDKCommon.PSDKError?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -2675,16 +2912,24 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "PSDKError",
-                    "printedName": "PSDKCommon.PSDKError",
-                    "usr": "s:10PSDKCommon9PSDKErrorV"
+                    "name": "Optional",
+                    "printedName": "PSDKCommon.PSDKError?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PSDKError",
+                        "printedName": "PSDKCommon.PSDKError",
+                        "usr": "s:10PSDKCommon9PSDKErrorV"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue7success7failureySo012OS_dispatch_G0C_yxSgcyAD9PSDKErrorVctSeRzlF",
-            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue7success7failureySo012OS_dispatch_G0C_yxSgcyAD9PSDKErrorVctSeRzlF",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxSgcyAD9PSDKErrorVSgctSeRzlF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxSgcyAD9PSDKErrorVSgctSeRzlF",
             "moduleName": "PSDKCommon",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
             "sugared_genericSig": "<S where S : Swift.Decodable>",
@@ -2693,8 +2938,8 @@
           },
           {
             "kind": "Function",
-            "name": "responseCallable2",
-            "printedName": "responseCallable2(queue:success:failure:)",
+            "name": "responseCallable",
+            "printedName": "responseCallable(queue:log:interceptor:success:failure:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2707,6 +2952,62 @@
                 "printedName": "Dispatch.DispatchQueue",
                 "hasDefaultArg": true,
                 "usr": "c:objc(cs)OS_dispatch_queue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DataResponse",
+                        "printedName": "Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.Data?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Data",
+                                "printedName": "Foundation.Data",
+                                "usr": "s:10Foundation4DataV"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AFError",
+                            "printedName": "Alamofire.AFError",
+                            "usr": "s:9Alamofire7AFErrorO"
+                          }
+                        ],
+                        "usr": "s:9Alamofire12DataResponseV"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -2736,7 +3037,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(PSDKCommon.PSDKError) -> ()",
+                "printedName": "(PSDKCommon.PSDKError?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -2745,16 +3046,24 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "PSDKError",
-                    "printedName": "PSDKCommon.PSDKError",
-                    "usr": "s:10PSDKCommon9PSDKErrorV"
+                    "name": "Optional",
+                    "printedName": "PSDKCommon.PSDKError?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PSDKError",
+                        "printedName": "PSDKCommon.PSDKError",
+                        "usr": "s:10PSDKCommon9PSDKErrorV"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE17responseCallable25queue7success7failureySo012OS_dispatch_G0C_yxSgcyAD9PSDKErrorVctAD16PSDKBaseResponseRzlF",
-            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE17responseCallable25queue7success7failureySo012OS_dispatch_G0C_yxSgcyAD9PSDKErrorVctAD16PSDKBaseResponseRzlF",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxSgcyAD9PSDKErrorVSgctAD08PSDKBaseN0RzlF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxSgcyAD9PSDKErrorVSgctAD08PSDKBaseN0RzlF",
             "moduleName": "PSDKCommon",
             "genericSig": "<τ_0_0 where τ_0_0 : PSDKCommon.PSDKBaseResponse>",
             "sugared_genericSig": "<S where S : PSDKCommon.PSDKBaseResponse>",
@@ -2764,7 +3073,7 @@
           {
             "kind": "Function",
             "name": "responseCallable",
-            "printedName": "responseCallable(queue:success:failure:)",
+            "printedName": "responseCallable(queue:log:interceptor:success:failure:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2777,6 +3086,62 @@
                 "printedName": "Dispatch.DispatchQueue",
                 "hasDefaultArg": true,
                 "usr": "c:objc(cs)OS_dispatch_queue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DataResponse",
+                        "printedName": "Alamofire.DataResponse<Foundation.Data?, Alamofire.AFError>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.Data?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Data",
+                                "printedName": "Foundation.Data",
+                                "usr": "s:10Foundation4DataV"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AFError",
+                            "printedName": "Alamofire.AFError",
+                            "usr": "s:9Alamofire7AFErrorO"
+                          }
+                        ],
+                        "usr": "s:9Alamofire12DataResponseV"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -2798,7 +3163,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(PSDKCommon.PSDKError) -> ()",
+                "printedName": "(PSDKCommon.PSDKError?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -2807,16 +3172,24 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "PSDKError",
-                    "printedName": "PSDKCommon.PSDKError",
-                    "usr": "s:10PSDKCommon9PSDKErrorV"
+                    "name": "Optional",
+                    "printedName": "PSDKCommon.PSDKError?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PSDKError",
+                        "printedName": "PSDKCommon.PSDKError",
+                        "usr": "s:10PSDKCommon9PSDKErrorV"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ]
               }
             ],
             "declKind": "Func",
-            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue7success7failureySo012OS_dispatch_G0C_yxcyAD9PSDKErrorVctAD16PSDKBaseResponseRzlF",
-            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue7success7failureySo012OS_dispatch_G0C_yxcyAD9PSDKErrorVctAD16PSDKBaseResponseRzlF",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxcyAD9PSDKErrorVSgctAD08PSDKBaseN0RzlF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE16responseCallable5queue3log11interceptor7success7failureySo012OS_dispatch_G0C_SbyAA0B8ResponseVy10Foundation0B0VSgAA7AFErrorOGcSgyxcyAD9PSDKErrorVSgctAD08PSDKBaseN0RzlF",
             "moduleName": "PSDKCommon",
             "genericSig": "<τ_0_0 where τ_0_0 : PSDKCommon.PSDKBaseResponse>",
             "sugared_genericSig": "<S where S : PSDKCommon.PSDKBaseResponse>",
@@ -2865,6 +3238,24 @@
         "children": [
           {
             "kind": "Function",
+            "name": "print",
+            "printedName": "print()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10Foundation4DataV10PSDKCommonE5printyyF",
+            "mangledName": "$s10Foundation4DataV10PSDKCommonE5printyyF",
+            "moduleName": "PSDKCommon",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "autodecode",
             "printedName": "autodecode()",
             "children": [
@@ -2899,33 +3290,19 @@
         "usr": "s:10Foundation4DataV",
         "mangledName": "$s10Foundation4DataV",
         "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
         "declAttributes": [
-          "Frozen"
+          "Frozen",
+          "Available",
+          "Available",
+          "Available",
+          "Available"
         ],
         "isExternal": true,
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "ReferenceConvertible",
-            "printedName": "ReferenceConvertible",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ReferenceType",
-                "printedName": "ReferenceType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSData",
-                    "printedName": "Foundation.NSData",
-                    "usr": "c:objc(cs)NSData"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:10Foundation20ReferenceConvertibleP",
-            "mangledName": "$s10Foundation20ReferenceConvertibleP"
-          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3318,24 +3695,25 @@
           },
           {
             "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomReflectable",
-            "printedName": "CustomReflectable",
-            "usr": "s:s17CustomReflectableP",
-            "mangledName": "$ss17CustomReflectableP"
+            "name": "ReferenceConvertible",
+            "printedName": "ReferenceConvertible",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ReferenceType",
+                "printedName": "ReferenceType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSData",
+                    "printedName": "Foundation.NSData",
+                    "usr": "c:objc(cs)NSData"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10Foundation20ReferenceConvertibleP",
+            "mangledName": "$s10Foundation20ReferenceConvertibleP"
           },
           {
             "kind": "Conformance",
@@ -3361,6 +3739,27 @@
           },
           {
             "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -3380,58 +3779,100 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 189,
+      "offset": 248,
       "length": 3,
       "value": "\" \""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 215,
+      "offset": 274,
       "length": 4,
       "value": "\"\n\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Repository\/PSDKAPIBase.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1435,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2019,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2887,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3640,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4475,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 5522,
+      "length": 26,
+      "value": "\"com.preventor.id.log.txt\""
+    },
+    {
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/PSDKAPIBase.swift",
       "kind": "StringLiteral",
       "offset": 449,
       "length": 11,
       "value": "\"PSDKCommon.PSDKAPIBase\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 313,
-      "length": 5,
-      "value": "false"
+      "offset": 295,
+      "length": 4,
+      "value": "true"
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 351,
-      "length": 5,
-      "value": "false"
+      "offset": 338,
+      "length": 4,
+      "value": "true"
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 395,
-      "length": 5,
-      "value": "false"
+      "offset": 375,
+      "length": 4,
+      "value": "true"
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Models\/Bundle+Extensions.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Models\/Bundle+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 344,
+      "offset": 326,
       "length": 12,
       "value": "\"PSDKCommon\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/Identity V Team\/PreventorSDK\/PSDKCommon\/Models\/Bundle+Extensions.swift",
+      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Models\/Bundle+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 878,
+      "offset": 860,
       "length": 9,
       "value": "\".bundle\""
     }

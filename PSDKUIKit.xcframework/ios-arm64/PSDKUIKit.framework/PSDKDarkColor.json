@@ -1,20 +1,38 @@
 {
     "Brand": {
-        "background_main" : "#323336",
+        "background_main" : "#131B26",
         "secondary" : "#AAE8F0",
-        "accent" : "#00BAD3",
+        "accent" : "#00A2FF",
     },
     "OnSurface": {
-        "light" : "#323336",
-        "gray_1" : "#4F5054",
-        "gray_2" : "#77787E",
-        "gray_3" : "#9EA0A7",
-        "gray_4" : "#C6C8D1",
-        "dark" : "#E3E6F1",
+        "light" : "#131B26",
+        "gray_0" : "#242D37",
+        "gray_1" : "#3F4650",
+        "gray_2" : "#6B717A",
+        "gray_3" : "#979CA4",
+        "gray_4" : "#C3C7CE",
+        "dark" : "#EEF2F6",
     },
     "Semantic": {
-        "red" : "#FF6F6F",
-        "yellow" : "#FFD954",
-        "green" : "#57E293",
+        "red" : "#F86F65",
+        "yellow" : "#FFC83C",
+        "green" : "#78F0AC",
+        "blue" : "#74A6FF",
+        "orange" : "#FFA551"
+    },
+    "Emphasis": {
+        "high": "#EEEEFF",
+        "medium": "#C3C7CE",
+        "low": "#3F4650"
+    },
+    "Tertiary": {
+        "purple100": "#874EFE",
+        "purple200": "#A669FF",
+        "purple300": "#C584FF",
+        "purple400": "#E6A7FF",
+        "purple500": "#FFBCF0",
+        "pink": "#FA5198",
+        "amber": "#F2DB95",
+        "lime": "#D2E760"
     }
 }
