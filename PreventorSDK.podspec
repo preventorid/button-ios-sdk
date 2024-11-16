@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '2.2.0'
+  s.version          = '3.0.1'
   s.summary          = 'Preventor identifies, onboards, and monitors your clients in a single, AI-powered platform.'
   s.description      = <<-DESC 
 Preventor is the next generation self-service digital identity and financial crime risk management platform for individuals and businesses. 

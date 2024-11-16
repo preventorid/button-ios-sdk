@@ -1,8 +1,8 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKCommon
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-bare-slash-regex -module-name PSDKCommon
 import Alamofire
+import CommonCrypto
 import Foundation
 @_exported import PSDKCommon
 import Swift
@@ -47,18 +47,6 @@ public struct PSDKCOFailureMessage : Swift.Decodable {
   public let fields: [Swift.String]
   public init(from decoder: any Swift.Decoder) throws
 }
-public typealias PSDKCallBackError = (PSDKCommon.PSDKError?) -> Swift.Void
-extension Alamofire.AFError {
-  public func printDesctiprion()
-}
-extension Alamofire.DataRequest {
-  public func showLog<Data>(response: Alamofire.AFDataResponse<Data>, log: Swift.Bool = true) where Data : Swift.Decodable
-  public func showCurl(log: Swift.Bool) -> Alamofire.DataRequest
-  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : Swift.Decodable
-  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S?) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : Swift.Decodable
-  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S?) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
-  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
-}
 @_hasMissingDesignatedInitializers public class Log : Swift.TextOutputStream {
   public static var shared: PSDKCommon.Log
   public func write(_ string: Swift.String)
@@ -66,13 +54,25 @@ extension Alamofire.DataRequest {
   public func getDocument() -> Foundation.URL?
   @objc deinit
 }
+public typealias PSDKCallBackError = (PSDKCommon.PSDKError?) -> Swift.Void
+extension Alamofire.AFError {
+  public func printDesctiprion()
+}
+extension Alamofire.DataRequest {
+  public func showLog<Data>(response: Alamofire.AFDataResponse<Data>, log: Swift.Bool = true) where Data : Swift.Decodable
+  public func showCurl(log: Swift.Bool) -> Alamofire.DataRequest
+  public func sdkValidate() -> Alamofire.DataRequest
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : Swift.Decodable
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S?) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : Swift.Decodable
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S?) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
+}
 public struct PSDKError {
   public let code: Swift.Int?
   public let message: Swift.String?
   public init?(afError: Alamofire.AFError?)
 }
 public protocol APIDomains : ObjectiveC.NSObjectProtocol {
-  var health: Swift.String { get }
   var base: Swift.String { get }
   var baseID: Swift.String { get }
   var cndPreventor: Swift.String { get }

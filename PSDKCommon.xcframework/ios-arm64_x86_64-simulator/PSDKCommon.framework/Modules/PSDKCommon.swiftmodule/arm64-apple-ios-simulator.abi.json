@@ -778,7 +778,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Decoder",
-                "printedName": "Swift.Decoder",
+                "printedName": "any Swift.Decoder",
                 "usr": "s:s7DecoderP"
               }
             ],
@@ -934,7 +934,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Decoder",
-                "printedName": "Swift.Decoder",
+                "printedName": "any Swift.Decoder",
                 "usr": "s:s7DecoderP"
               }
             ],
@@ -1239,7 +1239,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Decoder",
-                "printedName": "Swift.Decoder",
+                "printedName": "any Swift.Decoder",
                 "usr": "s:s7DecoderP"
               }
             ],
@@ -1434,7 +1434,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Decoder",
-                "printedName": "Swift.Decoder",
+                "printedName": "any Swift.Decoder",
                 "usr": "s:s7DecoderP"
               }
             ],
@@ -1466,8 +1466,8 @@
       },
       {
         "kind": "Import",
-        "name": "Alamofire",
-        "printedName": "Alamofire",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "PSDKCommon",
         "declAttributes": [
@@ -1694,6 +1694,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Alamofire",
+        "printedName": "Alamofire",
+        "declKind": "Import",
+        "moduleName": "PSDKCommon",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "PSDKError",
         "printedName": "PSDKError",
@@ -1894,48 +1904,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "health",
-            "printedName": "health",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10PSDKCommon10APIDomainsP6healthSSvp",
-            "mangledName": "$s10PSDKCommon10APIDomainsP6healthSSvp",
-            "moduleName": "PSDKCommon",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10PSDKCommon10APIDomainsP6healthSSvg",
-                "mangledName": "$s10PSDKCommon10APIDomainsP6healthSSvg",
-                "moduleName": "PSDKCommon",
-                "genericSig": "<τ_0_0 where τ_0_0 : PSDKCommon.APIDomains>",
-                "sugared_genericSig": "<Self where Self : PSDKCommon.APIDomains>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "base",
             "printedName": "base",
             "children": [
@@ -2128,7 +2096,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "APIDomains",
-                "printedName": "PSDKCommon.APIDomains",
+                "printedName": "any PSDKCommon.APIDomains",
                 "usr": "s:10PSDKCommon10APIDomainsP"
               }
             ],
@@ -2152,7 +2120,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "APIDomains",
-                    "printedName": "PSDKCommon.APIDomains",
+                    "printedName": "any PSDKCommon.APIDomains",
                     "usr": "s:10PSDKCommon10APIDomainsP"
                   }
                 ],
@@ -2176,7 +2144,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WeakStorage",
-                "printedName": "PSDKCommon.APIDelegate?"
+                "printedName": "(any PSDKCommon.APIDelegate)?"
               }
             ],
             "declKind": "Var",
@@ -2200,12 +2168,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "PSDKCommon.APIDelegate?",
+                    "printedName": "(any PSDKCommon.APIDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "APIDelegate",
-                        "printedName": "PSDKCommon.APIDelegate",
+                        "printedName": "any PSDKCommon.APIDelegate",
                         "usr": "s:10PSDKCommon11APIDelegateP"
                       }
                     ],
@@ -2232,12 +2200,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "PSDKCommon.APIDelegate?",
+                    "printedName": "(any PSDKCommon.APIDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "APIDelegate",
-                        "printedName": "PSDKCommon.APIDelegate",
+                        "printedName": "any PSDKCommon.APIDelegate",
                         "usr": "s:10PSDKCommon11APIDelegateP"
                       }
                     ],
@@ -2285,7 +2253,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "APIDomains",
-                "printedName": "PSDKCommon.APIDomains",
+                "printedName": "any PSDKCommon.APIDomains",
                 "usr": "s:10PSDKCommon10APIDomainsP"
               }
             ],
@@ -2548,6 +2516,23 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PSDKCommon",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CommonCrypto",
+        "printedName": "CommonCrypto",
+        "declKind": "Import",
+        "moduleName": "PSDKCommon"
+      },
+      {
         "kind": "TypeDecl",
         "name": "AFError",
         "printedName": "AFError",
@@ -2672,6 +2657,25 @@
             "declKind": "Func",
             "usr": "s:9Alamofire11DataRequestC10PSDKCommonE8showCurl3logACSb_tF",
             "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE8showCurl3logACSb_tF",
+            "moduleName": "PSDKCommon",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sdkValidate",
+            "printedName": "sdkValidate()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DataRequest",
+                "printedName": "Alamofire.DataRequest",
+                "usr": "s:9Alamofire11DataRequestC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9Alamofire11DataRequestC10PSDKCommonE11sdkValidateACyF",
+            "mangledName": "$s9Alamofire11DataRequestC10PSDKCommonE11sdkValidateACyF",
             "moduleName": "PSDKCommon",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -3208,6 +3212,13 @@
           "Alamofire.Request"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3779,102 +3790,116 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Core\/Log.swift",
       "kind": "StringLiteral",
-      "offset": 248,
+      "offset": 167,
       "length": 3,
       "value": "\" \""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Core\/Log.swift",
       "kind": "StringLiteral",
-      "offset": 274,
+      "offset": 193,
       "length": 4,
       "value": "\"\n\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1435,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2019,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2887,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3640,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4475,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Core\/Log.swift",
       "kind": "StringLiteral",
-      "offset": 5522,
+      "offset": 527,
       "length": 26,
       "value": "\"com.preventor.id.log.txt\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/PSDKAPIBase.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1391,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2144,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3026,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3793,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4642,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/PSDKAPIBase.swift",
       "kind": "StringLiteral",
-      "offset": 449,
+      "offset": 418,
       "length": 11,
       "value": "\"PSDKCommon.PSDKAPIBase\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
       "offset": 295,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
       "offset": 338,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
       "offset": 375,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Models\/Bundle+Extensions.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Models\/Bundle+Extensions.swift",
       "kind": "StringLiteral",
       "offset": 326,
       "length": 12,
       "value": "\"PSDKCommon\""
     },
     {
-      "filePath": "\/Users\/adragonrc\/Developer\/iOS\/IdentityVTeam\/PreventorSDK\/PSDKCommon\/Models\/Bundle+Extensions.swift",
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Models\/Bundle+Extensions.swift",
       "kind": "StringLiteral",
       "offset": 860,
       "length": 9,
       "value": "\".bundle\""
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Core\/AES.swift",
+      "kind": "StringLiteral",
+      "offset": 171,
+      "length": 66,
+      "value": "\"48ca38ec57ce8bdb1643f60aa6d3af63ddc60e1a383b415879bca44318a82d13\""
+    },
+    {
+      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Core\/AES.swift",
+      "kind": "Array",
+      "offset": 297,
+      "length": 75,
+      "value": "[18, 123, 36, -39, -23, 87, 107, -69, -115, -45, 91, 34, -93, -36, 37, -32]"
     }
   ]
 }

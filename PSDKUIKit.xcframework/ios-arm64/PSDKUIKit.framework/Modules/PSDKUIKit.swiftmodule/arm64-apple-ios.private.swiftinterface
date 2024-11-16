@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PSDKUIKit
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-bare-slash-regex -module-name PSDKUIKit
 import AVFoundation
 import Combine
 import Foundation
@@ -56,7 +55,7 @@ public protocol PSDKIdentifiable : Swift.Equatable, Swift.Identifiable {
 }
 public protocol PSDKChooseState : PSDKUIKit.PSDKTFState {
   associatedtype Item : PSDKUIKit.PSDKIdentifiable
-  var item: Self.Item? { get }
+  var item: Self.Item? { get set }
   init(item: Self.Item?)
 }
 extension PSDKUIKit.PSDKIdentifiable {
@@ -125,7 +124,7 @@ public enum PressedMode {
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
-  @_Concurrency.MainActor(unsafe) public init(options: [Item], hint: Swift.String = "", showSharedField: Swift.Bool = false, onTaped: @escaping (Item) -> Swift.Void, createDropdownElement: @escaping (Item) -> PSDKUIKit.PSDKDropdownOptionElement<Item>)
+  @_Concurrency.MainActor(unsafe) public init(title: Swift.String? = nil, options: [Item], hint: Swift.String = "", showSharedField: Swift.Bool = false, onTaped: @escaping (Item) -> Swift.Void, createDropdownElement: @escaping (Item) -> PSDKUIKit.PSDKDropdownOptionElement<Item>)
   @_Concurrency.MainActor(unsafe) public func filterData(item: Item, text: Swift.String) -> Swift.Bool
   public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit12PSDKDropdownV4bodyQrvp", 0) __<Item>
 }
@@ -177,6 +176,13 @@ public struct PSDKAttributedText : SwiftUI.View {
     get
   }
   public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit18PSDKAttributedTextV4bodyQrvp", 0) __
+}
+public class PSDKSheetRouter : Combine.ObservableObject {
+  public init()
+  public init(root: any PSDKUIKit.PSDKActionSheetBase)
+  public func pushRoute(_ route: any PSDKUIKit.PSDKActionSheetBase)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
 }
 public enum PSDKStyle {
   case dark, light, custom, `default`
@@ -550,9 +556,6 @@ extension SwiftUI.Image {
   public static var psdkWorldCountries: SwiftUI.Image {
     get
   }
-  public static var psdkCapture: SwiftUI.Image {
-    get
-  }
   public static var psdkFailedAttempts: SwiftUI.Image {
     get
   }
@@ -747,9 +750,6 @@ extension PSDKUIKit.PSDKActionSheetBase {
   public var titleHeaderView: SwiftUI.AnyView? {
     get
   }
-  public var height: CoreFoundation.CGFloat {
-    get
-  }
   public var showButtons: Swift.Bool {
     get
   }
@@ -860,7 +860,7 @@ public struct PSDKButtonStyle {
       get
     }
   }
-  public init(type: PSDKUIKit.PSDKButtonStyle.ButtonType = .primary, size: PSDKUIKit.PSDKButtonStyle.Size = .regular, foregroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, disableForegroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, backgroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, disabledBackgroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, isRounded: Swift.Bool = true, numberOfLines: Swift.Int? = 1)
+  public init(type: PSDKUIKit.PSDKButtonStyle.ButtonType = .primary, size: PSDKUIKit.PSDKButtonStyle.Size = .small, foregroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, disableForegroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, backgroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, disabledBackgroundColor: (any PSDKUIKit.PSDKColorProvider)? = nil, isRounded: Swift.Bool = true, numberOfLines: Swift.Int? = 1)
 }
 public struct PSDKThemeKey : SwiftUI.EnvironmentKey {
   public static let defaultValue: any PSDKUIKit.PSDKThemeProvider
@@ -957,10 +957,7 @@ public struct PSDKTipsView : SwiftUI.View {
   public typealias Body = @_opaqueReturnTypeOf("$s9PSDKUIKit12PSDKTipsViewV4bodyQrvp", 0) __
 }
 public struct PSDKInstructionModel {
-  public init(instructions: [Swift.String], showTrailingIcon: Swift.Bool = true, style: PSDKUIKit.PSDKInstructionModel.Style = .init())
-  public struct Style {
-    public init(textColor: PSDKUIKit.PSDKColor = .onSurfaceDark, titleFont: SwiftUI.Font = .psdkB18)
-  }
+  public init(instructions: [Swift.String], showTrailingIcon: Swift.Bool = true)
 }
 @available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
 extension SwiftUI.View {
@@ -1051,9 +1048,6 @@ public struct PSDKAnimationCompletionObserverModifier<Value> : SwiftUI.Animatabl
 extension UIKit.UIImage {
   public func toBase64() -> Swift.String?
   public static var psdkWorldCountries: UIKit.UIImage {
-    get
-  }
-  public static var psdkCapture: UIKit.UIImage {
     get
   }
   public static var psdkFailedAttempts: UIKit.UIImage {
@@ -1206,9 +1200,6 @@ extension UIKit.UIImage {
   public static var psdkDangerRedIcon: UIKit.UIImage {
     get
   }
-  public static var psdkError: UIKit.UIImage {
-    get
-  }
   public static var psdkInfoError: UIKit.UIImage {
     get
   }
@@ -1354,6 +1345,9 @@ extension UIKit.UIFont {
     get
   }
   public static var psdkF18: UIKit.UIFont {
+    get
+  }
+  public static var psdkB18: UIKit.UIFont {
     get
   }
   public static var psdkF16: UIKit.UIFont {
@@ -1595,6 +1589,8 @@ public enum PSDKImage : Swift.String {
   case cornerBorderShape
   case ribbons
   case psdkInfoError
+  case psdkError
+  case psdkNoConnection
   case icInterrogative
   case icArrowBottomSmall
   case closeInCircle
@@ -1606,6 +1602,9 @@ public enum PSDKImage : Swift.String {
   case selfieBackground
   case videoAndVoiceAuth
   case voiceDetection
+  case psdkCapture
+  case icRadioOff
+  case icRadioOn
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -1820,8 +1819,15 @@ public enum TargetViewSelector {
   public static func ancestorOrSiblingContaining<TargetView>(from entry: PSDKUIKit.PlatformView) -> TargetView? where TargetView : UIKit.UIView
   public static func ancestorOrSiblingOfType<TargetView>(from entry: PSDKUIKit.PlatformView) -> TargetView? where TargetView : UIKit.UIView
 }
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class PSDKBarButton : UIKit.UIBarButtonItem {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class PSDKOldBarButton : UIKit.UIBarButtonItem {
   @_Concurrency.MainActor(unsafe) public init(image: UIKit.UIImage?, style: UIKit.UIBarButtonItem.Style, customAction: @escaping () -> Swift.Void = {})
+  @objc deinit
+}
+public protocol PSDKBarButtonDelegate : AnyObject {
+  func backAction(button: PSDKUIKit.PSDKBarButton)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class PSDKBarButton : UIKit.UIBarButtonItem {
+  @_Concurrency.MainActor(unsafe) public init(image: UIKit.UIImage?, style: UIKit.UIBarButtonItem.Style, delegate: (any PSDKUIKit.PSDKBarButtonDelegate)? = nil)
   @objc deinit
 }
 extension Foundation.Bundle {
@@ -1845,9 +1851,8 @@ public enum ActionSheetSize {
   case standard
   case middle
   case full
-  public var height: CoreFoundation.CGFloat {
-    get
-  }
+  case flex
+  public func getHeight(screnSize: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat?
   public static func == (a: PSDKUIKit.ActionSheetSize, b: PSDKUIKit.ActionSheetSize) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -2036,9 +2041,6 @@ extension SwiftUI.Image {
   public static var psdkDangerRedIcon: SwiftUI.Image {
     get
   }
-  public static var psdkError: SwiftUI.Image {
-    get
-  }
   public static var psdkInfoError: SwiftUI.Image {
     get
   }
@@ -2183,8 +2185,10 @@ open class PSDKTextFieldStore<StateType> : ObjectiveC.NSObject, PSDKUIKit.PSDKTe
   public init(state: StateType, validationResult: PSDKUIKit.PSDKValidationResult = .none, isRequestFocus: Swift.Bool = false, isFocused: Swift.Bool = false, text: Swift.String = "", attributes: PSDKUIKit.PSDKTextFieldAttributes = .init(), messages: PSDKUIKit.PSDKTextFieldMessages = .init(), nextStore: (any PSDKUIKit.PSDKTextFieldStoreProvider)? = nil, handler: PSDKUIKit.PSDKTextValidationHandler? = nil, onChanged: ((Swift.String) -> Swift.Void)? = nil, onSubmit: ((PSDKUIKit.PSDKValidationResult) -> Swift.Void)? = nil, prevText: Swift.String = "")
   @discardableResult
   public func setText(_ newValue: Swift.String) -> Swift.Bool
+  open func didSetText(newValue: Swift.String)
   public func requestFocus()
   public func setFocused(_ isFocused: Swift.Bool = true)
+  open func didSetFocused(isFocused: Swift.Bool)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
