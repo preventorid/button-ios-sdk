@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-bare-slash-regex -module-name PSDKCommon
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Alamofire
 import CommonCrypto
 import Foundation
@@ -58,6 +59,9 @@ public typealias PSDKCallBackError = (PSDKCommon.PSDKError?) -> Swift.Void
 extension Alamofire.AFError {
   public func printDesctiprion()
 }
+extension Alamofire.DataResponse {
+  public func showLog()
+}
 extension Alamofire.DataRequest {
   public func showLog<Data>(response: Alamofire.AFDataResponse<Data>, log: Swift.Bool = true) where Data : Swift.Decodable
   public func showCurl(log: Swift.Bool) -> Alamofire.DataRequest
@@ -66,6 +70,12 @@ extension Alamofire.DataRequest {
   public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S?) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : Swift.Decodable
   public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S?) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
   public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (S) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
+  public func responseCallable<S>(queue: Dispatch.DispatchQueue = .main, log: Swift.Bool = true, interceptor: ((Alamofire.AFDataResponse<Foundation.Data?>) -> Swift.Void)? = nil, success: @escaping (PSDKCommon.PSDKResponse<S>) -> Swift.Void, failure: @escaping PSDKCommon.PSDKCallBackError) where S : PSDKCommon.PSDKBaseResponse
+}
+public struct PSDKResponse<S> : Swift.Decodable where S : Swift.Decodable {
+  public var statusCode: Swift.Int?
+  public var data: S?
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct PSDKError {
   public let code: Swift.Int?

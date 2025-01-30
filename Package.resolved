@@ -10,12 +10,39 @@
       }
     },
     {
+      "identity" : "documentreader-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/regulaforensics/DocumentReader-Swift-Package",
+      "state" : {
+        "revision" : "f3c8435664d3384b169743f7ac9b32393ad7aacc",
+        "version" : "7.5.4221"
+      }
+    },
+    {
+      "identity" : "documentreaderfullrfid-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/regulaforensics/DocumentReaderFullRFID-Swift-Package",
+      "state" : {
+        "revision" : "6f3edb8f58eba3dd89e1344cee841658b2d22d14",
+        "version" : "7.5.11009"
+      }
+    },
+    {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-ios.git",
       "state" : {
         "revision" : "fe4c6fe3a0aa66cdeb51d549623c82ca9704b9a5",
         "version" : "4.5.0"
+      }
+    },
+    {
+      "identity" : "regulacommon-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/regulaforensics/RegulaCommon-Swift-Package.git",
+      "state" : {
+        "revision" : "b82c4a97a0787d12c3b53bdf89e43951421c3233",
+        "version" : "7.5.935"
       }
     }
   ],
