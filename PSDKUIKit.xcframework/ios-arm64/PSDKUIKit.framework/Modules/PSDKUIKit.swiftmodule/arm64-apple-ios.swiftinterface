@@ -60,7 +60,6 @@ public protocol PSDKIdentifiable : Swift.Equatable, Swift.Identifiable {
 public protocol PSDKChooseState : PSDKUIKit.PSDKTFState {
   associatedtype Item : PSDKUIKit.PSDKIdentifiable
   var item: Self.Item? { get set }
-  init(item: Self.Item?)
 }
 extension PSDKUIKit.PSDKIdentifiable {
   public var findItem: Swift.Bool {

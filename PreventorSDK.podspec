@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PreventorSDK'
-  s.version          = '3.1.0'
+  s.version          = '3.2.0'
   s.summary          = 'Preventor identifies, onboards, and monitors your clients in a single, AI-powered platform.'
   s.description      = <<-DESC 
 Preventor is the next generation self-service digital identity and financial crime risk management platform for individuals and businesses. 
@@ -13,15 +13,16 @@ Preventor identifies, onboards, and monitors your clients in a single, AI-powere
   s.swift_version = "5.7.1"
   s.ios.deployment_target = '13.0'
   
+  # Solo se usa en dispositivos físicos
+  s.pod_target_xcconfig = {
+    "VALID_ARCHS" => "arm64 arm64e",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64 x86_64"
+  }
   s.vendored_frameworks = 'PreventorSDK.xcframework', 'PSDKUIKit.xcframework', 'PSDKCommon.xcframework'
   s.dependency 'DocumentReader'
   s.dependency 'DocumentReaderFullRFID'
   s.dependency 'Alamofire'
   s.dependency 'lottie-ios'
-  
-  s.pod_target_xcconfig = {
-    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
-  }
 
   s.dependency 'Alamofire' do |dep|
       dep.xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }

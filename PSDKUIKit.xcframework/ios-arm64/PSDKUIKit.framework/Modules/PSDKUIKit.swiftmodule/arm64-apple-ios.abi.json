@@ -1342,40 +1342,6 @@
                 "accessorKind": "_modify"
               }
             ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(item:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "τ_0_0.Item?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DependentMember",
-                    "printedName": "τ_0_0.Item"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:9PSDKUIKit15PSDKChooseStateP4itemx4ItemQzSg_tcfc",
-            "mangledName": "$s9PSDKUIKit15PSDKChooseStateP4itemx4ItemQzSg_tcfc",
-            "moduleName": "PSDKUIKit",
-            "genericSig": "<τ_0_0 where τ_0_0 : PSDKUIKit.PSDKChooseState>",
-            "sugared_genericSig": "<Self where Self : PSDKUIKit.PSDKChooseState>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Protocol",
@@ -60988,28 +60954,28 @@
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKUIKit\/UI Units\/TextField\/Arquitecture\/ChooseTF+Helpers.swift",
       "kind": "BooleanLiteral",
-      "offset": 1669,
+      "offset": 1691,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKUIKit\/UI Units\/TextField\/Arquitecture\/ChooseTF+Helpers.swift",
       "kind": "BooleanLiteral",
-      "offset": 1817,
+      "offset": 1839,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKUIKit\/UI Units\/TextField\/Arquitecture\/ChooseTF+Helpers.swift",
       "kind": "StringLiteral",
-      "offset": 5833,
+      "offset": 5855,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKUIKit\/UI Units\/TextField\/Arquitecture\/ChooseTF+Helpers.swift",
       "kind": "BooleanLiteral",
-      "offset": 5869,
+      "offset": 5891,
       "length": 5,
       "value": "false"
     },

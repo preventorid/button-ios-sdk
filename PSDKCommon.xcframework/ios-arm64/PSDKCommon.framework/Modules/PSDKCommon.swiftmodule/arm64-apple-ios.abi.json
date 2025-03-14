@@ -2307,48 +2307,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "base",
-            "printedName": "base",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10PSDKCommon10APIDomainsP4baseSSvp",
-            "mangledName": "$s10PSDKCommon10APIDomainsP4baseSSvp",
-            "moduleName": "PSDKCommon",
-            "protocolReq": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10PSDKCommon10APIDomainsP4baseSSvg",
-                "mangledName": "$s10PSDKCommon10APIDomainsP4baseSSvg",
-                "moduleName": "PSDKCommon",
-                "genericSig": "<τ_0_0 where τ_0_0 : PSDKCommon.APIDomains>",
-                "sugared_genericSig": "<Self where Self : PSDKCommon.APIDomains>",
-                "protocolReq": true,
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "baseID",
             "printedName": "baseID",
             "children": [
@@ -4525,63 +4483,56 @@
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "BooleanLiteral",
-      "offset": 1675,
+      "offset": 1582,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "BooleanLiteral",
-      "offset": 2219,
+      "offset": 2126,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "BooleanLiteral",
-      "offset": 3101,
+      "offset": 3008,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "BooleanLiteral",
-      "offset": 3868,
+      "offset": 3775,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "BooleanLiteral",
-      "offset": 4717,
+      "offset": 4624,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Extensions\/Alamofire+Extensions.swift",
       "kind": "BooleanLiteral",
-      "offset": 5713,
+      "offset": 5620,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 295,
+      "offset": 252,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
       "kind": "BooleanLiteral",
-      "offset": 338,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/alexanderrodriguez\/Developer\/ios\/Preventor\/preventorID\/PSDKCommon\/Repository\/Internal\/FeatureFlags.swift",
-      "kind": "BooleanLiteral",
-      "offset": 375,
+      "offset": 289,
       "length": 4,
       "value": "true"
     },

@@ -83,7 +83,6 @@ public struct PSDKError {
   public init?(afError: Alamofire.AFError?)
 }
 public protocol APIDomains : ObjectiveC.NSObjectProtocol {
-  var base: Swift.String { get }
   var baseID: Swift.String { get }
   var cndPreventor: Swift.String { get }
 }
